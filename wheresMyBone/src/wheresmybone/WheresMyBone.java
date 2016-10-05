@@ -6,6 +6,7 @@
 package wheresmybone;
 
 import wheresmybone.model.Backpack;
+import wheresmybone.model.Item;
 import wheresmybone.model.Player;
 
 /**
@@ -33,6 +34,15 @@ public class WheresMyBone {
         
         String backpackItem = backpack.toString();
         System.out.println(backpackItem);
+        
+        Item whistle = new Item();
+        
+        whistle.setName("Whistle");
+        
+        whistle.setDescription("Red whistle");
+        
+        String itemInfo = whistle.toString();
+        System.out.println(itemInfo);
     }
     
    
