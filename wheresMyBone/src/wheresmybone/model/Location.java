@@ -5,6 +5,8 @@
  */
 package wheresmybone.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Hill-Jan
