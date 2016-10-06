@@ -8,8 +8,10 @@ package wheresmybone;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
+import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
+import wheresmybone.model.Scene;
 
 /**
  *
@@ -78,6 +80,24 @@ public class WheresMyBone {
         
         String fishMarketInfo = fishMarket.toString();
         System.out.println(fishMarketInfo);
+        
+        Map gameMap = new Map();
+        
+        gameMap.setRowCount(5);
+        gameMap.setColumnCount(5);
+        gameMap.setTravelTime(12);
+        
+        String gameMapInfo = gameMap.toString();
+        System.out.println(gameMapInfo);
+        
+        Scene fishMarketScene = new Scene();
+        
+        fishMarketScene.setSceneName("Fish Market");
+        fishMarketScene.setSceneDescript("open air fish market");
+        fishMarketScene.setNpcDescription("Mr. Catch");
+        
+        String fishMarketSceneInfo = fishMarketScene.toString();
+        System.out.println(fishMarketSceneInfo);
     }
     
    
