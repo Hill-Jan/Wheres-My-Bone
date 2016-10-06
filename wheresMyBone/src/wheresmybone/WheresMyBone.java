@@ -7,6 +7,7 @@ package wheresmybone;
 
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Item;
+import wheresmybone.model.Location;
 import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
 
@@ -65,6 +66,18 @@ public class WheresMyBone {
         
         String dogCatcherInfo = dogCatcher.toString();
         System.out.println(dogCatcherInfo);
+        
+        Location fishMarket = new Location();
+        
+        fishMarket.setRow("Z");
+        fishMarket.setColumn(4);
+        fishMarket.setVisited("No");
+        fishMarket.setNpcName("Mr. Catch");
+        fishMarket.setScene("outdoor fish market");
+        fishMarket.setCalculations(0);
+        
+        String fishMarketInfo = fishMarket.toString();
+        System.out.println(fishMarketInfo);
     }
     
    
