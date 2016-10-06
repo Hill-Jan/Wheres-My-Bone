@@ -6,6 +6,7 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -80,6 +81,7 @@ public class Location implements Serializable{
     this.calculations = calculations;
   }
   
+  @Override
   public int hashCode()
   {
     int hash = 7;
@@ -92,11 +94,13 @@ public class Location implements Serializable{
     return hash;
   }
   
+  @Override
   public String toString()
   {
     return "Location{row=" + this.row + ", column=" + this.column + ", visited=" + this.visited + ", npcName=" + this.npcName + ", scene=" + this.scene + ", calculations=" + this.calculations + '}';
   }
   
+  @Override
   public boolean equals(Object obj)
   {
     if (this == obj) {
@@ -124,9 +128,8 @@ public class Location implements Serializable{
     if (!Objects.equals(this.npcName, other.npcName)) {
       return false;
     }
-    if (!Objects.equals(this.scene, other.scene)) {
-      return false;
-    }
-    return true;
+    return Objects.equals(this.scene, other.scene);
   }  
+
 }
+
