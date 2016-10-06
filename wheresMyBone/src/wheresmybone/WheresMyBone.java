@@ -54,6 +54,17 @@ public class WheresMyBone {
         
         String fishMongerInfo = fishMonger.toString();
         System.out.println(fishMongerInfo);
+        
+        Npc dogCatcher = new Npc();
+        
+        dogCatcher.setName("Evil Dude");
+        dogCatcher.setDialogue("Come here, boy. I won't hurt you!");
+        dogCatcher.setItemGiven("none");
+        dogCatcher.setItemReceived("none");
+        dogCatcher.setClue("You're my first dog of the day! All I've been seeing are devilsh CATS.");
+        
+        String dogCatcherInfo = dogCatcher.toString();
+        System.out.println(dogCatcherInfo);
     }
     
    
