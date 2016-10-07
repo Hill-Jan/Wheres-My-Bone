@@ -28,38 +28,7 @@ public class WheresMyBone {
         
         String userInfo = userName.toString();
         System.out.println(userInfo);
-      
-        
-        
-        Location fishMarket = new Location();
-        
-        fishMarket.setRow("Z");
-        fishMarket.setColumn(4);
-        fishMarket.setVisited("No");
-        fishMarket.setNpcName("Mr. Catch");
-        fishMarket.setScene("outdoor fish market");
-        fishMarket.setCalculations(0);
-        
-        String fishMarketInfo = fishMarket.toString();
-        System.out.println(fishMarketInfo);
-        
-        Map gameMap = new Map();
-        
-        gameMap.setRowCount(5);
-        gameMap.setColumnCount(5);
-        gameMap.setTravelTime(12);
-        
-        String gameMapInfo = gameMap.toString();
-        System.out.println(gameMapInfo);
-        
-        Scene fishMarketScene = new Scene();
-        
-        fishMarketScene.setSceneName("Fish Market");
-        fishMarketScene.setSceneDescript("open air fish market");
-        fishMarketScene.setNpcDescription("Mr. Catch");
-        
-        String fishMarketSceneInfo = fishMarketScene.toString();
-        System.out.println(fishMarketSceneInfo);   
+     
     }
 
     public static void tifTest() {
@@ -101,12 +70,24 @@ public class WheresMyBone {
         System.out.println(dogCatcherInfo);
     }
     
+    public static void janTest() {
+        
+        
+    }
+    
+    public static void danTest(){
+        
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         //teamTest();
         tifTest();
+        janTest();
+        danTest();
     }
     
    
