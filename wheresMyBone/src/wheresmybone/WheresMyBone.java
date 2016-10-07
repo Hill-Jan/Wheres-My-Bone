@@ -18,13 +18,10 @@ import wheresmybone.model.Scene;
  * @author Sexy Mario
  */
 public class WheresMyBone {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    
+    public static void teamTest() {
         
-        Player userName = new Player();
+     Player userName = new Player();
         
         userName.setName("Chuck Whiffendiffer");
         userName.setGender("Male");
@@ -97,7 +94,15 @@ public class WheresMyBone {
         fishMarketScene.setNpcDescription("Mr. Catch");
         
         String fishMarketSceneInfo = fishMarketScene.toString();
-        System.out.println(fishMarketSceneInfo);
+        System.out.println(fishMarketSceneInfo);   
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        teamTest();
+        
     }
     
    
