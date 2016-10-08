@@ -6,6 +6,7 @@
 package wheresmybone;
 
 import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
@@ -76,6 +77,39 @@ public class WheresMyBone {
     }
     
     public static void danTest(){
+        Game getStartTime = new Game();
+            
+            getStartTime.setStartTime(24);
+        
+        String getStartTimeInfo = getStartTime.toString();
+        System.out.println(getStartTimeInfo);
+        
+        Game getBestTime = new Game();
+        
+            getBestTime.setBestTime(12);
+        
+        String getBestTimeInfo = getBestTime.toString();
+        System.out.println(getStartTimeInfo);
+        
+        //Game instructions = new Game();
+        
+            //getInstructions.setInstructions("Please press the enter key");
+            
+        
+        
+        
+        
+        
+       // Game attribute = new Game();
+        
+        
+        
+        
+       
+                
+        
+        
+        
         
         
     }
@@ -84,7 +118,7 @@ public class WheresMyBone {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //teamTest();
+        teamTest();
         tifTest();
         janTest();
         danTest();
