@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 /**
  *
- * @author Sexy Mario
+ * @author Dan
  */
 public class Player implements Serializable{
     
