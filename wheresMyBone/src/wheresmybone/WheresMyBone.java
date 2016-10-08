@@ -13,6 +13,7 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
+import wheresmybone.model.Time;
 
 /**
  *
@@ -81,31 +82,20 @@ public class WheresMyBone {
             
             gameOne.setStartTime(24);
             gameOne.setBestTime(12.1);
+            gameOne.setAttribute("Kilroy's game");
+            gameOne.setInstructions("press (H) to get help");
             
         
         String gameOneInfo = gameOne.toString();
         System.out.println(gameOneInfo);
-           
-        //Game instructions = new Game();
-        
-            //getInstructions.setInstructions("Please press the enter key");
+         
+        Time gameTime = new Time();
             
-        
-        
-        
-        
-        
-       // Game attribute = new Game();
-        
-        
-        
-        
-       
-                
-        
-        
-        
-        
+            gameTime.setTotalTime(24.0);
+            gameTime.setTimeSubtracted(10.0);
+            
+        String gameTimeInfo = gameTime.toString ();
+        System.out.println(gameTimeInfo);
         
     }
     
