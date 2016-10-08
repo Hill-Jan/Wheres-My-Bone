@@ -77,20 +77,15 @@ public class WheresMyBone {
     }
     
     public static void danTest(){
-        Game getStartTime = new Game();
+        Game gameOne = new Game();
             
-            getStartTime.setStartTime(24);
+            gameOne.setStartTime(24);
+            gameOne.setBestTime(12.1);
+            
         
-        String getStartTimeInfo = getStartTime.toString();
-        System.out.println(getStartTimeInfo);
-        
-        Game getBestTime = new Game();
-        
-            getBestTime.setBestTime(12);
-        
-        String getBestTimeInfo = getBestTime.toString();
-        System.out.println(getStartTimeInfo);
-        
+        String gameOneInfo = gameOne.toString();
+        System.out.println(gameOneInfo);
+           
         //Game instructions = new Game();
         
             //getInstructions.setInstructions("Please press the enter key");
