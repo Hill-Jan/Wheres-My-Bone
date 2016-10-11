@@ -131,5 +131,6 @@ public class Location implements Serializable{
     return Objects.equals(this.scene, other.scene);
   }  
 
+
 }
 

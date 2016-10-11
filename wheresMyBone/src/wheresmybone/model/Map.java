@@ -14,11 +14,11 @@ import java.util.Objects;
  */
 public class Map implements Serializable{
   
-  private int rowCount;
+  private String rowCount;
   private int columnCount;
   private double travelTime;
   
-  public int getRowCount()
+  public String getRowCount()
   {
     return this.rowCount;
   }
@@ -27,7 +27,7 @@ public class Map implements Serializable{
      *
      * @param rowCount
      */
-    public void setRowCount(int rowCount)
+    public void setRowCount(String rowCount)
   {
     this.rowCount = rowCount;
   }
