@@ -23,7 +23,7 @@ public class WheresMyBone {
     
     public static void teamTest() {
         
-     Player userName = new Player();
+    Player userName = new Player();
         
         userName.setName("Chuck Whiffendiffer");
         userName.setGender("Male");
@@ -74,6 +74,38 @@ public class WheresMyBone {
     
     public static void janTest() {
         
+        //Map test
+        Map userName = new Map();
+        
+        userName.setRowCount("C");
+        userName.setColumnCount(3);
+        userName.setTravelTime (5);
+        
+        String userInfo = userName.toString();
+        System.out.println(userInfo);
+        
+        //Scene Test
+        Scene sceneInfo = new Scene();
+        
+        sceneInfo.setSceneName("SCHOOL CAFETERIA");
+        sceneInfo.setSceneDescript("You are in the cafeteria.  Brad is here.");
+        sceneInfo.setNpcDescription("Brad is short with red hair and freckles.");
+        
+        String sceneInfoTest = sceneInfo.toString();
+        System.out.println(sceneInfoTest);
+        
+        //Location Test
+        Location LocationInfo = new Location();
+        
+        LocationInfo.setRow("A");
+        LocationInfo.setColumn(3);
+        LocationInfo.setVisited(">>>>");
+        LocationInfo.setNpcName("Brad");
+        LocationInfo.setScene("POND");
+        LocationInfo.setCalculations(19);
+        
+        String locationOne = LocationInfo.toString();
+        System.out.println(locationOne);
         
     }
     
@@ -98,8 +130,8 @@ public class WheresMyBone {
         System.out.println(gameTimeInfo);
         
     }
-    
-    /**
+   
+   /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
