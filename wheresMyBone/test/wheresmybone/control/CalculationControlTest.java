@@ -139,5 +139,86 @@ public class CalculationControlTest {
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
+ 
+    //tests for calcCylinderVolume
+    @Test// test case 1
+
+    /**
+     *
+     */
+    public void testCalcCylinderVolume1(){
+        System.out.println("calcCylinderVolume");
+        double height = 20;
+        double diameter = 16;
+        CalculationControl instance = new CalculationControl();
+        double expResult = 2.3271056693257726;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
     
+    @Test//test case 2
+    public void testCalcCylinderVolume2(){
+        System.out.println("calcCylinderVolume");
+        double height = -3;
+        double diameter = 16;
+        CalculationControl instance = new CalculationControl();
+        double expResult = -1;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
+    
+    @Test//test case 3
+    public void testCalcCylinderVolume3(){
+        System.out.println("calcCylinderVolume");
+        double height = 20;
+        double diameter = -2;
+        CalculationControl instance = new CalculationControl();
+        double expResult = -1;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
+    
+    @Test//test case 4
+    public void testCalcCylinderVolume4(){
+        System.out.println("calcCylinderVolume");
+        double height = 10;
+        double diameter = 37;
+        CalculationControl instance = new CalculationControl();
+        double expResult = -1;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
+    
+    @Test//test case 5
+    public void testCalcCylinderVolume5(){
+        System.out.println("calcCylinderVolume");
+        double height = 0;
+        double diameter = 160;
+        CalculationControl instance = new CalculationControl();
+        double expResult = -1;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
+    
+    @Test//test case 6
+    public void testCalcCylinderVolume6(){
+        System.out.println("calcCylinderVolume");
+        double height = 20;
+        double diameter = 0;
+        CalculationControl instance = new CalculationControl();
+        double expResult = -1;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
+    
+    @Test//test case 7
+    public void testCalcCylinderVolume7(){
+        System.out.println("calcCylinderVolume");
+        double height = 20;
+        double diameter = 16;
+        CalculationControl instance = new CalculationControl();
+        double expResult = 2.3271056693257726;
+        double result = instance.calcCylinderVolume (height, diameter);
+        assertEquals(expResult, result, 0.0);
+        }
 }
