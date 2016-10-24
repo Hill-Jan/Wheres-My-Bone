@@ -27,5 +27,26 @@ public class GameControl {
        }
        return timeLeft;
        }
-
+    
+    // calculate the area for the user to investigate and how much time is spent in the investigation.
+    public double calcAreaTime(double startTime, int length, int width, double timeInSeconds, double timeLeft) {
+        
+        if (length <=0){
+            return -1;
+        }
+        if (length>50){
+            return -1;
+        }
+        if (width <=0) {
+            return -1;
+        }
+        if (width >30) {
+            return -1;
+        }
+        
+        timeLeft = startTime - length * width * 2.4 / 60 ;
+        
+        return timeLeft;
+    }
+    
     }

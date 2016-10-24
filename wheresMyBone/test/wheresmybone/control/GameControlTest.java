@@ -91,4 +91,115 @@ public class GameControlTest {
 
     
     }
+    
+    // Author Dan
+    /**
+     * Test of calcAreaTime method, of class GameControl.
+     */
+    @Test
+    public void testCalcAreaTime1() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 30;
+        int width = 20;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = 1416.0;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testCalcAreaTime2() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 0;
+        int width = 30;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = -1;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime3() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 50;
+        int width = 0;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = -1;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime4() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 55;
+        int width = 15;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = -1;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime5() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 25;
+        int width = 35;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = -1;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime6() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 50;
+        int width = 1;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = 1438.0;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime7() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 1;
+        int width = 30;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = 1438.8;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }@Test
+    public void testCalcAreaTime8() {
+        System.out.println("calcAreaTime");
+        double startTime = 1440.0;
+        int length = 50;
+        int width = 30;
+        double timeInSeconds = 2.4;
+        double timeLeft = 0.0;
+        GameControl instance = new GameControl();
+        double expResult = 1380.0;
+        double result = instance.calcAreaTime(startTime, length, width, timeInSeconds, timeLeft);
+        assertEquals(expResult, result, 0.0);
+        
+    }
 }
