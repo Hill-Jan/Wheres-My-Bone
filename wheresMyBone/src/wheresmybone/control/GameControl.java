@@ -5,11 +5,19 @@
  */
 package wheresmybone.control;
 
+import wheresmybone.model.Player;
+
 /**
  *
  * @author Jan
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        System.out.println("\n*** createPlayer() function called ***");
+        return new Player();
+        
+    }
     // calculate time left to complete game
     public double calcTimeLeft(double timeLeft, double travelTime) {
 
