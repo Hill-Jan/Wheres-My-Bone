@@ -26,6 +26,7 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
+        Welcome.displayBanner();
         System.out.println(
            /* This is for the beginning of the game.
           "\n******************************************************************"
