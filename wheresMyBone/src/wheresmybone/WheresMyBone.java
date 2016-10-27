@@ -38,6 +38,28 @@ public class WheresMyBone {
     public static void danTest(){
         
     }
+    private static Game currentGame = null;
+
+        public static Game getCurrentGame() {
+            return currentGame;
+        }
+
+        public static void setCurrentGame(Game currentGame) {
+            WheresMyBone.currentGame = currentGame;
+        }
+        
+    private static Player player = null;
+    
+        public static Player getPlayer() {
+            return player;
+        }
+
+    public static void setPlayer(Player player) {
+        WheresMyBone.player = player;
+    }
+    
+
+    
     public static void main(String[] args) {
         teamTest();
         tifTest();

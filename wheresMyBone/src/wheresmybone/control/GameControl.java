@@ -5,6 +5,7 @@
  */
 package wheresmybone.control;
 
+import wheresmybone.WheresMyBone;
 import wheresmybone.model.Player;
 
 /**
@@ -13,9 +14,16 @@ import wheresmybone.model.Player;
  */
 public class GameControl {
 
-    public static Player createPlayer(String playersName) {
-        System.out.println("\n*** createPlayer() function called ***");
-        return new Player();
+    public static Player createPlayer(String name) {
+        if (name == null ){
+            return null;
+            }
+        Player player = new Player();
+        player.setName(name);
+ 
+        WheresMyBone.setPlayer(player); //creates the player
+        
+        return player;
         
     }
     // calculate time left to complete game
