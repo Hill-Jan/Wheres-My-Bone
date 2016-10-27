@@ -13,7 +13,6 @@ import java.util.Scanner;
  */
 public class MainMenuView {
       private String promptMessage;{
-      
         
 }
     private String menu;
@@ -33,6 +32,7 @@ public class MainMenuView {
                     }
                 
     public void displayMainMenuView() {
+        System.out.println("\n" + this.menu);
         boolean done = false; //set flag to not done
         do {
             String menuOption = this.getMenuOption();
@@ -72,7 +72,6 @@ BEGIN
         boolean valid = false;
         
         while (!valid){
-            System.out.println("\n" + this.menu);
             System.out.println("\n" + this.promptMessage);
             
             value = keyboard.nextLine();
