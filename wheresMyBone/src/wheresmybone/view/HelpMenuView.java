@@ -42,7 +42,7 @@ public class HelpMenuView {
         do {
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("X")) // user wants to quit Help Menu
-                   return MainMenuView.MainMenuView(); //exit the menu
+                   return; //exit the menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
@@ -166,10 +166,10 @@ END */
     }
 
     private void quitHelp() {
-        //Create displayHeTlpMenu object
+        //Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
                 
-         // Display the help menu view
+         // Display the main menu view
         mainMenuView.displayMainMenuView();
     }
 
