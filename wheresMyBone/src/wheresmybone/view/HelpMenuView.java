@@ -125,8 +125,8 @@ END */
             case "B": //about bad guys
                 this.aboutBadGuys();
                 break;
-            /*case "Q": //quit Help Menu
-                this.quitHelp();*/
+            case "Q": //quit Help Menu
+                this.quitHelp();
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
