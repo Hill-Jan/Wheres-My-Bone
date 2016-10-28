@@ -30,7 +30,7 @@ public class HelpMenuView {
                       + "\nO - Objects"
                       + "\nH - How to Save/Load Game"
                       + "\nB - Bad Guys"
-                      + "\nX - Exit Help Menu"
+                      + "\nQ - Quit Help Menu"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
@@ -38,15 +38,15 @@ public class HelpMenuView {
                 
     public void displayHelpMenuView() {
         System.out.println("\n" + this.menu);
-        boolean done = false; //set flag to not done
+        /*boolean done = false; //set flag to not done
         do {
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("X")) // user wants to quit Help Menu
-                   return; //exit the menu
+                   return MainMenuView.MainMenuView(); //exit the menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
-        } while (!done);
+        } while (!done);*/
         }
 /*BEGIN
  do
@@ -125,6 +125,8 @@ END */
             case "B": //about bad guys
                 this.aboutBadGuys();
                 break;
+            case "Q": //quit Help Menu
+                this.quitHelp();
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -162,5 +164,14 @@ END */
     private void aboutBadGuys() {
         System.out.println("\n*** aboutBadGuys() function called ***");
     }
+
+    private void quitHelp() {
+        //Create displayHeTlpMenu object
+        MainMenuView mainMenuView = new MainMenuView();
+                
+         // Display the help menu view
+        mainMenuView.displayMainMenuView();
+    }
+
     
 }
