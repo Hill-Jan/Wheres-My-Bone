@@ -38,15 +38,15 @@ public class HelpMenuView {
                 
     public void displayHelpMenuView() {
         System.out.println("\n" + this.menu);
-        /*boolean done = false; //set flag to not done
+        boolean done = false; //set flag to not done
         do {
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("X")) // user wants to quit Help Menu
+            if (menuOption.toUpperCase().equals("Q")) // user wants to quit Help Menu
                    return; //exit the menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
-        } while (!done);*/
+        } while (!done);
         }
 /*BEGIN
  do
@@ -125,8 +125,8 @@ END */
             case "B": //about bad guys
                 this.aboutBadGuys();
                 break;
-            case "Q": //quit Help Menu
-                this.quitHelp();
+            /*case "Q": //quit Help Menu
+                this.quitHelp();*/
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
