@@ -12,35 +12,37 @@ import wheresmybone.model.GameMenuView;
 
 /**
  *
- * @author Jan
+ * @author tCalder
  */
-public class MainMenuView {
+public class HelpMenuView {
       private String promptMessage;{
         
 }
     private String menu;
-        public MainMenuView() {
+        public HelpMenuView() {
             this.menu = "\n"
                       + "\n -------------------------------------------------"
-                      + "\n    Main Menu                                     "
+                      + "\n    Help Menu                                     "
                       + "\n -------------------------------------------------"
-                      + "\nN - Start New Game"
-                      + "\nL - Load a Saved Game"
-                      + "\nS - Save Game"
-                      + "\nH - Get Help"
-                      + "\nX - Exit Game"
+                      + "\nP - How to Play"
+                      + "\nM - How to Move"
+                      + "\nC - Clues"
+                      + "\nO - Objects"
+                      + "\nH - How to Save/Load Game"
+                      + "\nB - Bad Guys"
+                      + "\nX - Exit Help Menu"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
                     }
                 
-    public void displayMainMenuView() {
+    public void displayHelpMenuView() {
         System.out.println("\n" + this.menu);
         boolean done = false; //set flag to not done
         do {
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("X")) // user wants to quit
-                   return; //exit the game
+            if (menuOption.toUpperCase().equals("X")) // user wants to quit Help Menu
+                   return; //exit the menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
@@ -49,7 +51,7 @@ public class MainMenuView {
 /*BEGIN
  do
  Prompt for and get the input value/s
- if (value == “Q”) then
+ if (value == “X”) then
  exit
 
  do the action and display the next view
@@ -105,17 +107,23 @@ END */
         choice = choice.toUpperCase(); //convert choice to upper case
         
         switch (choice) {
-            case "N": //create and start a new game
-                this.startNewGame();
+            case "P": //How to Play
+                this.howPlay();
                 break;
-            case "L": //load a saved game
-                this.loadSavedGame();
+            case "M": //How to Move
+                this.howMove();
                 break;
-            case "S": //save game
-                this.saveGame();
+            case "C": //about Clues
+                this.aboutClues();
                 break;
-            case "H": //display help menu
-                this.displayHelpMenu();
+            case "O": //about Objects
+                this.aboutObjects();
+                break;
+            case "H": //how to save/load game
+                this.howSave();
+                break;
+            case "B": //about bad guys
+                this.aboutBadGuys();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
@@ -130,33 +138,29 @@ Create a new Game
 Create a new Game Menu View
 Display the Game Menu
 END */
-    private void startNewGame() {
-       //create a new game
-       GameControl.createNewGame(WheresMyBone.getPlayer());
-       
-       //display the game menu
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.displayMenu();
+
+    private void howPlay() {
+        System.out.println("\n*** howPlay() function called ***");
     }
 
-    private void loadSavedGame() {
-        System.out.println("*** loadSavedGame() function called ***");
+    private void howMove() {
+        System.out.println("\n*** howMove() function called ***");
     }
 
-    private void saveGame() {
-        System.out.println("*** saveGame() function called ***");
+    private void aboutClues() {
+        System.out.println("\n*** aboutclues() function called ***");
     }
 
-    private void displayHelpMenu() {
-        
-        //Create displayHelpMenu object
-        HelpMenuView helpMenuView = new HelpMenuView();
-                
-         // Display the help menu view
-        helpMenuView.displayHelpMenuView();
-        
-      
-        
+    private void aboutObjects() {
+        System.out.println("\n*** aboutObjects() function called ***");
     }
+
+    private void howSave() {
+        System.out.println("\n*** howSave() function called ***");
+    }
+
+    private void aboutBadGuys() {
+        System.out.println("\n*** aboutBadGuys() function called ***");
+    }
+    
 }
-   
