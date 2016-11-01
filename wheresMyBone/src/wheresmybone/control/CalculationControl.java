@@ -14,27 +14,29 @@ public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
     public double calcVolumeBox(double length, double width, double height){
-        /*if (height <= 4) {
+        if (height <=6) {
             return -1;
         }
         
-        if (width <= 4) {
+        if (width <= 6) {
             return -1;
         }
         
-        if (length <= 4) {
+        if (length <= 6) {
             return -1;
-        }*/
-        
+        }
+        //box volume calculation
         double volumeBox = length * width * height;
-            if (volumeBox < 216) {
+        
+        if (volumeBox < 216) {
                 return -1;
             }
             
             if (volumeBox >= 216) {
             return 1;
             }
-            else return -1;
+            return volumeBox;
+            
             // end calcVolumeBox by Tif Calder
     }   
    
