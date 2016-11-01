@@ -14,7 +14,7 @@ public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
     public double calcVolumeBox(double length, double width, double height){
-        if (height <= 4) {
+        /*if (height <= 4) {
             return -1;
         }
         
@@ -24,15 +24,19 @@ public class CalculationControl {
         
         if (length <= 4) {
             return -1;
-        }
+        }*/
         
         double volumeBox = length * width * height;
-            if (volumeBox < 192) {
-                return -2;
+            if (volumeBox < 216) {
+                return -1;
             }
-            return volumeBox;
+            
+            if (volumeBox >= 216) {
+            return 1;
+            }
+            else return -1;
             // end calcVolumeBox by Tif Calder
-    }
+    }   
    
     //Cylinder Calculations by Jan Hill
     public double calcCylinderVolume(double height, double diameter) {

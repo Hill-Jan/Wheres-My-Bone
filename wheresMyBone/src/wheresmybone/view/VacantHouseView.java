@@ -14,6 +14,11 @@ public class VacantHouseView {
     private String widthPrompt = "\nPlease enter the width of the box:";
     private String heightPrompt = "\nPlease enter the height of the box:";
     private String description; 
+    private String message;
+    private double boxLength = 0;
+    private double boxWidth = 0;
+    private double boxHeight = 0;
+    
         public VacantHouseView(){
             this.description = "\n"
                              + "\n---------------------------------------------"
@@ -34,24 +39,23 @@ public void displayVacantHouseView() {
     System.out.println("\n" + this.description);
 }
 
-//private double getBoxVolume(length,width,height){
-    
-
+  
 
     private double getLengthInput() {
         
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
         
-        while (!valid)
+        while (!valid){
             System.out.println("\n" + lengthPrompt);
         
-            double boxLength = keyboard.nextDouble();
+            this.boxLength = keyboard.nextDouble();
             
-            if (boxLength <6){
-                System.out.println("\nWidth invalid. DeVil won't fit into such a short box.");
+            if (boxLength <1){
+                System.out.println("\nPlease enter a measurement greater than 0");
             }
-            return boxLength;    
+        }
+            return boxLength; 
         
 }
     private double getWidthInput() {
@@ -59,14 +63,15 @@ public void displayVacantHouseView() {
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
         
-        while (!valid)
+        while (!valid){
             System.out.println("\n" + widthPrompt);
         
-            double boxWidth = keyboard.nextDouble();
+            this.boxWidth = keyboard.nextDouble();
             
-            if (boxWidth <6){
-                System.out.println("\nWidth invalid. DeVil won't fit into such a narrow box.");
+            if (boxWidth <1){
+                System.out.println("\nPlease enter a measurement greater than 0");
             }
+        }    
             return boxWidth;
     }
     
@@ -75,21 +80,30 @@ public void displayVacantHouseView() {
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
         
-        while (!valid)
+        while (!valid){
             System.out.println("\n" + heightPrompt);
         
-            double boxHeight = keyboard.nextDouble();
+            this.boxHeight = keyboard.nextDouble();
             
-            if (boxHeight <6){
-                System.out.println("\nWidth invalid. DeVil won't fit into such a short box.");
+            if (boxHeight <1){
+                System.out.println("\nPlease enter a measurement greater than 0");
             }
+        }
             return boxHeight;
     }
-    
+        
     
 
-    private double doAction(){
-        return this.boxVolume();
+    private double doAction(double volume){
+        volume = boxVolume();
+        
+        if (volume = -1) {
+            System.out.println("That box is too small for Cat DeVil to hide in.");
+        }
+        if (volume = 1) {
+            System.out.println("This box was a perfect place for Cat DeVil to take nap. You found a slimy hairball!");
+        }
+        
     }
     
 /*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.
@@ -98,6 +112,7 @@ public void displayVacantHouseView() {
     private double boxVolume() {
         //create boxVolume object
         CalculationControl calcVolumeBox = new CalculationControl();
-        calcVolumeBox.calcVolumeBox(boxLength, boxWidth, boxHeight);
+        double boxVolume = calcVolumeBox.calcVolumeBox(boxLength, boxWidth, boxHeight);
+        return boxVolume;
     }
 }
