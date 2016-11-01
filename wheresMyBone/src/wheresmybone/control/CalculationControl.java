@@ -13,20 +13,23 @@ package wheresmybone.control;
 public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
-    public double calcVolumeBox(double height, double width, double length){
-        if (height <= 0) {
+    public double calcVolumeBox(double length, double width, double height){
+        if (height <= 4) {
             return -1;
         }
         
-        if (width <= 0) {
+        if (width <= 4) {
             return -1;
         }
         
-        if (length <= 0) {
+        if (length <= 4) {
             return -1;
         }
         
         double volumeBox = length * width * height;
+            if (volumeBox < 192) {
+                return -2;
+            }
             return volumeBox;
             // end calcVolumeBox by Tif Calder
     }
