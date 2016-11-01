@@ -37,9 +37,10 @@ public class HelpMenuView {
                     }
                 
     public void displayHelpMenuView() {
-        System.out.println("\n" + this.menu);
+        
         boolean done = false; //set flag to not done
         do {
+            System.out.println("\n" + this.menu);
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit Help Menu
                    return; //exit the menu
