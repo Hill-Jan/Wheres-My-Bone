@@ -28,7 +28,7 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        System.out.println("\n*** displayMenu stub function called ***");
+        System.out.println("\n*** createNewGame stub function called ***");
     }
     // calculate time left to complete game
     public double calcTimeLeft(double timeLeft, double travelTime) {

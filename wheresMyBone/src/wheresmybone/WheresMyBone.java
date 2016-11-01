@@ -15,6 +15,10 @@ import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 import wheresmybone.model.Time;
 import wheresmybone.view.StartProgramView;
+import wheresmybone.view.GameMenuView;
+import wheresmybone.view.HelpMenuView;
+import wheresmybone.view.MainMenuView;
+import wheresmybone.view.Welcome;
 
 /**
  *

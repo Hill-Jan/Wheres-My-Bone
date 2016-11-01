@@ -1,63 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package wheresmybone.view;
 
 import java.util.Scanner;
-import wheresmybone.WheresMyBone;
-import wheresmybone.control.GameControl;
-import wheresmybone.view.GameMenuView;
 
 /**
  *
- * @author Jan
+ * @author tCalder
  */
-public class MainMenuView {
-      private String promptMessage;{
-        
+public class GameMenuView {
+    private String promptMessage;{
 }
     private String menu;
-        public MainMenuView() {
+        public GameMenuView() {
             this.menu = "\n"
                       + "\n -------------------------------------------------"
-                      + "\n    Main Menu                                     "
+                      + "\n    Game Menu                                     "
                       + "\n -------------------------------------------------"
-                      + "\nN - Start New Game"
-                      + "\nL - Load a Saved Game"
+                      + "\nI - Show items in room"
+                      + "\nB - Show items in backpack"
+                      + "\nT - Check time"
                       + "\nS - Save Game"
-                      + "\nH - Get Help"
-                      + "\nX - Exit Game"
+                      + "\nH - Help Menu"
+                      + "\nM - Main Menu"
+                      + "\nQ - Quit Game Menu"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
-                    }
-                
-    public void displayMainMenuView() {
+}
+
+/*BEGIN
+ Do
+    Prompt for and get the input value/s
+    if (value == “Q”) then
+    exit the game menuu
+
+    do the action and display the next view
+ WHILE the view is not done */
+        
+    public void displayGameMenuView() {
         
         boolean done = false; //set flag to not done
         do {
             System.out.println("\n" + this.menu);
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("X")) // user wants to quit
-                   return; //exit the game
+            if (menuOption.toUpperCase().equals("Q")) // user wants to quit Game Menu
+                return; //exit the menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
         } while (!done);
         }
-/*BEGIN
- do
- Prompt for and get the input value/s
- if (value == “Q”) then
- exit
-
- do the action and display the next view
- while the view is not done */
 
     private String getMenuOption() {
-
 /*    getInput(): value
 BEGIN
  WHILE a valid value has not been entered
@@ -71,6 +64,7 @@ BEGIN
  BREAK
  ENDWHILE
  RETURN value */
+
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -87,62 +81,61 @@ BEGIN
             }
             break;
         }
-        return value;       }
-
-    /* doAction(choice): void
+        return value;       
+    }
+/* doAction(choice): void
 BEGIN
-convert choice to upper case
-SWITCH choice
-“N”: Start a new game
-“G”: Get and start a saved game
-“H”: Display the help menu
-“S”: Display the save game view
-DEFAULT: DISPLAY “Invalid selection”
-ENDSWITCH
-RETURN false
+    convert choice to upper case
+    SWITCH choice
+        “I" - Show items in room
+        "B" - Show items in backpack
+        "T" - Check time
+        "S" - Save Game
+        "H" - Help Menu
+        "M" - Main Menu
+        "Q" - Quit Game Menu
+        END SWITCH
+    RETURN false
 END */
-    
     private boolean doAction(String choice) {
-        choice = choice.toUpperCase(); //convert choice to upper case
+    choice = choice.toUpperCase(); //convert choice to upper case
         
         switch (choice) {
-            case "N": //create and start a new game
-                this.startNewGame();
+            case "I": //Show items in room
+                this.showRoomItems();
                 break;
-            case "L": //load a saved game
-                this.loadSavedGame();
+            case "B": //Show items in backpack
+                this.showBackpackItems();
                 break;
-            case "S": //save game
+            case "T": //Check Time
+                this.checkTime();
+                break;
+            case "S": //Save Game
                 this.saveGame();
                 break;
-            case "H": //display help menu
+            case "H": //Help Menu
                 this.displayHelpMenu();
+                break;
+            case "M": //Main Menu
+                this.displayMainMenu();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
         }
     return false;
-        
-    }
-/* startNewGame(): void
-BEGIN
-Create a new Game
-Create a new Game Menu View
-Display the Game Menu
-END */
-    private void startNewGame() {
-       //create a new game
-       GameControl.createNewGame(WheresMyBone.getPlayer());
-       
-       //display the game menu
-       GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.displayGameMenuView();
-       
     }
 
-    private void loadSavedGame() {
-        System.out.println("*** loadSavedGame() function called ***");
+    private void showRoomItems() {
+        System.out.println("*** showRoomItems() function called ***");
+    }
+
+    private void showBackpackItems() {
+        System.out.println("*** showBackpackItems() function called ***");
+    }
+
+    private void checkTime() {
+        System.out.println("*** checkTime() function called ***");
     }
 
     private void saveGame() {
@@ -150,14 +143,19 @@ END */
     }
 
     private void displayHelpMenu() {
-        
         //Create displayHelpMenu object
         HelpMenuView helpMenuView = new HelpMenuView();
                 
          // Display the help menu view
         helpMenuView.displayHelpMenuView();
-        
-      
-        
     }
+
+    private void displayMainMenu() {
+        //Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+                
+         // Display the main menu view
+        mainMenuView.displayMainMenuView();
+    }
+
     }
