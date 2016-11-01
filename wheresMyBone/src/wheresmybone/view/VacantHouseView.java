@@ -41,15 +41,14 @@ public void displayVacantHouseView() {
     private double getLengthInput() {
         
         Scanner keyboard = new Scanner (System.in);
-        double boxLength = 0;
         boolean valid = false;
         
         while (!valid)
             System.out.println("\n" + lengthPrompt);
         
-            boxLength = keyboard.nextDouble();
+            double boxLength = keyboard.nextDouble();
             
-            if (boxLength <4){
+            if (boxLength <6){
                 System.out.println("\nWidth invalid. DeVil won't fit into such a short box.");
             }
             return boxLength;    
@@ -58,15 +57,14 @@ public void displayVacantHouseView() {
     private double getWidthInput() {
         
         Scanner keyboard = new Scanner (System.in);
-        double boxWidth = 0;
         boolean valid = false;
         
         while (!valid)
             System.out.println("\n" + widthPrompt);
         
-            boxWidth = keyboard.nextDouble();
+            double boxWidth = keyboard.nextDouble();
             
-            if (boxWidth <4){
+            if (boxWidth <6){
                 System.out.println("\nWidth invalid. DeVil won't fit into such a narrow box.");
             }
             return boxWidth;
@@ -75,25 +73,28 @@ public void displayVacantHouseView() {
     private double getHeightInput() {
         
         Scanner keyboard = new Scanner (System.in);
-        double boxHeight = 0;
         boolean valid = false;
         
         while (!valid)
             System.out.println("\n" + heightPrompt);
         
-            boxHeight = keyboard.nextDouble();
+            double boxHeight = keyboard.nextDouble();
             
-            if (boxHeight <4){
+            if (boxHeight <6){
                 System.out.println("\nWidth invalid. DeVil won't fit into such a short box.");
             }
             return boxHeight;
     }
+    
+    
 
-    private double doAction(boxLength){
+    private double doAction(){
         return this.boxVolume();
     }
     
-
+/*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.
+  if the boxVolume is less than 216 "Overall volume is too small. There's no way DeVil could have been in this box", else "This box was a perfect place for DeVil to take a snooze. You found a slimy hairball." */
+ 
     private double boxVolume() {
         //create boxVolume object
         CalculationControl calcVolumeBox = new CalculationControl();
