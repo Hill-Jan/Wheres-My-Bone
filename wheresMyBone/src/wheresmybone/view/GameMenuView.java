@@ -22,6 +22,7 @@ public class GameMenuView {
                       + "\nH - Help Menu"
                       + "\nM - Main Menu"
                       + "\nQ - Quit Game Menu"
+                      + "\nJ - Test Vacant House"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
@@ -119,6 +120,9 @@ END */
             case "M": //Main Menu
                 this.displayMainMenu();
                 break;
+            case "J": //test vacant house
+                this.displayVacantHouseView();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -156,6 +160,14 @@ END */
                 
          // Display the main menu view
         mainMenuView.displayMainMenuView();
+    }
+
+    private void displayVacantHouseView() {
+        //Create displayVacantHouseView object
+      VacantHouseView vacantHouseView = new VacantHouseView();
+      
+      //Display the vacant house view
+      vacantHouseView.displayVacantHouseView();
     }
 
     }

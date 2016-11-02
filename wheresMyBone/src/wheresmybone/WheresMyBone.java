@@ -18,6 +18,7 @@ import wheresmybone.view.StartProgramView;
 import wheresmybone.view.GameMenuView;
 import wheresmybone.view.HelpMenuView;
 import wheresmybone.view.MainMenuView;
+import wheresmybone.view.VacantHouseView;
 import wheresmybone.view.Welcome;
 
 /**
@@ -32,7 +33,7 @@ public class WheresMyBone {
     startProgramView.displayStartProgramView();
     }
     public static void tifTest() {
-       
+      
     }
     
     public static void janTest() {
