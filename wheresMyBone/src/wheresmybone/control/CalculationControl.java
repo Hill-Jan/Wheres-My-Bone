@@ -14,17 +14,6 @@ public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
     public double calcVolumeBox(double length, double width, double height){
-        /*if (height <6) {
-            return -1;
-        }
-        
-        if (width < 6) {
-            return -1;
-        }
-        
-        if (length < 6) {
-            return -1;
-        }*/
         //box volume calculation
         double volumeBox = length * width * height;
         
