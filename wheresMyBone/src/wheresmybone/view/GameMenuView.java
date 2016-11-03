@@ -23,6 +23,7 @@ public class GameMenuView {
                       + "\nM - Main Menu"
                       + "\nQ - Quit Game Menu"
                       + "\nJ - Test Vacant House"
+                      + "\nG - Test Giraffe Enclosure"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
@@ -123,6 +124,9 @@ END */
             case "J": //test vacant house
                 this.displayVacantHouseView();
                 break;
+            case "G": //test giraffe enclosure
+                this.displayGiraffesView();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -169,5 +173,12 @@ END */
       //Display the vacant house view
       vacantHouseView.displayVacantHouseView();
     }
-
+    
+    private void displayGiraffesView() {
+          //Create displayGiraffesView
+        GiraffesView giraffesView = new GiraffesView();
+          // Display Giraffes View
+        giraffesView.displayGiraffesView();
+            }
+    
     }

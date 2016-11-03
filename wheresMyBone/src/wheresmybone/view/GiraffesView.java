@@ -35,29 +35,39 @@ public class GiraffesView {
 public void displayGiraffesView() {
  
     System.out.println("\n" + this.description);
+    getInputCylinder();
 }
 
 public void getInputCylinder (){
+        double height = 0.00;
+        double diameter = 0.00;
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
         String heightprompt = "\nHow tall is the cylinder?"
                             + "\nEnter a number between 1 and 20.";
-        while (!valid)
+        while (!valid){
             System.out.println("\n" + heightprompt);
         
-            double height = keyboard.nextDouble();
+            height = keyboard.nextDouble();
+            valid = true;
             if (height < 1 || height > 20){
                 System.out.println("\nHeight is invalid. Try Again.");
+                valid = false;
             } 
+        }
+        valid = false;
         String diameterprompt = "\nHow wide is the cylinder across?"
                               + "\nEnter a number between 1 and 16.";
-
+        while (!valid){
             System.out.println("\n" + diameterprompt);
-        
-            double diameter = keyboard.nextDouble();
+            valid = true;
+            
+            diameter = keyboard.nextDouble();
             if (diameter < 1 || diameter > 16){
                 System.out.println("\nWidth invalid. Try Again.");
+                valid = false;
             }
+        }
 
         CalculationControl volumeCalc = new CalculationControl();
         Double volume = volumeCalc.calcCylinderVolume(height, diameter);
@@ -71,9 +81,9 @@ public void getInputCylinder (){
                     System.out.println ("\nThe cylinder is too big for your bone.");
                 }
                 else {
-                    System.out.println ("\nYour bone could be there.  Search for your bene.");
+                    System.out.println ("\nYour bone could be there.  Search for your bone.");
                 }
 }
         //List Room Menu
-
+    
 }
