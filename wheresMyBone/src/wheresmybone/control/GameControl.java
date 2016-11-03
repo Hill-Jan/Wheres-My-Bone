@@ -14,6 +14,8 @@ import wheresmybone.model.Player;
  */
 public class GameControl {
 
+    double timeLeft = 1440;
+    
     public static Player createPlayer(String name) {
         if (name == null ){
             return null;
@@ -31,7 +33,7 @@ public class GameControl {
         System.out.println("\n*** createNewGame stub function called ***");
     }
     // calculate time left to complete game
-    public double calcTimeLeft(double timeLeft, double travelTime) {
+    public double calcTimeLeft(double travelTime) {
 
   
         if (timeLeft<=0) {
@@ -49,7 +51,7 @@ public class GameControl {
        }
     
     // calculate the area for the user to investigate and how much time is spent in the investigation.
-    public double calcAreaTime(double startTime, int length, int width, double timeInSeconds, double timeLeft) {
+    public double calcAreaTime(int length, int width, double timeInSeconds) {
         
         if (length <=0){
             return -1;
@@ -64,7 +66,7 @@ public class GameControl {
             return -1;
         }
         
-        timeLeft = startTime - length * width * 2.4 / 60 ;
+        timeLeft = timeLeft - length * width * 2.4 / 60;
         
         return timeLeft;
     }
