@@ -13,7 +13,6 @@ public class VacantHouseView {
     private String widthPrompt = "\nPlease enter the width of the box, or enter -1 to cancel:";
     private String heightPrompt = "\nPlease enter the height of the box, or enter -1 to cancel:";
     private String description;
-    private String message;
     private double boxLength = 0;
     private double boxWidth = 0;
     private double boxHeight = 0;
