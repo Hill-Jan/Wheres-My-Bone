@@ -62,7 +62,6 @@ public class VacantHouseView {
         } else {
             System.out.println("This box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!");
         }
-        //System.out.println(volume <0 ? "That box is too small for Cat DeVil to hide in." : "This box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!");
         return volume;
     }
 

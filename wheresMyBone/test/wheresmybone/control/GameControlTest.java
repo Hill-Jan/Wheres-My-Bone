@@ -129,8 +129,8 @@ public class GameControlTest {
     public void testCalcAreaTime4() {
         System.out.println("calcAreaTime");
         double timeLeft = 1440.0;
-        int length = 55;
-        int width = 15;
+        int length = 15;
+        int width = 55;
         double timeInSeconds = 2.4;
      
         GameControl instance = new GameControl();
@@ -143,7 +143,7 @@ public class GameControlTest {
         System.out.println("calcAreaTime");
         double timeLeft = 1440.0;
         int length = 25;
-        int width = 35;
+        int width = 0;
         double timeInSeconds = 2.4;
       
         GameControl instance = new GameControl();

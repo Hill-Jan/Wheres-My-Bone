@@ -23,9 +23,9 @@ public class CalculationControlTest {
     @Test //test case 1
     public void testCalcVolumeBox1() {
         System.out.println("calcVolumeBox");
-        double height = 12.0;
-        double width = 10.0;
-        double length = 12.0;
+        double height = 6;
+        double width = 6;
+        double length = 6;
         CalculationControl instance = new CalculationControl();
         double expResult = 1.0;
         double result = instance.calcVolumeBox(height, width, length);
@@ -35,11 +35,11 @@ public class CalculationControlTest {
     @Test //test case 2
     public void testCalcVolumeBox2() {
         System.out.println("calcVolumeBox");
-        double height = -12.0;
-        double width = 10.0;
-        double length = 12.0;
+        double height = 999;
+        double width = 999;
+        double length = 999;
         CalculationControl instance = new CalculationControl();
-        double expResult = -1;
+        double expResult = 1;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
@@ -47,9 +47,9 @@ public class CalculationControlTest {
     @Test //test case 3
     public void testCalcVolumeBox13() {
         System.out.println("calcVolumeBox");
-        double height = 12.0;
-        double width = -10.0;
-        double length = 12.0;
+        double height = 1;
+        double width = 1;
+        double length = 1;
         CalculationControl instance = new CalculationControl();
         double expResult = -1;
         double result = instance.calcVolumeBox(height, width, length);
@@ -59,9 +59,9 @@ public class CalculationControlTest {
     @Test //test case 4
     public void testCalcVolumeBox4() {
         System.out.println("calcVolumeBox");
-        double height = 12.0;
-        double width = 10.0;
-        double length = -12.0;
+        double height = 6;
+        double width = 6;
+        double length = 5;
         CalculationControl instance = new CalculationControl();
         double expResult = -1;
         double result = instance.calcVolumeBox(height, width, length);
@@ -71,9 +71,9 @@ public class CalculationControlTest {
     @Test //test case 5
     public void testCalcVolumeBox5() {
         System.out.println("calcVolumeBox");
-        double height = 0.0;
-        double width = 10.0;
-        double length = 12.0;
+        double height = 6;
+        double width = 5;
+        double length = 6;
         CalculationControl instance = new CalculationControl();
         double expResult = -1;
         double result = instance.calcVolumeBox(height, width, length);
@@ -83,9 +83,9 @@ public class CalculationControlTest {
     @Test //test case 6
     public void testCalcVolumeBox6() {
         System.out.println("calcVolumeBox");
-        double height = 10.0;
-        double width = 0.0;
-        double length = 12.0;
+        double height = 5;
+        double width = 6;
+        double length = 6;
         CalculationControl instance = new CalculationControl();
         double expResult = -1;
         double result = instance.calcVolumeBox(height, width, length);
@@ -97,48 +97,14 @@ public class CalculationControlTest {
         System.out.println("calcVolumeBox");
         double height = 10.0;
         double width = 12.0;
-        double length = 0.0;
+        double length = 2;
         CalculationControl instance = new CalculationControl();
-        double expResult = -1;
+        double expResult = 1;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
     
-    @Test //test case 8
-    public void testCalcVolumeBox8() {
-        System.out.println("calcVolumeBox");
-        double height = 1.0;
-        double width = 10.0;
-        double length = 12.0;
-        CalculationControl instance = new CalculationControl();
-        double expResult = -1.0;
-        double result = instance.calcVolumeBox(height, width, length);
-        assertEquals(expResult, result, 0.0);
-    }
-    
-    @Test //test case 9
-    public void testCalcVolumeBox9() {
-        System.out.println("calcVolumeBox");
-        double height = 10.0;
-        double width = 1.0;
-        double length = 12.0;
-        CalculationControl instance = new CalculationControl();
-        double expResult = -1.0;
-        double result = instance.calcVolumeBox(height, width, length);
-        assertEquals(expResult, result, 0.0);
-    }
-    
-    @Test //test case 10
-    public void testCalcVolumeBox10() {
-        System.out.println("calcVolumeBox");
-        double height = 12.0;
-        double width = 10.0;
-        double length = 1.0;
-        CalculationControl instance = new CalculationControl();
-        double expResult = -1.0;
-        double result = instance.calcVolumeBox(height, width, length);
-        assertEquals(expResult, result, 0.0);
-    }
+
  
     //tests for calcCylinderVolume
     @Test// test case 1
