@@ -25,6 +25,7 @@ public class GameMenuView {
                       + "\nJ - Test Vacant House"
                       + "\nG - Test Giraffe Enclosure"
                       + "\nY - Test Your House"
+                      + "\nR - Test Room Menu View"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
@@ -131,6 +132,9 @@ END */
             case "Y": //test your house
                 this.displayYourHouseView();
                 break;
+            case "R": //test room menu view
+                this.displayRoomMenuView ();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -186,13 +190,16 @@ END */
             }
     private void displayYourHouseView() {
           //Create displayYourHouseView object
-        YourHouseView yourHouseView = new YourHouseView ();
+        YourHouseView yourHouseView = new YourHouseView();
           //Display the your house view
-        yourHouseView.yourHouseView();
-    }
-
-    void displaygameMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        yourHouseView.displayYourHouseView();
     }
     
+    private void displayRoomMenuView() {
+         //Create displayRoomMenuView object
+        RoomMenuView roomMenuView = new RoomMenuView();
+         //Display the room menu view
+        roomMenuView.displayRoomMenuView();
+    }
+
     }

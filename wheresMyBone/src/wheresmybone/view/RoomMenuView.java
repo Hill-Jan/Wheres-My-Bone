@@ -34,8 +34,8 @@ public void displayRoomMenuView() {
         do {
             System.out.println("\n" + this.menu);
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit Actions Menu
-                   return; //exit the menu
+            if (menuOption.toUpperCase().equals("Q")) // Quit game menu
+                   return; //returns to previous menu
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             
@@ -63,19 +63,20 @@ private String getMenuOption() {
         return value;       
     }
 
-public boolean doAction (char choice){
-
+public boolean doAction (String choice){
+    choice = choice.toUpperCase(); //convert choice to upper case
+    
     switch (choice) {
-        case 'A': // View actions available to you
+        case "A": // View actions available to you
             this.actionsMenuView();
             break;
-        case 'M': // View the map
+        case "M": // View the map
             this.viewMap();
             break;
-        case 'G': // View the game menu
+        case "G": // View the game menu
             this.gameMenuView();
             break;
-        case 'L': // Move to a different location
+        case "L": // Move to a different location
             this.moveLocation();
             break;
         default:
@@ -105,7 +106,7 @@ private void gameMenuView() {
         GameMenuView gameMenuView = new GameMenuView();
                 
          // Display the main menu view
-        gameMenuView.displaygameMenuView();
+        gameMenuView.displayGameMenuView();
 }
 
 
@@ -117,7 +118,9 @@ private void moveLocation() {
         );
     }
 
-    private boolean doAction(String menuOption) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+
+    void roomMenuView() {
+       
     }
 }

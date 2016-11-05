@@ -40,7 +40,7 @@ public class YourHouseView {
             }
 
     
-    public void yourHouseView(){
+    public void displayYourHouseView(){
         
         System.out.println("\n" + this.description);
         getInputYard();
