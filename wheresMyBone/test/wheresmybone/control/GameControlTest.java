@@ -95,7 +95,7 @@ public class GameControlTest {
    
         GameControl instance = new GameControl();
         double expResult = 1416.0;
-        double result = instance.calcAreaTime(length, width,timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }
@@ -109,7 +109,7 @@ public class GameControlTest {
       
         GameControl instance = new GameControl();
         double expResult = -1;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -122,7 +122,7 @@ public class GameControlTest {
       
         GameControl instance = new GameControl();
         double expResult = -1;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -135,7 +135,7 @@ public class GameControlTest {
      
         GameControl instance = new GameControl();
         double expResult = -1;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -148,7 +148,7 @@ public class GameControlTest {
       
         GameControl instance = new GameControl();
         double expResult = -1;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -161,7 +161,7 @@ public class GameControlTest {
 
         GameControl instance = new GameControl();
         double expResult = 1438.0;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -174,7 +174,7 @@ public class GameControlTest {
 
         GameControl instance = new GameControl();
         double expResult = 1438.8;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }@Test
@@ -186,7 +186,7 @@ public class GameControlTest {
         double timeInSeconds = 2.4;
         GameControl instance = new GameControl();
         double expResult = 1380.0;
-        double result = instance.calcAreaTime(length, width, timeInSeconds);
+        double result = instance.calcAreaTime(length, width);
         assertEquals(expResult, result, 0.0);
         
     }
