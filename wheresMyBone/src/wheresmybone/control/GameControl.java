@@ -14,8 +14,11 @@ import wheresmybone.model.Player;
  */
 public class GameControl {
 
-    double timeLeft = 1440;
+    double timeLeft;
+    public GameControl (){
+        timeLeft = 1440;
     
+    }
     public static Player createPlayer(String name) {
         if (name == null ){
             return null;
@@ -51,18 +54,18 @@ public class GameControl {
        }
     
     // calculate the area for the user to investigate and how much time is spent in the investigation.
-    public double calcAreaTime(int length, int width, double timeInSeconds) {
+    public double calcAreaTime(double length, double width) {
         
         if (length <=0){
             return -1;
         }
-        if (length>50){
+        if (length>100){
             return -1;
         }
         if (width <=0) {
             return -1;
         }
-        if (width >30) {
+        if (width >50) {
             return -1;
         }
         

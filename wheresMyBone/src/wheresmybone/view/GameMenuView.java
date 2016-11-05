@@ -24,6 +24,7 @@ public class GameMenuView {
                       + "\nQ - Quit Game Menu"
                       + "\nJ - Test Vacant House"
                       + "\nG - Test Giraffe Enclosure"
+                      + "\nY - Test Your House"
                       + "\n --------------------------------------------------";
             
             this.promptMessage = "\nChoose a Menu Option: ";
@@ -127,6 +128,9 @@ END */
             case "G": //test giraffe enclosure
                 this.displayGiraffesView();
                 break;
+            case "Y": //test your house
+                this.displayYourHouseView();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -180,5 +184,15 @@ END */
           // Display Giraffes View
         giraffesView.displayGiraffesView();
             }
+    private void displayYourHouseView() {
+          //Create displayYourHouseView object
+        YourHouseView yourHouseView = new YourHouseView ();
+          //Display the your house view
+        yourHouseView.yourHouseView();
+    }
+
+    void displaygameMenuView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     }
