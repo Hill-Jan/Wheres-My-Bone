@@ -27,7 +27,7 @@ public class CalculationControlTest {
         double width = 10.0;
         double length = 12.0;
         CalculationControl instance = new CalculationControl();
-        double expResult = 1440.0;
+        double expResult = 1.0;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
@@ -111,7 +111,7 @@ public class CalculationControlTest {
         double width = 10.0;
         double length = 12.0;
         CalculationControl instance = new CalculationControl();
-        double expResult = 120.0;
+        double expResult = -1.0;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
@@ -123,7 +123,7 @@ public class CalculationControlTest {
         double width = 1.0;
         double length = 12.0;
         CalculationControl instance = new CalculationControl();
-        double expResult = 120.0;
+        double expResult = -1.0;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
@@ -135,7 +135,7 @@ public class CalculationControlTest {
         double width = 10.0;
         double length = 1.0;
         CalculationControl instance = new CalculationControl();
-        double expResult = 120.0;
+        double expResult = -1.0;
         double result = instance.calcVolumeBox(height, width, length);
         assertEquals(expResult, result, 0.0);
     }
