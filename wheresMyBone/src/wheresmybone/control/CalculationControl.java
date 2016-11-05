@@ -33,10 +33,10 @@ public class CalculationControl {
     public double calcCylinderVolume(double height, double diameter) {
 
         
-    if (height <= 0 || height >20) {//height is negative or too large
+    if (height <= 1 || height >20) {//height is negative or too large
             return -1;
                 }
-	if (diameter <= 0 || diameter > 16) {//diameter is negative or too large
+	if (diameter <= 1 || diameter > 16) {//diameter is negative or too large
             return -1;
             }
 

@@ -41,7 +41,7 @@ public class MainMenuView {
             System.out.println("\n" + this.menu);
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("X")) // user wants to quit
-                   return; //exit the game
+                   break; //exit the game
             //do the requested action and display the next view
             done = this.doAction(menuOption);
             

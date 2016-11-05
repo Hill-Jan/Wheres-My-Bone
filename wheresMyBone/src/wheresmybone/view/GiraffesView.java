@@ -36,6 +36,9 @@ public void displayGiraffesView() {
  
     System.out.println("\n" + this.description);
     getInputCylinder();
+    
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.displayRoomMenuView();
 }
 
 public void getInputCylinder (){
@@ -77,13 +80,13 @@ public void getInputCylinder (){
                 if (volume < 157.08) {
                     System.out.println("\nThe cylinder is too small for your bone.");
                 }
-                if (volume > 603.19) {
+                else if (volume > 603.19) {
                     System.out.println ("\nThe cylinder is too big for your bone.");
                 }
-                else {
+                else if (volume >= 157.08 && volume <=603.19){
                     System.out.println ("\nYour bone could be there.  Search for your bone.");
                 }
-}
-        //List Room Menu
+
     
+}
 }
