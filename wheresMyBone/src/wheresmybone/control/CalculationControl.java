@@ -42,7 +42,7 @@ public class CalculationControl {
 
         // calculation of the volume
 	double radius = diameter/2;
-	double volume =(Math.PI*radius*radius*height)/1728;
+	double volume = Math.PI*radius*radius*height;
 	return volume;
 
     //end of calculation of cylinder volume

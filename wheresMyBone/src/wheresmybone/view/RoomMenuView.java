@@ -74,8 +74,9 @@ public boolean doAction (String choice){
             this.viewMap();
             break;
         case "G": // View the game menu
-            this.gameMenuView();
-            break;
+           /* this.gameMenuView();
+            break;*/
+            return true;
         case "L": // Move to a different location
             this.moveLocation();
             break;
@@ -101,13 +102,13 @@ private void viewMap() {
         );
     }
 
-private void gameMenuView() {
-        //Create MainMenuView object
-        GameMenuView gameMenuView = new GameMenuView();
-                
-         // Display the main menu view
-        gameMenuView.displayGameMenuView();
-}
+//private void gameMenuView() {
+//        //Create MainMenuView object
+//        GameMenuView gameMenuView = new GameMenuView();
+//                
+//         // Display the main menu view
+//        gameMenuView.displayGameMenuView();
+//}
 
 
 private void moveLocation() {
