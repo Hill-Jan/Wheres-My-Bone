@@ -31,11 +31,12 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public double displayVacantHouseView() {
+    public void displayVacantHouseView() {
 
         System.out.println("\n" + this.description);
-        double volume = getAllInput();
-        return volume;//if return is >0, box was big enough for DeVil; if <0, box was too small for DeVil
+        
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.displayRoomMenuView();        
     }
 
     private double getAllInput() {
