@@ -38,7 +38,7 @@ public void displayGiraffesView() {
     getInputCylinder();
     
         RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.displayRoomMenuView();
+             roomMenuView.display();
 }
 
 public void getInputCylinder (){

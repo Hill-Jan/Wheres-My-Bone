@@ -14,13 +14,13 @@ import wheresmybone.view.GameMenuView;
  *
  * @author Jan
  */
-public class MainMenuView {
+public class MainMenuView extends View {
       private String promptMessage;{
         
 }
-    private String menu;
-        public MainMenuView() {
-            this.menu = "\n"
+    // private String menu; ??
+        public MainMenuView () {
+              super   ( "\n"
                       + "\n -------------------------------------------------"
                       + "\n    Main Menu                                     "
                       + "\n -------------------------------------------------"
@@ -29,12 +29,12 @@ public class MainMenuView {
                       + "\nS - Save Game"
                       + "\nH - Get Help"
                       + "\nX - Exit Game"
-                      + "\n --------------------------------------------------";
+                      + "\n --------------------------------------------------");
             
             this.promptMessage = "\nChoose a Menu Option: ";
                     }
                 
-    public void displayMainMenuView() {
+    /*public void displayMainMenuView() {
         
         boolean done = false; //set flag to not done
         do {
@@ -47,7 +47,8 @@ public class MainMenuView {
             
         } while (!done);
         }
-/*BEGIN
+        
+BEGIN
  do
  Prompt for and get the input value/s
  if (value == “Q”) then
@@ -55,10 +56,11 @@ public class MainMenuView {
 
  do the action and display the next view
  while the view is not done */
+        
 
-    private String getMenuOption() {
+   /* private String getMenuOption() {
 
-/*    getInput(): value
+    getInput(): value
 BEGIN
  WHILE a valid value has not been entered
  DISPLAY a message prompting the user to enter a value
@@ -70,7 +72,7 @@ BEGIN
  ENDIF
  BREAK
  ENDWHILE
- RETURN value */
+ RETURN value 
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -89,7 +91,7 @@ BEGIN
         }
         return value;       }
 
-    /* doAction(choice): void
+     doAction(choice): void
 BEGIN
 convert choice to upper case
 SWITCH choice
@@ -102,10 +104,11 @@ ENDSWITCH
 RETURN false
 END */
     
-    private boolean doAction(String choice) {
-        choice = choice.toUpperCase(); //convert choice to upper case
+    @Override
+    public boolean doAction(String value) {
+        value = value.toUpperCase(); //convert choice to upper case
         
-        switch (choice) {
+        switch (value) {
             case "N": //create and start a new game
                 this.startNewGame();
                 break;
@@ -137,7 +140,7 @@ END */
        
        //display the game menu
        GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.displayGameMenuView();
+       gameMenuView.display();
        
     }
 
@@ -155,7 +158,7 @@ END */
         HelpMenuView helpMenuView = new HelpMenuView();
                 
          // Display the help menu view
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
         
       
         

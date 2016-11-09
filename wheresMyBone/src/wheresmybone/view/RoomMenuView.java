@@ -12,14 +12,13 @@ import java.util.Scanner;
  *
  * @author Dan
  */
-public class RoomMenuView {
+public class RoomMenuView extends View{
     private String promptMessage;{
 }
-    private String menu;
-        public RoomMenuView() {
-            this.menu = "\n==================================================="
+        public RoomMenuView () {
+                super ( "\n==================================================="
                       + "\n(A)ctions - (M)ap - (G)ame Menu - (L)Move locations"
-                      + "\n===================================================";
+                      + "\n===================================================");
                     
                     
                     
@@ -28,45 +27,11 @@ public class RoomMenuView {
 
             this.promptMessage = "\nChoose a Menu Option: ";
 }
-public void displayRoomMenuView() {
-        
-        boolean done = false; //set flag to not done
-        do {
-            System.out.println("\n" + this.menu);
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // Quit game menu
-                   return; //returns to previous menu
-            //do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-        }
-
-private String getMenuOption() {
-
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();//removes spaces at front and end
-            
-            if (value.length() < 1) {
-                System.out.println("\n Invalid value: value cannot be blank");
-                continue;
-            }
-            break;
-        }
-        return value;       
-    }
-
-public boolean doAction (String choice){
-    choice = choice.toUpperCase(); //convert choice to upper case
+@Override
+public boolean doAction (String value){
+    value = value.toUpperCase(); //convert value to upper case
     
-    switch (choice) {
+    switch (value) {
         case "A": // View actions available to you
             this.actionsMenuView();
             break;
@@ -93,7 +58,7 @@ private void actionsMenuView() {
         ActionsMenuView actionsMenuView = new ActionsMenuView();
                 
          // Display the main menu view
-        actionsMenuView.displayActionsMenuView();
+        actionsMenuView.display();
 }
 private void viewMap() {
         System.out.println("\n-------------------------------------------------"
