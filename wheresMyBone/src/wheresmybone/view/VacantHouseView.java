@@ -34,7 +34,8 @@ public class VacantHouseView {
     public void displayVacantHouseView() {
 
         System.out.println("\n" + this.description);
-        
+        getAllInput();
+                
         RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();        
     }
