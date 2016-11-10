@@ -25,6 +25,7 @@ public class GameMenuView extends View{
                       + "\nY - Test Your House"
                       + "\nR - Test Room Menu View"
                       + "\nV - Test VacantHouseSceneView"
+                      + "\nC - Test Cafeteria View Test"
                       + "\nX - Exit to Main Menu"                         
                       + "\n --------------------------------------------------"
                       + "\n"
@@ -79,6 +80,9 @@ END */
                 break;
             case "V": //test VacantHouseSceneView
                 this.displayVacantHouseSceneView();
+                break;
+            case "C": //test CafeteriaViewTestw
+                this.displayCafeteriaViewTest();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
@@ -145,6 +149,13 @@ END */
         VacantHouseSceneView vacantHouseSceneView = new VacantHouseSceneView();
         //Display the vacant house scene view
         vacantHouseSceneView.display();
+    }
+
+        private void displayCafeteriaViewTest() {
+         //Create displayRoomMenuView object
+        CafeteriaViewTest cafeteriaViewTest = new CafeteriaViewTest();
+         //Display the room menu view
+        cafeteriaViewTest.display();
     }
 
     }
