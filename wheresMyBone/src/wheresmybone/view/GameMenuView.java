@@ -20,12 +20,12 @@ public class GameMenuView extends View{
                       + "\nT - Check time"
                       + "\nS - Save Game"
                       + "\nH - Help Menu"
-                      + "\nM - Main Menu"
                       + "\nJ - Test Vacant House"
                       + "\nG - Test Giraffe Enclosure"
                       + "\nY - Test Your House"
                       + "\nR - Test Room Menu View"
                       + "\nV - Test VacantHouseSceneView"
+                      + "\nX - Exit to Main Menu"                         
                       + "\n --------------------------------------------------"
                       + "\n"
                       + "\nChoose a Menu Option: ");
@@ -64,9 +64,6 @@ END */
                 break;
             case "H": //Help Menu
                 this.displayHelpMenu();
-                break;
-            case "M": //Main Menu
-                this.displayMainMenu();
                 break;
             case "J": //test vacant house
                 this.displayVacantHouseView();
@@ -114,13 +111,6 @@ END */
         helpMenuView.display();
     }
 
-    private void displayMainMenu() {
-        //Create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
-                
-         // Display the main menu view
-        mainMenuView.display();
-    }
 
     private void displayVacantHouseView() {
         //Create displayVacantHouseView object
