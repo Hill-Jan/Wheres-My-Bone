@@ -21,14 +21,14 @@ public class GameMenuView extends View{
                       + "\nS - Save Game"
                       + "\nH - Help Menu"
                       + "\nM - Main Menu"
-                      + "\nQ - Quit Game Menu"
                       + "\nJ - Test Vacant House"
                       + "\nG - Test Giraffe Enclosure"
                       + "\nY - Test Your House"
                       + "\nR - Test Room Menu View"
-                      + "\n --------------------------------------------------");
-            
-            this.promptMessage = "\nChoose a Menu Option: ";
+                      + "\nV - Test VacantHouseSceneView"
+                      + "\n --------------------------------------------------"
+                      + "\n"
+                      + "\nChoose a Menu Option: ");
 }
 
 /* doAction(value): void
@@ -78,7 +78,10 @@ END */
                 this.displayYourHouseView();
                 break;
             case "R": //test room menu view
-                this.displayRoomMenuView ();
+                this.displayRoomMenuView();
+                break;
+            case "V": //test VacantHouseSceneView
+                this.displayVacantHouseSceneView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
@@ -145,6 +148,13 @@ END */
         RoomMenuView roomMenuView = new RoomMenuView();
          //Display the room menu view
         roomMenuView.display();
+    }
+
+    private void displayVacantHouseSceneView() {
+        //create displayVacantHouseSceneView object
+        VacantHouseSceneView vacantHouseSceneView = new VacantHouseSceneView();
+        //Display the vacant house scene view
+        vacantHouseSceneView.display();
     }
 
     }

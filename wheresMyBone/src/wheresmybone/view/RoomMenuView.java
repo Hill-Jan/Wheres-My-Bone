@@ -18,14 +18,8 @@ public class RoomMenuView extends View{
         public RoomMenuView () {
                 super ( "\n==================================================="
                       + "\n(A)ctions - (M)ap - (G)ame Menu - (L)Move locations"
-                      + "\n===================================================");
-                    
-                    
-                    
-                      
-
-
-            this.promptMessage = "\nChoose a Menu Option: ";
+                      + "\n==================================================="
+                      + "\nChoose a Menu Option: ");
 }
 @Override
 public boolean doAction (String value){

@@ -30,9 +30,8 @@ public class HelpMenuView extends View {
                       + "\nH - How to Save/Load Game"
                       + "\nB - Bad Guys"
                       + "\nQ - Quit Help Menu"
-                      + "\n --------------------------------------------------");
-            
-            this.promptMessage = "\nChoose a Menu Option: ";
+                      + "\n --------------------------------------------------"
+                      + "\nChoose a Menu Option: ");
                     }
                 
     @Override   

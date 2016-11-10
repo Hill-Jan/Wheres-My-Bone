@@ -29,9 +29,8 @@ public class MainMenuView extends View {
                       + "\nS - Save Game"
                       + "\nH - Get Help"
                       + "\nX - Exit Game"
-                      + "\n --------------------------------------------------");
-            
-            this.promptMessage = "\nChoose a Menu Option: ";
+                      + "\n --------------------------------------------------"
+                      + "\nChoose a Menu Option: ");
                     }
                 
     @Override

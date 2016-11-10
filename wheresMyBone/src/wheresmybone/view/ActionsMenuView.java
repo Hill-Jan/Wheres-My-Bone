@@ -32,9 +32,9 @@ public class ActionsMenuView extends View {
                       + "\nG - Give an Item from your Backpack to the Character in the Area."
                       + "\nN - Go to a New location."
                       + "\nQ - Quit Actions Menu"
-                      + "\n --------------------------------------------------");
-            
-            this.promptMessage = "\nChoose a Menu Option: ";
+                      + "\n --------------------------------------------------"
+                      + "\nChoose a Menu Option: "
+                      + "\n");
                     }
 
     @Override
