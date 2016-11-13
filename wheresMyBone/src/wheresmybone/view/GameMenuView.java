@@ -26,6 +26,7 @@ public class GameMenuView extends View{
                       + "\nR - Test Room Menu View"
                       + "\nV - Test VacantHouseSceneView"
                       + "\nC - Test Cafeteria View Test"
+                      + "\nZ - Test Zoo Entrance View"   
                       + "\nX - Exit to Main Menu"                         
                       + "\n --------------------------------------------------"
                       + "\n"
@@ -83,6 +84,9 @@ END */
                 break;
             case "C": //test CafeteriaViewTestw
                 this.displayCafeteriaViewTest();
+                break;
+            case "Z": //test ZooEntranceView
+                this.displayZooEntranceView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
@@ -157,5 +161,12 @@ END */
          //Display the room menu view
         cafeteriaViewTest.display();
     }
+        
+        private void displayZooEntranceView() {
+            //Create displayZooEntranceView object
+        ZooEntranceView zooEntranceView = new ZooEntranceView();
+            //Display the zoo entrance view
+        zooEntranceView.display(); 
+        }
 
     }
