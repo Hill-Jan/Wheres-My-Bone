@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package wheresmybone.model;
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -41,7 +42,11 @@ public enum Npc implements Serializable{
 
     Npc(String dialogue) {
         this.dialogue = dialogue;
+        itemGiven = getItemGiven(); // not sure on this, added because we were getting an error saying itemGiven not initialized
+        itemReceived = getItemReceived(); // not sure on this, added because we were getting an error saying itemReceived not initialized
+        clue = getClue(); // not sure on this, added because we were getting an error saying clue not initialized
         location = new Point(1,1);
+        
     }
 
     public String getDialogue() {
@@ -64,8 +69,8 @@ public enum Npc implements Serializable{
         return location;
 }
 
-    @Override
+    /*@Override
     public String toString() {
         return "NPC{" + "name=" + name + ", dialogue=" + dialogue + ", itemGiven=" + itemGiven + ", itemReceived=" + itemReceived + ", clue=" + clue + '}';
-    }
+    }*/
 }
