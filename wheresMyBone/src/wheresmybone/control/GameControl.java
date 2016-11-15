@@ -10,6 +10,7 @@ import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
 import wheresmybone.model.Player;
+import wheresmybone.model.Time;
 
 /**
  *
@@ -55,6 +56,9 @@ BEGIN
         WheresMyBone.setCurrentGame(game); // save in WheresMyBone
         
         game.setPlayer(player); //save player in the game
+        
+        Time time = new Time(); //create the start time
+        game.setTime(time); //save time in game
         
         Backpack backpack = new Backpack(); //create backpack
         player.setBackpack(backpack); //save backpack in game

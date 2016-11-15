@@ -13,12 +13,13 @@ import wheresmybone.model.Map;
  */
 public class MapControl {
 
-    static Map createMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Map createMap() {
+        System.out.println("**called createMap() function in MapControl **");
+        return null;
     }
 
-    static void movePlayerToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void movePlayerToStartingLocation(Map map) {
+        System.out.println("**called movePlayerToStartingLocation() function in MapControl**");
     }
     
 }
