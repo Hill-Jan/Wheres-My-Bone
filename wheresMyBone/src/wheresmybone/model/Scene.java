@@ -16,6 +16,7 @@ public class Scene implements Serializable{
  private String sceneName;
  private String sceneDescript;
  private String npcDescription;
+ private Item item;
   
  public String getSceneName()
   {
@@ -46,6 +47,15 @@ public class Scene implements Serializable{
   {
     this.npcDescription = npcDescription;
   }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+  
   
  @Override
   public int hashCode()

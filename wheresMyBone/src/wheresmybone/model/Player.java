@@ -16,6 +16,7 @@ public class Player implements Serializable{
     // class instance variables
     private String name;
     private String gender; 
+    private Backpack backpack;
 
     public Player() {
     }
@@ -34,6 +35,15 @@ public class Player implements Serializable{
         public void setGender(String gender) {
             this.gender = gender;
         }
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(Backpack backpack) {
+        this.backpack = backpack;
+    }
+        
 
     @Override
     public int hashCode() {

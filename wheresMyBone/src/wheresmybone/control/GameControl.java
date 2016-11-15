@@ -6,6 +6,9 @@
 package wheresmybone.control;
 
 import wheresmybone.WheresMyBone;
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
+import wheresmybone.model.Map;
 import wheresmybone.model.Player;
 
 /**
@@ -31,9 +34,36 @@ public class GameControl {
         return player;
         
     }
-
+/*createNewGame(Player player): int
+BEGIN
+ if (player == null)
+ return -1
+ create a new game
+ save the game in CuriousWorkmanship
+ get player from CuriousWorkmanship
+ save player in the game
+ create list of inventory items
+ save inventory list in game
+ create the wagon
+ save wagon in the game
+ create the ship
+ save ship in the game
+ create the map
+ save map in the game */
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***");
+        Game game = new Game(); //create new game
+        WheresMyBone.setCurrentGame(game); // save in WheresMyBone
+        
+        game.setPlayer(player); //save player in the game
+        
+        Backpack backpack = new Backpack(); //create backpack
+        player.setBackpack(backpack); //save backpack in game
+        
+        Map map = MapControl.createMap(); //create and initialize new map
+        game.setMap(map); //save map in game
+        
+        //move actors to starting position in the map
+        MapControl.movePlayerToStartingLocation(map);
     }
     // calculate time left to complete game
     public double calcTimeLeft(double travelTime) {

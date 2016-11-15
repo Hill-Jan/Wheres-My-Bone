@@ -7,6 +7,7 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,8 +18,15 @@ public class Backpack implements Serializable{
     
     //class instance variables
     private String itemName;
+    ArrayList<Item> items;
+    
+    public void addItem(Item item)  {
+        
+        items.add(item);
+    }
 
     public Backpack() {
+        items = new ArrayList<>();
     }
     
 

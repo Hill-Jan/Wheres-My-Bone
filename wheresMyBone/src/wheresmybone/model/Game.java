@@ -18,6 +18,11 @@ public class Game implements Serializable{
     private double bestTime;
     private String instructions;
     private String attribute;
+    
+    private Time time;
+    private Player player;
+    private Backpack backpack;
+    private Map map;
 
     public Game() {
     }
@@ -52,6 +57,38 @@ public class Game implements Serializable{
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+    
+     public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(Backpack backpack) {
+        this.backpack = backpack;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     @Override

@@ -5,10 +5,20 @@
  */
 package wheresmybone.control;
 
+import wheresmybone.model.Map;
+
 /**
  *
  * @author Jan
  */
 public class MapControl {
+
+    static Map createMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static void movePlayerToStartingLocation(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

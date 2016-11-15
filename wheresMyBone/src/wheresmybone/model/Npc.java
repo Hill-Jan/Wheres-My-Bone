@@ -11,104 +11,61 @@ import java.util.Objects;
  *
  * @author short
  */
-public class Npc implements Serializable{
+public enum Npc implements Serializable{
+    
+    //keywords and dialogue
+    Tommy("in the park"),
+    OfficerPete("chasing a crook"),
+    DrMice("veterinarian"),
+    MrSam("dogcatcher"),
+    MsJones("baker"),
+    MrSteele("Owns the restaurant"),
+    MsCocoa("Runs the drive-in"),
+    Tom_Rex_Kit("DeVil Gang"),
+    MissEllie("nice old lady"),
+    MrNono("zoo keeper"),
+    MrCatch("fishmongerer"),
+    Elephants("gimme peanuts"),
+    Kangaroos("gimme a ball"),
+    Giraffes("food cylinder"),
+    Brad("lost his homework"),
+    MrSneed("parking lot attendant"),
+    Tigers("gimme fish");
     
     //class instance variables
-    private String name;
-    private String dialogue;
-    private String itemGiven;
-    private String itemReceived;
-    private String clue;
+    private final String dialogue;
+    private final String itemGiven;
+    private final String itemReceived;
+    private final String clue;
+    private final Point location;
 
-    public Npc() {
-    }
-
-    
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    Npc(String dialogue) {
+        this.dialogue = dialogue;
+        location = new Point(1,1);
     }
 
     public String getDialogue() {
         return dialogue;
     }
 
-    public void setDialogue(String dialogue) {
-        this.dialogue = dialogue;
-    }
-
     public String getItemGiven() {
         return itemGiven;
-    }
-
-    public void setItemGiven(String itemGiven) {
-        this.itemGiven = itemGiven;
     }
 
     public String getItemReceived() {
         return itemReceived;
     }
 
-    public void setItemReceived(String itemReceived) {
-        this.itemReceived = itemReceived;
-    }
-
     public String getClue() {
         return clue;
     }
 
-    public void setClue(String clue) {
-        this.clue = clue;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.dialogue);
-        hash = 59 * hash + Objects.hashCode(this.itemGiven);
-        hash = 59 * hash + Objects.hashCode(this.itemReceived);
-        hash = 59 * hash + Objects.hashCode(this.clue);
-        return hash;
-    }
+    public Point getLocation() {
+        return location;
+}
 
     @Override
     public String toString() {
         return "NPC{" + "name=" + name + ", dialogue=" + dialogue + ", itemGiven=" + itemGiven + ", itemReceived=" + itemReceived + ", clue=" + clue + '}';
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Npc other = (Npc) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.dialogue, other.dialogue)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemGiven, other.itemGiven)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemReceived, other.itemReceived)) {
-            return false;
-        }
-        if (!Objects.equals(this.clue, other.clue)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
 }

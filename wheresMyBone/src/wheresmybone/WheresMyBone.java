@@ -5,6 +5,7 @@
  */
 package wheresmybone;
 
+import wheresmybone.control.GameControl;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;

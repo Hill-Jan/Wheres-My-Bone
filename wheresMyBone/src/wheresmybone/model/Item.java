@@ -16,6 +16,7 @@ public class Item implements Serializable{
     //class instance variables
     private String name;
     private String description;
+    private String associatedNpc;
 
     public Item() {
     }
@@ -36,6 +37,15 @@ public class Item implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getAssociatedNpc() {
+        return associatedNpc;
+    }
+
+    public void setAssociatedNpc(String associatedNpc) {
+        this.associatedNpc = associatedNpc;
+    }
+    
 
     @Override
     public int hashCode() {
