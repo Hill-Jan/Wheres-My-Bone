@@ -28,27 +28,27 @@ public class Item implements Serializable{
     
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        //this.name = name;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        //this.description = description;
     }
 
     public String getAssociatedNpc() {
-        return associatedNpc;
+        return this.associatedNpc;
     }
 
     public void setAssociatedNpc(String associatedNpc) {
-        this.associatedNpc = associatedNpc;
+        //this.associatedNpc = associatedNpc;
     }
     
 
