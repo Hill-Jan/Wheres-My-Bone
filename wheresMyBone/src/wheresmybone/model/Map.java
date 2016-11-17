@@ -147,11 +147,16 @@ END
     public Location[][] getLocations() {
         return this.locations;
     }
+    public Location[][] setLocations() {
+        return locations;
+    }
 
     public Location getCurrentLocation() {
         return this.currentLocation;
     }
-
+    public Location setCurrentLocation() {
+        return currentLocation;
+    }
     
     
 }
