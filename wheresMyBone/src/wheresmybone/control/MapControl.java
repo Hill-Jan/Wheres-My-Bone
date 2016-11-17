@@ -7,7 +7,7 @@ package wheresmybone.control;
 
 import wheresmybone.model.Map;
 import wheresmybone.model.Scene;
-import wheresmybone.model.Scene.SceneType;
+//import wheresmybone.model.Scene.SceneType;
 
 /**
  *
@@ -28,9 +28,36 @@ public class MapControl {
     public static void movePlayerToStartingLocation(Map map) {
         System.out.println("**called movePlayerToStartingLocation() function in MapControl**");
     }
+public enum SceneType {
+     park,
+    vacanthouse,
+    police,
+    animalhospital,
+    pound,
+    bakery,
+    restaurant,
+    drivein,
+    pond,
+    alley,
+    carehome,
+    neighborshouse,
+    yourhouse,
+    devilshouse,
+    grocerywarehouse,
+    zoo,
+    elephants,
+    tigers,
+    kangaroos,
+    giraffes,
+    schoolentrance,
+    schoolcafeteria,
+    schoolplayground,
+    schoolparkinglot,
+    fishmonger;
 
+ }
     private static Scene[] createScenes() {
-        Scene [] scenes = new Scene[SceneType.values().length];
+        Scene[] scenes = new Scene[SceneType.values().length];
         
         Scene park = new Scene();
         park.setSceneDescript(

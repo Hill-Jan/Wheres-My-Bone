@@ -20,17 +20,16 @@ public class Scene implements Serializable{
 private double travelTime;
 private String mapSymbol;
 
-    public void setMapSymbol(String SceneName) {
+    public void setMapSymbol(String mapSymbol) {
         
     }
 
     public String getMapSymbol() {
-        this.mapSymbol = mapSymbol;
         
-        return mapSymbol;
+        return this.mapSymbol;
     }
   
- public enum SceneType {
+ /*public enum SceneType {
      park,
     vacanthouse,
     police,
@@ -57,7 +56,7 @@ private String mapSymbol;
     schoolparkinglot,
     fishmonger;
 
- }
+ }*/
  public String getSceneName()
   {
     return this.sceneName;

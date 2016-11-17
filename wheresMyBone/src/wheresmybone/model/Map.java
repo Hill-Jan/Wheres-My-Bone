@@ -17,7 +17,7 @@ public class Map implements Serializable{
   
   private int rowCount;
   private int columnCount;
-
+  private Location currentLocation;
   private Location[][] locations;
 
   /*Map(rows, columns)
@@ -48,7 +48,7 @@ END
         this.rowCount = rowCount;
         this.columnCount = columnCount;
         
-        this.locations = new Location  [rowCount] [columnCount];
+        this.locations = new Location[rowCount][columnCount];
         
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++){
@@ -145,17 +145,14 @@ END
   }
 
     public Location[][] getLocations() {
-        System.out.println("call get location function");
-        
-        return locations;
+        return this.locations;
     }
 
     public Location getCurrentLocation() {
-        System.out.println("Tells the current location");
-      Location currentLocation = null;
-        
-        return currentLocation;
+        return this.currentLocation;
     }
+
+    
     
 }
 

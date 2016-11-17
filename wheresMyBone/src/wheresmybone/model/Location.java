@@ -17,7 +17,7 @@ public class Location implements Serializable{
   private int row;
   private int column;
   private boolean visited;
-  private Scene scene;
+  private Scene sceneName;
   private Enum<Npc> npcs;
   
   public int getRow()
@@ -50,12 +50,12 @@ public class Location implements Serializable{
     this.visited = visited;
   }
   
-    public Scene getScene() {
-        return scene;
+    public Scene getSceneName() {
+        return sceneName;
     }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
+    public void setSceneName(Scene scene) {
+        this.sceneName = scene;
     }
 
     public Enum<Npc> getNpcs() {
@@ -68,7 +68,7 @@ public class Location implements Serializable{
         hash = 37 * hash + Objects.hashCode(this.row);
         hash = 37 * hash + this.column;
         hash = 37 * hash + Objects.hashCode(this.visited);
-        hash = 37 * hash + Objects.hashCode(this.scene);
+        hash = 37 * hash + Objects.hashCode(this.sceneName);
         return hash;
     }
 
@@ -93,14 +93,13 @@ public class Location implements Serializable{
         if (!Objects.equals(this.visited, other.visited)) {
             return false;
         }
-        if (!Objects.equals(this.scene, other.scene)) {
+        if (!Objects.equals(this.sceneName, other.sceneName)) {
             return false;
         }
         return true;
     }
 
     public boolean isVisited() {
-        System.out.println("is visited");
       boolean isVisited = false;
         
         return isVisited;
