@@ -17,8 +17,13 @@ public class Item implements Serializable{
     private String name;
     private String description;
     private String associatedNpc;
+    private String item;
 
     public Item() {
+    }
+
+    public Item(String item) {
+        this.item = item;
     }
     
 

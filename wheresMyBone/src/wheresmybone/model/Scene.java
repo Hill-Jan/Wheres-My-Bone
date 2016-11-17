@@ -17,7 +17,47 @@ public class Scene implements Serializable{
  private String sceneDescript;
  private String npcDescription;
  private Item item;
+private double travelTime;
+private String mapSymbol;
+
+    public void setMapSymbol(String SceneName) {
+        
+    }
+
+    public String getMapSymbol() {
+        this.mapSymbol = mapSymbol;
+        
+        return mapSymbol;
+    }
   
+ public enum SceneType {
+     park,
+    vacanthouse,
+    police,
+    animalhospital,
+    pound,
+    bakery,
+    restaurant,
+    drivein,
+    pond,
+    alley,
+    carehome,
+    neighborshouse,
+    yourhouse,
+    devilshouse,
+    grocerywarehouse,
+    zoo,
+    elephants,
+    tigers,
+    kangaroos,
+    giraffes,
+    schoolentrance,
+    schoolcafeteria,
+    schoolplayground,
+    schoolparkinglot,
+    fishmonger;
+
+ }
  public String getSceneName()
   {
     return this.sceneName;
@@ -55,43 +95,62 @@ public class Scene implements Serializable{
     public void setItem(Item item) {
         this.item = item;
     }
-  
-  
- @Override
-  public int hashCode()
+  public double getTravelTime()
   {
-    int hash = 7;
-    hash = 67 * hash + Objects.hashCode(this.sceneName);
-    hash = 67 * hash + Objects.hashCode(this.sceneDescript);
-    hash = 67 * hash + Objects.hashCode(this.npcDescription);
-    return hash;
+    return this.travelTime;
   }
   
- @Override
-  public String toString()
+  public void setTravelTime(double travelTime)
   {
-    return "Scene{sceneName=" + this.sceneName + ", sceneDescript=" + this.sceneDescript + ", npcDescription=" + this.npcDescription + '}';
+    this.travelTime = travelTime;
   }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.sceneName);
+        hash = 89 * hash + Objects.hashCode(this.sceneDescript);
+        hash = 89 * hash + Objects.hashCode(this.npcDescription);
+        hash = 89 * hash + Objects.hashCode(this.item);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.travelTime) ^ (Double.doubleToLongBits(this.travelTime) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Scene other = (Scene) obj;
+        if (Double.doubleToLongBits(this.travelTime) != Double.doubleToLongBits(other.travelTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.sceneName, other.sceneName)) {
+            return false;
+        }
+        if (!Objects.equals(this.sceneDescript, other.sceneDescript)) {
+            return false;
+        }
+        if (!Objects.equals(this.npcDescription, other.npcDescription)) {
+            return false;
+        }
+        if (!Objects.equals(this.item, other.item)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Scene{" + "sceneName=" + sceneName + ", sceneDescript=" + sceneDescript + ", npcDescription=" + npcDescription + ", item=" + item + ", travelTime=" + travelTime + '}';
+    }
+
   
- @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null) {
-      return false;
-    }
-    if (getClass() != obj.getClass()) {
-      return false;
-    }
-    Scene other = (Scene)obj;
-    if (!Objects.equals(this.sceneName, other.sceneName)) {
-      return false;
-    }
-    if (!Objects.equals(this.sceneDescript, other.sceneDescript)) {
-      return false;
-    }
-    return Objects.equals(this.npcDescription, other.npcDescription);
-  }   
+ 
 }

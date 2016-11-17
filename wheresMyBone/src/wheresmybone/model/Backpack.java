@@ -18,18 +18,7 @@ public class Backpack implements Serializable{
     
     //class instance variables
     private String itemName;
-    ArrayList<Item> items;
-    
-    public void addItem(Item item)  {
-        
-        items.add(item);
-    }
-
-    public Backpack() {
-        items = new ArrayList<>();
-    }
-    
-
+  
     public String getItemName() {
         return itemName;
     }

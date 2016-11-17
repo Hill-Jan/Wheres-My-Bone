@@ -14,18 +14,18 @@ import java.util.Objects;
  */
 public class Location implements Serializable{
     
-  private String row;
+  private int row;
   private int column;
-  private String visited;
-  
+  private boolean visited;
   private Scene scene;
+  private Enum<Npc> npcs;
   
-  public String getRow()
+  public int getRow()
   {
     return this.row;
   }
   
-  public void setRow(String row)
+  public void setRow(int row)
   {
     this.row = row;
   }
@@ -40,12 +40,12 @@ public class Location implements Serializable{
     this.column = column;
   }
   
-  public String getVisited()
+  public boolean getVisited()
   {
     return this.visited;
   }
   
-  public void setVisited(String visited)
+  public void setVisited(boolean visited)
   {
     this.visited = visited;
   }
@@ -56,6 +56,10 @@ public class Location implements Serializable{
 
     public void setScene(Scene scene) {
         this.scene = scene;
+    }
+
+    public Enum<Npc> getNpcs() {
+        return npcs;
     }
 
     @Override
@@ -93,6 +97,13 @@ public class Location implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public boolean isVisited() {
+        System.out.println("is visited");
+      boolean isVisited = false;
+        
+        return isVisited;
     }
   
   

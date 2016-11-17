@@ -5,11 +5,16 @@
  */
 package wheresmybone.control;
 
+import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
+import wheresmybone.model.Item;
+import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Player;
+import wheresmybone.model.Scene;
+import wheresmybone.model.Scene.SceneType;
 import wheresmybone.model.Time;
 
 /**
@@ -17,6 +22,39 @@ import wheresmybone.model.Time;
  * @author Jan
  */
 public class GameControl {
+
+    static void assignScenesToLocations(Map map, Scene[] scenes) {
+       Location[][] locations = map.getLocations();
+       
+        // start point
+       locations[0][0].setScene(scenes[SceneType.park.ordinal()]);
+       locations[0][1].setScene(scenes[SceneType.vacanthouse.ordinal()]);
+       locations[0][2].setScene(scenes[SceneType.police.ordinal()]);
+       locations[0][3].setScene(scenes[SceneType.animalhospital.ordinal()]);
+       locations[0][4].setScene(scenes[SceneType.pound.ordinal()]);
+       locations[1][0].setScene(scenes[SceneType.bakery.ordinal()]);
+       locations[1][1].setScene(scenes[SceneType.restaurant.ordinal()]);
+       locations[1][2].setScene(scenes[SceneType.drivein.ordinal()]);
+       locations[1][3].setScene(scenes[SceneType.pond.ordinal()]);
+       locations[1][4].setScene(scenes[SceneType.alley.ordinal()]);
+       locations[2][0].setScene(scenes[SceneType.carehome.ordinal()]);
+       locations[2][1].setScene(scenes[SceneType.neighborshouse.ordinal()]);
+       locations[2][2].setScene(scenes[SceneType.yourhouse.ordinal()]);
+       locations[2][3].setScene(scenes[SceneType.devilshouse.ordinal()]);
+       locations[2][4].setScene(scenes[SceneType.grocerywarehouse.ordinal()]);
+       locations[3][0].setScene(scenes[SceneType.zoo.ordinal()]);
+       locations[3][1].setScene(scenes[SceneType.elephants.ordinal()]);
+       locations[3][2].setScene(scenes[SceneType.tigers.ordinal()]);
+       locations[3][3].setScene(scenes[SceneType.kangaroos.ordinal()]);
+       locations[3][4].setScene(scenes[SceneType.giraffes.ordinal()]);
+       locations[4][0].setScene(scenes[SceneType.schoolentrance.ordinal()]);
+       locations[4][1].setScene(scenes[SceneType.schoolcafeteria.ordinal()]);
+       locations[4][2].setScene(scenes[SceneType.schoolplayground.ordinal()]);
+       locations[4][3].setScene(scenes[SceneType.schoolparkinglot.ordinal()]);
+       locations[4][4].setScene(scenes[SceneType.fishmonger.ordinal()]);
+       
+       
+    }
 
     double timeLeft;
     public GameControl (){
@@ -34,6 +72,26 @@ public class GameControl {
         
         return player;
         
+    }
+    
+    public static ArrayList<Item> items() {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("twig"));
+        items.add(new Item("pebble"));
+        items.add(new Item("collar"));
+        items.add(new Item("doughnuts"));
+        items.add(new Item("snow globe"));
+        items.add(new Item("treat"));
+        items.add(new Item("bone"));
+        items.add(new Item("nametag"));
+        items.add(new Item("meal"));
+        items.add(new Item("card"));
+        items.add(new Item("fish"));
+        items.add(new Item("peanuts"));
+        items.add(new Item("ball"));
+        items.add(new Item("paper"));
+        
+        return items;
     }
 /*createNewGame(Player player): int
 BEGIN

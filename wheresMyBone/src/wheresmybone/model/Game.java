@@ -6,6 +6,7 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,12 +19,12 @@ public class Game implements Serializable{
     private double bestTime;
     private String instructions;
     private String attribute;
-    
+    private ArrayList<Item> items;
     private Time time;
     private Player player;
     private Backpack backpack;
     private Map map;
-
+    
     public Game() {
     }
         
@@ -89,6 +90,14 @@ public class Game implements Serializable{
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 
     @Override
