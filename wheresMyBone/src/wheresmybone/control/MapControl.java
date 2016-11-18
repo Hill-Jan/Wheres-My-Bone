@@ -115,7 +115,7 @@ public enum SceneType {
         scenes[SceneType.pound.ordinal()] = pound;
         
         Scene bakery = new Scene();
-        bakery.setSceneName("The Bakeryk");
+        bakery.setSceneName("The Bakery");
         bakery.setSceneDescript(
             "Bakery");
         bakery.setMapSymbol("BK");

@@ -51,7 +51,7 @@ public class Location implements Serializable{
   }
   
     public Scene getSceneName() {
-        return sceneName;
+        return this.sceneName;
     }
 
     public void setSceneName(Scene scene) {

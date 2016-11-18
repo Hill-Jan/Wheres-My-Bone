@@ -257,6 +257,6 @@ END*/
         } catch (Exception e) {
             System.out.println("Error");
         }
-   System.out.println("Your current location is " + map.getCurrentLocation().getSceneName());
+   System.out.println("Your current location is " + map.getCurrentLocation().getSceneName().getSceneName());
     }
 }
