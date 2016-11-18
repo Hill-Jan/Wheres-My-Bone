@@ -248,6 +248,7 @@ END*/
                         System.out.print(leftIndicator + "??" + rightIndicator);
                     } else {
                         System.out.print(leftIndicator + locations[row][column].getSceneName().getMapSymbol() + rightIndicator);
+
                     }
                 }
                 System.out.println("|");
