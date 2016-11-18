@@ -207,9 +207,9 @@ END */
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
         try {
-            System.out.print(" |");
+            System.out.print("  |");
             for (int column = 0; column < locations[0].length; column++) {
-                System.out.print(" " + column + " |"); // print col numbers to side of map
+                System.out.print("  " + column + " |"); // print col numbers to side of map
             }
             System.out.println();
             for (int row = 0; row < locations[0].length; row++) {

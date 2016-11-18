@@ -21,7 +21,7 @@ private double travelTime;
 private String mapSymbol;
 
     public void setMapSymbol(String mapSymbol) {
-        
+        this.mapSymbol = mapSymbol;
     }
 
     public String getMapSymbol() {
