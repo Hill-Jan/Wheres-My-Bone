@@ -61,7 +61,7 @@ public enum SceneType {
         
         Scene park = new Scene();
         park.setSceneDescript(
-            "Park");
+            "The Park");
         park.setMapSymbol("PK");
         //park.setBlocked(false);
         park.setTravelTime(20);
