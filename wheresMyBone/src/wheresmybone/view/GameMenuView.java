@@ -127,7 +127,7 @@ END */
         //for each inventory item
         for (Item item : items) {
             line = new StringBuilder("                        ");
-            line.insert(0, item.getName());
+            line.insert(0, game.getItems());
 
             System.out.println(line.toString());
         }
