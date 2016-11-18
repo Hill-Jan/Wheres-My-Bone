@@ -77,20 +77,20 @@ public class GameControl {
     
     public static ArrayList<Item> createItemList() {
         ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item("twig"));
-        items.add(new Item("pebble"));
-        items.add(new Item("collar"));
-        items.add(new Item("doughnuts"));
-        items.add(new Item("snow globe"));
-        items.add(new Item("treat"));
-        items.add(new Item("bone"));
-        items.add(new Item("name tag"));
-        items.add(new Item("meal"));
-        items.add(new Item("card"));
-        items.add(new Item("fish"));
-        items.add(new Item("peanuts"));
-        items.add(new Item("ball"));
-        items.add(new Item("paper"));
+        items.add(new Item("twig", "twig", "twig"));
+        items.add(new Item("pebble", "pebble", "pebble"));
+        items.add(new Item("collar", "collar", "collar"));
+        items.add(new Item("doughnuts", "doughnuts", "doughnuts"));
+        items.add(new Item("snow globe", "snow globe", "snow globe"));
+        items.add(new Item("treat", "treat", "treat"));
+        items.add(new Item("bone", "bone", "bone"));
+        items.add(new Item("name tag", "name tag", "name tag"));
+        items.add(new Item("meal", "meal", "meal"));
+        items.add(new Item("card", "card", "card"));
+        items.add(new Item("fish", "fish", "fish"));
+        items.add(new Item("peanuts", "peanuts", "peanuts"));
+        items.add(new Item("ball", "ball", "ball"));
+        items.add(new Item("paper", "paper", "paper"));
         
         return items;
     }

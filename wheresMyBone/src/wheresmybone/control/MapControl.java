@@ -126,8 +126,8 @@ public enum SceneType {
         Scene restaurant = new Scene();
         restaurant.setSceneName("The Restaurant");
         restaurant.setSceneDescript(
-            "e plurubus enum");
-        restaurant.setMapSymbol("TR");
+            "Restaraunt");
+        restaurant.setMapSymbol("RS");
         //obligatory.setBlocked(false);
         restaurant.setTravelTime(15);
         scenes[SceneType.restaurant.ordinal()] = restaurant;
@@ -162,7 +162,7 @@ public enum SceneType {
         Scene carehome = new Scene();
         carehome.setSceneName("The Nursing Home");
         carehome.setSceneDescript(
-            "e plurubus enum");
+            "Care Home");
         carehome.setMapSymbol("CH");
         //obligatory.setBlocked(false);
         carehome.setTravelTime(20);
@@ -199,7 +199,7 @@ public enum SceneType {
         grocerywarehouse.setSceneName("The Grocery Store Warehouse");
         grocerywarehouse.setSceneDescript(
             "Grocery Warehouse");
-        grocerywarehouse.setMapSymbol("GW");
+        grocerywarehouse.setMapSymbol("GH");
         //obligatory.setBlocked(false);
         grocerywarehouse.setTravelTime(25);
         scenes[SceneType.grocerywarehouse.ordinal()] = grocerywarehouse;
@@ -217,7 +217,7 @@ public enum SceneType {
         elephants.setSceneName("The Elephant Enclosure");
         elephants.setSceneDescript(
             "Elephant");
-        elephants.setMapSymbol("ZE");
+        elephants.setMapSymbol("EL");
         //obligatory.setBlocked(false);
         elephants.setTravelTime(30);
         scenes[SceneType.elephants.ordinal()] = elephants;
@@ -226,7 +226,7 @@ public enum SceneType {
         tigers.setSceneName("The Tiger Enclosure");
         tigers.setSceneDescript(
             "Tigers");
-        tigers.setMapSymbol("ZT");
+        tigers.setMapSymbol("TG");
         //obligatory.setBlocked(false);
         tigers.setTravelTime(25);
         scenes[SceneType.tigers.ordinal()] = tigers;
@@ -235,7 +235,7 @@ public enum SceneType {
         kangaroos.setSceneName("The Kangaroo Enclosure");
         kangaroos.setSceneDescript(
             "Kangaroos");
-        kangaroos.setMapSymbol("ZK");
+        kangaroos.setMapSymbol("KG");
         //obligatory.setBlocked(false);
         kangaroos.setTravelTime(35);
         scenes[SceneType.kangaroos.ordinal()] = kangaroos;
@@ -244,7 +244,7 @@ public enum SceneType {
         giraffes.setSceneName("The Giraffe Enclosure");
         giraffes.setSceneDescript(
             "Giraffes");
-        giraffes.setMapSymbol("ZG");
+        giraffes.setMapSymbol("GF");
         //obligatory.setBlocked(false);
         giraffes.setTravelTime(40);
         scenes[SceneType.giraffes.ordinal()] = giraffes;

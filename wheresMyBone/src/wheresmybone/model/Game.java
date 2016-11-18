@@ -84,16 +84,17 @@ public class Game implements Serializable{
         this.backpack = backpack;
     }
 
-    public Map getMap() {
-        return map;
-    }
-
     public void setMap(Map map) {
         this.map = map;
     }
+    
+    public Map getMap() {
+        return this.map;
+    }
 
     public ArrayList<Item> getItems() {
-        return items;
+        
+        return this.items;
     }
 
     public void setItems(ArrayList<Item> items) {

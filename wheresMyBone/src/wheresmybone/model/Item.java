@@ -22,7 +22,7 @@ public class Item implements Serializable{
     public Item() {
     }
 
-    public Item(String item) {
+    public Item(String item, String name, String description) {
         this.item = item;
     }
     
@@ -32,7 +32,7 @@ public class Item implements Serializable{
     }
 
     public void setName(String name) {
-        //this.name = name;
+        this.name = name;
     }
 
     public String getDescription() {
@@ -40,7 +40,7 @@ public class Item implements Serializable{
     }
 
     public void setDescription(String description) {
-        //this.description = description;
+        this.description = description;
     }
 
     public String getAssociatedNpc() {
@@ -48,7 +48,7 @@ public class Item implements Serializable{
     }
 
     public void setAssociatedNpc(String associatedNpc) {
-        //this.associatedNpc = associatedNpc;
+        this.associatedNpc = associatedNpc;
     }
     
 

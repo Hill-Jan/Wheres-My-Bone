@@ -18,13 +18,13 @@ public class Backpack implements Serializable{
     
     //class instance variables
     private String itemName;
-  
-    public String getItemName() {
-        return itemName;
-    }
-
+      
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+    
+    public String getItemName() {
+        return this.itemName;
     }
 
     @Override
