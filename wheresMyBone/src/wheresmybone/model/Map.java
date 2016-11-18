@@ -17,6 +17,8 @@ public class Map implements Serializable{
   
   private int rowCount;
   private int columnCount;
+  private int currentRow;
+  private int currentColumn;
   private Location currentLocation;
   private Location[][] locations;
 
@@ -74,7 +76,7 @@ END
      *
      * @param rowCount
      */
-    public void setRowCount(int rowCount)
+  public void setRowCount(int rowCount)
   {
     this.rowCount = rowCount;
   }
@@ -154,10 +156,24 @@ END
     public Location getCurrentLocation() {
         return this.currentLocation;
     }
-    public Location setCurrentLocation() {
-        return currentLocation;
+    public void setCurrentLocation(Location location) {
+        this.currentLocation = location;
     }
-    
-    
-}
 
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    public void setCurrentColumn(int currentColumn) {
+        this.currentColumn = currentColumn;
+    }
+
+}

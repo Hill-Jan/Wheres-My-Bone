@@ -21,7 +21,7 @@ private double travelTime;
 private String mapSymbol;
 
     public void setMapSymbol(String mapSymbol) {
-        
+        this.mapSymbol = mapSymbol;
     }
 
     public String getMapSymbol() {
@@ -62,9 +62,8 @@ private String mapSymbol;
     return this.sceneName;
   }
   
-  public void setSceneName(String sceneName)
-  {
-    
+  public void setSceneName(String sceneName)  {
+      this.sceneName = sceneName;
   }
   
   public String getSceneDescript()
@@ -72,8 +71,8 @@ private String mapSymbol;
     return this.sceneDescript;
   }
   
-  public void setSceneDescript(String sceneDescript)
-  {
+  public void setSceneDescript(String sceneDescript)  {
+      this.sceneDescript = sceneDescript;
   }
   
   public String getNpcDescription()
@@ -81,9 +80,8 @@ private String mapSymbol;
     return this.npcDescription;
   }
   
-  public void setNpcDescription(String npcDescription)
-  {
-    
+  public void setNpcDescription(String npcDescription)  {
+    this.npcDescription = npcDescription;
   }
 
     public Item getItem() {
@@ -91,6 +89,7 @@ private String mapSymbol;
     }
 
     public void setItem(Item item) {
+        this.item = item;
         
     }
   public double getTravelTime()
@@ -100,7 +99,7 @@ private String mapSymbol;
   
   public void setTravelTime(double travelTime)
   {
-   
+      this.travelTime = travelTime;
   }
 
     @Override
