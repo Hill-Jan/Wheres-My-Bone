@@ -198,8 +198,27 @@ END */
         //Display the zoo entrance view
         zooEntranceView.display();
     }
-
+//Displays the map
     public void viewMap() {
+/*BEGIN
+ get the 2-D locations array in the map in the current game
+ PRINT the title
+ PRINT the column numbers in the header
+ FOR every row in map
+ PRINT a row divider
+ PRINT the row number on a new line
+ FOR every column in row
+ PRINT a column divider
+ location = locations[row][column]
+ IF location has been visited
+ PRINT the mapSymbol in the scene in this location
+ ELSE
+ DISPLAY " ?? "
+ ENDIF
+ PRINT the ending column divider
+ ENDFOR
+ PRINT ending row divider
+END*/
         //Console console = System.console();
         String leftIndicator;
         String rightIndicator;
@@ -229,12 +248,15 @@ END */
                         System.out.print(leftIndicator + "??" + rightIndicator);
                     } else {
                         System.out.print(leftIndicator + locations[row][column].getSceneName().getMapSymbol() + rightIndicator);
+
                     }
                 }
                 System.out.println("|");
+ 
             }
         } catch (Exception e) {
             System.out.println("Error");
         }
+   System.out.println("Your current location is " + map.getCurrentLocation().getSceneName());
     }
 }

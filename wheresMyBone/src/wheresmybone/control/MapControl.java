@@ -26,10 +26,20 @@ public class MapControl {
     }
 
     public static void movePlayerToStartingLocation(Map map) {
-        System.out.println("**called movePlayerToStartingLocation() function in MapControl**");
-    }
+   // movePlayer(map, 2, 2);
+        movePlayer(map, 2, 2);
+}
+
+public static void movePlayer(Map map, int row, int column) {
+   map.setCurrentLocation(map.getLocations()[row][column]);
+   map.getCurrentLocation().setVisited(true);
+   map.setCurrentRow(row);
+   map.setCurrentColumn(column);
+}
+ 
+
 public enum SceneType {
-     park,
+    park,
     vacanthouse,
     police,
     animalhospital,
@@ -60,14 +70,16 @@ public enum SceneType {
         Scene[] scenes = new Scene[SceneType.values().length];
         
         Scene park = new Scene();
+        park.setSceneName("The Park");
         park.setSceneDescript(
-            "The Park");
+            "Trees, pond, swings");
         park.setMapSymbol("PK");
         //park.setBlocked(false);
         park.setTravelTime(20);
         scenes[SceneType.park.ordinal()] = park;
         
         Scene vacanthouse = new Scene();
+        vacanthouse.setSceneName("The Vacant House");
         vacanthouse.setSceneDescript(
             "Vacant House");
         vacanthouse.setMapSymbol("VH");
@@ -76,6 +88,7 @@ public enum SceneType {
         scenes[SceneType.vacanthouse.ordinal()] = vacanthouse;
         
         Scene police = new Scene();
+        police.setSceneName("Police");
         police.setSceneDescript(
             "Police Station");
         police.setMapSymbol("PS");
@@ -84,6 +97,7 @@ public enum SceneType {
         scenes[SceneType.police.ordinal()] = police;
         
         Scene animalhospital = new Scene();
+        animalhospital.setSceneName("Animal Hospital");
         animalhospital.setSceneDescript(
             "Animal Hospital");
         animalhospital.setMapSymbol("AH");
@@ -92,6 +106,7 @@ public enum SceneType {
         scenes[SceneType.animalhospital.ordinal()] = animalhospital;
         
         Scene pound = new Scene();
+        pound.setSceneName("The Pound");
         pound.setSceneDescript(
             "Pound");
         pound.setMapSymbol("PD");
@@ -100,6 +115,7 @@ public enum SceneType {
         scenes[SceneType.pound.ordinal()] = pound;
         
         Scene bakery = new Scene();
+        bakery.setSceneName("The Bakeryk");
         bakery.setSceneDescript(
             "Bakery");
         bakery.setMapSymbol("BK");
@@ -108,14 +124,16 @@ public enum SceneType {
         scenes[SceneType.bakery.ordinal()] = bakery;
         
         Scene restaurant = new Scene();
+        restaurant.setSceneName("The Restaurant");
         restaurant.setSceneDescript(
-            "Restaraunt");
-        restaurant.setMapSymbol("RS");
+            "e plurubus enum");
+        restaurant.setMapSymbol("TR");
         //obligatory.setBlocked(false);
         restaurant.setTravelTime(15);
         scenes[SceneType.restaurant.ordinal()] = restaurant;
         
         Scene drivein = new Scene();
+        drivein.setSceneName("The Drive-In");
         drivein.setSceneDescript(
             "Drive In");
         drivein.setMapSymbol("DI");
@@ -124,6 +142,7 @@ public enum SceneType {
         scenes[SceneType.drivein.ordinal()] = drivein;
         
         Scene pond = new Scene();
+        pond.setSceneName("The Pond");
         pond.setSceneDescript(
             "The Pond");
         pond.setMapSymbol("PN");
@@ -132,6 +151,7 @@ public enum SceneType {
         scenes[SceneType.pond.ordinal()] = pond;
         
         Scene alley = new Scene();
+        alley.setSceneName("The Alley");
         alley.setSceneDescript(
             "Alley");
         alley.setMapSymbol("AL");
@@ -140,14 +160,16 @@ public enum SceneType {
         scenes[SceneType.alley.ordinal()] = alley;
         
         Scene carehome = new Scene();
+        carehome.setSceneName("The Nursing Home");
         carehome.setSceneDescript(
-            "Care Home");
+            "e plurubus enum");
         carehome.setMapSymbol("CH");
         //obligatory.setBlocked(false);
         carehome.setTravelTime(20);
         scenes[SceneType.carehome.ordinal()] = carehome;
         
         Scene neighborshouse = new Scene();
+        neighborshouse.setSceneName("The Smith's House");
         neighborshouse.setSceneDescript(
             "Neighbor House");
         neighborshouse.setMapSymbol("NH");
@@ -156,6 +178,7 @@ public enum SceneType {
         scenes[SceneType.neighborshouse.ordinal()] = neighborshouse;
         
         Scene yourhouse = new Scene();
+        yourhouse.setSceneName("Your House");
         yourhouse.setSceneDescript(
             "Your House");
         yourhouse.setMapSymbol("YH");
@@ -164,6 +187,7 @@ public enum SceneType {
         scenes[SceneType.yourhouse.ordinal()] = yourhouse;
         
         Scene devilshouse = new Scene();
+        devilshouse.setSceneName("DeVil's House");
         devilshouse.setSceneDescript(
             "DeVil's House");
         devilshouse.setMapSymbol("DH");
@@ -172,14 +196,16 @@ public enum SceneType {
         scenes[SceneType.devilshouse.ordinal()] = devilshouse;
         
         Scene grocerywarehouse = new Scene();
+        grocerywarehouse.setSceneName("The Grocery Store Warehouse");
         grocerywarehouse.setSceneDescript(
             "Grocery Warehouse");
-        grocerywarehouse.setMapSymbol("GH");
+        grocerywarehouse.setMapSymbol("GW");
         //obligatory.setBlocked(false);
         grocerywarehouse.setTravelTime(25);
         scenes[SceneType.grocerywarehouse.ordinal()] = grocerywarehouse;
         
         Scene zoo = new Scene();
+        zoo.setSceneName("The Zoo Entrance");
         zoo.setSceneDescript(
             "Zoo");
         zoo.setMapSymbol("ZO");
@@ -188,38 +214,43 @@ public enum SceneType {
         scenes[SceneType.zoo.ordinal()] = zoo;
         
         Scene elephants = new Scene();
+        elephants.setSceneName("The Elephant Enclosure");
         elephants.setSceneDescript(
             "Elephant");
-        elephants.setMapSymbol("EL");
+        elephants.setMapSymbol("ZE");
         //obligatory.setBlocked(false);
         elephants.setTravelTime(30);
         scenes[SceneType.elephants.ordinal()] = elephants;
         
         Scene tigers = new Scene();
+        tigers.setSceneName("The Tiger Enclosure");
         tigers.setSceneDescript(
             "Tigers");
-        tigers.setMapSymbol("TG");
+        tigers.setMapSymbol("ZT");
         //obligatory.setBlocked(false);
         tigers.setTravelTime(25);
         scenes[SceneType.tigers.ordinal()] = tigers;
         
         Scene kangaroos = new Scene();
+        kangaroos.setSceneName("The Kangaroo Enclosure");
         kangaroos.setSceneDescript(
             "Kangaroos");
-        kangaroos.setMapSymbol("KG");
+        kangaroos.setMapSymbol("ZK");
         //obligatory.setBlocked(false);
         kangaroos.setTravelTime(35);
         scenes[SceneType.kangaroos.ordinal()] = kangaroos;
         
         Scene giraffes = new Scene();
+        giraffes.setSceneName("The Giraffe Enclosure");
         giraffes.setSceneDescript(
             "Giraffes");
-        giraffes.setMapSymbol("GF");
+        giraffes.setMapSymbol("ZG");
         //obligatory.setBlocked(false);
         giraffes.setTravelTime(40);
         scenes[SceneType.giraffes.ordinal()] = giraffes;
         
         Scene schoolentrance = new Scene();
+        schoolentrance.setSceneName("The School Entrance");
         schoolentrance.setSceneDescript(
             "School Entrance");
         schoolentrance.setMapSymbol("SE");
@@ -228,6 +259,7 @@ public enum SceneType {
         scenes[SceneType.schoolentrance.ordinal()] = schoolentrance;
         
         Scene schoolcafeteria = new Scene();
+        schoolcafeteria.setSceneName("The School cafeteria");        
         schoolcafeteria.setSceneDescript(
             "School Cafeteria");
         schoolcafeteria.setMapSymbol("SC");
@@ -236,6 +268,7 @@ public enum SceneType {
         scenes[SceneType.schoolcafeteria.ordinal()] = schoolcafeteria;
         
         Scene schoolplayground = new Scene();
+        schoolplayground.setSceneName("The School Playground");        
         schoolplayground.setSceneDescript(
             "School Playground");
         schoolplayground.setMapSymbol("SP");
@@ -244,6 +277,7 @@ public enum SceneType {
         scenes[SceneType.schoolplayground.ordinal()] = schoolplayground;
         
         Scene schoolparkinglot = new Scene();
+        schoolparkinglot.setSceneName("The School Parking Lot");
         schoolparkinglot.setSceneDescript(
             "School Parking Lot");
         schoolparkinglot.setMapSymbol("SL");
@@ -252,6 +286,7 @@ public enum SceneType {
         scenes[SceneType.schoolparkinglot.ordinal()] = schoolparkinglot;
         
         Scene fishmonger = new Scene();
+        fishmonger.setSceneName("The Fishmonger Stand");
         fishmonger.setSceneDescript(
             "Fishmonger");
         fishmonger.setMapSymbol("FM");
