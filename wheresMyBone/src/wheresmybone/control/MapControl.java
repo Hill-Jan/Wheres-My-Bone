@@ -82,7 +82,7 @@ public enum SceneType {
         Scene vacanthouse = new Scene();
         vacanthouse.setSceneName("The Vacant House");
         vacanthouse.setSceneDescript(
-            "e plurubus enum");
+            "Vacant House");
         vacanthouse.setMapSymbol("VH");
         //obligatory.setBlocked(false);
         vacanthouse.setTravelTime(20);
@@ -91,7 +91,7 @@ public enum SceneType {
         Scene police = new Scene();
         police.setSceneName("Police");
         police.setSceneDescript(
-            "e plurubus enum");
+            "Police Station");
         police.setMapSymbol("PS");
         //obligatory.setBlocked(false);
         police.setTravelTime(15);
@@ -100,7 +100,7 @@ public enum SceneType {
         Scene animalhospital = new Scene();
         animalhospital.setSceneName("Animal Hospital");
         animalhospital.setSceneDescript(
-            "e plurubus enum");
+            "Animal Hospital");
         animalhospital.setMapSymbol("AH");
         //obligatory.setBlocked(false);
         animalhospital.setTravelTime(25);
@@ -109,7 +109,7 @@ public enum SceneType {
         Scene pound = new Scene();
         pound.setSceneName("The Pound");
         pound.setSceneDescript(
-            "e plurubus enum");
+            "Pound");
         pound.setMapSymbol("PD");
         //obligatory.setBlocked(false);
         pound.setTravelTime(30);
@@ -118,8 +118,8 @@ public enum SceneType {
         Scene bakery = new Scene();
         bakery.setSceneName("The Bakeryk");
         bakery.setSceneDescript(
-            "e plurubus enum");
-        bakery.setMapSymbol("TB");
+            "Bakery");
+        bakery.setMapSymbol("BK");
         //obligatory.setBlocked(false);
         bakery.setTravelTime(25);
         scenes[SceneType.bakery.ordinal()] = bakery;
@@ -136,7 +136,7 @@ public enum SceneType {
         Scene drivein = new Scene();
         drivein.setSceneName("The Drive-In");
         drivein.setSceneDescript(
-            "e plurubus enum");
+            "Drive In");
         drivein.setMapSymbol("DI");
         //obligatory.setBlocked(false);
         drivein.setTravelTime(25);
@@ -145,8 +145,8 @@ public enum SceneType {
         Scene pond = new Scene();
         pond.setSceneName("The Pond");
         pond.setSceneDescript(
-            "e plurubus enum");
-        pond.setMapSymbol("TP");
+            "The Pond");
+        pond.setMapSymbol("PN");
         //obligatory.setBlocked(false);
         pond.setTravelTime(15);
         scenes[SceneType.pond.ordinal()] = pond;
@@ -154,8 +154,8 @@ public enum SceneType {
         Scene alley = new Scene();
         alley.setSceneName("The Alley");
         alley.setSceneDescript(
-            "e plurubus enum");
-        alley.setMapSymbol("TA");
+            "Alley");
+        alley.setMapSymbol("AL");
         //obligatory.setBlocked(false);
         alley.setTravelTime(25);
         scenes[SceneType.alley.ordinal()] = alley;
@@ -164,7 +164,7 @@ public enum SceneType {
         carehome.setSceneName("The Nursing Home");
         carehome.setSceneDescript(
             "e plurubus enum");
-        carehome.setMapSymbol("NH");
+        carehome.setMapSymbol("CH");
         //obligatory.setBlocked(false);
         carehome.setTravelTime(20);
         scenes[SceneType.carehome.ordinal()] = carehome;
@@ -172,7 +172,7 @@ public enum SceneType {
         Scene neighborshouse = new Scene();
         neighborshouse.setSceneName("The Smith's House");
         neighborshouse.setSceneDescript(
-            "e plurubus enum");
+            "Neighbor House");
         neighborshouse.setMapSymbol("NH");
         //obligatory.setBlocked(false);
         neighborshouse.setTravelTime(5);
@@ -181,7 +181,7 @@ public enum SceneType {
         Scene yourhouse = new Scene();
         yourhouse.setSceneName("Your House");
         yourhouse.setSceneDescript(
-            "Your bone is missing.");
+            "Your House");
         yourhouse.setMapSymbol("YH");
         //obligatory.setBlocked(false);
         yourhouse.setTravelTime(0);
@@ -190,7 +190,7 @@ public enum SceneType {
         Scene devilshouse = new Scene();
         devilshouse.setSceneName("DeVil's House");
         devilshouse.setSceneDescript(
-            "e plurubus enum");
+            "DeVil's House");
         devilshouse.setMapSymbol("DH");
         //obligatory.setBlocked(false);
         devilshouse.setTravelTime(5);
@@ -199,7 +199,7 @@ public enum SceneType {
         Scene grocerywarehouse = new Scene();
         grocerywarehouse.setSceneName("The Grocery Store Warehouse");
         grocerywarehouse.setSceneDescript(
-            "e plurubus enum");
+            "Grocery Warehouse");
         grocerywarehouse.setMapSymbol("GW");
         //obligatory.setBlocked(false);
         grocerywarehouse.setTravelTime(25);
@@ -208,7 +208,7 @@ public enum SceneType {
         Scene zoo = new Scene();
         zoo.setSceneName("The Zoo Entrance");
         zoo.setSceneDescript(
-            "e plurubus enum");
+            "Zoo");
         zoo.setMapSymbol("ZO");
         //obligatory.setBlocked(false);
         zoo.setTravelTime(20);
@@ -217,7 +217,7 @@ public enum SceneType {
         Scene elephants = new Scene();
         elephants.setSceneName("The Elephant Enclosure");
         elephants.setSceneDescript(
-            "e plurubus enum");
+            "Elephant");
         elephants.setMapSymbol("ZE");
         //obligatory.setBlocked(false);
         elephants.setTravelTime(30);
@@ -226,7 +226,7 @@ public enum SceneType {
         Scene tigers = new Scene();
         tigers.setSceneName("The Tiger Enclosure");
         tigers.setSceneDescript(
-            "e plurubus enum");
+            "Tigers");
         tigers.setMapSymbol("ZT");
         //obligatory.setBlocked(false);
         tigers.setTravelTime(25);
@@ -235,7 +235,7 @@ public enum SceneType {
         Scene kangaroos = new Scene();
         kangaroos.setSceneName("The Kangaroo Enclosure");
         kangaroos.setSceneDescript(
-            "e plurubus enum");
+            "Kangaroos");
         kangaroos.setMapSymbol("ZK");
         //obligatory.setBlocked(false);
         kangaroos.setTravelTime(35);
@@ -244,7 +244,7 @@ public enum SceneType {
         Scene giraffes = new Scene();
         giraffes.setSceneName("The Giraffe Enclosure");
         giraffes.setSceneDescript(
-            "e plurubus enum");
+            "Giraffes");
         giraffes.setMapSymbol("ZG");
         //obligatory.setBlocked(false);
         giraffes.setTravelTime(40);
@@ -253,7 +253,7 @@ public enum SceneType {
         Scene schoolentrance = new Scene();
         schoolentrance.setSceneName("The School Entrance");
         schoolentrance.setSceneDescript(
-            "e plurubus enum");
+            "School Entrance");
         schoolentrance.setMapSymbol("SE");
         //obligatory.setBlocked(false);
         schoolentrance.setTravelTime(20);
@@ -262,7 +262,7 @@ public enum SceneType {
         Scene schoolcafeteria = new Scene();
         schoolcafeteria.setSceneName("The School cafeteria");        
         schoolcafeteria.setSceneDescript(
-            "e plurubus enum");
+            "School Cafeteria");
         schoolcafeteria.setMapSymbol("SC");
         //obligatory.setBlocked(false);
         schoolcafeteria.setTravelTime(25);
@@ -271,7 +271,7 @@ public enum SceneType {
         Scene schoolplayground = new Scene();
         schoolplayground.setSceneName("The School Playground");        
         schoolplayground.setSceneDescript(
-            "e plurubus enum");
+            "School Playground");
         schoolplayground.setMapSymbol("SP");
         //obligatory.setBlocked(false);
         schoolplayground.setTravelTime(25);
@@ -280,8 +280,8 @@ public enum SceneType {
         Scene schoolparkinglot = new Scene();
         schoolparkinglot.setSceneName("The School Parking Lot");
         schoolparkinglot.setSceneDescript(
-            "e plurubus enum");
-        schoolparkinglot.setMapSymbol("SP");
+            "School Parking Lot");
+        schoolparkinglot.setMapSymbol("SL");
         //obligatory.setBlocked(false);
         schoolparkinglot.setTravelTime(20);
         scenes[SceneType.schoolparkinglot.ordinal()] = schoolparkinglot;
@@ -289,7 +289,7 @@ public enum SceneType {
         Scene fishmonger = new Scene();
         fishmonger.setSceneName("The Fishmonger Stand");
         fishmonger.setSceneDescript(
-            "e plurubus enum");
+            "Fishmonger");
         fishmonger.setMapSymbol("FM");
         //obligatory.setBlocked(false);
         fishmonger.setTravelTime(35);
