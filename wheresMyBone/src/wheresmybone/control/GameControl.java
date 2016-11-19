@@ -13,6 +13,7 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
+import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 //import wheresmybone.model.Scene.SceneType;
@@ -75,6 +76,7 @@ public class GameControl {
         
     }
     
+    
     public static ArrayList<Item> createItemList() {
         //created ArrayList of items
         ArrayList<Item> items = new ArrayList<>();
@@ -123,7 +125,7 @@ BEGIN
         
         Backpack backpack = new Backpack(); //create backpack
         player.setBackpack(backpack); //save backpack in game
-        
+
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game
         

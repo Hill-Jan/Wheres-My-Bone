@@ -17,13 +17,23 @@ public class Item implements Serializable{
     private String startScene;
     private String description;
     private String associatedNpc;
-    private String item;
+    private String name;
 
     public Item() {
     }
 
-    public Item(String item, String startScene, String description) {
-        this.item = item;
+    public Item(String name, String startScene, String description) {
+        this.name = name;
+        this.startScene = startScene;
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String item) {
+        this.name = name;
     }
     
 
@@ -50,19 +60,15 @@ public class Item implements Serializable{
     public void setAssociatedNpc(String associatedNpc) {
         this.associatedNpc = associatedNpc;
     }
-    
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.startScene);
-        hash = 61 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.startScene);
+        hash = 29 * hash + Objects.hashCode(this.description);
+        hash = 29 * hash + Objects.hashCode(this.associatedNpc);
+        hash = 29 * hash + Objects.hashCode(this.name);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" + "name=" + startScene + ", description=" + description + '}';
     }
 
     @Override
@@ -83,8 +89,21 @@ public class Item implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.associatedNpc, other.associatedNpc)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" + "startScene=" + startScene + ", description=" + description + ", associatedNpc=" + associatedNpc + ", name=" + name + '}';
+    }
+    
+
     
     
 }

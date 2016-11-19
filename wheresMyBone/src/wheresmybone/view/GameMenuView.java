@@ -10,6 +10,7 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
+import wheresmybone.model.Npc;
 
 /**
  *
@@ -27,6 +28,7 @@ public class GameMenuView extends View {
                 + "\n -------------------------------------------------"
                 + "\nI - Show items in room"
                 + "\nB - Show items in backpack"
+                + "\nN - Show NPC list"
                 + "\nT - Check time"
                 + "\nM - Show Map"
                 + "\nS - Save Game"
@@ -68,6 +70,9 @@ END */
                 break;
             case "B": //Show items in backpack
                 this.showBackpackItems();
+                break;
+            case "N": //Show NPC list
+                this.showNpcList();
                 break;
             case "T": //Check Time
                 this.checkTime();
@@ -124,12 +129,8 @@ END */
         line.insert(0, "Item");
         System.out.println(line.toString());
 
-        //for each inventory item
         for (Item item : items) {
-            line = new StringBuilder("                        ");
-            line.insert(0, game.getItems());
-
-            System.out.println(line.toString());
+            System.out.println(item.getName());
         }
     }
 
@@ -258,5 +259,13 @@ END*/
             System.out.println("Error");
         }
    System.out.println("Your current location is " + map.getCurrentLocation().getSceneName().getSceneName());
+    }
+
+    public void showNpcList() {
+        Npc[] npcs = Npc.values();
+        
+        for (Npc character : npcs) {
+            System.out.println(character + " is " + character.getDialogue());
+        }
     }
 }

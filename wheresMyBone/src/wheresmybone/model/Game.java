@@ -7,6 +7,7 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -102,19 +103,25 @@ public class Game implements Serializable{
     }
 
     @Override
+    public String toString() {
+        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", attribute=" + attribute + ", items=" + items + ", time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
+    }
+
+    @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + this.startTime;
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.instructions);
-        hash = 83 * hash + Objects.hashCode(this.attribute);
+        hash = 17 * hash + this.startTime;
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 17 * hash + Objects.hashCode(this.instructions);
+        hash = 17 * hash + Objects.hashCode(this.attribute);
+        hash = 17 * hash + Objects.hashCode(this.items);
+        hash = 17 * hash + Objects.hashCode(this.time);
+        hash = 17 * hash + Objects.hashCode(this.player);
+        hash = 17 * hash + Objects.hashCode(this.backpack);
+        hash = 17 * hash + Objects.hashCode(this.map);
         return hash;
     }
- @Override
-    public String toString() {
-        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", attribute=" + attribute + '}';
-    }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -139,15 +146,26 @@ public class Game implements Serializable{
         if (!Objects.equals(this.attribute, other.attribute)) {
             return false;
         }
+        if (!Objects.equals(this.items, other.items)) {
+            return false;
+        }
+        if (!Objects.equals(this.time, other.time)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.backpack, other.backpack)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
         return true;
     }
 
-   
+    
 
    
-    
-   
-    
-    
-    
-}
+    }
+
