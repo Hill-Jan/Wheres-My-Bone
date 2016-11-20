@@ -29,31 +29,31 @@ public class GameControl {
        Location[][] locations = map.getLocations();
        
         // start point
-       locations[0][0].setSceneName(scenes[SceneType.park.ordinal()]);
-       locations[0][1].setSceneName(scenes[SceneType.vacanthouse.ordinal()]);
-       locations[0][2].setSceneName(scenes[SceneType.police.ordinal()]);
-       locations[0][3].setSceneName(scenes[SceneType.animalhospital.ordinal()]);
-       locations[0][4].setSceneName(scenes[SceneType.pound.ordinal()]);
-       locations[1][0].setSceneName(scenes[SceneType.bakery.ordinal()]);
-       locations[1][1].setSceneName(scenes[SceneType.restaurant.ordinal()]);
-       locations[1][2].setSceneName(scenes[SceneType.drivein.ordinal()]);
-       locations[1][3].setSceneName(scenes[SceneType.pond.ordinal()]);
-       locations[1][4].setSceneName(scenes[SceneType.alley.ordinal()]);
-       locations[2][0].setSceneName(scenes[SceneType.carehome.ordinal()]);
-       locations[2][1].setSceneName(scenes[SceneType.neighborshouse.ordinal()]);
-       locations[2][2].setSceneName(scenes[SceneType.yourhouse.ordinal()]);
-       locations[2][3].setSceneName(scenes[SceneType.devilshouse.ordinal()]);
-       locations[2][4].setSceneName(scenes[SceneType.grocerywarehouse.ordinal()]);
-       locations[3][0].setSceneName(scenes[SceneType.zoo.ordinal()]);
-       locations[3][1].setSceneName(scenes[SceneType.elephants.ordinal()]);
-       locations[3][2].setSceneName(scenes[SceneType.tigers.ordinal()]);
-       locations[3][3].setSceneName(scenes[SceneType.kangaroos.ordinal()]);
-       locations[3][4].setSceneName(scenes[SceneType.giraffes.ordinal()]);
-       locations[4][0].setSceneName(scenes[SceneType.schoolentrance.ordinal()]);
-       locations[4][1].setSceneName(scenes[SceneType.schoolcafeteria.ordinal()]);
-       locations[4][2].setSceneName(scenes[SceneType.schoolplayground.ordinal()]);
-       locations[4][3].setSceneName(scenes[SceneType.schoolparkinglot.ordinal()]);
-       locations[4][4].setSceneName(scenes[SceneType.fishmonger.ordinal()]);
+       locations[0][0].setScene(scenes[SceneType.park.ordinal()]);
+       locations[0][1].setScene(scenes[SceneType.vacanthouse.ordinal()]);
+       locations[0][2].setScene(scenes[SceneType.police.ordinal()]);
+       locations[0][3].setScene(scenes[SceneType.animalhospital.ordinal()]);
+       locations[0][4].setScene(scenes[SceneType.pound.ordinal()]);
+       locations[1][0].setScene(scenes[SceneType.bakery.ordinal()]);
+       locations[1][1].setScene(scenes[SceneType.restaurant.ordinal()]);
+       locations[1][2].setScene(scenes[SceneType.drivein.ordinal()]);
+       locations[1][3].setScene(scenes[SceneType.pond.ordinal()]);
+       locations[1][4].setScene(scenes[SceneType.alley.ordinal()]);
+       locations[2][0].setScene(scenes[SceneType.carehome.ordinal()]);
+       locations[2][1].setScene(scenes[SceneType.neighborshouse.ordinal()]);
+       locations[2][2].setScene(scenes[SceneType.yourhouse.ordinal()]);
+       locations[2][3].setScene(scenes[SceneType.devilshouse.ordinal()]);
+       locations[2][4].setScene(scenes[SceneType.grocerywarehouse.ordinal()]);
+       locations[3][0].setScene(scenes[SceneType.zoo.ordinal()]);
+       locations[3][1].setScene(scenes[SceneType.elephants.ordinal()]);
+       locations[3][2].setScene(scenes[SceneType.tigers.ordinal()]);
+       locations[3][3].setScene(scenes[SceneType.kangaroos.ordinal()]);
+       locations[3][4].setScene(scenes[SceneType.giraffes.ordinal()]);
+       locations[4][0].setScene(scenes[SceneType.schoolentrance.ordinal()]);
+       locations[4][1].setScene(scenes[SceneType.schoolcafeteria.ordinal()]);
+       locations[4][2].setScene(scenes[SceneType.schoolplayground.ordinal()]);
+       locations[4][3].setScene(scenes[SceneType.schoolparkinglot.ordinal()]);
+       locations[4][4].setScene(scenes[SceneType.fishmonger.ordinal()]);
        
        
     }

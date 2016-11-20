@@ -19,12 +19,12 @@ public CafeteriaViewTest() {
                     +"\n"
                     +"\nYou snuck into the cafeteria at the back of the school."
                     +"\nThere are several children nearby eating lunch or playing."
-                    +"\nYou notice Brad, a lanky 10-year-old from the neighborhood."
-                    +"\nHe seems upset about something.  What should you do?"
+                    +"\nYou notice a nice lady near the register.  Some snacks."
+                    +"\nare displayed on the counter next to her.  What should you do?"
                     +"\n********************************************************"
                     +"\nChoose a menu option:"
-                    +"\nT - Talk to Brad"
-                    +"\nB - Beg for Food"
+                    +"\nT - Talk to the Cashier."
+                    +"\nB - Beg for Food from the kids."
                     +"\nX - Get out Fast!"
                     +"\n********************************************************");
                     }
@@ -35,7 +35,7 @@ public boolean doAction (String value){
 
         switch(value){
             case "T":
-                this.talkToBrad();
+                this.talkToCashier();
                 break;
             
             case"B":
@@ -49,8 +49,8 @@ public boolean doAction (String value){
 
 }
 
-    private void talkToBrad() {
-        System.out.println("\n***This calls the Talk To Brad function"
+    private void talkToCashier() {
+        System.out.println("\n***This calls the Talk To Cashier function"
                             +"\nHe's lost his notebook.");
     }
 

@@ -31,15 +31,17 @@ public class GameMenuView extends View {
                 + "\nN - Show NPC list"
                 + "\nT - Check time"
                 + "\nM - Show Map"
+                + "\nG - Go To New Location"
                 + "\nS - Save Game"
                 + "\nH - Help Menu"
-                + "\nJ - Test Vacant House"
+                /*+ "\nJ - Test Vacant House"
                 + "\nG - Test Giraffe Enclosure"
                 + "\nY - Test Your House"
                 + "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"
                 + "\nC - Test Cafeteria View Test"
                 + "\nZ - Test Zoo Entrance View"
+                + "\nE - Test School Entrance View"*/
                 + "\nX - Exit to Main Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
@@ -86,7 +88,10 @@ END */
             case "H": //Help Menu
                 this.displayHelpMenu();
                 break;
-            case "J": //test vacant house
+            case "G":
+                this.displayGoToNewLocation();
+                break;
+            /*case "J": //test vacant house
                 this.displayVacantHouseView();
                 break;
             case "G": //test giraffe enclosure
@@ -107,6 +112,9 @@ END */
             case "Z": //test ZooEntranceView
                 this.displayZooEntranceView();
                 break;
+            case "E"://test School entrance View
+                this.displaySchoolEntranceView();
+                break;*/
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -199,6 +207,13 @@ END */
         //Display the zoo entrance view
         zooEntranceView.display();
     }
+    
+    private void displaySchoolEntranceView() {
+        //Create displayRoomMenuView object
+        SchoolEntrance schoolEntranceTest = new SchoolEntrance();
+        //Display the room menu view
+        schoolEntranceTest.display();
+    }
 //Displays the map
     public void viewMap() {
 /*BEGIN
@@ -220,7 +235,7 @@ END */
  ENDFOR
  PRINT ending row divider
 END*/
-        //Console console = System.console();
+        //Console console = System.console(); Displays Map
         String leftIndicator;
         String rightIndicator;
         Game game = WheresMyBone.getCurrentGame(); // retreive the game
@@ -245,20 +260,21 @@ END*/
                         rightIndicator = "<"; // same as above
                     }
                     System.out.print("|"); // start map with a |
-                    if (locations[row][column].getSceneName() == null) {
+                    if (locations[row][column].getScene() == null) {
                         System.out.print(leftIndicator + "??" + rightIndicator);
                     } else {
-                        System.out.print(leftIndicator + locations[row][column].getSceneName().getMapSymbol() + rightIndicator);
+                        System.out.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
 
                     }
                 }
+                
                 System.out.println("|");
  
             }
         } catch (Exception e) {
             System.out.println("Error");
         }
-   System.out.println("Your current location is " + map.getCurrentLocation().getSceneName().getSceneName());
+   System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
     public void showNpcList() {
@@ -267,5 +283,11 @@ END*/
         for (Npc character : npcs) {
             System.out.println(character + " is " + character.getDialogue());
         }
+    }
+
+    private void displayGoToNewLocation() {
+        MapView mapView = new MapView();
+        mapView.display();
+        viewMap();
     }
 }
