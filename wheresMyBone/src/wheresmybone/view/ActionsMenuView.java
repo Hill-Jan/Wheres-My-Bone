@@ -25,11 +25,11 @@ public class ActionsMenuView extends View {
                       + "\nS - Search (Let's the player search the area.)"
                       + "\nD - Dig. (Player can dig around the area for items.)"
                       + "\nT - Talk (Allows the player to talk to the person in the area.)"
-                      + "\nP - Pick up an Item"
+                      + "\nP - Pick up an Item" // gives description of the item
                       + "\nB - Put Item in Backpack"
                       + "\nR - Drop the Item"
                       + "\nI - Inventory (Displays what is in your Backpack)"
-                      + "\nG - Give an Item from your Backpack to the Character in the Area."
+                      + "\nG - Give an Item from your Backpack to the Character in the Area." //Remove from backpack
                       + "\nN - Go to a New location."
                       + "\nQ - Quit Actions Menu"
                       + "\n --------------------------------------------------"

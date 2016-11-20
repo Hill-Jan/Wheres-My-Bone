@@ -40,8 +40,8 @@ public class GameMenuView extends View {
                 + "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"
                 + "\nC - Test Cafeteria View Test"
-                + "\nZ - Test Zoo Entrance View"
-                + "\nE - Test School Entrance View"*/
+                + "\nZ - Test Zoo Entrance View"*/
+                + "\nE - Test School Entrance View"
                 + "\nX - Exit to Main Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
@@ -111,10 +111,10 @@ END */
                 break;
             case "Z": //test ZooEntranceView
                 this.displayZooEntranceView();
-                break;
+                break;*/
             case "E"://test School entrance View
                 this.displaySchoolEntranceView();
-                break;*/
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -216,25 +216,7 @@ END */
     }
 //Displays the map
     public void viewMap() {
-/*BEGIN
- get the 2-D locations array in the map in the current game
- PRINT the title
- PRINT the column numbers in the header
- FOR every row in map
- PRINT a row divider
- PRINT the row number on a new line
- FOR every column in row
- PRINT a column divider
- location = locations[row][column]
- IF location has been visited
- PRINT the mapSymbol in the scene in this location
- ELSE
- DISPLAY " ?? "
- ENDIF
- PRINT the ending column divider
- ENDFOR
- PRINT ending row divider
-END*/
+
         //Console console = System.console(); Displays Map
         String leftIndicator;
         String rightIndicator;

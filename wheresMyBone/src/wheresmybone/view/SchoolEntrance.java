@@ -81,13 +81,37 @@ public boolean doAction (String value){
                 index = i;
             }
         }
+        /*TEST MATRIX
+        ***************************************
+        Location of item in ArrayList Backpack
+        ***************************************
+                  |  VALID    |  INVALID      |
+        ***************************************
+        INPUT     | Paper     |  Paper        |
+        ***************************************
+        OUTPUT    |  13       |     -1        |
+        ***************************************
+           Error  |           | Must not have |
+                                  it yet      |
+        ***************************************
+        */
+        
+        /* ALGORITHM for displaying location of item
+           Process the search above to locate the item within the inventory arrayList
+                        located in the Game Control Layer.
+           Use the index variable to display the location of the item in 
+                        the inventory (in this case: paper)
+           Display the location of the item on the screen.
+        */
+        
         if(index != -1){
+            System.out.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
             System.out.println("\nYou give Brad the paper.  He's so excited "
             + "\nhe gives you a hug.  You ask if he's seen DeVil with"
             + "\n a bone."
             +"\n"
             +"\n\"I saw him going through the playground earlier, but"
-            +"\nhe didn't have bone.  Good luck!\""
+            +"\nhe didn't have a bone.  Good luck!\""
             +"\n****************************************************"
             +"\nWhere To Now?  Enter a new location."
             +"\n****************************************************");                       
