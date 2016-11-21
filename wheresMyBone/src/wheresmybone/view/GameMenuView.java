@@ -210,7 +210,7 @@ END */
         //Display the zoo entrance view
         zooEntranceView.display();
     }
-    
+
     private void displaySchoolEntranceView() {
         //Create displayRoomMenuView object
         SchoolEntrance schoolEntranceTest = new SchoolEntrance();
@@ -218,6 +218,7 @@ END */
         schoolEntranceTest.display();
     }
 //Displays the map
+
     public void viewMap() {
 
         //Console console = System.console(); Displays Map
@@ -252,25 +253,26 @@ END */
 
                     }
                 }
-                
+
                 System.out.println("|");
- 
+
             }
         } catch (Exception e) {
             System.out.println("Error");
         }
-   System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
+        System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
     public void showNpcList() {
         Npc[] npcs = Npc.values();
-        
+
         for (Npc character : npcs) {
             System.out.println(character + " is " + character.getDialogue());
         }
     }
 
     private void displayGoToNewLocation() {
+        viewMap();
         MapView mapView = new MapView();
         mapView.display();
         viewMap();
