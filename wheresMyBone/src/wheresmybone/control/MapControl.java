@@ -5,6 +5,8 @@
  */
 package wheresmybone.control;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
 import wheresmybone.model.Map;
 import wheresmybone.model.Scene;
 //import wheresmybone.model.Scene.SceneType;
@@ -15,6 +17,7 @@ import wheresmybone.model.Scene;
  */
 public class MapControl {
 
+    private String name;
     public static Map createMap() {
         Map map = new Map(5,5);
         
@@ -298,6 +301,5 @@ public enum SceneType {
         
         return scenes;
     }
-    
-    
+ 
 }
