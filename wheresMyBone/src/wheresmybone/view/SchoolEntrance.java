@@ -6,7 +6,9 @@
 package wheresmybone.view;
 
 import java.util.ArrayList;
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
+import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
@@ -71,10 +73,21 @@ public boolean doAction (String value){
 
 
     public void searchYourBackpack() {
-        
+       Game game = WheresMyBone.getCurrentGame();      
+       ArrayList<Item> item = new ArrayList<>();
+       item = GameControl.createItemList();
+        //StringBuilder line;
+
+        System.out.println("\n       Inventory");
+        //line = new StringBuilder("          ");
+        int j=0;
+            for(j=0; j<item.size(); j++){
+            //line.insert(0, "Item");
+            System.out.println(j + "   " + item.get(j).getName() );
+            }
+
        ArrayList<Item> backpack = new ArrayList<>();
-       backpack = GameControl.createItemList();
-        
+      backpack = GameControl.createItemList();  
         String itemName = "paper";
         int index = -1;
         for (int i=0; i<backpack.size(); i++) {
