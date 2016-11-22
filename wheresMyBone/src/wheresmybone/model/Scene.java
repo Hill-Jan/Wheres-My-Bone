@@ -7,6 +7,7 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import wheresmybone.view.View;
 /**
  *
  * @author Hill-Jan
@@ -19,6 +20,7 @@ public class Scene implements Serializable{
  private Item item;
 private double travelTime;
 public String mapSymbol;
+public View view;
 
     public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;
@@ -27,6 +29,14 @@ public String mapSymbol;
     public String getMapSymbol() {
         
         return this.mapSymbol;
+    }
+
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
     }
   
  /*public enum SceneType {

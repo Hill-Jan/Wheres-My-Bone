@@ -10,6 +10,7 @@ import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import java.lang.String;
+import wheresmybone.control.MapControl;
 
 /**
  *
@@ -264,7 +265,7 @@ END */
         Npc[] npcs = Npc.values();
 
         for (Npc character : npcs) {
-            System.out.println(character + " is " + character.getDialogue());
+            System.out.println(character + " is " + character.getNpcLocation());
         }
     }
 
@@ -272,7 +273,19 @@ END */
         viewMap();
         MapView mapView = new MapView();
         mapView.display();
+        enterScene();
         viewMap();
+       
+        
+                
+       
+    }
+    private void enterScene(){
+        Game game = WheresMyBone.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        map.getCurrentLocation().getScene().getView().display();
+        
+        
     }
 
     }

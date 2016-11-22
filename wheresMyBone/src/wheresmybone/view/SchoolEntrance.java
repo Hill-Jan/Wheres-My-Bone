@@ -8,6 +8,7 @@ package wheresmybone.view;
 import java.util.ArrayList;
 import wheresmybone.control.GameControl;
 import wheresmybone.model.Item;
+import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 /**
  *
@@ -18,7 +19,7 @@ public class SchoolEntrance extends View{
 //}
 public SchoolEntrance() {
             super ("\n*********************************************************"
-                    +"\n    CAFETERIA  VIEW   "
+                    +"\n    School Entrance  VIEW   "
                     +"\n********************************************************"
                     +"\n"
                     +"\nYou come around the corner to the school entrance."
@@ -115,12 +116,20 @@ public boolean doAction (String value){
             +"\n****************************************************"
             +"\nWhere To Now?  Enter a new location."
             +"\n****************************************************");                       
+        viewMap();
+        MapView mapView = new MapView();
+        mapView.display();
+        viewMap();
         }
         else {
             System.out.println("\nYou must not have picked it up."
                 +"\n****************************************************"
                 +"\nWhere To Now?  Enter a new location."
                 +"\n****************************************************");
+        viewMap();
+        MapView mapView = new MapView();
+        mapView.display();
+        viewMap();
         }
     }
 }

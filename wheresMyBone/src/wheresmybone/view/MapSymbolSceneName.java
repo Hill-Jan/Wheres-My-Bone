@@ -39,89 +39,15 @@ public MapSymbolSceneName() {
 public boolean doAction(String value){
  
     value = value.toUpperCase();
-    
-    switch(value){
-        case "PK":
-            System.out.println("\n" + SceneType.park.getSceneName());
-            break;
-        case "VH":
-            System.out.println("\n" + SceneType.vacanthouse.getSceneName());
-            break;
-        case "PS":
-            System.out.println("\n" + SceneType.police.getSceneName());
-            break;
-        case "AH":
-            System.out.println("\n" + SceneType.animalhospital.getSceneName());
-            break;
-        case "PD":
-            System.out.println("\n" + SceneType.pound.getSceneName());
-            break;
-        case "BK":
-            System.out.println("\n" + SceneType.bakery.getSceneName());
-            break;
-        case "RS":
-            System.out.println("\n" + SceneType.restaurant.getSceneName());
-            break;
-        case "DI":
-            System.out.println("\n" + SceneType.drivein.getSceneName());
-            break;
-        case "PN":
-            System.out.println("\n" + SceneType.pond.getSceneName());
-            break;
-        case "AL":
-            System.out.println("\n" + SceneType.alley.getSceneName());
-            break;
-        case "CH":
-            System.out.println("\n" + SceneType.carehome.getSceneName());
-            break;
-        case "NH":
-            System.out.println("\n" + SceneType.neighborshouse.getSceneName());
-            break;
-        case "YH":
-            System.out.println("\n" + SceneType.yourhouse.getSceneName());
-            break;
-        case "DH":
-            System.out.println("\n" + SceneType.devilshouse.getSceneName());
-            break;
-        case "GH":
-            System.out.println("\n" + SceneType.grocerywarehouse.getSceneName());
-            break;
-        case "ZO":
-            System.out.println("\n" + SceneType.zoo.getSceneName());
-            break;
-        case "EL":
-            System.out.println("\n" + SceneType.elephants.getSceneName());
-            break;
-        case "TG":
-            System.out.println("\n" + SceneType.tigers.getSceneName());
-            break;
-        case "KG":
-            System.out.println("\n" + SceneType.kangaroos.getSceneName());
-            break;
-        case "GF":
-            System.out.println("\n" + SceneType.giraffes.getSceneName());
-            break;
-        case "SE":
-            System.out.println("\n" + SceneType.schoolentrance.getSceneName());
-            break;
-        case "SC":
-            System.out.println("\n" + SceneType.schoolcafeteria.getSceneName());
-            break;
-        case "SP":
-            System.out.println("\n" + SceneType.schoolplayground.getSceneName());
-            break;
-        case "SL":
-            System.out.println("\n" + SceneType.schoolparkinglot.getSceneName());
-            break;
-        case "FM":
-            System.out.println("\n" + SceneType.fishmonger.getSceneName());
-            break;
-        case "H":
-           return true;
-        default:
-            System.out.println("\n*** Invalid selection *** Choose a Map Symbol");
-            break;
+    for (SceneType st : SceneType.values()){
+        if (st.getMapSymbol().equals(value)){
+            System.out.println(st.getSceneName());
+         return true;   
+        }
+        
     }
+        System.out.println("Please choose a valid Map Symbol");
+        viewMap();
         return false;
 }
 

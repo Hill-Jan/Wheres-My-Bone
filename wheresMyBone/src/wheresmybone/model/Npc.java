@@ -15,7 +15,7 @@ import java.util.Objects;
 public enum Npc implements Serializable{
     
     //keywords and dialogue
-    Tommy("in the park"),
+    Tommy("Park"),
     OfficerPete("chasing a crook"),
     DrMice("veterinarian"),
     MrSam("dogcatcher"),
@@ -34,26 +34,26 @@ public enum Npc implements Serializable{
     Tigers("gimme fish");
     
     //class instance variables
-    private final String dialogue;
-    private final String itemGiven;
-    private final String itemReceived;
-    private final String clue;
+    private final String npcLocation;
+    //private final String itemGiven;
+    //private final String itemReceived;
+    //private final String clue;
     private final Point location;
 
-    Npc(String dialogue) {
-        this.dialogue = dialogue;
-        itemGiven = getItemGiven(); // not sure on this, added because we were getting an error saying itemGiven not initialized
-        itemReceived = getItemReceived(); // not sure on this, added because we were getting an error saying itemReceived not initialized
-        clue = getClue(); // not sure on this, added because we were getting an error saying clue not initialized
+    Npc(String npcLocation/*, String itemGiven, String itemReceived, String clue*/) {
+        this.npcLocation = npcLocation;
+        /*this.itemGiven = itemGiven;
+        this.itemReceived = itemReceived; // not sure on this, added because we were getting an error saying itemReceived not initialized
+        this.clue = clue; // not sure on this, added because we were getting an error saying clue not initialized*/
         location = new Point(1,1);
         
     }
 
-    public String getDialogue() {
-        return dialogue;
+    public String getNpcLocation() {
+        return npcLocation;
     }
 
-    public String getItemGiven() {
+    /*public String getItemGiven() {
         return itemGiven;
     }
 
@@ -63,7 +63,7 @@ public enum Npc implements Serializable{
 
     public String getClue() {
         return clue;
-    }
+    }*/
 
     public Point getLocation() {
         return location;

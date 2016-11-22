@@ -7,7 +7,11 @@ package wheresmybone.control;
 
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.model.Map;
+import wheresmybone.model.Npc;
+import static wheresmybone.model.Npc.Tommy;
 import wheresmybone.model.Scene;
+import wheresmybone.view.SchoolEntrance;
+import wheresmybone.view.View;
 
 /**
  *
@@ -42,36 +46,42 @@ public static void movePlayer(Map map, int row, int column) {
  
 
 public enum SceneType {
-    park("The Park"),
-    vacanthouse("Vacant House"),
-    police("Police Station"),
-    animalhospital("Animal Hospital"),
-    pound("The Pound"),
-    bakery("The Bakery"),
-    restaurant("A Restaurant"),
-    drivein("The Drive-In"),
-    pond("The pond"),
-    alley("A back alley"),
-    carehome("The Care Home"),
-    neighborshouse("Your Neigbor's House"),
-    yourhouse("Your House"),
-    devilshouse("Cat DeVil's House"),
-    grocerywarehouse("Grocery Warehouse"),
-    zoo("The Local Zoo"),
-    elephants("Zoo: Elephants"),
-    tigers("Zoo: Tigers"),
-    kangaroos("Zoo: Kangaroos"),
-    giraffes("Zoo: Giraffes"),
-    schoolentrance("School Entrance"),
-    schoolcafeteria("School: Cafeteria"),
-    schoolplayground("School: Playground"),
-    schoolparkinglot("School: Parking Lot"),
-    fishmonger("The Fishmonger's Market");
+    park("The Park","PK"),
+    vacanthouse("Vacant House","VH"),
+    police("Police Station","PS"),
+    animalhospital("Animal Hospital","AH"),
+    pound("The Pound","PD"),
+    bakery("The Bakery","BK"),
+    restaurant("A Restaurant","RS"),
+    drivein("The Drive-In","DI"),
+    pond("The pond","PN"),
+    alley("A back alley","AL"),
+    carehome("The Care Home","CH"),
+    neighborshouse("Your Neigbor's House","NH"),
+    yourhouse("Your House","YH"),
+    devilshouse("Cat DeVil's House","DH"),
+    grocerywarehouse("Grocery Warehouse","GH"),
+    zoo("The Local Zoo","ZO"),
+    elephants("Zoo: Elephants","EL"),
+    tigers("Zoo: Tigers","TG"),
+    kangaroos("Zoo: Kangaroos","KG"),
+    giraffes("Zoo: Giraffes","GF"),
+    schoolentrance("School Entrance","SE"),
+    schoolcafeteria("School: Cafeteria","SC"),
+    schoolplayground("School: Playground","SP"),
+    schoolparkinglot("School: Parking Lot","SL"),
+    fishmonger("The Fishmonger's Market","FM");
 
     private final String sceneName;
+    private final String mapSymbol;
     
-    SceneType(String sceneName) {
+    SceneType(String sceneName, String mapSymbol) {
         this.sceneName = sceneName;
+        this.mapSymbol = mapSymbol;
+    }
+    
+    public String getMapSymbol(){
+        return this.mapSymbol;
     }
     
     public String getSceneName() {
@@ -80,6 +90,7 @@ public enum SceneType {
  }
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
+        View displayView;
         
         Scene park = new Scene();
         park.setSceneName("The Park");
@@ -88,7 +99,9 @@ public enum SceneType {
         park.setMapSymbol("PK");
         //park.setBlocked(false);
         park.setTravelTime(20);
+        park.setNpcDescription(Npc.Tommy.getNpcLocation());
         scenes[SceneType.park.ordinal()] = park;
+        
         
         Scene vacanthouse = new Scene();
         vacanthouse.setSceneName("The Vacant House");
@@ -268,7 +281,10 @@ public enum SceneType {
         schoolentrance.setMapSymbol("SE");
         //obligatory.setBlocked(false);
         schoolentrance.setTravelTime(20);
+        displayView = new SchoolEntrance();
+        schoolentrance.setView(displayView);
         scenes[SceneType.schoolentrance.ordinal()] = schoolentrance;
+        
         
         Scene schoolcafeteria = new Scene();
         schoolcafeteria.setSceneName("The School cafeteria");        
