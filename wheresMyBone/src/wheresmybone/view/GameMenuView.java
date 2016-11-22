@@ -35,6 +35,7 @@ public class GameMenuView extends View {
                 + "\nG - Go To New Location"
                 + "\nS - Save Game"
                 + "\nH - Help Menu"
+                + "\nL - Display Scene List"
                 /*+ "\nJ - Test Vacant House"
                 + "\nG - Test Giraffe Enclosure"
                 + "\nY - Test Your House"
@@ -91,6 +92,9 @@ END */
                 break;
             case "G":
                 this.displayGoToNewLocation();
+                break;
+            case "L":
+                this.displaySceneList();
                 break;
             /*case "J": //test vacant house
                 this.displayVacantHouseView();
@@ -286,6 +290,14 @@ END */
         map.getCurrentLocation().getScene().getView().display();
         
         
+    }
+
+    private void displaySceneList() {
+        SceneType[] scenes = SceneType.values();
+        
+        for (SceneType sceneNames : scenes) {
+            System.out.println(sceneNames.getSceneName());
+        }
     }
 
     }

@@ -41,7 +41,7 @@ public boolean doAction(String value){
     value = value.toUpperCase();
     for (SceneType st : SceneType.values()){
         if (st.getMapSymbol().equals(value)){
-            System.out.println(st.getSceneName());
+            System.out.println("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName());
          return true;   
         }
         
