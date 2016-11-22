@@ -34,7 +34,33 @@ public MapSymbolSceneName() {
     System.out.println("\n");
     
 }
-      
+/*TEST MATRIX
+        ******************************************
+        |Location and Name of chosen MapSymbol   |
+        ******************************************
+        |          |  VALID       |  INVALID     |
+        ******************************************
+        | INPUT     | PK           |     LX      |
+        ******************************************
+        | OUTPUT    |  0, The Park |     false   |
+        ******************************************
+        |   Error  |              | Please choose| 
+        |                         | a valid Map  |
+        |                         | Symbol       |
+        ******************************************
+        */
+        
+        /* ALGORITHM for displaying location of item
+           Receive user input of valid mapSymbol and then
+            process the below for statement to locate the item within the Scene[] scenes
+           array, utilizing the SceneType enum, bothlocated in the MapControl Layer.
+           Use the ordinal() function to find the location of the scene in 
+                        the map and the .getSceneName() function to find the
+                        sceneName.
+           Display the location and Name of the scene corresponding with the
+            MapSymbol on the screen, or the error message regarding selecting a
+            valid Map Symbol
+        */   
 @Override
 public boolean doAction(String value){
  
