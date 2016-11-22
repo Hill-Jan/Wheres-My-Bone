@@ -25,6 +25,7 @@ public class HelpMenuView extends View {
                       + "\n -------------------------------------------------"
                       + "\nP - How to Play"
                       + "\nM - How to Move"
+                      + "\nN - Scene Names by Map Symbol"
                       + "\nC - Clues"
                       + "\nO - Objects"
                       + "\nH - How to Save/Load Game"
@@ -44,6 +45,9 @@ public class HelpMenuView extends View {
                 break;
             case "M": //How to Move
                 this.howMove();
+                break;
+            case "N": //show scene name by map symbol
+                this.MapSymbolSceneName();
                 break;
             case "C": //about Clues
                 this.aboutClues();
@@ -169,5 +173,10 @@ END */
         mainMenuView.display();
     }
 
+    private void MapSymbolSceneName() {
+       MapSymbolSceneName sceneFromSymbol = new MapSymbolSceneName();
+        //display
+       sceneFromSymbol.display();
+    }
     
 }

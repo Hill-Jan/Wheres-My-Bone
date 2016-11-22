@@ -5,19 +5,18 @@
  */
 package wheresmybone.control;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
+import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.model.Map;
 import wheresmybone.model.Scene;
-//import wheresmybone.model.Scene.SceneType;
 
 /**
  *
  * @author Jan
  */
 public class MapControl {
-
+    private String promptMessage;
     private String name;
+    
     public static Map createMap() {
         Map map = new Map(5,5);
         
@@ -39,35 +38,45 @@ public static void movePlayer(Map map, int row, int column) {
    map.setCurrentRow(row);
    map.setCurrentColumn(column);
 }
+
  
 
 public enum SceneType {
-    park,
-    vacanthouse,
-    police,
-    animalhospital,
-    pound,
-    bakery,
-    restaurant,
-    drivein,
-    pond,
-    alley,
-    carehome,
-    neighborshouse,
-    yourhouse,
-    devilshouse,
-    grocerywarehouse,
-    zoo,
-    elephants,
-    tigers,
-    kangaroos,
-    giraffes,
-    schoolentrance,
-    schoolcafeteria,
-    schoolplayground,
-    schoolparkinglot,
-    fishmonger;
+    park("The Park"),
+    vacanthouse("Vacant House"),
+    police("Police Station"),
+    animalhospital("Animal Hospital"),
+    pound("The Pound"),
+    bakery("The Bakery"),
+    restaurant("A Restaurant"),
+    drivein("The Drive-In"),
+    pond("The pond"),
+    alley("A back alley"),
+    carehome("The Care Home"),
+    neighborshouse("Your Neigbor's House"),
+    yourhouse("Your House"),
+    devilshouse("Cat DeVil's House"),
+    grocerywarehouse("Grocery Warehouse"),
+    zoo("The Local Zoo"),
+    elephants("Zoo: Elephants"),
+    tigers("Zoo: Tigers"),
+    kangaroos("Zoo: Kangaroos"),
+    giraffes("Zoo: Giraffes"),
+    schoolentrance("School Entrance"),
+    schoolcafeteria("School: Cafeteria"),
+    schoolplayground("School: Playground"),
+    schoolparkinglot("School: Parking Lot"),
+    fishmonger("The Fishmonger's Market");
 
+    private final String sceneName;
+    
+    SceneType(String sceneName) {
+        this.sceneName = sceneName;
+    }
+    
+    public String getSceneName() {
+        return this.sceneName;
+    }
  }
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
@@ -301,5 +310,4 @@ public enum SceneType {
         
         return scenes;
     }
- 
 }

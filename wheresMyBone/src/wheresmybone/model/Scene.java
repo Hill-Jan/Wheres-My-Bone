@@ -18,7 +18,7 @@ public class Scene implements Serializable{
  private String npcDescription;
  private Item item;
 private double travelTime;
-private String mapSymbol;
+public String mapSymbol;
 
     public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;

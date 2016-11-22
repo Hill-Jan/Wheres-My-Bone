@@ -25,7 +25,7 @@ import wheresmybone.model.Time;
  */
 public class GameControl {
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
        Location[][] locations = map.getLocations();
        
         // start point

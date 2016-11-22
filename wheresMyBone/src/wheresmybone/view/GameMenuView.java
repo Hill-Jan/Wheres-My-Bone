@@ -1,19 +1,15 @@
 package wheresmybone.view;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.io.Console;
-import static java.lang.System.console;
-import java.util.stream.Stream;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
-import wheresmybone.control.MapControl;
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
+import java.lang.String;
 
 /**
  *
@@ -23,6 +19,7 @@ public class GameMenuView extends View {
 
     private String promptMessage;
     //Console console;
+    private SceneType mapSymbol;
 
     public GameMenuView() {
         super("\n"
@@ -277,4 +274,5 @@ END */
         mapView.display();
         viewMap();
     }
-}
+
+    }
