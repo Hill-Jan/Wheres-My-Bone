@@ -25,7 +25,7 @@ public MapSymbolSceneName() {
          + "\nTo see what location the map symbol will take you to, input the"
          + "\nmap symbol from the map above."
          + "\n"
-         + "\n    Or choose H to return to Game Menu      "
+         + "\n    Or choose (H) to return to Help Menu      "
          + "\n"
          + "\n*****************************************************************"
     ); 
@@ -117,8 +117,7 @@ public boolean doAction(String value){
             System.out.println("\n" + SceneType.fishmonger.getSceneName());
             break;
         case "H":
-            this.backToGameMenu();
-            break;
+           return true;
         default:
             System.out.println("\n*** Invalid selection *** Choose a Map Symbol");
             break;
@@ -167,10 +166,4 @@ public static void viewMap() {
         }
 
 }
-
-    private void backToGameMenu() {
-        GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.display();
-    }
-
 }

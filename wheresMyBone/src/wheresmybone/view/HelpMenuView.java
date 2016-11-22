@@ -62,7 +62,7 @@ public class HelpMenuView extends View {
                 this.howSave();
                 break;
             case "Q": //quit Help Menu
-                this.quitHelp();
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
