@@ -41,7 +41,7 @@ public class RoomMenuView extends View {
                 this.viewMap();
                 break;
             case "G": // View the game menu
-                this.gameMenuView();
+                gameMenuView();
                 break;
             case "L": // Move to a different location
                 this.moveLocation();

@@ -44,7 +44,7 @@ public class GameMenuView extends View {
                 + "\nC - Test Cafeteria View Test"
                 + "\nZ - Test Zoo Entrance View"*/
                 + "\nE - Test School Entrance View"
-                + "\nX - Exit to Main Menu"
+                + "\nX - Exit Game Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
                 + "\nChoose a Menu Option: ");
