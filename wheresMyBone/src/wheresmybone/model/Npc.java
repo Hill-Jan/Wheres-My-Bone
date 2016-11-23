@@ -16,7 +16,7 @@ public enum Npc implements Serializable{
     
     //keywords and dialogue
     Tommy("Park"),
-    OfficerPete("chasing a crook"),
+    OfficerPete("Police Station"),
     DrMice("veterinarian"),
     MrSam("dogcatcher"),
     MsJones("baker"),
@@ -26,12 +26,12 @@ public enum Npc implements Serializable{
     MissEllie("nice old lady"),
     MrNono("zoo keeper"),
     MrCatch("fishmongerer"),
-    Elephants("gimme peanuts"),
-    Kangaroos("gimme a ball"),
-    Giraffes("food cylinder"),
+    Elephants("Elephant Enclosure"),
+    Kangaroos("Kangaroo Enclosure"),
+    Giraffes("Giraffe Enclosure"),
     Brad("lost his homework"),
     MrSneed("parking lot attendant"),
-    Tigers("gimme fish");
+    Tigers("Tiger Enclosure");
     
     //class instance variables
     private final String npcLocation;
