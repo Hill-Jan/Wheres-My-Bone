@@ -11,6 +11,7 @@ import wheresmybone.model.Npc;
 import static wheresmybone.model.Npc.Tommy;
 import wheresmybone.model.Scene;
 import wheresmybone.view.SchoolEntrance;
+import wheresmybone.view.VacantHouseSceneView;
 import wheresmybone.view.View;
 
 /**
@@ -100,8 +101,7 @@ public enum SceneType {
         //park.setBlocked(false);
         park.setTravelTime(20);
         park.setNpcDescription(Npc.Tommy.getNpcLocation());
-        scenes[SceneType.park.ordinal()] = park;
-        
+        scenes[SceneType.park.ordinal()] = park;  
         
         Scene vacanthouse = new Scene();
         vacanthouse.setSceneName("The Vacant House");
@@ -110,6 +110,8 @@ public enum SceneType {
         vacanthouse.setMapSymbol("VH");
         //obligatory.setBlocked(false);
         vacanthouse.setTravelTime(20);
+        displayView = new VacantHouseSceneView();
+        vacanthouse.setView(displayView);
         scenes[SceneType.vacanthouse.ordinal()] = vacanthouse;
         
         Scene police = new Scene();

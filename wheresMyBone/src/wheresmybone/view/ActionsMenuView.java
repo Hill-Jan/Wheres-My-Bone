@@ -5,7 +5,14 @@
  */
 package wheresmybone.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.model.Game;
+import wheresmybone.model.Item;
+import wheresmybone.model.Map;
+import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 
 /**
@@ -31,7 +38,7 @@ public class ActionsMenuView extends View {
                       + "\nI - Inventory (Displays what is in your Backpack)"
                       + "\nG - Give an Item from your Backpack to the Character in the Area." //Remove from backpack
                       + "\nN - Go to a New location."
-                      + "\nQ - Quit Actions Menu"
+                      + "\nX - Exit Actions Menu"
                       + "\n --------------------------------------------------"
                       + "\nChoose a Menu Option: "
                       + "\n");
@@ -68,9 +75,7 @@ public class ActionsMenuView extends View {
                 break;          
             case "N": //how to save/load game
                 this.actionMapLocation();
-                break;    
-            case "Q": //quit Actions Menu
-                this.quitActions();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -116,7 +121,7 @@ END */
                           +"\n-------------------------------------------------"
         );
     }
-
+    
     private void actionBackpack() {
         System.out.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to put an"
@@ -133,13 +138,28 @@ END */
         );
     }
     
-     private void actionInventory() {
+     /*private void actionInventory() {
         System.out.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to see what"
                           +"\n items are in his/her backpack."
                           +"\n-------------------------------------------------"
         );
-    }   
+    }  */
+    private void actionInventory() {
+        StringBuilder line;
+
+        Game game = WheresMyBone.getCurrentGame();
+        ArrayList<Item> items = GameControl.createItemList();
+
+        System.out.println("\n       LIST OF ITEMS IN BACKPACK");
+        line = new StringBuilder("          ");
+        line.insert(0, "Item");
+        System.out.println(line.toString());
+
+        for (Item item : items) {
+            System.out.println(item.getName());
+        }
+    }
     
      private void actionGiveItem() {
         System.out.println("\n-------------------------------------------------"
@@ -150,12 +170,18 @@ END */
     }   
  
     private void actionMapLocation() {
-        System.out.println("\n-------------------------------------------------"
-                          +"\nThis function will allow the player to move"
-                          +"\n to another Map Location."
-                          +"\n-------------------------------------------------"
-        );
-    }   
+        viewMap();
+        MapView mapView = new MapView();
+        mapView.display();
+        enterScene();
+        viewMap();
+}
+   
+    private void enterScene(){
+        Game game = WheresMyBone.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        map.getCurrentLocation().getScene().getView().display();
+    }
     private void quitActions() {
         //Create MainMenuView object
         return;

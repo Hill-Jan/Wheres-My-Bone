@@ -279,16 +279,13 @@ END */
         mapView.display();
         enterScene();
         viewMap();
-       
         
-                
-       
     }
+    
     private void enterScene(){
         Game game = WheresMyBone.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         map.getCurrentLocation().getScene().getView().display();
-        
         
     }
 

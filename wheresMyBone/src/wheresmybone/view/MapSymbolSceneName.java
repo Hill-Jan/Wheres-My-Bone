@@ -70,8 +70,10 @@ public boolean doAction(String value){
             System.out.println("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName());
          return true;   
         }
-        
-    }
+        if (value.toUpperCase().equals("X")) // user wants to quit
+                   break; //exit the game
+        }
+    
         System.out.println("Please choose a valid Map Symbol");
         viewMap();
         return false;

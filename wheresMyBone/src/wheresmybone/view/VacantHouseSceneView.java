@@ -5,6 +5,11 @@
  */
 package wheresmybone.view;
 
+import wheresmybone.WheresMyBone;
+import wheresmybone.model.Game;
+import wheresmybone.model.Map;
+import static wheresmybone.view.MapSymbolSceneName.viewMap;
+
 /**
  *
  * @author tCalder
@@ -44,7 +49,7 @@ public boolean doAction (String value){
             this.enterVacantHouse();
             break;
         case "M": // Make another move
-            this.makeMove();
+            this.displayGoToNewLocation();
             break;
         default:
             System.out.println("\n*** Invalid selection *** Try again");
@@ -55,10 +60,22 @@ public boolean doAction (String value){
     }
 
     private void enterVacantHouse() {
-        System.out.println("\n***This calls the enterVacantHouse() function");
+        VacantHouseView vacantHouseView = new VacantHouseView();
+        vacantHouseView.displayVacantHouseView();
     }
 
-    private void makeMove() {
-        System.out.println("\n**This calls the makeMove() function**");
-    }
+   private void displayGoToNewLocation() {
+        viewMap();
+        MapView mapView = new MapView();
+        mapView.display();
+        enterScene();
+        viewMap();
+}
+   
+private void enterScene(){
+        Game game = WheresMyBone.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        map.getCurrentLocation().getScene().getView().display();
+   
+}
 }
