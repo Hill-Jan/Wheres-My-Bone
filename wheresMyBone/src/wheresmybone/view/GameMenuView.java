@@ -37,7 +37,7 @@ public class GameMenuView extends View {
                 + "\nH - Help Menu"
                 + "\nL - Display Scene List"
                 //+ "\nJ - Test Vacant House"
-                + "\nG - Test Giraffe Enclosure"
+                + "\nGE - Test Giraffe Enclosure"
                 /*+ "\nY - Test Your House"
                 + "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"
