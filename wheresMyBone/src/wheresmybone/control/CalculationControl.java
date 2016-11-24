@@ -5,6 +5,8 @@
  */
 package wheresmybone.control;
 
+import wheresmybone.exceptions.CalculationControlException;
+
 
 /**
  *
@@ -13,20 +15,16 @@ package wheresmybone.control;
 public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
-    public double calcVolumeBox(double length, double width, double height){
+    public void calcVolumeBox(double length, double width, double height)
+                                throws CalculationControlException {
         //box volume calculation
         double volumeBox = length * width * height;
         
         if (volumeBox < 216) {
-                return -1;
+                throw new CalculationControlException("That box is to small"
+                        + "/nfor cat DeVil to fit into.");
             }
-            
-            if (volumeBox >= 216) {
-            return 1;
-            }
-            return volumeBox;
-            
-            // end calcVolumeBox by Tif Calder
+         
     }   
    
     //Cylinder Calculations by Jan Hill
