@@ -15,33 +15,37 @@ import wheresmybone.exceptions.CalculationControlException;
 public class CalculationControl {
     
     // calcVolumeBox coded by Tif Calder
-    public void calcVolumeBox(double length, double width, double height)
+    public static void calcVolumeBox(double length, double width, double height)
                                 throws CalculationControlException {
         //box volume calculation
         double volumeBox = length * width * height;
-        
+        if (volumeBox > 216) {
+            System.out.println("This box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!");
+        }
         if (volumeBox < 216) {
                 throw new CalculationControlException("That box is to small"
-                        + "/nfor cat DeVil to fit into.");
+                        + "\nfor cat DeVil to fit into.");
             }
-         
+        
     }   
    
     //Cylinder Calculations by Jan Hill
-    public double calcCylinderVolume(double height, double diameter) {
-
+    public static void calcCylinderVolume(double height, double diameter) 
+        throws CalculationControlException {
         
-    if (height <= 1 || height >20) {//height is negative or too large
-            return -1;
-                }
-	if (diameter <= 1 || diameter > 16) {//diameter is negative or too large
-            return -1;
-            }
-
         // calculation of the volume
 	double radius = diameter/2;
 	double volume = Math.PI*radius*radius*height;
-	return volume;
+        
+        if (volume >= 157.08 && volume <=603.19){
+                    System.out.println ("\nYour bone could be there.  Search for your bone.");
+                }
+                else if (volume > 603.19) {
+                    throw new CalculationControlException ("\nThe cylinder is too big for your bone.");
+                }
+                else if (volume < 157.08) {
+                    throw new CalculationControlException ("\nThe cylinder is too small for your bone.");
+                }
 
     //end of calculation of cylinder volume
     }

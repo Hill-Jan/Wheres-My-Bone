@@ -4,6 +4,7 @@ package wheresmybone.view;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 import wheresmybone.control.CalculationControl;
+import wheresmybone.exceptions.CalculationControlException;
 
 /**
  *
@@ -72,20 +73,16 @@ public void getInputCylinder (){
             }
         }
 
-        CalculationControl volumeCalc = new CalculationControl();
-        Double volume = volumeCalc.calcCylinderVolume(height, diameter);
+        //CalculationControl volumeCalc = new CalculationControl();
+        double volume = 0;
+        try {CalculationControl.calcCylinderVolume(height, diameter);
             DecimalFormat df = new DecimalFormat("#.##");
             String formatted = df.format(volume);
-            System.out.println("\nVolume of Cylinder is " + formatted);
-                if (volume < 157.08) {
-                    System.out.println("\nThe cylinder is too small for your bone.");
-                }
-                else if (volume > 603.19) {
-                    System.out.println ("\nThe cylinder is too big for your bone.");
-                }
-                else if (volume >= 157.08 && volume <=603.19){
-                    System.out.println ("\nYour bone could be there.  Search for your bone.");
-                }
+            System.out.println("\nVolume of Cylinder is " + formatted);}
+        catch (CalculationControlException cce) {
+            System.out.println(cce.getMessage());
+        }
+                
 
     
 }

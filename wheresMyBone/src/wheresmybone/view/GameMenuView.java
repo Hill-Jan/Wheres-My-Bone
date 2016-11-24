@@ -36,9 +36,9 @@ public class GameMenuView extends View {
                 + "\nS - Save Game"
                 + "\nH - Help Menu"
                 + "\nL - Display Scene List"
-                /*+ "\nJ - Test Vacant House"
+                //+ "\nJ - Test Vacant House"
                 + "\nG - Test Giraffe Enclosure"
-                + "\nY - Test Your House"
+                /*+ "\nY - Test Your House"
                 + "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"
                 + "\nC - Test Cafeteria View Test"
@@ -97,13 +97,13 @@ END */
             case "L":
                 this.displaySceneList();
                 break;
-            /*case "J": //test vacant house
-                this.displayVacantHouseView();
-                break;
-            case "G": //test giraffe enclosure
+            //case "J": //test vacant house
+                //this.displayVacantHouseView();
+                //break;
+            case "GE": //test giraffe enclosure
                 this.displayGiraffesView();
                 break;
-            case "Y": //test your house
+            /*case "Y": //test your house
                 this.displayYourHouseView();
                 break;
             case "R": //test room menu view

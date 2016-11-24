@@ -2,6 +2,7 @@ package wheresmybone.view;
 
 import java.util.Scanner;
 import wheresmybone.control.CalculationControl;
+import wheresmybone.exceptions.CalculationControlException;
 
 /**
  *
@@ -9,9 +10,9 @@ import wheresmybone.control.CalculationControl;
  */
 public class VacantHouseView {
 
-    private String lengthPrompt = "\nPlease enter the length of the box, or enter -1 to cancel:";
-    private String widthPrompt = "\nPlease enter the width of the box, or enter -1 to cancel:";
-    private String heightPrompt = "\nPlease enter the height of the box, or enter -1 to cancel:";
+    private String lengthPrompt = "\nPlease enter the length of the box, or enter a negative number to cancel:";
+    private String widthPrompt = "\nPlease enter the width of the box, or enter a negative number to cancel:";
+    private String heightPrompt = "\nPlease enter the height of the box, or enter a negative number to cancel:";
     private String description;
     private double boxLength = 0;
     private double boxWidth = 0;
@@ -40,7 +41,7 @@ public class VacantHouseView {
              roomMenuView.display();        
     }
 
-    private double getAllInput() {
+    private void getAllInput() {
         boxLength = getLengthInput();
         if (boxLength > 0) {
             boxWidth = getWidthInput();
@@ -49,32 +50,35 @@ public class VacantHouseView {
             }
         }
         if (boxLength > 0 && boxWidth > 0 && boxHeight > 0) {
-            return this.doAction();
+            this.doAction();
         }
-
-        System.out.println("\nYou chose -1. Canceling box Volume");
-        return -1;
+        if (boxLength < 0 || boxWidth < 0 || boxHeight < 0){
+        System.out.println("\nYou chose a negative number. Canceling box Volume");}
     }
 
-    private double doAction() {
-        double volume = boxVolume();
-
-        if (volume == -1) {
-            System.out.println("That box is too small for Cat DeVil to hide in.");
-        } else {
-            System.out.println("This box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!");
+    private void doAction() {
+        //CalculationControl calcVolumeBox = new CalculationControl();
+        try {
+            CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
         }
-        return volume;
+        catch (CalculationControlException cce) {
+            System.out.println(cce.getMessage());
+        }
+        /*if (boxVolume == -1) {
+            System.out.println("That box is too small for Cat DeVil to hide in.");
+        } */ 
+            
+        
     }
 
     /*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.
   if the boxVolume is less than 216 "Overall volume is too small. There's no way DeVil could have been in this box", else "This box was a perfect place for DeVil to take a snooze. You found a slimy hairball." */
-    private double boxVolume() {
+    /*private double boxVolume() {
         //create boxVolume object
         CalculationControl calcVolumeBox = new CalculationControl();
         double boxVolume = calcVolumeBox.calcVolumeBox(boxLength, boxWidth, boxHeight);
         return boxVolume;
-    }
+    }*/
 
     private double getLengthInput() {
 
