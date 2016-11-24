@@ -76,7 +76,8 @@ END */
                 this.showBackpackItems();
                 break;
             case "N": //Show NPC list
-                this.showNpcList();
+                //this.showNpcList();
+                this.showNpcSort();
                 break;
             case "T": //Check Time
                 this.checkTime();
@@ -265,12 +266,10 @@ END */
         System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
-    public void showNpcList() {
-        Npc[] npcs = Npc.values();
-
-        for (Npc character : npcs) {
-            System.out.println(character + " is " + character.getNpcLocation());
-        }
+    public void showNpcSort() {
+      NpcSort npcSort = new NpcSort();
+      npcSort.display();
+        
     }
 
     private void displayGoToNewLocation() {

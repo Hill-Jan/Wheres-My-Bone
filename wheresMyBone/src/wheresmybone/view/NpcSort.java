@@ -5,14 +5,8 @@
  */
 package wheresmybone.view;
 
-import wheresmybone.WheresMyBone;
-import wheresmybone.control.MapControl;
-import wheresmybone.control.MapControl.SceneType;
-import wheresmybone.model.Game;
-import wheresmybone.model.Location;
-import wheresmybone.model.Map;
+
 import wheresmybone.model.Npc;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 
 /**
@@ -23,36 +17,65 @@ public class NpcSort extends View {
     
 public NpcSort (){
      super("\n*****************************************************************"
-         + "\n    Look and see which Npc is at what location."
-         + "\n"
-         + "\nTo see what location the Npc is at type the map symbol from the"
-         + "\nmap above."
+         + "\nTo see what location the Npc is at type the name from the list"
+         + "\nabove."
          + "\n"
          + "\n    Or choose (H) to return to Help Menu      "
          + "\n"
          + "\n*****************************************************************"
     ); 
-     System.out.println("\n");
-     viewMap();
-     System.out.println("\n");
+     
+     /*TEST MATRIX
+        *****************************************************************
+        |Location and Name of chosen Npc                                |
+        *****************************************************************
+        |          |  VALID                               |  INVALID    |
+        *****************************************************************
+        | INPUT    | PARK                                 |      Parks  |
+        *****************************************************************
+        | OUTPUT   |   Tommy is at 0 which is at the park |     false   |
+        *****************************************************************
+        |   Error  |              | Please choose                       | 
+        |          |              | a valid name                        |
+        *****************************************************************
+        */
+        
+
+        /* ALGORITHM for displaying location of NPC
+           Receive user input of valid location name and then
+            process the below for statement to locate the npc within the Npc[] npc
+           array, utilizing the SceneType enum, located in the MapControl Layer.
+           Use the ordinal() function to find the location of the scene in 
+                        the map and the .getNpcLocation() function to find the
+                        sceneName.
+           Display the name of the Npc and corresponding scene or get an error if the 
+           scene name is not typed correctly.
+        */   
+     
+     
+     Npc[] npcs = Npc.values();
+
+        for (Npc npcLocation : npcs) {
+            System.out.println(npcLocation.getNpcLocation());
+        }
     }
 
 @Override
 public boolean doAction(String value){
  
     value = value.toUpperCase();
-    for (Npc st : Npc.values()){
-        if (st.npcLocation().equals(value)){
-            System.out.println( st.ordinal() + "is at " +  "+ st.getSceneName());
+    for (Npc npc : Npc.values()){
+        if (npc.getNpcLocation().equals(value)){
+            System.out.println(npc.toString() + " is at " + npc.ordinal() + " which is the " + npc.getNpcLocation());
          return true;   
         }
         if (value.toUpperCase().equals("X")) // user wants to quit
                    break; //exit the game
         }
     
-        System.out.println("Please choose a valid Map Symbol");
-        viewMap();
+        System.out.println("Please enter a valid Scene Location");
         return false;
 }
+
 
 }

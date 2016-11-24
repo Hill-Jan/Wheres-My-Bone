@@ -15,23 +15,23 @@ import java.util.Objects;
 public enum Npc implements Serializable{
     
     //keywords and dialogue
-    Tommy("Park"),
-    OfficerPete("Police Station"),
-    DrMice("veterinarian"),
-    MrSam("dogcatcher"),
-    MsJones("baker"),
-    MrSteele("Owns the restaurant"),
-    MsCocoa("Runs the drive-in"),
-    Tom_Rex_Kit("DeVil Gang"),
-    MissEllie("nice old lady"),
-    MrNono("zoo keeper"),
-    MrCatch("fishmongerer"),
-    Elephants("Elephant Enclosure"),
-    Kangaroos("Kangaroo Enclosure"),
-    Giraffes("Giraffe Enclosure"),
-    Brad("lost his homework"),
-    MrSneed("parking lot attendant"),
-    Tigers("Tiger Enclosure");
+    Tommy("PARK"),
+    OfficerPete("POLICE STATION"),
+    DrMice("ANIMAL HOSPITAL"),
+    MrSam("POUND"),
+    MsJones("BAKERY"),
+    MrSteele("RESTAURANT"),
+    MsCocoa("DRIVE IN"),
+    Tom_Rex_Kit("DEVILS HOUSE"),
+    MissEllie("CARE HOME"),
+    MrNono("ZOO"),
+    MrCatch("FISH MARKET"),
+    Elephants("ELEPHANT ENCLOSURE"),
+    Kangaroos("KANGAROO ENCLOSURE"),
+    Giraffes("GIRAFFE ENCLOSURE"),
+    Brad("SCHOOL ENTRANCE"),
+    MrSneed("PARKING LOT"),
+    Tigers("TIGER ENCLOSURE");
     
     //class instance variables
     private final String npcLocation;
