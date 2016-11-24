@@ -5,6 +5,7 @@
  */
 package wheresmybone.control;
 
+import java.text.DecimalFormat;
 import wheresmybone.exceptions.CalculationControlException;
 
 
@@ -30,24 +31,30 @@ public class CalculationControl {
     }   
    
     //Cylinder Calculations by Jan Hill
-    public static void calcCylinderVolume(double height, double diameter) 
+    public static double calcCylinderVolume(double height, double diameter) 
         throws CalculationControlException {
         
         // calculation of the volume
 	double radius = diameter/2;
 	double volume = Math.PI*radius*radius*height;
+        DecimalFormat df = new DecimalFormat("#.##");
+            String formatted = df.format(volume);
         
         if (volume >= 157.08 && volume <=603.19){
-                    System.out.println ("\nYour bone could be there.  Search for your bone.");
+                    System.out.println ("\nVolume is " + formatted + "." 
+                            + "\nYour bone could be there.  Search for your bone.");
                 }
                 else if (volume > 603.19) {
-                    throw new CalculationControlException ("\nThe cylinder is too big for your bone.");
+                    throw new CalculationControlException ("\nVolume is " + formatted + "."
+                            + "\nThe cylinder is too big for your bone.");
                 }
                 else if (volume < 157.08) {
-                    throw new CalculationControlException ("\nThe cylinder is too small for your bone.");
+                    throw new CalculationControlException ("\nVolume is " + formatted + "."
+                            + "\nThe cylinder is too small for your bone.");
                 }
 
     //end of calculation of cylinder volume
+    return volume;
     }
     
     

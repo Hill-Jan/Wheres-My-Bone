@@ -9,10 +9,11 @@ import wheresmybone.exceptions.CalculationControlException;
  *
  * Jan Hill
  */
-
 public class GiraffesView {
 
     private String description;
+    Double height = null;
+    Double diameter = null;
 
     public GiraffesView() {
         this.description = "\n"
@@ -33,7 +34,9 @@ public class GiraffesView {
     public void displayGiraffesView() {
 
         System.out.println("\n" + this.description);
-        getInputCylinder();
+        getCylinderHeight();
+        getCylinderDiameter();
+        Volume();
 
         RoomMenuView roomMenuView = new RoomMenuView();
         roomMenuView.display();
@@ -51,7 +54,7 @@ public class GiraffesView {
 
             value = keyboard.nextLine();
             value = value.trim();//removes spaces at front and end
-
+            
             if (value.length() < 1) {
                 System.out.println("\n Invalid value: value cannot be blank");
                 continue;
@@ -61,6 +64,36 @@ public class GiraffesView {
         return value;
     }
 
+    public Double getCylinderHeight() {
+
+        while (height == null) {
+
+            String value = this.getHeightInput();
+            value = value.trim().toUpperCase();
+
+            if (value.toUpperCase().equals("X")) {
+                break;
+            }
+
+            try {
+                height = Double.parseDouble(value);
+            } catch (NumberFormatException nf) {
+
+                System.out.println("\nYou must enter a valid number."
+                        + "\nTry again or X to quit.");
+            }
+
+               /* if (height < 1 || height > 20) {
+                    System.out.println("\nHeight is invalid. Try Again.");
+
+                    return height;
+
+                }*/
+        }
+        return height;
+    }
+    
+    
     public String getDiameterInput() {
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
@@ -73,7 +106,7 @@ public class GiraffesView {
 
             value = keyboard.nextLine();
             value = value.trim();//removes spaces at front and end
-
+            
             if (value.length() < 1) {
                 System.out.println("\n Invalid value: value cannot be blank");
                 continue;
@@ -83,78 +116,45 @@ public class GiraffesView {
         return value;
     }
 
-    public Double getInputCylinder() {
-        Double height = null;
-        Double diameter = null;
 
-        while (height == null) {
+    public Double getCylinderDiameter() {
 
-            String value = this.getHeightInput();
+        while (diameter == null) {
+
+            String value = this.getDiameterInput();
             value = value.trim().toUpperCase();
 
             if (value.toUpperCase().equals("X")) {
                 break;
             }
 
-            if (height < 1 || height > 20) {
-                System.out.println("\nHeight is invalid. Try Again.");
+            try {
+                diameter = Double.parseDouble(value);
+            } catch (NumberFormatException nf) {
 
-                try {
-                    height = Double.parseDouble(value);
-                } catch (NumberFormatException nf) {
-
-                    System.out.println("\nYou must enter a valid number."
-                            + "\nTry again or X to quit.");
-                }
-
-                /*if (height < 1 || height > 20) {
-                System.out.println("\nHeight is invalid. Try Again.");
-
-                return height;
-
-            }*/
+                System.out.println("\nYou must enter a valid number."
+                        + "\nTry again or X to quit.");
             }
-
-            while (diameter == null) {
-
-                String values = this.getDiameterInput();
-                values = values.trim().toUpperCase();
-
-                if (values.toUpperCase().equals("X")) {
-                    break;
-                }
-
-                if (diameter < 1 || diameter > 16) {
-                    System.out.println("\nWidth invalid. Try Again.");
-
-                    try {
-                        diameter = Double.parseDouble(values);
-                    } catch (NumberFormatException nf) {
-
-                        System.out.println("\nYou must enter a valid number."
-                                + "\nTry again or X to quit.");
-                    }
-                    /* if (diameter < 1 || diameter > 16) {
+            /*if (diameter < 1 || diameter > 16) {
                 System.out.println("\nWidth invalid. Try Again.");
 
                 return diameter;
 
             }*/
 
-                }
-
-                //CalculationControl volumeCalc = new CalculationControl();
-                double volume = 0;
-                try {
-                    CalculationControl.calcCylinderVolume(height, diameter);
-                    DecimalFormat df = new DecimalFormat("#.##");
-                    String formatted = df.format(volume);
-                    System.out.println("\nVolume of Cylinder is " + formatted);
-                } catch (CalculationControlException cce) {
-                    System.out.println(cce.getMessage());
-                }
-                return volume;
-
-            }
-
         }
+        return diameter;
+    }
+
+    public Double Volume() {
+        //CalculationControl volumeCalc = new CalculationControl();
+        double volume = 0;
+        try {
+            CalculationControl.calcCylinderVolume(height, diameter);
+        } catch (CalculationControlException cce) {
+            System.out.println(cce.getMessage());
+        }
+        return volume;
+
+    }
+}

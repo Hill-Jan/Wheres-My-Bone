@@ -73,12 +73,7 @@ public class VacantHouseView {
 
     /*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.
   if the boxVolume is less than 216 "Overall volume is too small. There's no way DeVil could have been in this box", else "This box was a perfect place for DeVil to take a snooze. You found a slimy hairball." */
-    /*private double boxVolume() {
-        //create boxVolume object
-        CalculationControl calcVolumeBox = new CalculationControl();
-        double boxVolume = calcVolumeBox.calcVolumeBox(boxLength, boxWidth, boxHeight);
-        return boxVolume;
-    }*/
+    
 
     private double getLengthInput() {
 
