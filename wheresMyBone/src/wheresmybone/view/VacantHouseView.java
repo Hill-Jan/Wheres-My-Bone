@@ -1,4 +1,5 @@
-package wheresmybone.view;
+
+        package wheresmybone.view;
 
 import java.util.Scanner;
 import wheresmybone.control.CalculationControl;

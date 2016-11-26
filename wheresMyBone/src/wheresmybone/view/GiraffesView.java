@@ -23,11 +23,18 @@ public class GiraffesView {
                 + "\n"
                 + "\nYou have arrived at a very large and deep"
                 + "\nenclosure in the zoo.  Tan and brown heads "
-                + "\nlook down at you from over the fence.  The"
-                + "\ngiraffes wonder what happened to your neck."
-                + "\nAfter exchanging pleasantries, one giraffe"
-                + "\ntells he saw DeVil over by the feed cylinder."
-                + "\nGo take a look."
+                + "\nlook down at you from over the fence.  "
+                + "\n\"What happened to your neck?\" one giraffe asks."
+                + "\n "
+                + "\n\"Nothing,\" you reply.  \"It's always been like this.\""
+                + "\n "
+                + "\n\"Oh!\" the giraffe responds and looks at the others.  \"Sorry.\""
+                + "\n "
+                + "\n\"By any chance have you seen DeVil around with a bone?\" you ask."
+                + "\n "
+                + "\nAfter talking with the other giraffes, the giraffe answers,"
+                + "\n\"Mikiri says he saw DeVil over by the feed cylinder."
+                + "\nYou might want to take a look.\""
                 + "\n------------------------------------------";
     }
 
