@@ -1,6 +1,5 @@
 package wheresmybone.view;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
@@ -12,8 +11,8 @@ import wheresmybone.exceptions.CalculationControlException;
 public class GiraffesView {
 
     private String description;
-    Double height = null;
-    Double diameter = null;
+    int height = 0;
+    int diameter = 0;
 
     public GiraffesView() {
         this.description = "\n"
@@ -41,127 +40,135 @@ public class GiraffesView {
     public void displayGiraffesView() {
 
         System.out.println("\n" + this.description);
-        getCylinderHeight();
-        getCylinderDiameter();
-        Volume();
+        getAllInput();
 
         RoomMenuView roomMenuView = new RoomMenuView();
         roomMenuView.display();
     }
 
-    public String getHeightInput() {
+   private void getAllInput() {
+        height = getHeight();
+        if (height > 0 && height < 20) {
+            diameter = getDiameter();
+        }
+        if (height > 0 && height <= 20 && diameter > 0 && diameter <= 20) {
+            this.doAction();
+        }
+        //if (height < 0 || diameter < 0){
+        //System.out.println("\nYou chose a negative number. Canceling Cylinder Volume");}
+    }
+   
+   private String getHeightInput() {
+
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
-        String value = null;
+        String height = null;
         String heightprompt = "\nHow tall is the cylinder?"
-                + "\nEnter a number between 1 and 20.";
+                + "\nEnter a number between 1 and 20, or enter -1 to cancel.";
 
         while (!valid) {
             System.out.println("\n" + heightprompt);
 
-            value = keyboard.nextLine();
-            value = value.trim();//removes spaces at front and end
+            height = keyboard.nextLine();
+            height = height.trim();
             
-            if (value.length() < 1) {
-                System.out.println("\n Invalid value: value cannot be blank");
-                continue;
+            if (height.length() < 1) {
+                System.out.println ("\n Invalid value: value cannot be blank");
             }
-            break;
-        }
-        return value;
-    }
-
-    public Double getCylinderHeight() {
-
-        while (height == null) {
-
-            String value = this.getHeightInput();
-            value = value.trim().toUpperCase();
-
-            if (value.toUpperCase().equals("X")) {
-                break;
+           else {
+                valid = true;
             }
-
-            try {
-                height = Double.parseDouble(value);
-            } catch (NumberFormatException nf) {
-
-                System.out.println("\nYou must enter a valid number."
-                        + "\nTry again or X to quit.");
-            }
-
-               /* if (height < 1 || height > 20) {
-                    System.out.println("\nHeight is invalid. Try Again.");
-
-                    return height;
-
-                }*/
         }
         return height;
+   }
+        
+    public int getHeight() {
+        
+        while (height == 0) {
+            String value = this.getHeightInput();
+            value = value.trim().toUpperCase();
+            boolean valid = false;
+            
+            try{
+                height = Integer.parseInt(value);}
+            catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number."
+                        + "\nTry again or input -1 to quit.");
+            }
+            
+            /*if (height == -1) {
+                return -1;//exit the loop
+            }  else if (height < 1 || height > 20) {
+                System.out.println("\nPlease enter a measurement greater than 0 or less than 20, or enter -1 to cancel.");
+            } else {
+                valid = true;
+            }
+               break;*/
+        }
+        return height ;
     }
     
-    
-    public String getDiameterInput() {
+    private String getDiameterInput() {
+
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
-        String value = null;
+        String diameter = null;
         String diameterprompt = "\nHow wide is the cylinder across?"
-                + "\nEnter a number between 1 and 16.";
+                + "\nEnter a number between 1 and 16, or enter -1 to cancel.";
 
         while (!valid) {
             System.out.println("\n" + diameterprompt);
 
-            value = keyboard.nextLine();
-            value = value.trim();//removes spaces at front and end
+            diameter = keyboard.nextLine();
+            diameter = diameter.trim();
             
-            if (value.length() < 1) {
-                System.out.println("\n Invalid value: value cannot be blank");
-                continue;
+            if (diameter.length() < 1) {
+                System.out.println ("\n Invalid value: value cannot be blank");
             }
-            break;
-        }
-        return value;
-    }
-
-
-    public Double getCylinderDiameter() {
-
-        while (diameter == null) {
-
-            String value = this.getDiameterInput();
-            value = value.trim().toUpperCase();
-
-            if (value.toUpperCase().equals("X")) {
-                break;
+            else {
+                valid = true;
             }
-
-            try {
-                diameter = Double.parseDouble(value);
-            } catch (NumberFormatException nf) {
-
-                System.out.println("\nYou must enter a valid number."
-                        + "\nTry again or X to quit.");
-            }
-            /*if (diameter < 1 || diameter > 16) {
-                System.out.println("\nWidth invalid. Try Again.");
-
-                return diameter;
-
-            }*/
-
         }
         return diameter;
     }
 
-    public Double Volume() {
-        //CalculationControl volumeCalc = new CalculationControl();
-        double volume = 0;
+    public int getDiameter() {
+
+        while (diameter == 0) {
+
+            String value = this.getDiameterInput();
+            value = value.trim().toUpperCase();
+            boolean valid = false;
+            
+            try {
+                diameter = Integer.parseInt(value);
+            } catch (NumberFormatException nf) {
+
+                System.out.println("\nYou must enter a valid number."
+                        + "\nTry again or -1 to quit.");
+            }
+            
+            /*if (diameter == -1) {
+                return -1;//exit the loop
+            }  else if (diameter < 1 || diameter > 20) {
+                System.out.println("\nPlease enter a measurement greater than 0 or less than 16, or enter -1 to cancel.");
+            } else {
+                valid = true;
+            }
+            break;*/
+        }
+        return diameter;
+    }
+    
+    private void doAction() {
+        //CalculationControl calcVolumeBox = new CalculationControl();
         try {
             CalculationControl.calcCylinderVolume(height, diameter);
-        } catch (CalculationControlException cce) {
+        }
+        catch (CalculationControlException cce) {
             System.out.println(cce.getMessage());
         }
-        return volume;
-
+        
     }
+
 }

@@ -10,6 +10,7 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import static wheresmybone.model.Npc.Tommy;
 import wheresmybone.model.Scene;
+import static wheresmybone.view.MapSymbolSceneName.viewMap;
 import wheresmybone.view.SchoolEntrance;
 import wheresmybone.view.VacantHouseSceneView;
 import wheresmybone.view.View;
@@ -328,4 +329,21 @@ public enum SceneType {
         
         return scenes;
     }
+    
+    public boolean doMapSymbolSceneName(String value){
+ 
+    value = value.toUpperCase();
+    for (SceneType st : SceneType.values()){
+        if (st.getMapSymbol().equals(value)){
+            System.out.println("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName());
+         return true;   
+        }
+        if (value.toUpperCase().equals("X")) // user wants to quit
+                   break; //exit the game
+        }
+    
+        System.out.println("Please choose a valid Map Symbol");
+        viewMap();
+        return false;
+}
 }

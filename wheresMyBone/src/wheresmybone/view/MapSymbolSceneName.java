@@ -25,7 +25,7 @@ public MapSymbolSceneName() {
          + "\nTo see what location the map symbol will take you to, input the"
          + "\nmap symbol from the map above."
          + "\n"
-         + "\n    Or choose (H) to return to Help Menu      "
+         + "\n    Or choose (X) to return to Help Menu      "
          + "\n"
          + "\n*****************************************************************"
     ); 
@@ -63,20 +63,10 @@ public MapSymbolSceneName() {
         */   
 @Override
 public boolean doAction(String value){
- 
-    value = value.toUpperCase();
-    for (SceneType st : SceneType.values()){
-        if (st.getMapSymbol().equals(value)){
-            System.out.println("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName());
-         return true;   
-        }
-        if (value.toUpperCase().equals("X")) // user wants to quit
-                   break; //exit the game
-        }
-    
-        System.out.println("Please choose a valid Map Symbol");
-        viewMap();
-        return false;
+    MapControl doSceneFromSymbol = new MapControl();
+        //display
+       doSceneFromSymbol.doMapSymbolSceneName(value);
+       return false;
 }
 
 public static void viewMap() {
