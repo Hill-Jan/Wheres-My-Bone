@@ -172,18 +172,19 @@ END */
     private void displayVacantHouseView() {
         //Create displayVacantHouseView object
         VacantHouseView vacantHouseView = new VacantHouseView();
-
         try {
             //Display the vacant house view
             vacantHouseView.displayVacantHouseView();
         } catch (CalculationControlException ex) {
-            System.out.println(ex .getMessage());
+            System.out.println(ex.getMessage());
         }
+        finally {RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();}
+
     }
 
     private void displayGiraffesView() {
         //Create displayGiraffesView
-        
         GiraffesView giraffesView = new GiraffesView();
         // Display Giraffes View
         try {
@@ -191,6 +192,9 @@ END */
         } catch (CalculationControlException ex) {
             System.out.println(ex.getMessage());
         } 
+        finally {RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();}
+        
     }
 
     private void displayYourHouseView() {

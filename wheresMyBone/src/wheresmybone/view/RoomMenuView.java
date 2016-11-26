@@ -25,23 +25,17 @@ public class RoomMenuView extends View {
 
     public RoomMenuView() {
         super("\n==================================================="
-                + "\n(1) Actions - (2) Map - (3)Move locations - (4) Exit Room Menu"
+                + "\n(1) Actions - (2) Map - (3)Move locations - (X) Exit Room Menu"
                 + "\n==================================================="
                 + "\nChoose a Menu Option: ");
     }
 
     @Override
     public boolean doAction(String value) {
-        value = this.getInput();
+        //value = this.getInput();
         value = value.toUpperCase(); //convert value to upper case
+        boolean valid = false;
         
-        try{
-            number = Double.parseDouble(value);
-        } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
-                        + " Try again or enter 4 to exit Room Menu.");
-        }
-
         switch (value) {
             case "1": // View actions available to you
                 this.actionsMenuView();
@@ -52,11 +46,15 @@ public class RoomMenuView extends View {
             case "3": // Move to a different location
                 this.moveLocation();
                 break;
-            case "4": //exit menu
-                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
+        }
+        try{
+            number = Double.parseDouble(value);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                        + " Try again or enter X to exit Room Menu.");
         }
         return false;
 

@@ -45,8 +45,6 @@ public void displayGiraffesView() throws CalculationControlException {
  
     System.out.println("\n" + this.description);
     getInputCylinder();
-    RoomMenuView roomMenuView = new RoomMenuView();
-    roomMenuView.display();
 }
 
 public void getInputCylinder() throws CalculationControlException{
@@ -83,6 +81,6 @@ public void getInputCylinder() throws CalculationControlException{
         }
 }
  private void doAction() throws CalculationControlException {
-            Double volume = CalculationControl.calcCylinderVolume(height, diameter);
+            CalculationControl.calcCylinderVolume(height, diameter);
     }
 }

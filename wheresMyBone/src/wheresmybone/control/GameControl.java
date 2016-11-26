@@ -8,6 +8,7 @@ package wheresmybone.control;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl.SceneType;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -133,14 +134,15 @@ BEGIN
         MapControl.movePlayerToStartingLocation(map);
     }
     // calculate time left to complete game
-    public double calcTimeLeft(double travelTime) {
+    public double calcTimeLeft(double travelTime) 
+                        throws GameControlException{
 
   
         if (timeLeft<=0) {
-            return -1;
+            throw new GameControlException("\nYou are out of time.\n");
          }
         if (travelTime<0) {
-            return -1;
+            throw new GameControlException("\nTravel time error\n");
         }
 
        timeLeft -= travelTime;
