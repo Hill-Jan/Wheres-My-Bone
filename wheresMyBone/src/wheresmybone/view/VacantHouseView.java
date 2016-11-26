@@ -58,11 +58,6 @@ public class VacantHouseView {
     private void doAction() throws CalculationControlException {
         //CalculationControl calcVolumeBox = new CalculationControl();
             CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
-        /*if (boxVolume == -1) {
-            System.out.println("That box is too small for Cat DeVil to hide in.");
-        } */ 
-            
-        
     }
 
     /*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.

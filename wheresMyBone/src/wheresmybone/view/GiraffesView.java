@@ -15,6 +15,8 @@ public class GiraffesView {
 
 
     private String description;
+    private Double diameter;
+    private Double height;
     
            public GiraffesView () {
                this.description = "\n"
@@ -43,14 +45,11 @@ public void displayGiraffesView() throws CalculationControlException {
  
     System.out.println("\n" + this.description);
     getInputCylinder();
-    
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+    RoomMenuView roomMenuView = new RoomMenuView();
+    roomMenuView.display();
 }
 
 public void getInputCylinder() throws CalculationControlException{
-        double height = 0.00;
-        double diameter = 0.00;
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
         String heightprompt = "\nHow tall is the cylinder?"
@@ -78,22 +77,12 @@ public void getInputCylinder() throws CalculationControlException{
                 valid = false;
             }
         }
-
-        CalculationControl volumeCalc = new CalculationControl();
-        Double volume = volumeCalc.calcCylinderVolume(height, diameter);
-            DecimalFormat df = new DecimalFormat("#.##");
-            String formatted = df.format(volume);
-            System.out.println("\nVolume of Cylinder is " + formatted);
-                if (volume < 157.08) {
-                    System.out.println("\nThe cylinder is too small for your bone.");
-                }
-                else if (volume > 603.19) {
-                    System.out.println ("\nThe cylinder is too big for your bone.");
-                }
-                else if (volume >= 157.08 && volume <=603.19){
-                    System.out.println ("\nYour bone could be there.  Search for your bone.");
-                }
-
-    
+        
+        if (height > 0 && height < 20 && diameter > 0 && diameter < 16) {
+            this.doAction();
+        }
 }
+ private void doAction() throws CalculationControlException {
+            Double volume = CalculationControl.calcCylinderVolume(height, diameter);
+    }
 }
