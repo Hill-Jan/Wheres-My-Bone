@@ -5,9 +5,12 @@
  */
 package wheresmybone.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl;
 import wheresmybone.control.MapControl.SceneType;
+import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
@@ -62,11 +65,10 @@ public MapSymbolSceneName() {
             valid Map Symbol
         */   
 @Override
-public boolean doAction(String value){
+public boolean doAction(String value) {
     MapControl doSceneFromSymbol = new MapControl();
-        //display
-       doSceneFromSymbol.doMapSymbolSceneName(value);
-       return false;
+    doSceneFromSymbol.doMapSymbolSceneName(value);
+    return false;
 }
 
 public static void viewMap() {

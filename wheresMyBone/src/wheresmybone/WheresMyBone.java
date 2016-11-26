@@ -31,7 +31,13 @@ public class WheresMyBone {
     public static void teamTest() {
     
     StartProgramView startProgramView = new StartProgramView();
+    try {
     startProgramView.displayStartProgramView();
+    } catch (Throwable te) {
+        System.out.println(te.getMessage());
+        te.printStackTrace();
+        startProgramView.displayStartProgramView();
+    }
     }
     public static void tifTest() {
       

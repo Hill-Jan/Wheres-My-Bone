@@ -342,7 +342,7 @@ public enum SceneType {
                    break; //exit the game
         }
     
-        System.out.println("Please choose a valid Map Symbol");
+        System.out.println("\nPlease choose a valid Map Symbol\n");
         viewMap();
         return false;
 }

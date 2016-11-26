@@ -5,7 +5,10 @@
  */
 package wheresmybone.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
+import wheresmybone.exceptions.CalculationControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
 import static wheresmybone.view.MapSymbolSceneName.viewMap;
@@ -61,7 +64,11 @@ public boolean doAction (String value){
 
     private void enterVacantHouse() {
         VacantHouseView vacantHouseView = new VacantHouseView();
-        vacantHouseView.displayVacantHouseView();
+          try {
+              vacantHouseView.displayVacantHouseView();
+          } catch (CalculationControlException ex) {
+              System.out.println(ex.getMessage());
+          }
     }
 
    private void displayGoToNewLocation() {

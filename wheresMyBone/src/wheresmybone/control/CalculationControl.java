@@ -18,13 +18,18 @@ public class CalculationControl {
     public static void calcVolumeBox(double length, double width, double height)
             throws CalculationControlException {
         //box volume calculation
+        if (length == 0 || length < -1 || width == 0 || width < -1 || height == 0 || height < -1) {
+            throw new CalculationControlException("\nMeasurement is invalid. Try Again.\n");
+        }
+        
         double volumeBox = length * width * height;
+        
         if (volumeBox > 216) {
-            System.out.println("This box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!");
+            System.out.println("\nThis box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!\n");
         }
         if (volumeBox < 216) {
-            throw new CalculationControlException("That box is to small"
-                    + "\nfor cat DeVil to fit into.");
+            throw new CalculationControlException("\nThat box is to small"
+                    + "\nfor cat DeVil to fit into.\n");
         }
 
     }
@@ -39,17 +44,21 @@ public class CalculationControl {
         DecimalFormat df = new DecimalFormat("#.##");
         String formatted = df.format(volume);
 
-        /*if (height < 1 || height > 20) {
+        if (height < 1 || height > 20) {
             throw new CalculationControlException("\nHeight is invalid. Try Again.");
-        } else if (diameter < 1 || diameter > 16) {
+        } 
+        if (diameter < 1 || diameter > 16) {
             throw new CalculationControlException("\nWidth invalid. Try Again.");
-        }*/ if (volume >= 157.08 && volume <= 603.19) {
+        } 
+        if (volume >= 157.08 && volume <= 603.19) {
             System.out.println("\nVolume is " + formatted + "."
                     + "\nYour bone could be there.  Search for your bone.");
-        } else if (volume > 603.19) {
+        }
+        if (volume > 603.19) {
             throw new CalculationControlException("\nVolume is " + formatted + "."
                     + "\nThe cylinder is too big for your bone.");
-        } else if (volume < 157.08) {
+        }
+        if (volume < 157.08) {
             throw new CalculationControlException("\nVolume is " + formatted + "."
                     + "\nThe cylinder is too small for your bone.");
         }

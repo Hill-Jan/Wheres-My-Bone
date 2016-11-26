@@ -11,9 +11,9 @@ import wheresmybone.exceptions.CalculationControlException;
  */
 public class VacantHouseView {
 
-    private String lengthPrompt = "\nPlease enter the length of the box, or enter a negative number to cancel:";
-    private String widthPrompt = "\nPlease enter the width of the box, or enter a negative number to cancel:";
-    private String heightPrompt = "\nPlease enter the height of the box, or enter a negative number to cancel:";
+    private String lengthPrompt = "\nPlease enter the length of the box, or enter -1 to cancel:";
+    private String widthPrompt = "\nPlease enter the width of the box, or enter -1 to cancel:";
+    private String heightPrompt = "\nPlease enter the height of the box, or enter -1 to cancel:";
     private String description;
     private double boxLength = 0;
     private double boxWidth = 0;
@@ -33,7 +33,7 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public void displayVacantHouseView() {
+    public void displayVacantHouseView() throws CalculationControlException {
 
         System.out.println("\n" + this.description);
         getAllInput();
@@ -42,7 +42,7 @@ public class VacantHouseView {
              roomMenuView.display();        
     }
 
-    private void getAllInput() {
+    private void getAllInput() throws CalculationControlException {
         boxLength = getLengthInput();
         if (boxLength > 0) {
             boxWidth = getWidthInput();
@@ -53,18 +53,11 @@ public class VacantHouseView {
         if (boxLength > 0 && boxWidth > 0 && boxHeight > 0) {
             this.doAction();
         }
-        if (boxLength < 0 || boxWidth < 0 || boxHeight < 0){
-        System.out.println("\nYou chose a negative number. Canceling box Volume");}
     }
 
-    private void doAction() {
+    private void doAction() throws CalculationControlException {
         //CalculationControl calcVolumeBox = new CalculationControl();
-        try {
             CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
-        }
-        catch (CalculationControlException cce) {
-            System.out.println(cce.getMessage());
-        }
         /*if (boxVolume == -1) {
             System.out.println("That box is too small for Cat DeVil to hide in.");
         } */ 
@@ -84,9 +77,19 @@ public class VacantHouseView {
 
         while (!valid) {
             System.out.println("\n" + lengthPrompt);
-
-            length = keyboard.nextDouble();
-
+            
+            String lengthString = keyboard.nextLine();
+            lengthString = lengthString.trim().toUpperCase();
+            
+            if (lengthString.equals("Q"))
+                break;
+            
+            try {
+            length = Double.parseDouble(lengthString);
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number."
+                            + "Try again or enter Q to quit.\n");
+            }
             if (length == -1) {
                 return -1;//exit the loop
             }  else if (length < 1) {
@@ -106,10 +109,22 @@ public class VacantHouseView {
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         double width = 0;
+        
         while (!valid) {
             System.out.println("\n" + widthPrompt);
 
-            width = keyboard.nextDouble();
+            String widthString = keyboard.nextLine();
+            widthString = widthString.trim().toUpperCase();
+            
+            if (widthString.equals("Q"))
+                break;
+            
+            try {
+                width = Double.parseDouble(widthString);
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number."
+                           + "Try again or enter Q to quit.\n");
+            }
 
             if (width == -1) {
                 return -1;//exit the loop
@@ -133,7 +148,18 @@ public class VacantHouseView {
         while (!valid) {
             System.out.println("\n" + heightPrompt);
 
-            height = keyboard.nextDouble();
+           String heightString = keyboard.nextLine();
+           heightString = heightString.trim().toUpperCase();
+           
+           if (heightString.equals("Q"))
+               break;
+           
+           try {
+               height = Double.parseDouble(heightString);
+           } catch (NumberFormatException nf) {
+               System.out.println("\nYou must enter a valid number."
+                          + "Try again or enter Q to quit.\n");
+           }
 
             if (height == -1) {
                 return -1;//exit the loop

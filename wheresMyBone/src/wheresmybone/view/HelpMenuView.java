@@ -8,6 +8,7 @@ package wheresmybone.view;
 import java.util.Scanner;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.MapControlException;
 
 /**
  *
@@ -46,8 +47,7 @@ public class HelpMenuView extends View {
             case "M": //How to Move
                 this.howMove();
                 break;
-            case "N": //show scene name by map symbol
-                this.MapSymbolSceneName();
+            case "N": this.MapSymbolSceneName();
                 break;
             case "C": //about Clues
                 this.aboutClues();
@@ -174,8 +174,8 @@ END */
     }
 
     private void MapSymbolSceneName() {
-       MapSymbolSceneName sceneFromSymbol = new MapSymbolSceneName();
-        //display
+        MapSymbolSceneName sceneFromSymbol = new MapSymbolSceneName();
+       //display
        sceneFromSymbol.display();
     }
     

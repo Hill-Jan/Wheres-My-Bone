@@ -24,27 +24,27 @@ public class RoomMenuView extends View {
 
     public RoomMenuView() {
         super("\n==================================================="
-                + "\n(A)ctions - (M)ap - (G)ame Menu - (L)Move locations"
+                + "\n(1) Actions - (2) Map - (3) Exit Room - (4) Move locations"
                 + "\n==================================================="
                 + "\nChoose a Menu Option: ");
     }
 
     @Override
     public boolean doAction(String value) {
+        value = this.getInput();
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
-            case "A": // View actions available to you
+            case "1": // View actions available to you
                 this.actionsMenuView();
                 break;
-            case "M": // View the map
+            case "2": // View the map
                 this.viewMap();
                 break;
-            case "G": // View the game menu
-                gameMenuView();
-                break;
-            case "L": // Move to a different location
+            case "4": // Move to a different location
                 this.moveLocation();
+                break;
+            case "3": //exit menu
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -105,14 +105,6 @@ public class RoomMenuView extends View {
             System.out.println("Error");
         }
         System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
-    }
-
-    private void gameMenuView() {
-        //Create MainMenuView object
-        GameMenuView gameMenuView = new GameMenuView();
-
-        // Display the main menu view
-        gameMenuView.display();
     }
 
     private void moveLocation() {

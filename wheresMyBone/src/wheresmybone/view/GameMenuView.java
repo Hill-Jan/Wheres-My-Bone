@@ -10,7 +10,11 @@ import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import java.lang.String;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.control.MapControl;
+import wheresmybone.exceptions.CalculationControlException;
+import wheresmybone.exceptions.MapControlException;
 
 /**
  *
@@ -65,7 +69,7 @@ BEGIN
     RETURN false
 END */
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value)  {
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
@@ -100,7 +104,8 @@ END */
             //case "J": //test vacant house
                 //this.displayVacantHouseView();
                 //break;
-            case "GE": //test giraffe enclosure
+            case "GE": 
+                //test giraffe enclosure
                 this.displayGiraffesView();
                 break;
             /*case "Y": //test your house
@@ -168,15 +173,24 @@ END */
         //Create displayVacantHouseView object
         VacantHouseView vacantHouseView = new VacantHouseView();
 
-        //Display the vacant house view
-        vacantHouseView.displayVacantHouseView();
+        try {
+            //Display the vacant house view
+            vacantHouseView.displayVacantHouseView();
+        } catch (CalculationControlException ex) {
+            System.out.println(ex .getMessage());
+        }
     }
 
     private void displayGiraffesView() {
         //Create displayGiraffesView
+        
         GiraffesView giraffesView = new GiraffesView();
         // Display Giraffes View
+        try {
         giraffesView.displayGiraffesView();
+        } catch (CalculationControlException ex) {
+            System.out.println(ex.getMessage());
+        } 
     }
 
     private void displayYourHouseView() {
