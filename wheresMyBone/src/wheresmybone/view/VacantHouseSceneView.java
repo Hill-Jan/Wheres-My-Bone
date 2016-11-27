@@ -47,8 +47,16 @@ public boolean doAction (String value){
     value = value.toUpperCase(); //convert value to upper case
     
     switch (value) {
-        case "E": // Enter the Vacant House
+        case "E": {
+        try {
+            // Enter the Vacant House
             this.enterVacantHouse();
+        } catch (CalculationControlException ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally {RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();}
+    }
             break;
         case "M": // Make another move
             this.displayGoToNewLocation();
@@ -61,7 +69,7 @@ public boolean doAction (String value){
        
     }
 
-    private void enterVacantHouse() {
+    private void enterVacantHouse() throws CalculationControlException {
         VacantHouseView vacantHouseView = new VacantHouseView();
         vacantHouseView.displayVacantHouseView();
     }

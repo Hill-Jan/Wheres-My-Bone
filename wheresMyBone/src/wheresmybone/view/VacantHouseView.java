@@ -35,16 +35,10 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public void displayVacantHouseView() {
+    public void displayVacantHouseView() throws CalculationControlException {
 
-        System.out.println("\n" + this.description);
-        try {       
-            getAllInput();
-        } catch (CalculationControlException ex) {
-            System.out.println(ex.getMessage());
-        } 
-        finally {RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();}
+        System.out.println("\n" + this.description);      
+            getAllInput(); 
     }
 
     private void getAllInput() throws CalculationControlException {
