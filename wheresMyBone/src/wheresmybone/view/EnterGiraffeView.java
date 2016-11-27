@@ -17,38 +17,47 @@ import static wheresmybone.view.MapSymbolSceneName.viewMap;
  *
  * @author tCalder
  */
-public class VacantHouseSceneView extends View {
-      private String promptMessage;{
-        
-}
-public VacantHouseSceneView() {
-            super("\n"
+public class EnterGiraffeView extends View {
+
+    public EnterGiraffeView() {
+         super("\n"
                 + "\n---------------------------------------------"
-                + "\nVacant House"
+                + "\nGiraffe Enclosure at the Zoo"
                 + "\n---------------------------------------------"
-                + "\nYou come upon the old house that's up for"
-                + "\nsale. It's beat up with windows broken, but"
-                + "\nthat won't stop Cat DeVil. In the kitchen you"
-                + "\nfind a box. Looking inside the box may give"
-                + "\na clue, but first you must decide if the box"
-                + "\nis even big enough for DeVil to hide in."
+                + "\nYou have arrived at a very large and deep\n" 
+                + "\nenclosure in the zoo.  Tan and brown heads\n" 
+                + "\nlook down at you from over the fence.\n"
                 + "\n---------------------------------------------"
                 + "\n"
-                + "\nChoose a Menu Option: "
+                + "\nWhat do you want to do? "
                 + "\n"
-                + "\nE - Enter the Vacant House"
+                + "\nE - Enter the Giraffe Enclosure"
                 + "\nM - Make another move"
                 + "\n----------------------------------------------"
                 + "\n");
     }
 
-@Override
-public boolean doAction (String value){
-    value = value.toUpperCase(); //convert value to upper case
+    public EnterGiraffeView(String message) {
+        super(message);
+    }
+
+    @Override
+    public boolean doAction(String value) {
+       value = value.toUpperCase(); //convert value to upper case
     
     switch (value) {
-        case "E": // Enter the Vacant House
-            this.enterVacantHouse();
+        case "E": 
+       {
+           try {
+               // Enter the Vacant House
+               this.enterGiraffesView();
+           } catch (CalculationControlException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        finally {RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();}
+       }
+        
             break;
         case "M": // Make another move
             this.displayGoToNewLocation();
@@ -58,26 +67,25 @@ public boolean doAction (String value){
             break;
         }
        return false;
-       
     }
 
-    private void enterVacantHouse() {
-        VacantHouseView vacantHouseView = new VacantHouseView();
-        vacantHouseView.displayVacantHouseView();
+    private void enterGiraffesView() throws CalculationControlException {
+        GiraffesView giraffesView = new GiraffesView();
+        giraffesView.displayGiraffesView();
     }
 
-   private void displayGoToNewLocation() {
-        viewMap();
+    private void displayGoToNewLocation() {
+       viewMap();
         MapView mapView = new MapView();
         mapView.display();
         enterScene();
         viewMap();
-}
-   
-private void enterScene(){
-        Game game = WheresMyBone.getCurrentGame(); // retreive the game
-        Map map = game.getMap(); // retreive the map from game
+    }
+    
+    private void enterScene(){
+        Game game = WheresMyBone.getCurrentGame();
+        Map map = game.getMap();
         map.getCurrentLocation().getScene().getView().display();
-   
-}
+    }
+    
 }

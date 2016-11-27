@@ -10,6 +10,8 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
 import static wheresmybone.model.Npc.Tommy;
 import wheresmybone.model.Scene;
+import wheresmybone.view.EnterGiraffeView;
+import wheresmybone.view.GiraffesView;
 import static wheresmybone.view.MapSymbolSceneName.viewMap;
 import wheresmybone.view.SchoolEntrance;
 import wheresmybone.view.VacantHouseSceneView;
@@ -273,7 +275,8 @@ public enum SceneType {
         giraffes.setSceneDescript(
             "Giraffes");
         giraffes.setMapSymbol("GF");
-        //obligatory.setBlocked(false);
+        displayView = new EnterGiraffeView();
+        giraffes.setView(displayView);
         giraffes.setTravelTime(40);
         scenes[SceneType.giraffes.ordinal()] = giraffes;
         

@@ -2,6 +2,8 @@
         package wheresmybone.view;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
 
@@ -33,10 +35,16 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public void displayVacantHouseView() throws CalculationControlException {
+    public void displayVacantHouseView() {
 
         System.out.println("\n" + this.description);
-        getAllInput();       
+        try {       
+            getAllInput();
+        } catch (CalculationControlException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        finally {RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();}
     }
 
     private void getAllInput() throws CalculationControlException {
@@ -50,11 +58,6 @@ public class VacantHouseView {
         if (boxLength > 0 && boxWidth > 0 && boxHeight > 0) {
             this.doAction();
         }
-    }
-
-    private void doAction() throws CalculationControlException {
-        //CalculationControl calcVolumeBox = new CalculationControl();
-            CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
     }
 
     /*needs to take boxLength, boxWidth, and boxHeight and pass them into the calcVolumeBox() from Calculation Control.
@@ -165,4 +168,9 @@ public class VacantHouseView {
         }
         return height;
     }
+    private void doAction() throws CalculationControlException {
+        //CalculationControl calcVolumeBox = new CalculationControl();
+            CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
+    }
+
 }

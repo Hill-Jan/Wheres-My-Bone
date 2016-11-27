@@ -15,14 +15,14 @@ import wheresmybone.exceptions.CalculationControlException;
 public class CalculationControl {
 
     // calcVolumeBox coded by Tif Calder
-    public static void calcVolumeBox(double length, double width, double height)
+    public static double calcVolumeBox(double length, double width, double height)
             throws CalculationControlException {
         //box volume calculation
+        double volumeBox = length * width * height;
+        
         if (length == 0 || length < -1 || width == 0 || width < -1 || height == 0 || height < -1) {
             throw new CalculationControlException("\nMeasurement is invalid. Try Again.\n");
         }
-        
-        double volumeBox = length * width * height;
         
         if (volumeBox > 216) {
             System.out.println("\nThis box was a perfect place for Cat DeVil to take a nap. You found a slimy hairball!\n");
@@ -31,7 +31,7 @@ public class CalculationControl {
             throw new CalculationControlException("\nThat box is to small"
                     + "\nfor cat DeVil to fit into.\n");
         }
-
+            return volumeBox;
     }
 
     //Cylinder Calculations by Jan Hill

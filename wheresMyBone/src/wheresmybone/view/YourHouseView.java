@@ -44,6 +44,8 @@ public class YourHouseView {
         
         System.out.println("\n" + this.description);
         getInputYard();
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
     
     public void getInputYard (){

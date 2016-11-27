@@ -2,8 +2,11 @@ package wheresmybone.view;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
+import wheresmybone.model.Game;
+import wheresmybone.model.Map;
 
 /**
  *
@@ -40,6 +43,7 @@ public class GiraffesView {
                 + "\nYou might want to take a look.\""
                 + "\n------------------------------------------";
 }
+
            
 public void displayGiraffesView() throws CalculationControlException {
  

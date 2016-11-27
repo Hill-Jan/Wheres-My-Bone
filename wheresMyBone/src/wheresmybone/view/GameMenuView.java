@@ -41,13 +41,13 @@ public class GameMenuView extends View {
                 + "\nH - Help Menu"
                 + "\nL - Display Scene List"
                 //+ "\nJ - Test Vacant House"
-                + "\nGE - Test Giraffe Enclosure"
-                /*+ "\nY - Test Your House"
-                + "\nR - Test Room Menu View"
+               // + "\nGE - Test Giraffe Enclosure"
+                + "\nY - Test Your House"
+                /*+ "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"
                 + "\nC - Test Cafeteria View Test"
                 + "\nZ - Test Zoo Entrance View"*/
-                + "\nE - Test School Entrance View"
+                //+ "\nE - Test School Entrance View"
                 + "\nX - Exit Game Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
@@ -97,21 +97,21 @@ END */
                 break;
             case "G":
                 this.displayGoToNewLocation();
-                break;
+               break;
             case "L":
                 this.displaySceneList();
                 break;
             //case "J": //test vacant house
                 //this.displayVacantHouseView();
                 //break;
-            case "GE": 
+            //case "GE": 
                 //test giraffe enclosure
-                this.displayGiraffesView();
-                break;
-            /*case "Y": //test your house
+              //  this.displayGiraffesView();
+                //break;
+            case "Y": //test your house
                 this.displayYourHouseView();
                 break;
-            case "R": //test room menu view
+            /*case "R": //test room menu view
                 this.displayRoomMenuView();
                 break;
             case "V": //test VacantHouseSceneView
@@ -123,9 +123,9 @@ END */
             case "Z": //test ZooEntranceView
                 this.displayZooEntranceView();
                 break;*/
-            case "E"://test School entrance View
-                this.displaySchoolEntranceView();
-                break;
+            //case "E"://test School entrance View
+              //  this.displaySchoolEntranceView();
+                //break;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -169,7 +169,7 @@ END */
         helpMenuView.display();
     }
 
-    private void displayVacantHouseView() {
+    /*private void displayVacantHouseView() {
         //Create displayVacantHouseView object
         VacantHouseView vacantHouseView = new VacantHouseView();
         try {
@@ -181,9 +181,9 @@ END */
         finally {RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();}
 
-    }
+    }*/
 
-    private void displayGiraffesView() {
+   /* private void displayGiraffesView() {
         //Create displayGiraffesView
         GiraffesView giraffesView = new GiraffesView();
         // Display Giraffes View
@@ -195,7 +195,7 @@ END */
         finally {RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();}
         
-    }
+    }*/
 
     private void displayYourHouseView() {
         //Create displayYourHouseView object
@@ -204,19 +204,19 @@ END */
         yourHouseView.displayYourHouseView();
     }
 
-    private void displayRoomMenuView() {
+    /*private void displayRoomMenuView() {
         //Create displayRoomMenuView object
         RoomMenuView roomMenuView = new RoomMenuView();
         //Display the room menu view
         roomMenuView.display();
-    }
+    }*/
 
-    private void displayVacantHouseSceneView() {
+    /*private void displayVacantHouseSceneView() {
         //create displayVacantHouseSceneView object
         VacantHouseSceneView vacantHouseSceneView = new VacantHouseSceneView();
         //Display the vacant house scene view
         vacantHouseSceneView.display();
-    }
+    }*/
 
     private void displayCafeteriaViewTest() {
         //Create displayRoomMenuView object
@@ -232,12 +232,12 @@ END */
         zooEntranceView.display();
     }
 
-    private void displaySchoolEntranceView() {
+   /* private void displaySchoolEntranceView() {
         //Create displayRoomMenuView object
         SchoolEntrance schoolEntranceTest = new SchoolEntrance();
         //Display the room menu view
         schoolEntranceTest.display();
-    }
+    }*/
 //Displays the map
 
     public void viewMap() {
