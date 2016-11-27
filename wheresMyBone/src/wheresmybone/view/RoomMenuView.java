@@ -46,9 +46,9 @@ public class RoomMenuView extends View {
             case "3": // Move to a different location
                 this.moveLocation();
                 break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
+            //default:
+              //  System.out.println("\n*** Invalid selection *** Try again");
+                //break;
         }
         try{
             number = Double.parseDouble(value);
