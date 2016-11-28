@@ -17,15 +17,21 @@ public CafeteriaViewTest() {
                     +"\n    CAFETERIA  VIEW   "
                     +"\n********************************************************"
                     +"\n"
-                    +"\nYou snuck into the cafeteria at the back of the school."
-                    +"\nThere are several children nearby eating lunch or playing."
-                    +"\nYou notice a nice lady near the register.  Some snacks."
-                    +"\nare displayed on the counter next to her.  What should you do?"
+                    +"\nYou round the school building to the south.  There’s an"
+                    +"\nopen air cafeteria here.  Part of the room is outside. "
+                    +"\nThere’s a cashier getting things ready nearby.  It looks"
+                    +"\nas if some children have already been here.  As you nose "
+                    +"\naround the room, you find a couple bags of peanuts on the"
+                    +"\nfloor beneath a table.  You look up and see that the "
+                    +"\ncashier is still busy."
+                    +"\n"
                     +"\n********************************************************"
-                    +"\nChoose a menu option:"
-                    +"\nT - Talk to the Cashier."
-                    +"\nB - Beg for Food from the kids."
-                    +"\nX - Get out Fast!"
+                    +"\n"
+                    +"\nWhat do you do?"
+                    +"\n"
+                    +"\n********************************************************"
+                    +"\n"
+                    +"\nG – Get the peanuts      X – Leave the room fast"
                     +"\n********************************************************");
                     }
 
@@ -34,12 +40,12 @@ public boolean doAction (String value){
         value = value.toUpperCase();
 
         switch(value){
-            case "T":
-                this.talkToCashier();
+            case "G":
+                this.getPeanuts();
                 break;
             
-            case"B":
-                this.begForFood();
+            case"X":
+                System.out.println("\n***this calls the map function***");
                 break;
             default:
             System.out.println("\n*** Invalid selection *** Try again");
@@ -49,15 +55,11 @@ public boolean doAction (String value){
 
 }
 
-    private void talkToCashier() {
-        System.out.println("\n***This calls the Talk To Cashier function"
-                            +"\nHe's lost his notebook.");
+    private void getPeanuts() {
+        System.out.println("\n***This calls the Get Peanuts function"
+                            +"\nPeanuts are added to your backpack.");
     }
 
-    private void begForFood() {
-        System.out.println("\n**This calls the Beg For Food function**"
-                            +"\nPeanut Butter and Jelly.  Yum!");
-    }
 
 }
 

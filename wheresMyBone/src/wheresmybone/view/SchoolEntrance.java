@@ -27,7 +27,10 @@ public SchoolEntrance() {
                     +"\nYou come around the corner to the school entrance."
                     +"\nThere are several children nearby playing."
                     +"\nYou notice Brad, a lanky 10-year-old from your neighborhood,"
-                    +"\nfrantically searching for something.  What should you do?"
+                    +"\nfrantically searching for something.  "
+                    +"\n"
+                    + "\nWhat should you do?"
+                    +"\n"
                     +"\n********************************************************"
                     +"\nChoose a menu option:"
                     +"\nT - Talk to Brad."
@@ -57,18 +60,17 @@ public boolean doAction (String value){
 }
 
     private void talkToBrad() {
-        this.promptMessage = "\n***Brad tells you he lost his English paper.  If he"
-                           +"\ndoesn't turn it in on time, he'll get a zero; and he."
-                           +"\nworked on it all night!"
-                           +"\n"
-                           +"\nYou remember you put a paper in your backpack when"
-                           +"\n you were in the school parking lot."
-                           +"\n****************************************************"
-                           +"\nWhat Will You do?"
-                           +"\n"
-                           +"\nS - Search your Backpack"
-                           +"\nX - Leave the area"
-                           +"\n****************************************************";
+        this.promptMessage = ("\n“Hi, " + StartProgramView.player.getName() +",” Brad says distractedly.  “I can’t play now.”"
+                            +"\n“What are you looking for?” you ask."
+                            +"\n“I lost my English paper.  It’s due today.  If I don’t turn it in"
+                            + "\n on time, I'll get a zero; and I worked on it all night!”"
+                            +"\n"
+                            +"\n"
+                            +"\nWhat will you do?"
+                            +"\n"
+                            +"\n***************************************************************"
+                            +"\nS - Search your Backpack                  X – Leave the Area;"
+                            +"\n****************************************************************");
     }
 
 
@@ -120,25 +122,33 @@ public boolean doAction (String value){
         
         if(index != -1){
             System.out.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
-            System.out.println("\nYou give Brad the paper.  He's so excited "
-            + "\nhe gives you a hug.  You ask if he's seen DeVil with"
-            + "\n a bone."
-            +"\n"
-            +"\n\"I saw him going through the playground earlier, but"
-            +"\nhe didn't have a bone.  Good luck!\""
-            +"\n****************************************************"
-            +"\nWhere To Now?  Enter a new location."
-            +"\n****************************************************");                       
+            System.out.println("\nYou remember you put a paper in your backpack "
+                            +"\nwhen you were in the school parking lot.  You give Brad the paper."
+                            +"\n“Is this it?” you ask."
+                            +"\n“What?  Oh, " + StartProgramView.player.getName() +"!  You’re the best!” "
+                            +"\nHe's so excited he gives you a hug. "
+                            +"\n“By the way,” you gargle out in the voracious hug.  “Have you seen "
+                            +"\nDeVil carrying a bone?”"
+                            +"\nI saw him going through the playground earlier, but he didn't have a bone."
+                            +"\n  Good luck!"
+                            +"\n****************************************************"
+                            +"\nWhere To Now?"
+                            +"\n****************************************************");                       
         viewMap();
         MapView mapView = new MapView();
         mapView.display();
         viewMap();
         }
         else {
-            System.out.println("\nYou must not have picked it up."
-                +"\n****************************************************"
-                +"\nWhere To Now?  Enter a new location."
-                +"\n****************************************************");
+            System.out.println("\n\"Gee, I’m sorry, Brad.  Good luck finding it.  "
+                                +"\nI’ll keep my eyes peeled.”"
+                                +"\n\"Thanks, " + StartProgramView.player.getName() +".”"
+                                +"\n“You haven’t seen DeVil, have you?  He might have been carrying a bone?”"
+                                + "\n“DeVil with a bone?  Don’t be silly!” Brad chuckles.  "
+                                +"\n“Sorry, " + StartProgramView.player.getName() +".  I need to find my paper before the bell rings.”"
+                                +"\n****************************************************"
+                                +"\nWhere To Now?  "
+                                +"\n****************************************************");
         viewMap();
         MapView mapView = new MapView();
         mapView.display();

@@ -16,6 +16,7 @@ import wheresmybone.model.Player;
 public class StartProgramView {
     
     private String promptMessage;
+    public static Player player;
     
     public StartProgramView(){
         
@@ -146,7 +147,7 @@ public class StartProgramView {
         }
         
         // call createPlayer() control function
-        Player player = GameControl.createPlayer(playersName);
+        player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessful
             System.out.println("\n Error creating the player.");
