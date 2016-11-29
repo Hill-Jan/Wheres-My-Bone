@@ -81,10 +81,8 @@ public class VacantHouseView {
             }
             if (length == -1) {
                break;//exit the loop
-            }  else if (length < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (length > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+            }  else if (length < 1 || length > 1000) {
+                System.out.println("\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }
@@ -112,15 +110,13 @@ public class VacantHouseView {
                 width = Double.parseDouble(widthString);
             } catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number."
-                           + "Try again or enter -1 to quit.\n");
+                           + " Try again or enter -1 to quit.\n");
             }
 
             if (width == -1) {
                 break;//exit the loop
-            } else if (width < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (width > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+            } else if (width < 1 || width > 1000) {
+                System.out.println("\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }
@@ -152,10 +148,8 @@ public class VacantHouseView {
 
             if (height == -1) {
                 break;//exit the loop
-            } else if (height < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (height > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+            } else if (height < 1 || height > 1000) {
+                System.out.println("\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }

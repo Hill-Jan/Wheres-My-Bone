@@ -7,7 +7,6 @@ package wheresmybone.view;
 
 import java.util.Scanner;
 import wheresmybone.control.GameControl;
-import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import wheresmybone.exceptions.GameControlException;
@@ -17,6 +16,12 @@ import wheresmybone.exceptions.GameControlException;
 public class YourHouseView {
     
     private String description;
+    private String lengthPrompt = "\nHow many feet long do you want to search"
+                                + "\nEnter an number between 1 and 150";
+    private String widthPrompt = "\nHow many feet wide do you want to search"
+                                + "\nEnter a number between 1 and 50.";
+    double width = 0.00;
+    double length = 0.00;
     
     public YourHouseView(){
         
@@ -31,9 +36,11 @@ public class YourHouseView {
                       + "\nhours are the most critical. You know you need to"
                       + "\nget on the trail as soon as possible."
                       + "\n"
-                      + "\nThe yard is 50 feet wide by 100 feet long"
+                      + "\nThe yard is 50 feet wide by 150 feet long"
                       + "\n"
                       + "\nHow much of the yard to you want to search?"
+                      + "\nIf you choose to search too much of the yard, you"
+                      + "\n run out of time!"
                       + "\n====================================================";
                     
             }
@@ -42,64 +49,90 @@ public class YourHouseView {
     public void displayYourHouseView() {
         
         System.out.println("\n" + this.description);
-        getInputYard();
+        getAllInput();
         RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();
     }
-    
-    public void getInputYard (){
-            double width = 0.00;
-            double length = 0.00;
+    public void getAllInput() {
+        length = getLengthInput();
+        if (length > 0) {
+            width = getWidthInput();
+        }
+        if (length > 0 && width > 0) {
+            this.doAction();
+        }
+    }
+    private double getLengthInput(){
+            
             Scanner keyboard = new Scanner (System.in);
             boolean valid = false;
-            String lengthPrompt = "\nHow many feet long do you want to search"
-                                + "\nEnter an number between 1 and 100";
+            double length = 0;
+            
             while (!valid) {
                 System.out.println("\n" + lengthPrompt);
                 
-                length = keyboard.nextDouble();
-                valid = true;
-                /*if (length <= 1 || length > 100){
-                    System.out.println("\nLength is invalid. Try Again.");
-                    valid = false;
-            } */           
-        }
-            valid = false;
-            String widthPrompt = "\nHow many feet wide do you want to search"
-                                + "\nEnter a number between 1 and 50.";
+                String lengthString = keyboard.nextLine();
+                lengthString = lengthString.trim().toUpperCase();
+                
+                try {
+                   length = Double.parseDouble(lengthString);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number."
+                                + " Try again\n");
+                }
+                if (length <1 || length > 150){
+                    System.out.println("\nLength must be greater than 0 and less than 150.\n");
+                }  else{
+                        valid = true;
+                }
+            }
+        return length;
+    }
+            
+    private double getWidthInput(){
+        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false;
+        double width = 0;
+            
             while (!valid) {
                 System.out.println("\n" + widthPrompt);
                 
+                String widthString = keyboard.nextLine();
+                widthString = widthString.trim().toUpperCase();
                 
-                width = keyboard.nextDouble();
-                valid = true;
-                /*if (width < 1 || width > 50){
-                    System.out.println("\nWidth invalid. Try Again.");
-                    valid = false;
-                }*/
+               try { 
+                   width = Double.parseDouble(widthString);
+               } catch (NumberFormatException nf) {
+                   System.out.println("\nYou must enter a valid number."
+                                + " Try again.\n");
+               }
+               
+                if (width <1 || width > 50){
+                    System.out.println("\nWidth must be greater than 0 and less than 50.\n");
+                }  else{
+                        valid = true;
+                }
             }
+        return width;
+    }
      
-    GameControl calcArea = new GameControl();
+    private boolean doAction() {
+     boolean retVal = false;   
+     double timeLeft = 0;
+     
    
-    double area = 0;
         try {
-            area = calcArea.calcAreaTime(length, width);
-        } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            //String formatted = df.format (timeLeft);
+            GameControl calcArea = new GameControl();
+            String resultStr = calcArea.calcAreaTime(length, width);
+            System.out.println(resultStr);
+        } catch (GameControlException gc) {
+            System.out.println(gc.getMessage());
         }
-        DecimalFormat df = new DecimalFormat("#.##");
-        String formatted = df.format (area);
-        System.out.println("\nYou have " + formatted + " minutes left");
-            if (area > 1420 ) {
-                System.out.println("\nIn your haste you didn't find any clues");
-            }
-            else if (area <= 1420) {
-                System.out.println("\nYou found a clump of cat fur."
-                                  +"\nYou would recognize this fur anywhere"
-                                  +"\nIt's none other than the fur of DeVil");
+        return retVal;  
+        
     }
-    }
-    }
+}
             
 
             

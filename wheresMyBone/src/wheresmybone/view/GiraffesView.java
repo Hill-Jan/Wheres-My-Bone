@@ -76,12 +76,12 @@ public class GiraffesView {
                 height = Double.parseDouble(heightString);
             } catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number."
-                        + "Try again or enter Q to quit.\n");
+                        + " Try again or enter Q to quit.\n");
             }
             if (height == -1) {
                 return -1; //exit loop
             } else if (height < 1 || height > 20) {
-                System.out.println("\nHeight is invalid. Try Again.");
+                System.out.println("\nHeight must be greather than 1 and less than 20.\n");
                 valid = false;
             }
 
@@ -115,7 +115,7 @@ public class GiraffesView {
             if (diameter == -1) {
                 return -1; //exit loop
             } else if (diameter < 1 || diameter > 16) {
-                System.out.println("\nDiameter is invalid. Try Again.");
+                System.out.println("\nWidth must be greater than 1 and less than 16.\n");
                 valid = false;
             }
             /* if (height > 0 && height < 20 && diameter > 0 && diameter < 16) {
