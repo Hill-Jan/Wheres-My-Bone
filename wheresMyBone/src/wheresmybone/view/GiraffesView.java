@@ -1,12 +1,9 @@
 package wheresmybone.view;
 
-import java.text.DecimalFormat;
+
 import java.util.Scanner;
-import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
-import wheresmybone.model.Game;
-import wheresmybone.model.Map;
 
 /**
  *
@@ -15,13 +12,12 @@ import wheresmybone.model.Map;
 
 public class GiraffesView {
     
-
-
     private String description;
     private Double diameter;
     private Double height;
+
     
-           public GiraffesView () {
+  public GiraffesView () {
                this.description = "\n"
                                 + "\n------------------------------------------"
                 + "\n  The Giraffe Enclosure at the Zoo"
@@ -51,40 +47,88 @@ public void displayGiraffesView() throws CalculationControlException {
     getInputCylinder();
 }
 
-public void getInputCylinder() throws CalculationControlException{
+public void getInputCylinder() throws CalculationControlException {
+    height = getHeight();
+        if (height > 0) {
+            diameter = getDiameter();
+                    }
+        if (height > 0 && diameter > 0) {
+            this.doAction();
+        }
+    }
+    
+ private double getHeight()throws CalculationControlException {   
         Scanner keyboard = new Scanner (System.in);
         boolean valid = false;
+        double height=0;
+        
         String heightprompt = "\nHow tall is the cylinder?"
                             + "\nEnter a number between 1 and 20.";
         while (!valid){
             System.out.println("\n" + heightprompt);
         
-            height = keyboard.nextDouble();
+            String heightString = keyboard.nextLine();
+            heightString = heightString.trim().toUpperCase();
+             if (heightString.equals("Q"))
+                 break;
+             
             valid = true;
-            if (height < 1 || height > 20){
+            try {
+                height = Double.parseDouble(heightString);
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number."
+                            + "Try again or enter Q to quit.\n");
+            }
+            if (height == -1) {
+                    return -1; //exit loop
+                    } 
+            else if (height < 1 || height > 20) {
                 System.out.println("\nHeight is invalid. Try Again.");
                 valid = false;
             } 
+  
         }
-        valid = false;
+        return height;}
+        
+private double getDiameter() throws CalculationControlException {
+        Scanner keyboard = new Scanner (System.in);
+        boolean valid = false;
+        double diameter = 0;
         String diameterprompt = "\nHow wide is the cylinder across?"
                               + "\nEnter a number between 1 and 16.";
+        
         while (!valid){
             System.out.println("\n" + diameterprompt);
+        
+            String diameterString = keyboard.nextLine();
+            diameterString = diameterString.trim().toUpperCase();
+             if (diameterString.equals("Q")){
+                 break;}
+             
             valid = true;
-            
-            diameter = keyboard.nextDouble();
-            if (diameter < 1 || diameter > 16){
-                System.out.println("\nWidth invalid. Try Again.");
+            try {
+                diameter = Double.parseDouble(diameterString);
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number."
+                            + "Try again or enter Q to quit.\n");
+            }
+            if (diameter == -1) {
+                    return -1; //exit loop
+                    } 
+            else if (diameter < 1 || diameter > 16) {
+                System.out.println("\nDiameter is invalid. Try Again.");
                 valid = false;
             }
-        }
-        
-        if (height > 0 && height < 20 && diameter > 0 && diameter < 16) {
+       /* if (height > 0 && height < 20 && diameter > 0 && diameter < 16) {
             this.doAction();
+        }*/
         }
+return diameter;
 }
+
+
+
  private void doAction() throws CalculationControlException {
             CalculationControl.calcCylinderVolume(height, diameter);
-    }
+           }
 }

@@ -6,6 +6,7 @@
 package wheresmybone.control;
 
 import java.text.DecimalFormat;
+
 import wheresmybone.exceptions.CalculationControlException;
 
 /**
@@ -44,12 +45,12 @@ public class CalculationControl {
         DecimalFormat df = new DecimalFormat("#.##");
         String formatted = df.format(volume);
 
-        if (height < 1 || height > 20) {
+       /* if (height < 1 || height > 20) {
             throw new CalculationControlException("\nHeight is invalid. Try Again.");
         } 
         if (diameter < 1 || diameter > 16) {
             throw new CalculationControlException("\nWidth invalid. Try Again.");
-        } 
+        } */
         if (volume >= 157.08 && volume <= 603.19) {
             System.out.println("\nVolume is " + formatted + "."
                     + "\nYour bone could be there.  Search for your bone.");
