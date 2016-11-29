@@ -33,17 +33,19 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public void displayVacantHouseView() throws CalculationControlException {
+    public void displayVacantHouseView() {
 
         System.out.println("\n" + this.description);      
             getAllInput(); 
+            RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
-    private void getAllInput() throws CalculationControlException {
+    private void getAllInput() {
         boxLength = getLengthInput();
         if (boxLength > 0) {
             boxWidth = getWidthInput();
-            if (boxWidth > 0) {
+            if (boxWidth > 0 || boxWidth < -1) {
                 boxHeight = getHeightInput();
             }
         }
@@ -75,7 +77,7 @@ public class VacantHouseView {
             length = Double.parseDouble(lengthString);
             } catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number."
-                            + "Try again or enter Q to quit.\n");
+                            + "Try again or enter -1 to quit.\n");
             }
             if (length == -1) {
                break;//exit the loop
@@ -110,7 +112,7 @@ public class VacantHouseView {
                 width = Double.parseDouble(widthString);
             } catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number."
-                           + "Try again or enter Q to quit.\n");
+                           + "Try again or enter -1 to quit.\n");
             }
 
             if (width == -1) {
@@ -145,7 +147,7 @@ public class VacantHouseView {
                height = Double.parseDouble(heightString);
            } catch (NumberFormatException nf) {
                System.out.println("\nYou must enter a valid number."
-                          + "Try again or enter Q to quit.\n");
+                          + "Try again or enter -1 to quit.\n");
            }
 
             if (height == -1) {
@@ -160,9 +162,15 @@ public class VacantHouseView {
         }
         return height;
     }
-    private void doAction() throws CalculationControlException {
+    private boolean doAction() {
+       boolean retVal = false;
         //CalculationControl calcVolumeBox = new CalculationControl();
-            CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
+        try {
+            String resultStr = CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
+            System.out.println(resultStr);
+        } catch (CalculationControlException ce) {
+            System.out.println(ce.getMessage());
+        }
+        return retVal;
     }
-
 }
