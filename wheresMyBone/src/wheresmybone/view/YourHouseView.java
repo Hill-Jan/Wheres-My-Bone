@@ -8,11 +8,10 @@ package wheresmybone.view;
 import java.util.Scanner;
 import wheresmybone.control.GameControl;
 import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import wheresmybone.exceptions.GameControlException;
 
-/**
- *
- * @author Dan
- */
 
 
 public class YourHouseView {
@@ -40,7 +39,7 @@ public class YourHouseView {
             }
 
     
-    public void displayYourHouseView(){
+    public void displayYourHouseView() {
         
         System.out.println("\n" + this.description);
         getInputYard();
@@ -60,28 +59,34 @@ public class YourHouseView {
                 
                 length = keyboard.nextDouble();
                 valid = true;
-                if (length <= 1 || length > 100){
+                /*if (length <= 1 || length > 100){
                     System.out.println("\nLength is invalid. Try Again.");
                     valid = false;
-            }            
+            } */           
         }
             valid = false;
             String widthPrompt = "\nHow many feet wide do you want to search"
                                 + "\nEnter a number between 1 and 50.";
             while (!valid) {
                 System.out.println("\n" + widthPrompt);
-                valid = true;
+                
                 
                 width = keyboard.nextDouble();
-                if (width < 1 || width > 50){
+                valid = true;
+                /*if (width < 1 || width > 50){
                     System.out.println("\nWidth invalid. Try Again.");
                     valid = false;
-                }
+                }*/
             }
      
     GameControl calcArea = new GameControl();
-    
-    double area = calcArea.calcAreaTime(length, width);
+   
+    double area = 0;
+        try {
+            area = calcArea.calcAreaTime(length, width);
+        } catch (GameControlException ex) {
+            System.out.println(ex.getMessage());
+        }
         DecimalFormat df = new DecimalFormat("#.##");
         String formatted = df.format (area);
         System.out.println("\nYou have " + formatted + " minutes left");

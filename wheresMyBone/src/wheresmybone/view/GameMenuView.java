@@ -101,7 +101,8 @@ END */
                 //test giraffe enclosure
               //  this.displayGiraffesView();
                 //break;
-            case "Y": //test your house
+            case "Y": 
+                //test your house
                 this.displayYourHouseView();
                 break;
             /*case "R": //test room menu view

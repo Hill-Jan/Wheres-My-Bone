@@ -152,12 +152,13 @@ BEGIN
        }
     
     // calculate the area for the user to investigate and how much time is spent in the investigation.
-    public double calcAreaTime(double length, double width) {
-        
+    public double calcAreaTime(double length, double width) throws GameControlException {
+        timeLeft = timeLeft - length * width * 2.4 / 60;
         if (length <=0){
-            return -1;
+            throw new GameControlException("\nLength must be greater than 0\n");
         }
-        if (length>100){
+        
+        /*if (length>100){
             return -1;
         }
         if (width <=0) {
@@ -165,9 +166,9 @@ BEGIN
         }
         if (width >50) {
             return -1;
-        }
+        }*/
         
-        timeLeft = timeLeft - length * width * 2.4 / 60;
+        
         
         return timeLeft;
     }
