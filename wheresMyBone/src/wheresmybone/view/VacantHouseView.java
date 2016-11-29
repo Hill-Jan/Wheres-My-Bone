@@ -2,8 +2,6 @@
         package wheresmybone.view;
 
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
 
@@ -80,7 +78,7 @@ public class VacantHouseView {
                             + "Try again or enter Q to quit.\n");
             }
             if (length == -1) {
-                return -1;//exit the loop
+               break;//exit the loop
             }  else if (length < 1) {
                 System.out.println("\nPlease enter a measurement greater than 0");
             } else if (length > 1000) {
@@ -116,7 +114,7 @@ public class VacantHouseView {
             }
 
             if (width == -1) {
-                return -1;//exit the loop
+                break;//exit the loop
             } else if (width < 1) {
                 System.out.println("\nPlease enter a measurement greater than 0");
             } else if (width > 1000) {
@@ -151,7 +149,7 @@ public class VacantHouseView {
            }
 
             if (height == -1) {
-                return -1;//exit the loop
+                break;//exit the loop
             } else if (height < 1) {
                 System.out.println("\nPlease enter a measurement greater than 0");
             } else if (height > 1000) {

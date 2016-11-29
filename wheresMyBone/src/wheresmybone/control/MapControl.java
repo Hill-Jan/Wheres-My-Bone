@@ -6,13 +6,11 @@
 package wheresmybone.control;
 
 import wheresmybone.control.MapControl.SceneType;
+import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Map;
 import wheresmybone.model.Npc;
-import static wheresmybone.model.Npc.Tommy;
 import wheresmybone.model.Scene;
 import wheresmybone.view.EnterGiraffeView;
-import wheresmybone.view.GiraffesView;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 import wheresmybone.view.SchoolEntrance;
 import wheresmybone.view.VacantHouseSceneView;
 import wheresmybone.view.View;
@@ -68,7 +66,7 @@ public enum SceneType {
     zoo("The Local Zoo","ZO"),
     elephants("Zoo: Elephants","EL"),
     tigers("Zoo: Tigers","TG"),
-    kangaroos("Zoo: Kangaroos","KG"),
+    gorillas("Zoo: Gorillas","GR"),
     giraffes("Zoo: Giraffes","GF"),
     schoolentrance("School Entrance","SE"),
     schoolcafeteria("School: Cafeteria","SC"),
@@ -261,14 +259,14 @@ public enum SceneType {
         tigers.setTravelTime(25);
         scenes[SceneType.tigers.ordinal()] = tigers;
         
-        Scene kangaroos = new Scene();
-        kangaroos.setSceneName("The Kangaroo Enclosure");
-        kangaroos.setSceneDescript(
-            "Kangaroos");
-        kangaroos.setMapSymbol("KG");
+        Scene gorillas = new Scene();
+        gorillas.setSceneName("The Gorilla Enclosure");
+        gorillas.setSceneDescript(
+            "Gorillas");
+        gorillas.setMapSymbol("GR");
         //obligatory.setBlocked(false);
-        kangaroos.setTravelTime(35);
-        scenes[SceneType.kangaroos.ordinal()] = kangaroos;
+        gorillas.setTravelTime(35);
+        scenes[SceneType.gorillas.ordinal()] = gorillas;
         
         Scene giraffes = new Scene();
         giraffes.setSceneName("The Giraffe Enclosure");
@@ -333,20 +331,20 @@ public enum SceneType {
         return scenes;
     }
     
-    public boolean doMapSymbolSceneName(String value){
+    public String doMapSymbolSceneName(String value) throws MapControlException {
  
     value = value.toUpperCase();
     for (SceneType st : SceneType.values()){
         if (st.getMapSymbol().equals(value)){
-            System.out.println("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName());
-         return true;   
+            return ("location is " + st.ordinal() + ". " + "Scene Name is " + st.getSceneName() + "\n");
+         //return true;   
         }
         if (value.toUpperCase().equals("X")) // user wants to quit
-                   break; //exit the game
-        }
+                   return ""; //exit the game
+    }
     
-        System.out.println("\nPlease choose a valid Map Symbol\n");
-        viewMap();
-        return false;
+        throw new MapControlException("\nPlease choose a valid Map Symbol\n");
+
+        //return false;
 }
 }

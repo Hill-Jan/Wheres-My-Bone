@@ -5,8 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.exceptions.CalculationControlException;
 import wheresmybone.model.Game;

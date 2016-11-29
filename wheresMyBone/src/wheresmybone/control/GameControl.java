@@ -14,7 +14,6 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 //import wheresmybone.model.Scene.SceneType;
@@ -48,7 +47,7 @@ public class GameControl {
        locations[3][0].setScene(scenes[SceneType.zoo.ordinal()]);
        locations[3][1].setScene(scenes[SceneType.elephants.ordinal()]);
        locations[3][2].setScene(scenes[SceneType.tigers.ordinal()]);
-       locations[3][3].setScene(scenes[SceneType.kangaroos.ordinal()]);
+       locations[3][3].setScene(scenes[SceneType.gorillas.ordinal()]);
        locations[3][4].setScene(scenes[SceneType.giraffes.ordinal()]);
        locations[4][0].setScene(scenes[SceneType.schoolentrance.ordinal()]);
        locations[4][1].setScene(scenes[SceneType.schoolcafeteria.ordinal()]);

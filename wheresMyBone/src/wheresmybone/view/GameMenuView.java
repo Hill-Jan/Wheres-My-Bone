@@ -8,13 +8,6 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import wheresmybone.model.Npc;
-import java.lang.String;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import wheresmybone.control.MapControl;
-import wheresmybone.exceptions.CalculationControlException;
-import wheresmybone.exceptions.MapControlException;
 
 /**
  *

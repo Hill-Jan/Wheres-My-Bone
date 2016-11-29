@@ -67,8 +67,20 @@ public MapSymbolSceneName() {
 @Override
 public boolean doAction(String value) {
     MapControl doSceneFromSymbol = new MapControl();
-    doSceneFromSymbol.doMapSymbolSceneName(value);
-    return false;
+    boolean retVal = false;
+    try {
+        String resultStr = doSceneFromSymbol.doMapSymbolSceneName(value); 
+        if (resultStr.isEmpty()) 
+            retVal = true;
+        else 
+            System.out.println(resultStr);
+    } catch (MapControlException ex) {
+        System.out.println(ex.getMessage());
+    }
+        if (!retVal)
+            viewMap();
+    
+    return retVal;
 }
 
 public static void viewMap() {
@@ -108,7 +120,7 @@ public static void viewMap() {
                 System.out.println("|");
             }
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println(e.getMessage());
         }
 
 }

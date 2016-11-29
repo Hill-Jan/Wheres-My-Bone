@@ -5,11 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.util.Scanner;
-import wheresmybone.WheresMyBone;
-import wheresmybone.control.GameControl;
-import wheresmybone.exceptions.MapControlException;
-
 /**
  *
  * @author tCalder
@@ -31,7 +26,7 @@ public class HelpMenuView extends View {
                       + "\nO - Objects"
                       + "\nH - How to Save/Load Game"
                       + "\nB - Bad Guys"
-                      + "\nQ - Quit Help Menu"
+                      + "\nX - Exit Help Menu, return to Game Menu"
                       + "\n --------------------------------------------------"
                       + "\nChoose a Menu Option: ");
                     }
@@ -47,7 +42,8 @@ public class HelpMenuView extends View {
             case "M": //How to Move
                 this.howMove();
                 break;
-            case "N": this.MapSymbolSceneName();
+            case "N": 
+                this.MapSymbolSceneName();
                 break;
             case "C": //about Clues
                 this.aboutClues();
@@ -61,8 +57,6 @@ public class HelpMenuView extends View {
             case "H": //how to save/load game
                 this.howSave();
                 break;
-            case "Q": //quit Help Menu
-                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -163,14 +157,6 @@ END */
                          + "\nout of crime again, Press 'L' in the Main Menu."
                          + "\nThis will load the last game saved."
         );
-    }
-
-    private void quitHelp() {
-        //Create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
-                
-         // Display the main menu view
-        mainMenuView.display();
     }
 
     private void MapSymbolSceneName() {
