@@ -7,58 +7,57 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
+import java.util.ArrayList;
 
 /**
  *
  * @author short
  */
 public class Backpack implements Serializable{
-    
-    //Setting the ArrayList
-    private ArrayList<Item> createItemList() {
-        //created ArrayList of items
-        ArrayList<Item> items = new ArrayList<>();
 
-        
-                       return items;}
+       private ArrayList<Item> items;
 
-    public String getItemName() {
-        return itemName;
+public Backpack (){
+    items = new ArrayList<>();
+}
+
+    public Item getItem(int index) {
+        int i=0;
+        for (Item item: items) {
+            if(i==index){
+                return item;
+            }
+            i++;
+         }
+        return null;
+  
     }
-    //class instance variables
-    private String itemName;
-      
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+
+   
+   public void AddItem(Item newItem) {
+        items.add(newItem);
+       // return this.newItem;
     }
     
-   void AddItem(Item newItem) {
-        items.Add(newItem);
-        return this.newItem;
-    }
-    
-   void String GiveItem(itemName) {
-         int index = -1;
-        for (int i=0; i<items.size(); i++) {
-            if (items.get(i).getName().equals(itemName)) {
-                index = i;
+   public Item GiveItem(String itemName) {
+        for (Item item: items) {
+            if (item.getName().equalsIgnoreCase(itemName)){
+                items.remove(item);
+                return item;
             }
         }
-        items.remove(index);
-        
-        
+        return null;
    }
-
-    @Override
+   
+   /* @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.itemName);
+        hash = 37 * hash + Objects.hashCode(this.item);
         return hash;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public String toString() {
         return "Backpack{" + "itemName=" + itemName + '}';
     }
@@ -79,7 +78,7 @@ public class Backpack implements Serializable{
             return false;
         }
         return true;
-    }
+    }*/
   
   /*   public static ArrayList<Item> createItemList() {
         //created ArrayList of items

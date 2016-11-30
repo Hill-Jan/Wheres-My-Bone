@@ -5,14 +5,19 @@
  */
 package wheresmybone.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import wheresmybone.WheresMyBone;
+
 /**
  *
  * @author Sexy Mario
  */
 public class ZooEntranceView extends View{
-        private String promptMessage;{
-    
-}
+        private String promptMessage;
+        protected final BufferedReader keyboard = WheresMyBone.getInFile();
+    protected final PrintWriter console = WheresMyBone.getOutFile();
+
 
 public ZooEntranceView() {
             super("\n"
@@ -62,7 +67,7 @@ public boolean doAction (String value) {
             this.talkSomeMore();
             break;
         default:
-            System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
     }
         return false;
@@ -70,7 +75,7 @@ public boolean doAction (String value) {
 }
 
 private void getSnowglobe() {
-                System.out.println ("\nThe snowglobes are pretty.  There’s one with a pink ribbon"
+                this.console.println ("\nThe snowglobes are pretty.  There’s one with a pink ribbon"
                         +"\nand polar bears playing in the snow."
                         +"\n“Is $10 enough?\""
                         +"\n“Yep.  I can waive the tax for you.”\n"
@@ -81,11 +86,11 @@ private void getSnowglobe() {
                         +"\nFishmonger station has seen him.  You know how much cats like fish.”"
                         +"\n"
                         +"\nWhere to next?");
-                System.out.println("\n*** puts the snowglobe in your backpack");
+                this.console.println("\n*** puts the snowglobe in your backpack");
 }
 
 private void talkSomeMore(){
-                System.out.println ("]\n“Have you seen DeVil?  I think he took my bone.”"
+                this.console.println ("]\n“Have you seen DeVil?  I think he took my bone.”"
                         +"\n“DeVil?  No.  I haven’t seen him.  Maybe Mr. Catch at the "
                         +"\nFishmonger station has seen him.  You know how much cats like fish.”"
                         +"\n"

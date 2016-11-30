@@ -40,7 +40,7 @@ public MapView() {
                  }
             }
      }
-     System.out.println("\n*** Invalid selection *** Try Again later");
+     ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again later");
      return false;
    }
 }

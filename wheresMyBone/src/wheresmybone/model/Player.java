@@ -19,7 +19,7 @@ public class Player implements Serializable{
     private Backpack backpack;
 
     public Player() {
-        Backpack backpack=new Backpack();
+        backpack = new Backpack();
     }
         public String getName() {
             return name;

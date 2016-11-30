@@ -5,6 +5,11 @@
  */
 package wheresmybone.control;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl.SceneType;
@@ -14,7 +19,6 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import wheresmybone.model.Npc;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 //import wheresmybone.model.Scene.SceneType;
@@ -27,61 +31,90 @@ import wheresmybone.model.Time;
 public class GameControl {
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
-       Location[][] locations = map.getLocations();
-       
+        Location[][] locations = map.getLocations();
+
         // start point
-       locations[0][0].setScene(scenes[SceneType.park.ordinal()]);
-       locations[0][1].setScene(scenes[SceneType.vacanthouse.ordinal()]);
-       locations[0][2].setScene(scenes[SceneType.police.ordinal()]);
-       locations[0][3].setScene(scenes[SceneType.animalhospital.ordinal()]);
-       locations[0][4].setScene(scenes[SceneType.pound.ordinal()]);
-       locations[1][0].setScene(scenes[SceneType.bakery.ordinal()]);
-       locations[1][1].setScene(scenes[SceneType.restaurant.ordinal()]);
-       locations[1][2].setScene(scenes[SceneType.drivein.ordinal()]);
-       locations[1][3].setScene(scenes[SceneType.pond.ordinal()]);
-       locations[1][4].setScene(scenes[SceneType.alley.ordinal()]);
-       locations[2][0].setScene(scenes[SceneType.carehome.ordinal()]);
-       locations[2][1].setScene(scenes[SceneType.neighborshouse.ordinal()]);
-       locations[2][2].setScene(scenes[SceneType.yourhouse.ordinal()]);
-       locations[2][3].setScene(scenes[SceneType.devilshouse.ordinal()]);
-       locations[2][4].setScene(scenes[SceneType.grocerywarehouse.ordinal()]);
-       locations[3][0].setScene(scenes[SceneType.zoo.ordinal()]);
-       locations[3][1].setScene(scenes[SceneType.elephants.ordinal()]);
-       locations[3][2].setScene(scenes[SceneType.tigers.ordinal()]);
-       locations[3][3].setScene(scenes[SceneType.kangaroos.ordinal()]);
-       locations[3][4].setScene(scenes[SceneType.giraffes.ordinal()]);
-       locations[4][0].setScene(scenes[SceneType.schoolentrance.ordinal()]);
-       locations[4][1].setScene(scenes[SceneType.schoolcafeteria.ordinal()]);
-       locations[4][2].setScene(scenes[SceneType.schoolplayground.ordinal()]);
-       locations[4][3].setScene(scenes[SceneType.schoolparkinglot.ordinal()]);
-       locations[4][4].setScene(scenes[SceneType.fishmonger.ordinal()]);
-       
-       
+        locations[0][0].setScene(scenes[SceneType.park.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.vacanthouse.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.police.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.animalhospital.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.pound.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.bakery.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.restaurant.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.drivein.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.pond.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.alley.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.carehome.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.neighborshouse.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.yourhouse.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.devilshouse.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.grocerywarehouse.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.zoo.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.elephants.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.tigers.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.gorillas.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.giraffes.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.schoolentrance.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.schoolcafeteria.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.schoolplayground.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.schoolparkinglot.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.fishmonger.ordinal()]);
+
     }
 
     double timeLeft;
-    public GameControl (){
+
+    public GameControl() {
         timeLeft = 1440;
-    
+
     }
+    public static void saveGame(Game game, String filepath)
+            throws GameControlException {
+        
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); // write the game object out to file
+        }
+        catch (Exception ex) {
+            throw new GameControlException(ex.getMessage());
+        }
+        
+    }
+    
+    public static void loadSavedGame(String filepath) 
+                            throws GameControlException{
+        Game game = null;
+        
+        try (FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); //read the game object from file
+        } catch(Exception ex) {
+            throw new GameControlException(ex.getMessage());
+        }
+        
+        //close the output file
+        WheresMyBone.setCurrentGame(game); //save in WheresMyBone
+    }
+
     public static Player createPlayer(String name) {
-        if (name == null ){
+        if (name == null) {
             return null;
-            }
+        }
         Player player = new Player();
         player.setName(name);
- 
+
         WheresMyBone.setPlayer(player); //creates the player
-        
+
         return player;
-        
+
     }
-    
-    
+
     public static ArrayList<Item> createItemList() {
         //created ArrayList of items
         ArrayList<Item> items = new ArrayList<>();
-        
+
         items.add(new Item("twig", "Park", "a twig on the ground"));
         items.add(new Item("pebble", "Pond", "pebble from the pond"));
         items.add(new Item("collar", "Pound", "cat collar"));
@@ -96,10 +129,11 @@ public class GameControl {
         items.add(new Item("peanuts", "School Cafeteria", "salty peanuts"));
         items.add(new Item("ball", "School Playground", "bouncy ball"));
         items.add(new Item("paper", "School Entrance", "piece of paper"));
-        
+
         return items;
     }
-/*createNewGame(Player player): int
+
+    /*createNewGame(Player player): int
 BEGIN
  if (player == null)
  return -1
@@ -118,59 +152,51 @@ BEGIN
     public static void createNewGame(Player player) {
         Game game = new Game(); //create new game
         WheresMyBone.setCurrentGame(game); // save in WheresMyBone
-        
+
         game.setPlayer(player); //save player in the game
-        
+
         Time time = new Time(); //create the start time
         game.setTime(time); //save time in game
-        
+
         Backpack backpack = new Backpack(); //create backpack
         player.setBackpack(backpack); //save backpack in game
 
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game
-        
+
         //move actors to starting position in the map
         MapControl.movePlayerToStartingLocation(map);
     }
-    // calculate time left to complete game
-    public double calcTimeLeft(double travelTime) 
-                        throws GameControlException{
 
-  
-        if (timeLeft<=0) {
+    // calculate time left to complete game  
+    /* ****Bro Jones: we haven't implemented this one anywhere yet
+    so the "throws" isn't actually throwing it anywhere.*/
+    public double calcTimeLeft(double travelTime)
+            throws GameControlException {
+
+        timeLeft -= travelTime;
+        if (timeLeft <= 0) {
             throw new GameControlException("\nYou are out of time.\n");
-         }
-        if (travelTime<0) {
-            throw new GameControlException("\nTravel time error\n");
+        }
+         return timeLeft;
+    }
+
+    // calculate the area for the user to investigate and how much time is spent in the investigation.
+    public String calcAreaTime(double length, double width) throws GameControlException {
+        double timeLeft = 200.0;
+        DecimalFormat df = new DecimalFormat("#.##");
+        String formatted = df.format(timeLeft);
+        double area = length * width;
+        timeLeft = timeLeft - area * 2.4 / 60;
+        if (timeLeft > 0 && timeLeft <= 1420) {
+            return ("\nYou have " + timeLeft + " minutes remaining. "
+                    + "\nYou found a clump of cat fur."
+                    + "\nYou would recognize this fur anywhere"
+                    + "\nIt's none other than the fur of DeVil");
         }
 
-       timeLeft -= travelTime;
-       if (timeLeft <= 0) {
-             return -1;
-       }
-       return timeLeft;
-       }
-    
-    // calculate the area for the user to investigate and how much time is spent in the investigation.
-    public double calcAreaTime(double length, double width) {
-        
-        if (length <=0){
-            return -1;
-        }
-        if (length>100){
-            return -1;
-        }
-        if (width <=0) {
-            return -1;
-        }
-        if (width >50) {
-            return -1;
-        }
-        
-        timeLeft = timeLeft - length * width * 2.4 / 60;
-        
-        return timeLeft;
+        throw new GameControlException("\nIn your haste you didn't find any clues, and you're out of time.");
+
     }
-    
-    }
+
+}

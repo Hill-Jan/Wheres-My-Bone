@@ -32,6 +32,7 @@ public class EnterGiraffeView extends View {
                 + "\n"
                 + "\nE - Enter the Giraffe Enclosure"
                 + "\nM - Make another move"
+                + "\nX - Exit to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
     }
@@ -46,29 +47,20 @@ public class EnterGiraffeView extends View {
     
     switch (value) {
         case "E": 
-       {
-           try {
-               // Enter the Vacant House
-               this.enterGiraffesView();
-           } catch (CalculationControlException ex) {
-            System.out.println(ex.getMessage());
-        } 
-        finally {RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();}
-       }
-        
+            // Enter the Vacant House
+            this.enterGiraffesView();
             break;
         case "M": // Make another move
             this.displayGoToNewLocation();
             break;
         default:
-            System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
        return false;
     }
 
-    private void enterGiraffesView() throws CalculationControlException {
+    private void enterGiraffesView(){
         GiraffesView giraffesView = new GiraffesView();
         giraffesView.displayGiraffesView();
     }

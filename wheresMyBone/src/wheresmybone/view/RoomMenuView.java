@@ -47,13 +47,13 @@ public class RoomMenuView extends View {
                 this.moveLocation();
                 break;
             //default:
-              //  System.out.println("\n*** Invalid selection *** Try again");
+              //  ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 //break;
         }
         try{
             number = Double.parseDouble(value);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number."
                         + " Try again or enter X to exit Room Menu.");
         }
         return false;
@@ -78,13 +78,13 @@ public class RoomMenuView extends View {
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
         try {
-            System.out.print("  |");
+            this.console.print("  |");
             for (int column = 0; column < locations[0].length; column++) {
-                System.out.print("  " + column + " |"); // print col numbers to side of map
+                this.console.print("  " + column + " |"); // print col numbers to side of map
             }
-            System.out.println();
+            this.console.println();
             for (int row = 0; row < locations[0].length; row++) {
-                System.out.print(row + " "); // print row numbers to side of map
+                this.console.print(row + " "); // print row numbers to side of map
                 for (int column = 0; column < locations[row].length; column++) {
                     leftIndicator = " ";
                     rightIndicator = " ";
@@ -95,22 +95,22 @@ public class RoomMenuView extends View {
                         leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                         rightIndicator = "<"; // same as above
                     }
-                    System.out.print("|"); // start map with a |
+                    this.console.print("|"); // start map with a |
                     if (locations[row][column].getScene() == null) {
-                        System.out.print(leftIndicator + "??" + rightIndicator);
+                        this.console.print(leftIndicator + "??" + rightIndicator);
                     } else {
-                        System.out.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+                        this.console.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
 
                     }
                 }
 
-                System.out.println("|");
+                this.console.println("|");
 
             }
         } catch (Exception e) {
-            System.out.println("Error");
+            ErrorView.display(this.getClass().getName(),"\nError");
         }
-        System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
+        this.console.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
     private void moveLocation() {

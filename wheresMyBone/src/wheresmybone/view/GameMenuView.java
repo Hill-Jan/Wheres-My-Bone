@@ -8,13 +8,6 @@ import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import wheresmybone.model.Npc;
-import java.lang.String;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import wheresmybone.control.MapControl;
-import wheresmybone.exceptions.CalculationControlException;
-import wheresmybone.exceptions.MapControlException;
 
 /**
  *
@@ -108,7 +101,8 @@ END */
                 //test giraffe enclosure
               //  this.displayGiraffesView();
                 //break;
-            case "Y": //test your house
+            case "Y": 
+                //test your house
                 this.displayYourHouseView();
                 break;
             /*case "R": //test room menu view
@@ -127,14 +121,14 @@ END */
               //  this.displaySchoolEntranceView();
                 //break;
             default:
-                System.out.println("\n*** Invalid selection *** Choose a Menu Option");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Choose a Menu Option");
                 break;
         }
         return false;
     }
 
     private void showRoomItems() {
-        System.out.println("*** showRoomItems() function called ***");
+        this.console.println("*** showRoomItems() function called ***");
     }
 
     private void showBackpackItems() {
@@ -143,22 +137,22 @@ END */
         Game game = WheresMyBone.getCurrentGame();
         ArrayList<Item> items = GameControl.createItemList();
 
-        System.out.println("\n       LIST OF ITEMS IN BACKPACK");
+        this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
         line.insert(0, "Item");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (Item item : items) {
-            System.out.println(item.getName());
+            this.console.println(item.getName());
         }
     }
 
     private void checkTime() {
-        System.out.println("*** checkTime() function called ***");
+        this.console.println("*** checkTime() function called ***");
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame() function called ***");
+        this.console.println("*** saveGame() function called ***");
     }
 
     private void displayHelpMenu() {
@@ -169,54 +163,12 @@ END */
         helpMenuView.display();
     }
 
-    /*private void displayVacantHouseView() {
-        //Create displayVacantHouseView object
-        VacantHouseView vacantHouseView = new VacantHouseView();
-        try {
-            //Display the vacant house view
-            vacantHouseView.displayVacantHouseView();
-        } catch (CalculationControlException ex) {
-            System.out.println(ex.getMessage());
-        }
-        finally {RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();}
-
-    }*/
-
-   /* private void displayGiraffesView() {
-        //Create displayGiraffesView
-        GiraffesView giraffesView = new GiraffesView();
-        // Display Giraffes View
-        try {
-        giraffesView.displayGiraffesView();
-        } catch (CalculationControlException ex) {
-            System.out.println(ex.getMessage());
-        } 
-        finally {RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();}
-        
-    }*/
-
     private void displayYourHouseView() {
         //Create displayYourHouseView object
         YourHouseView yourHouseView = new YourHouseView();
         //Display the your house view
         yourHouseView.displayYourHouseView();
     }
-
-    /*private void displayRoomMenuView() {
-        //Create displayRoomMenuView object
-        RoomMenuView roomMenuView = new RoomMenuView();
-        //Display the room menu view
-        roomMenuView.display();
-    }*/
-
-    /*private void displayVacantHouseSceneView() {
-        //create displayVacantHouseSceneView object
-        VacantHouseSceneView vacantHouseSceneView = new VacantHouseSceneView();
-        //Display the vacant house scene view
-        vacantHouseSceneView.display();
-    }*/
 
     private void displayCafeteriaViewTest() {
         //Create displayRoomMenuView object
@@ -232,14 +184,6 @@ END */
         zooEntranceView.display();
     }
 
-   /* private void displaySchoolEntranceView() {
-        //Create displayRoomMenuView object
-        SchoolEntrance schoolEntranceTest = new SchoolEntrance();
-        //Display the room menu view
-        schoolEntranceTest.display();
-    }*/
-//Displays the map
-
     public void viewMap() {
 
         //Console console = System.console(); Displays Map
@@ -249,13 +193,13 @@ END */
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
         try {
-            System.out.print("  |");
+            this.console.print("  |");
             for (int column = 0; column < locations[0].length; column++) {
-                System.out.print("  " + column + " |"); // print col numbers to side of map
+                this.console.print("  " + column + " |"); // print col numbers to side of map
             }
-            System.out.println();
+            this.console.println();
             for (int row = 0; row < locations[0].length; row++) {
-                System.out.print(row + " "); // print row numbers to side of map
+                this.console.print(row + " "); // print row numbers to side of map
                 for (int column = 0; column < locations[row].length; column++) {
                     leftIndicator = " ";
                     rightIndicator = " ";
@@ -266,22 +210,22 @@ END */
                         leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                         rightIndicator = "<"; // same as above
                     }
-                    System.out.print("|"); // start map with a |
+                    this.console.print("|"); // start map with a |
                     if (locations[row][column].getScene() == null) {
-                        System.out.print(leftIndicator + "??" + rightIndicator);
+                        this.console.print(leftIndicator + "??" + rightIndicator);
                     } else {
-                        System.out.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+                        this.console.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
 
                     }
                 }
 
-                System.out.println("|");
+                this.console.println("|");
 
             }
         } catch (Exception e) {
-            System.out.println("Error");
+            ErrorView.display(this.getClass().getName(),"\nError");
         }
-        System.out.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
+        this.console.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
     public void showNpcSort() {
@@ -310,7 +254,7 @@ END */
         SceneType[] scenes = SceneType.values();
         
         for (SceneType sceneNames : scenes) {
-            System.out.println(sceneNames.getSceneName());
+            this.console.println(sceneNames.getSceneName());
         }
     }
 

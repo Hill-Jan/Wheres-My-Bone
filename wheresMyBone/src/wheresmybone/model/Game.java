@@ -27,6 +27,7 @@ public class Game implements Serializable{
     private Map map;
     
     public Game() {
+        backpack = new Backpack();
     }
         
     public int getStartTime() {

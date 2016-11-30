@@ -1,9 +1,13 @@
 
         package wheresmybone.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.exceptions.CalculationControlException;
 
@@ -20,6 +24,8 @@ public class VacantHouseView {
     private double boxLength = 0;
     private double boxWidth = 0;
     private double boxHeight = 0;
+    protected final BufferedReader keyboard = WheresMyBone.getInFile();
+    protected final PrintWriter console = WheresMyBone.getOutFile();
 
     public VacantHouseView() {
         this.description = "\n"
@@ -35,17 +41,19 @@ public class VacantHouseView {
                 + "\n---------------------------------------------";
     }
 
-    public void displayVacantHouseView() throws CalculationControlException {
+    public void displayVacantHouseView() {
 
-        System.out.println("\n" + this.description);      
+        this.console.println("\n" + this.description);      
             getAllInput(); 
+            RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
-    private void getAllInput() throws CalculationControlException {
+    private void getAllInput() {
         boxLength = getLengthInput();
         if (boxLength > 0) {
             boxWidth = getWidthInput();
-            if (boxWidth > 0) {
+            if (boxWidth > 0 || boxWidth < -1) {
                 boxHeight = getHeightInput();
             }
         }
@@ -60,14 +68,17 @@ public class VacantHouseView {
 
     private double getLengthInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         double length = 0;
 
+    try {
         while (!valid) {
-            System.out.println("\n" + lengthPrompt);
+            this.console.println("\n" + lengthPrompt);
             
-            String lengthString = keyboard.nextLine();
+            String lengthString;
+            
+            lengthString = keyboard.readLine();
+            
             lengthString = lengthString.trim().toUpperCase();
             
             if (lengthString.equals("Q"))
@@ -76,33 +87,36 @@ public class VacantHouseView {
             try {
             length = Double.parseDouble(lengthString);
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number."
-                            + "Try again or enter Q to quit.\n");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number."
+                            + "Try again or enter -1 to quit.\n");
             }
             if (length == -1) {
-                return -1;//exit the loop
-            }  else if (length < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (length > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+               break;//exit the loop
+            }  else if (length < 1 || length > 1000) {
+                ErrorView.display(this.getClass().getName(),"\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }
         }
+        } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"\nError reading input: " + ex.getMessage());
+            }
         return length;
-
     }
 
     private double getWidthInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         double width = 0;
-        
+    
+    try {
         while (!valid) {
-            System.out.println("\n" + widthPrompt);
+            this.console.println("\n" + widthPrompt);
 
-            String widthString = keyboard.nextLine();
+            String widthString;
+            
+                widthString = keyboard.readLine();
+           
             widthString = widthString.trim().toUpperCase();
             
             if (widthString.equals("Q"))
@@ -111,33 +125,36 @@ public class VacantHouseView {
             try {
                 width = Double.parseDouble(widthString);
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number."
-                           + "Try again or enter Q to quit.\n");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number."
+                           + " Try again or enter -1 to quit.\n");
             }
 
             if (width == -1) {
-                return -1;//exit the loop
-            } else if (width < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (width > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+                break;//exit the loop
+            } else if (width < 1 || width > 1000) {
+                ErrorView.display(this.getClass().getName(),"\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }
         }
+         } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"\nError reading input: " + ex.getMessage());
+            }
         return width;
     }
 
     private double getHeightInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         double height = 0;
-
+    try {
         while (!valid) {
-            System.out.println("\n" + heightPrompt);
+            this.console.println("\n" + heightPrompt);
 
-           String heightString = keyboard.nextLine();
+           String heightString;
+            
+                heightString = keyboard.readLine();
+            
            heightString = heightString.trim().toUpperCase();
            
            if (heightString.equals("Q"))
@@ -146,25 +163,32 @@ public class VacantHouseView {
            try {
                height = Double.parseDouble(heightString);
            } catch (NumberFormatException nf) {
-               System.out.println("\nYou must enter a valid number."
-                          + "Try again or enter Q to quit.\n");
+               ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number."
+                          + "Try again or enter -1 to quit.\n");
            }
 
             if (height == -1) {
-                return -1;//exit the loop
-            } else if (height < 1) {
-                System.out.println("\nPlease enter a measurement greater than 0");
-            } else if (height > 1000) {
-                System.out.println("\nPlease enter a measurement less than 1000");
+                break;//exit the loop
+            } else if (height < 1 || height > 1000) {
+                ErrorView.display(this.getClass().getName(),"\nPlease enter a measurement greater than 0 and less than 1000\n");
             } else {
                 valid = true;
             }
         }
+        } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"\nError reading input " + ex.getMessage());
+            }
         return height;
     }
-    private void doAction() throws CalculationControlException {
+    private boolean doAction() {
+       boolean retVal = false;
         //CalculationControl calcVolumeBox = new CalculationControl();
-            CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
+        try {
+            String resultStr = CalculationControl.calcVolumeBox(boxLength, boxWidth, boxHeight);
+            this.console.println(resultStr);
+        } catch (CalculationControlException ce) {
+            ErrorView.display(this.getClass().getName(),ce.getMessage());
+        }
+        return retVal;
     }
-
 }

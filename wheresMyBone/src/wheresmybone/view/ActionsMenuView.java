@@ -77,7 +77,7 @@ public class ActionsMenuView extends View {
                 this.actionMapLocation();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Choose a Menu Option");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Choose a Menu Option");
                 break;
         }
     return false;
@@ -91,7 +91,7 @@ Display the Game Menu
 END */
 
     private void actionSearch() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will call another function to give"
                           +"\n more detailed information about the area."
                           +"\n-------------------------------------------------"
@@ -99,7 +99,7 @@ END */
     }
 
     private void actionDig() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will call another function to give"
                           +"\n more detailed information about the area."
                           +"\n-------------------------------------------------"
@@ -107,7 +107,7 @@ END */
     }
 
     private void actionTalk() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will call another function to give"
                           +"\n more detailed information from the npc in the area."
                           +"\n-------------------------------------------------"
@@ -115,7 +115,7 @@ END */
     }
 
     private void actionPickUp() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to pick up"
                           +"\n an item in the area."
                           +"\n-------------------------------------------------"
@@ -123,7 +123,7 @@ END */
     }
     
     private void actionBackpack() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to put an"
                           +"\n item into Inventory in the Backpack."
                           +"\n-------------------------------------------------"
@@ -131,7 +131,7 @@ END */
     }
     
     private void actionDrop() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to drop"
                           +"\n an item in the area."
                           +"\n-------------------------------------------------"
@@ -139,7 +139,7 @@ END */
     }
     
      /*private void actionInventory() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to see what"
                           +"\n items are in his/her backpack."
                           +"\n-------------------------------------------------"
@@ -151,18 +151,18 @@ END */
         Game game = WheresMyBone.getCurrentGame();
         ArrayList<Item> items = GameControl.createItemList();
 
-        System.out.println("\n       LIST OF ITEMS IN BACKPACK");
+        this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
         line.insert(0, "Item");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (Item item : items) {
-            System.out.println(item.getName());
+            this.console.println(item.getName());
         }
     }
     
      private void actionGiveItem() {
-        System.out.println("\n-------------------------------------------------"
+        this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to give"
                           +"\n an item to an npc in the area."
                           +"\n-------------------------------------------------"

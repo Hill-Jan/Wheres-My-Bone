@@ -5,11 +5,8 @@
  */
 package wheresmybone.view;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl;
-import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Location;
@@ -32,9 +29,9 @@ public MapSymbolSceneName() {
          + "\n"
          + "\n*****************************************************************"
     ); 
-    System.out.println("\n");
+    this.console.println("\n");
     viewMap();
-    System.out.println("\n");
+    this.console.println("\n");
     
 }
 /*TEST MATRIX
@@ -67,8 +64,20 @@ public MapSymbolSceneName() {
 @Override
 public boolean doAction(String value) {
     MapControl doSceneFromSymbol = new MapControl();
-    doSceneFromSymbol.doMapSymbolSceneName(value);
-    return false;
+    boolean retVal = false;
+    try {
+        String resultStr = doSceneFromSymbol.doMapSymbolSceneName(value); 
+        if (resultStr.isEmpty()) 
+            retVal = true;
+        else 
+            this.console.println(resultStr);
+    } catch (MapControlException ex) {
+        ErrorView.display(this.getClass().getName(),ex.getMessage());
+    }
+        if (!retVal)
+            viewMap();
+    
+    return retVal;
 }
 
 public static void viewMap() {
@@ -108,7 +117,7 @@ public static void viewMap() {
                 System.out.println("|");
             }
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println(e.getMessage());
         }
 
 }
