@@ -19,6 +19,8 @@ public class Player implements Serializable{
     private Backpack backpack;
 
     public Player() {
+        gender = "xya";
+        backpack = new Backpack();
     }
         public String getName() {
             return name;

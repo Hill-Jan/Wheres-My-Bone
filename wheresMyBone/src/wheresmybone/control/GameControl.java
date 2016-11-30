@@ -11,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.GameControlException;
@@ -77,6 +79,7 @@ public class GameControl {
             output.writeObject(game); // write the game object out to file
         }
         catch (Exception ex) {
+            Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
             throw new GameControlException(ex.getMessage());
         }
         

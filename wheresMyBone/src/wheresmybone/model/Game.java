@@ -20,13 +20,16 @@ public class Game implements Serializable{
     private double bestTime;
     private String instructions;
     private String attribute;
-    private ArrayList<Item> items;
     private Time time;
     private Player player;
     private Backpack backpack;
     private Map map;
     
     public Game() {
+        instructions = "";
+        attribute = "";
+        backpack = new Backpack();
+        
     }
         
     public int getStartTime() {
@@ -93,18 +96,9 @@ public class Game implements Serializable{
         return this.map;
     }
 
-    public ArrayList<Item> getItems() {
-        
-        return this.items;
-    }
-
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
-
     @Override
     public String toString() {
-        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", attribute=" + attribute + ", items=" + items + ", time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
+        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", attribute=" + attribute + "time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
     }
 
     @Override
@@ -114,7 +108,6 @@ public class Game implements Serializable{
         hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         hash = 17 * hash + Objects.hashCode(this.instructions);
         hash = 17 * hash + Objects.hashCode(this.attribute);
-        hash = 17 * hash + Objects.hashCode(this.items);
         hash = 17 * hash + Objects.hashCode(this.time);
         hash = 17 * hash + Objects.hashCode(this.player);
         hash = 17 * hash + Objects.hashCode(this.backpack);
@@ -144,9 +137,6 @@ public class Game implements Serializable{
             return false;
         }
         if (!Objects.equals(this.attribute, other.attribute)) {
-            return false;
-        }
-        if (!Objects.equals(this.items, other.items)) {
             return false;
         }
         if (!Objects.equals(this.time, other.time)) {

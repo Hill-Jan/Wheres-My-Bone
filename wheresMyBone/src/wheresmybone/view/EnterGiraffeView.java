@@ -76,7 +76,9 @@ public class EnterGiraffeView extends View {
     private void enterScene(){
         Game game = WheresMyBone.getCurrentGame();
         Map map = game.getMap();
-        map.getCurrentLocation().getScene().getView().display();
+        View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
+        if (currentView != null)
+            currentView.display();
     }
     
 }

@@ -17,6 +17,10 @@ public class Backpack implements Serializable{
     
     //class instance variables
     private String itemName;
+    
+    public Backpack() {
+        itemName = "";
+    }
       
     public void setItemName(String itemName) {
         this.itemName = itemName;
