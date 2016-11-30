@@ -15,11 +15,9 @@ public class Player implements Serializable{
     
     // class instance variables
     private String name;
-    private String gender; 
     private Backpack backpack;
 
     public Player() {
-        gender = "xya";
         backpack = new Backpack();
     }
         public String getName() {
@@ -29,15 +27,7 @@ public class Player implements Serializable{
         public void setName(String name) {
             this.name = name;
         }
-
-        public String getGender() {
-             return gender;
-        }
-
-        public void setGender(String gender) {
-            this.gender = gender;
-        }
-
+        
     public Backpack getBackpack() {
         return backpack;
     }
@@ -51,7 +41,6 @@ public class Player implements Serializable{
     public int hashCode() {
         int hash = 3;
         hash = 79 * hash + Objects.hashCode(this.name);
-        hash = 79 * hash + Objects.hashCode(this.gender);
         return hash;
     }
 
@@ -70,15 +59,12 @@ public class Player implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.gender, other.gender)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", gender=" + gender + '}';
+        return "Player{" + "name=" + name +'}';
     }
     
     

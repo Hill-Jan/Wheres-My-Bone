@@ -5,6 +5,8 @@
  */
 package wheresmybone.view;
 
+import java.io.Serializable;
+
 /**
  *
  * @author tCalder

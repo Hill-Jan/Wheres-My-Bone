@@ -5,12 +5,11 @@
  */
 package wheresmybone.view;
 
+import java.io.Serializable;
 import wheresmybone.WheresMyBone;
-import wheresmybone.exceptions.CalculationControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
 import static wheresmybone.view.MapSymbolSceneName.viewMap;
-import wheresmybone.view.GameMenuView;
 
 /**
  *

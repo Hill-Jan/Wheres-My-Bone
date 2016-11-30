@@ -5,6 +5,7 @@
  */
 package wheresmybone.control;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 import wheresmybone.exceptions.CalculationControlException;

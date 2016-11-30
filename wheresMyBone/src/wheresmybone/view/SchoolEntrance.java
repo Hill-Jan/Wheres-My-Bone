@@ -5,13 +5,11 @@
  */
 package wheresmybone.view;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import wheresmybone.WheresMyBone;
-import wheresmybone.control.GameControl;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 /**
  *

@@ -5,14 +5,15 @@
  */
 package wheresmybone.model;
 import java.awt.Point;
-import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author short
  */
-public enum Npc implements Serializable{
+
+public class Npc {
+
+    public enum Npcs{
     
     //keywords and dialogue
     Tommy("PARK"),
@@ -40,7 +41,7 @@ public enum Npc implements Serializable{
     //private final String clue;
     private final Point location;
 
-    Npc(String npcLocation/*, String itemGiven, String itemReceived, String clue*/) {
+    Npcs(String npcLocation/*, String itemGiven, String itemReceived, String clue*/) {
         this.npcLocation = npcLocation;
         /*this.itemGiven = itemGiven;
         this.itemReceived = itemReceived; // not sure on this, added because we were getting an error saying itemReceived not initialized
@@ -69,4 +70,5 @@ public enum Npc implements Serializable{
         return location;
 }
     
+}
 }

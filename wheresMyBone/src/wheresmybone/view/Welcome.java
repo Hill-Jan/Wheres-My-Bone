@@ -5,7 +5,9 @@
  */
 package wheresmybone.view;
 
-public class Welcome{
+import java.io.Serializable;
+
+public abstract class Welcome extends View {
 public static void displayBanner() {
         System.out.println(                                                                                                                                                                                                                                                                                                                                                  
    "##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\  ##\\##\\"                                                                                                                                               

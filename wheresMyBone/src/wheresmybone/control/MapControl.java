@@ -5,15 +5,12 @@
  */
 package wheresmybone.control;
 
+import java.io.Serializable;
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Map;
-import wheresmybone.model.Npc;
+import wheresmybone.model.Npc.Npcs;
 import wheresmybone.model.Scene;
-import wheresmybone.view.EnterGiraffeView;
-import wheresmybone.view.SchoolEntrance;
-import wheresmybone.view.VacantHouseSceneView;
-import wheresmybone.view.View;
 
 /**
  *
@@ -100,7 +97,7 @@ public enum SceneType {
         park.setMapSymbol("PK");
         //park.setBlocked(false);
         park.setTravelTime(20);
-        park.setNpcDescription(Npc.Tommy.getNpcLocation());
+        park.setNpcDescription(Npcs.Tommy);
         scenes[SceneType.park.ordinal()] = park;  
         
         Scene vacanthouse = new Scene();

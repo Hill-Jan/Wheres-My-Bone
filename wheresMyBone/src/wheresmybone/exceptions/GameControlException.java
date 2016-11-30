@@ -5,11 +5,13 @@
  */
 package wheresmybone.exceptions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author tCalder
  */
-public class GameControlException extends Exception{
+public class GameControlException extends Exception {
 
     public GameControlException() {
     }

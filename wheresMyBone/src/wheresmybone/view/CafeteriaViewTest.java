@@ -5,11 +5,13 @@
  */
 package wheresmybone.view;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jan
  */
-public class CafeteriaViewTest extends View{
+public class CafeteriaViewTest extends View {
      private String promptMessage;{
 }
 public CafeteriaViewTest() {

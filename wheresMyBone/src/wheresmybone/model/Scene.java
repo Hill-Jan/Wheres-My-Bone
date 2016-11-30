@@ -7,12 +7,11 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import wheresmybone.view.View;
 /**
  *
  * @author Hill-Jan
  */
-public class Scene implements Serializable{
+public class Scene implements Serializable {
     
  private String sceneName;
  private String sceneDescript;
@@ -147,6 +146,10 @@ public String mapSymbol;
     @Override
     public String toString() {
         return "Scene{" + "sceneName=" + sceneName + ", sceneDescript=" + sceneDescript + ", npcDescription=" + npcDescription + ", item=" + item + ", travelTime=" + travelTime + '}';
+    }
+
+    public void setNpcDescription(Npc.Npcs npcs) {
+        this.npcDescription = npcDescription;
     }
 
   

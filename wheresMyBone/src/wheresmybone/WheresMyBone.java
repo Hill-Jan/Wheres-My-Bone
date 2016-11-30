@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.model.Game;
 import wheresmybone.model.Player;
 import wheresmybone.view.StartProgramView;

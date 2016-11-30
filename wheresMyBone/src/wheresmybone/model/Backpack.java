@@ -7,8 +7,8 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -16,11 +16,12 @@ import java.util.ArrayList;
  */
 public class Backpack implements Serializable{
 
-       private ArrayList<Item> items;
+       private final transient ArrayList<Item> items;
 
 public Backpack (){
     items = new ArrayList<>();
 }
+
 
     public Item getItem(int index) {
         int i=0;
@@ -49,6 +50,11 @@ public Backpack (){
         }
         return null;
    }
+
+    @Override
+    public String toString() {
+        return "Backpack{" + "items=" + items + '}';
+    }
    
    /* @Override
     public int hashCode() {
@@ -100,4 +106,26 @@ public Backpack (){
         items.add(new Item("paper", "School Entrance", "piece of paper"));
         
         return items;*/
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.items);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Backpack other = (Backpack) obj;
+        return Objects.equals(this.items, other.items);
+    }
 }
