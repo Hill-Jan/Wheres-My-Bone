@@ -76,7 +76,7 @@ public boolean doAction (String value){
 
     public void searchYourBackpack() {
        Game game = WheresMyBone.getCurrentGame();      
-       ArrayList<Item> item = new ArrayList<>();
+      /* ArrayList<Item> item = new ArrayList<>();
        item = GameControl.createItemList();
         //StringBuilder line;
 
@@ -88,10 +88,12 @@ public boolean doAction (String value){
             System.out.println(j + "   " + item.get(j).getName() );
             }
 
-       ArrayList<Item> backpack = new ArrayList<>();
-      backpack = GameControl.createItemList();  
+       ArrayList<Item> backpack = new ArrayList<>();*/
+      backpack = wheresmybone.model.Backpack.items[];  
         String itemName = "paper";
-        int index = -1;
+        Backpack.GiveItem();
+    }
+        /*int index = -1;
         for (int i=0; i<backpack.size(); i++) {
             if (backpack.get(i).getName().equals(itemName)) {
                 index = i;
@@ -110,9 +112,9 @@ public boolean doAction (String value){
            Error  |           | Must not have |
                                   it yet      |
         ***************************************
-        */
+    
         
-        /* ALGORITHM for displaying location of item
+       ALGORITHM for displaying location of item
            Process the search above to locate the item within the inventory arrayList
                         located in the Game Control Layer.
            Use the index variable to display the location of the item in 
@@ -121,7 +123,7 @@ public boolean doAction (String value){
         */
         
         if(index != -1){
-            System.out.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
+            //System.out.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
             System.out.println("\nYou remember you put a paper in your backpack "
                             +"\nwhen you were in the school parking lot.  You give Brad the paper."
                             +"\n“Is this it?” you ask."
