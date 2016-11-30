@@ -52,7 +52,7 @@ public boolean doAction (String value){
                 return true;
                 
             default:
-            System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
        return false;
@@ -80,12 +80,12 @@ public boolean doAction (String value){
        item = GameControl.createItemList();
         //StringBuilder line;
 
-        System.out.println("\n       Inventory");
+        this.console.println("\n       Inventory");
         //line = new StringBuilder("          ");
         int j=0;
             for(j=0; j<item.size(); j++){
             //line.insert(0, "Item");
-            System.out.println(j + "   " + item.get(j).getName() );
+            this.console.println(j + "   " + item.get(j).getName() );
             }
 
        ArrayList<Item> backpack = new ArrayList<>();
@@ -121,8 +121,8 @@ public boolean doAction (String value){
         */
         
         if(index != -1){
-            System.out.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
-            System.out.println("\nYou remember you put a paper in your backpack "
+            this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
+            this.console.println("\nYou remember you put a paper in your backpack "
                             +"\nwhen you were in the school parking lot.  You give Brad the paper."
                             +"\n“Is this it?” you ask."
                             +"\n“What?  Oh, " + StartProgramView.player.getName() +"!  You’re the best!” "
@@ -140,7 +140,7 @@ public boolean doAction (String value){
         viewMap();
         }
         else {
-            System.out.println("\n\"Gee, I’m sorry, Brad.  Good luck finding it.  "
+            this.console.println("\n\"Gee, I’m sorry, Brad.  Good luck finding it.  "
                                 +"\nI’ll keep my eyes peeled.”"
                                 +"\n\"Thanks, " + StartProgramView.player.getName() +".”"
                                 +"\n“You haven’t seen DeVil, have you?  He might have been carrying a bone?”"

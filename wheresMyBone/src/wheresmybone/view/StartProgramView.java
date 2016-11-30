@@ -5,7 +5,13 @@
  */
 package wheresmybone.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.model.Player;
 
@@ -17,6 +23,9 @@ public class StartProgramView {
     
     private String promptMessage;
     public static Player player;
+    protected final BufferedReader keyboard = WheresMyBone.getInFile();
+    protected final PrintWriter console = WheresMyBone.getOutFile();
+    
     
     public StartProgramView(){
         
@@ -28,7 +37,7 @@ public class StartProgramView {
 
     private void displayBanner() {
         Welcome.displayBanner();
-        System.out.println(
+        this.console.println(
            /* This is for the beginning of the game.
           "\n******************************************************************"
         + "\n*                                                                *"
@@ -104,23 +113,26 @@ public class StartProgramView {
         */
     private String getPlayersName() {
     
-        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
         
+    try {
         while (!valid){
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            value = keyboard.nextLine();
+                value = keyboard.readLine();
+            
             value = value.trim();
             
             if (value.length() < 1) {
-                System.out.println("\nInvalid value: value cannot be blank");
+                ErrorView.display(this.getClass().getName(),"\nInvalid value: value cannot be blank");
                 continue;
             }
             break;
         }
-        
+        } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"\nError reading input: " + ex.getMessage());
+            }
         return value;
     }
         /*doAction(playersName): boolean
@@ -141,7 +153,7 @@ public class StartProgramView {
 */
     private boolean doAction(String playersName) {
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid player's name: "
+            ErrorView.display(this.getClass().getName(),"\nInvalid player's name: "
                     + "The name must be greater than one character in length");
             return false;
         }
@@ -150,7 +162,7 @@ public class StartProgramView {
         player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessful
-            System.out.println("\n Error creating the player.");
+            ErrorView.display(this.getClass().getName(),"\n Error creating the player.");
             return false;
         }
         //display next view
@@ -159,7 +171,7 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n==============================================="
+        this.console.println("\n==============================================="
                            +"\n Welcome to the game, " + player.getName()
                            +"\n We hope you have a lot of fun!"
                            +"\n=============================================="

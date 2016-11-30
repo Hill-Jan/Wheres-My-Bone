@@ -45,10 +45,10 @@ public boolean doAction (String value){
                 break;
             
             case"X":
-                System.out.println("\n***this calls the map function***");
+                this.console.println("\n***this calls the map function***");
                 break;
             default:
-            System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
        return false;
@@ -56,7 +56,7 @@ public boolean doAction (String value){
 }
 
     private void getPeanuts() {
-        System.out.println("\n***This calls the Get Peanuts function"
+        this.console.println("\n***This calls the Get Peanuts function"
                             +"\nPeanuts are added to your backpack.");
     }
 

@@ -5,8 +5,12 @@
  */
 package wheresmybone.model;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Arrays;
+import wheresmybone.WheresMyBone;
+import wheresmybone.view.ErrorView;
 
 /**
  *
@@ -20,6 +24,8 @@ public class Map implements Serializable{
   private int currentColumn;
   private Location currentLocation;
   private Location[][] locations;
+  protected final BufferedReader keyboard = WheresMyBone.getInFile();
+  protected final PrintWriter console = WheresMyBone.getOutFile();
 
   /*Map(rows, columns)
 BEGIN
@@ -43,7 +49,7 @@ END
     public Map(int rowCount, int columnCount) {
         
         if (rowCount < 1 || columnCount < 1) {
-            System.out.println("The number of rows and colums must be > zero");
+            ErrorView.display(this.getClass().getName(),"\nThe number of rows and colums must be > zero");
             return;
         }
         this.rowCount = rowCount;
@@ -132,17 +138,17 @@ END
   
   public void setSceneName(String school_cafeteria)
   {
-    System.out.println("call set scene name function");
+    this.console.println("call set scene name function");
   }
   
   public void setSceneDescript(String you_are_in_the_school_cafeteria)
   {
-    System.out.println("call set scene descript function");
+    this.console.println("call set scene descript function");
   }
   
   public void setNpcDescription(String brad_a_tall_blonde_boy)
   {
-    System.out.println("call npc description function");
+    this.console.println("call npc description function");
   }
 
     public Location[][] getLocations() {

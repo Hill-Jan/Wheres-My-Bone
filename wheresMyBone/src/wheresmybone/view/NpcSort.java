@@ -56,7 +56,7 @@ public NpcSort (){
      Npc[] npcs = Npc.values();
 
         for (Npc npcLocation : npcs) {
-            System.out.println(npcLocation.getNpcLocation());
+            this.console.println(npcLocation.getNpcLocation());
         }
     }
 
@@ -66,14 +66,14 @@ public boolean doAction(String value){
     value = value.toUpperCase();
     for (Npc npc : Npc.values()){
         if (npc.getNpcLocation().equals(value)){
-            System.out.println(npc.toString() + " is at " + npc.ordinal() + " which is the " + npc.getNpcLocation());
+            this.console.println(npc.toString() + " is at " + npc.ordinal() + " which is the " + npc.getNpcLocation());
          return true;   
         }
         if (value.toUpperCase().equals("X")) // user wants to quit
                    break; //exit the game
         }
     
-        System.out.println("Please enter a valid Scene Location");
+        ErrorView.display(this.getClass().getName(),"\nPlease enter a valid Scene Location");
         return false;
 }
 

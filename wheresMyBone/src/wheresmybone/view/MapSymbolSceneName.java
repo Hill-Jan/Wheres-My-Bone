@@ -5,11 +5,8 @@
  */
 package wheresmybone.view;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl;
-import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Location;
@@ -32,9 +29,9 @@ public MapSymbolSceneName() {
          + "\n"
          + "\n*****************************************************************"
     ); 
-    System.out.println("\n");
+    this.console.println("\n");
     viewMap();
-    System.out.println("\n");
+    this.console.println("\n");
     
 }
 /*TEST MATRIX
@@ -73,9 +70,9 @@ public boolean doAction(String value) {
         if (resultStr.isEmpty()) 
             retVal = true;
         else 
-            System.out.println(resultStr);
+            this.console.println(resultStr);
     } catch (MapControlException ex) {
-        System.out.println(ex.getMessage());
+        ErrorView.display(this.getClass().getName(),ex.getMessage());
     }
         if (!retVal)
             viewMap();
