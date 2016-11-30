@@ -124,7 +124,9 @@ public class RoomMenuView extends View {
     private void enterScene() {
         Game game = WheresMyBone.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
-        map.getCurrentLocation().getScene().getView().display();
+        View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
+        if (currentView != null)
+            currentView.display();
 
     }
 

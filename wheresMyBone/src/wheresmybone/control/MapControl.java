@@ -92,7 +92,6 @@ public enum SceneType {
  }
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
-        View displayView;
         
         Scene park = new Scene();
         park.setSceneName("The Park");
@@ -111,8 +110,6 @@ public enum SceneType {
         vacanthouse.setMapSymbol("VH");
         //obligatory.setBlocked(false);
         vacanthouse.setTravelTime(20);
-        displayView = new VacantHouseSceneView();
-        vacanthouse.setView(displayView);
         scenes[SceneType.vacanthouse.ordinal()] = vacanthouse;
         
         Scene police = new Scene();
@@ -273,8 +270,6 @@ public enum SceneType {
         giraffes.setSceneDescript(
             "Giraffes");
         giraffes.setMapSymbol("GF");
-        displayView = new EnterGiraffeView();
-        giraffes.setView(displayView);
         giraffes.setTravelTime(40);
         scenes[SceneType.giraffes.ordinal()] = giraffes;
         
@@ -285,8 +280,6 @@ public enum SceneType {
         schoolentrance.setMapSymbol("SE");
         //obligatory.setBlocked(false);
         schoolentrance.setTravelTime(20);
-        displayView = new SchoolEntrance();
-        schoolentrance.setView(displayView);
         scenes[SceneType.schoolentrance.ordinal()] = schoolentrance;
         
         

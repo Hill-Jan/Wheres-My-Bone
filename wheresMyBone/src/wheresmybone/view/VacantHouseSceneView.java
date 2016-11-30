@@ -10,6 +10,7 @@ import wheresmybone.exceptions.CalculationControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
 import static wheresmybone.view.MapSymbolSceneName.viewMap;
+import wheresmybone.view.GameMenuView;
 
 /**
  *
@@ -77,7 +78,10 @@ public boolean doAction (String value){
 private void enterScene(){
         Game game = WheresMyBone.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
-        map.getCurrentLocation().getScene().getView().display();
-   
+        //map.getCurrentLocation().getScene().getView().display();
+        View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
+        
+        if (currentView != null)
+            currentView.display();
 }
 }

@@ -20,7 +20,6 @@ public class Scene implements Serializable{
  private Item item;
 private double travelTime;
 public String mapSymbol;
-public View view;
 
     public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;
@@ -31,14 +30,6 @@ public View view;
         return this.mapSymbol;
     }
 
-    public View getView() {
-        return view;
-    }
-
-    public void setView(View view) {
-        this.view = view;
-    }
-  
  /*public enum SceneType {
      park,
     vacanthouse,
