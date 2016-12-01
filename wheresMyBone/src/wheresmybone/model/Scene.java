@@ -152,6 +152,4 @@ public String mapSymbol;
         this.npcDescription = npcDescription;
     }
 
-  
- 
 }

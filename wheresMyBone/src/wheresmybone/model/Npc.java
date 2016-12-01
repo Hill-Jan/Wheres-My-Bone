@@ -5,13 +5,14 @@
  */
 package wheresmybone.model;
 import java.awt.Point;
+import java.io.Serializable;
 
 /**
  *
  * @author short
  */
 
-public class Npc {
+public class Npc implements Serializable {
 
     public enum Npcs{
     

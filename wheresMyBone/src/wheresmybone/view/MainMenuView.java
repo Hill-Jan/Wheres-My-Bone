@@ -5,7 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 
@@ -16,10 +15,6 @@ import wheresmybone.control.GameControl;
 public class MainMenuView extends View {
 
     private String promptMessage;
-
-    {
-
-    }
 
     // private String menu; ??
     public MainMenuView() {

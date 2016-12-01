@@ -7,6 +7,7 @@ package wheresmybone.control;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -71,29 +72,29 @@ public class GameControl {
         timeLeft = 1440;
 
     }
-    public static void saveGame(Game game, String filepath)
+    public static void saveGame(Game game, String filePath)
             throws GameControlException {
         
-        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
             output.writeObject(game); // write the game object out to file
         }
-        catch (Exception ex) {
-            Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
-            throw new GameControlException(ex.getMessage());
+        catch (Exception e) {
+            Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, e);
+            throw new GameControlException(e.getMessage());
         }
         
     }
     
-    public static void loadSavedGame(String filepath) 
+    public static void loadSavedGame(String filePath) 
                             throws GameControlException{
         Game game = null;
         
-        try (FileInputStream fips = new FileInputStream(filepath)) {
+        try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream input = new ObjectInputStream(fips);
             
-            game = (Game) input.readObject(); //read the game object from file
+            game = (Game)input.readObject(); //read the game object from file
         } catch(Exception ex) {
             throw new GameControlException(ex.getMessage());
         }
