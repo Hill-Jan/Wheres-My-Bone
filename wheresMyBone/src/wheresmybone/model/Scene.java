@@ -57,7 +57,7 @@ public String mapSymbol;
     zoo,
     elephants,
     tigers,
-    kangaroos,
+    GORILLAs,
     giraffes,
     schoolentrance,
     schoolcafeteria,

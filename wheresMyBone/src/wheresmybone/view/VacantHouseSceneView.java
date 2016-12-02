@@ -9,7 +9,6 @@ import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 /**
  *
@@ -35,7 +34,6 @@ public VacantHouseSceneView() {
                 + "\nChoose a Menu Option: "
                 + "\n"
                 + "\nE - Enter the Vacant House"
-                + "\nM - Make another move"
                 + "\nX - Exit to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
@@ -50,9 +48,6 @@ public boolean doAction (String value){
             // Enter the Vacant House
             this.enterVacantHouse();
             break;
-        case "M": // Make another move
-            this.displayGoToNewLocation();
-            break;
         default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
@@ -65,14 +60,6 @@ public boolean doAction (String value){
         VacantHouseView vacantHouseView = new VacantHouseView();
         vacantHouseView.displayVacantHouseView();
     }
-
-   private void displayGoToNewLocation() {
-        viewMap();
-        MapView mapView = new MapView();
-        mapView.display();
-        enterScene();
-        viewMap();
-}
    
 private void enterScene(){
         Game game = WheresMyBone.getCurrentGame(); // retreive the game

@@ -11,8 +11,8 @@ import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
+import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 
 /**
@@ -188,6 +188,45 @@ END */
         //Create MainMenuView object
         return;
     }
-
+public void viewMap() {
     
+        //Console console = System.console(); Displays Map
+        String leftIndicator;
+        String rightIndicator;
+        Game game = WheresMyBone.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+        try {
+            this.console.print("  |");
+            for (int column = 0; column < locations[0].length; column++) {
+                this.console.print("  " + column + " |"); // print col numbers to side of map
+            }
+            this.console.println();
+            for (int row = 0; row < locations[0].length; row++) {
+                this.console.print(row + " "); // print row numbers to side of map
+                for (int column = 0; column < locations[row].length; column++) {
+                    leftIndicator = " ";
+                    rightIndicator = " ";
+                    if (locations[row][column] == map.getCurrentLocation()) {
+                        leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
+                        rightIndicator = "*"; // same as above
+                    } else if (locations[row][column].isVisited()) {
+                        leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                        rightIndicator = "<"; // same as above
+                    }
+                    this.console.print("|"); // start map with a |
+                    if (locations[row][column].getScene() == null) {
+                        this.console.print(leftIndicator + "??" + rightIndicator);
+                    } else {
+                        this.console.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+
+                    }
+                }
+                this.console.println("|");
+            }
+        } catch (Exception e) {
+            this.console.println(e.getMessage());
+        }
+
+}
 }
