@@ -5,6 +5,9 @@
  */
 package wheresmybone.view;
 
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Item;
+
 /**
  *
  * @author Jan
@@ -56,8 +59,12 @@ public boolean doAction (String value){
 }
 
     private void getPeanuts() {
-        this.console.println("\n***This calls the Get Peanuts function"
-                            +"\nPeanuts are added to your backpack.");
+        Item peanuts = new Item("peanuts", "School Cafeteria", "salty peanuts");
+        StartProgramView.player.addToBackpack(peanuts);
+        this.console.println("\n*You quickly snatch up the peanuts and run from the room "
+                           + "\nbefore anyone can catch you there.  You know they’d chase "
+                           +"\nyou out of the building.  Stopping at the edge of the yard,"
+                           +"\nyou quickly put the peanuts in your backpack.");
     }
 
 
