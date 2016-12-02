@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
+import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
@@ -35,7 +36,8 @@ public class ActionsMenuView extends View {
                       + "\nP - Pick up an Item" // gives description of the item
                       + "\nB - Put Item in Backpack"
                       + "\nR - Drop the Item"
-                      + "\nI - Inventory (Displays what is in your Backpack)"
+                      + "\nV - View Inventory"
+                      + "\nI - Items(Displays possible items for your backpack)"
                       + "\nG - Give an Item from your Backpack to the Character in the Area." //Remove from backpack
                       + "\nN - Go to a New location."
                       + "\nX - Exit Actions Menu"
@@ -66,7 +68,10 @@ public class ActionsMenuView extends View {
                 break;
              case "R": //how to save/load game
                 this.actionDrop();
-                break;               
+                break;       
+             case "V":
+                this.actionViewInventory();
+                break;
             case "I": //how to save/load game
                 this.actionInventory();
                 break;
@@ -83,12 +88,7 @@ public class ActionsMenuView extends View {
     return false;
         
     }
-/* startNewGame(): void
-BEGIN
-Create a new Game
-Create a new Game Menu View
-Display the Game Menu
-END */
+
 
     private void actionSearch() {
         this.console.println("\n-------------------------------------------------"
@@ -138,13 +138,24 @@ END */
         );
     }
     
-     /*private void actionInventory() {
-        this.console.println("\n-------------------------------------------------"
+    private void actionViewInventory() {
+       StringBuilder line;
+
+        Game game = WheresMyBone.getCurrentGame();
+        ArrayList<Item> items = Backpack.backpack();
+
+        this.console.println("\n       LIST OF ITEMS IN BACKPACK");
+        line = new StringBuilder("          ");
+        line.insert(0, "Item");
+        this.console.println(line.toString());
+
+        for (Item item : items) {
+            this.console.println(item.getName());
+        } this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to see what"
                           +"\n items are in his/her backpack."
-                          +"\n-------------------------------------------------"
-        );
-    }  */
+                          +"\n-------------------------------------------------");
+    }  
     private void actionInventory() {
         StringBuilder line;
 
