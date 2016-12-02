@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public class Backpack implements Serializable{
 
-       private final transient ArrayList<Item> items;
+       private final ArrayList<Item> items;
 
 public Backpack (){
     items = new ArrayList<>();
