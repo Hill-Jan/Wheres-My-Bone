@@ -5,11 +5,13 @@
  */
 package wheresmybone.exceptions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author tCalder
  */
-public class InventoryControlException extends Exception{
+public class InventoryControlException extends Exception {
 
     public InventoryControlException() {
     }

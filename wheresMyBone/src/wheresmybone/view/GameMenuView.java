@@ -1,5 +1,6 @@
 package wheresmybone.view;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;

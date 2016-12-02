@@ -8,10 +8,8 @@ package wheresmybone.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.Serializable;
 import wheresmybone.control.GameControl;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.exceptions.GameControlException;
 

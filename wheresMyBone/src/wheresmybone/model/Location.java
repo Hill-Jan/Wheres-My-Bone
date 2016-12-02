@@ -7,6 +7,7 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import wheresmybone.model.Npc.Npcs;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Location implements Serializable{
   private int column;
   private boolean visited;
   private Scene scene;
-  private Enum<Npc> npcs;
+  private Enum<Npcs> npcs;
   
   public int getRow()
   {
@@ -58,7 +59,7 @@ public class Location implements Serializable{
         this.scene = scene;
     }
 
-    public Enum<Npc> getNpcs() {
+    public Enum<Npcs> getNpcs() {
         return npcs;
     }
 

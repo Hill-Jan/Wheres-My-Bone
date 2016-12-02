@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.model.Game;
 import wheresmybone.model.Player;
 import wheresmybone.view.StartProgramView;
@@ -40,11 +38,11 @@ public class WheresMyBone {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
         return;
-    } catch (Throwable te) {
-        System.out.println("Exception: " + te.toString() +
-                           "\nCause: " + te.getCause() +
-                           "\nMessage: " + te.getMessage());
-        te.printStackTrace();
+    } catch (Exception e) {
+        System.out.println("Exception: " + e.toString() +
+                           "\nCause: " + e.getCause() +
+                           "\nMessage: " + e.getMessage());
+        e.printStackTrace();
     }
         finally {
             try {

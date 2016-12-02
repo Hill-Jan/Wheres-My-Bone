@@ -5,6 +5,7 @@
  */
 package wheresmybone.view;
 
+import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl;
 import wheresmybone.exceptions.MapControlException;

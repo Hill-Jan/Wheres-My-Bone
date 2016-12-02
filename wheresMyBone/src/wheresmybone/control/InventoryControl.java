@@ -5,8 +5,7 @@
  */
 package wheresmybone.control;
 
-import java.util.ArrayList;
-import wheresmybone.model.Item;
+import java.io.Serializable;
 
 /**
  *

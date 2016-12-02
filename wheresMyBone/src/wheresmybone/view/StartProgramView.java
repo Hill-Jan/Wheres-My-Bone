@@ -8,9 +8,7 @@ package wheresmybone.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.model.Player;
@@ -135,22 +133,7 @@ public class StartProgramView {
             }
         return value;
     }
-        /*doAction(playersName): boolean
-        BEGIN
-        if the length of the playersName < 2 then
-        display “Invalid name: The name must be > 1 character”
-        return false
 
-        create Player with specified name
-        if unsuccessful then
-        display “Invalid name: The name is too short”
-        return false
-    
-        display customized welcome message
-        display mainMenuView
-        return true
-        END
-*/
     private boolean doAction(String playersName) {
         if (playersName.length() < 2) {
             ErrorView.display(this.getClass().getName(),"\nInvalid player's name: "

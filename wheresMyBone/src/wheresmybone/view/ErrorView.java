@@ -6,6 +6,7 @@
 package wheresmybone.view;
 
 import java.io.PrintWriter;
+import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 
 /**

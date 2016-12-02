@@ -123,10 +123,7 @@ END
         if (this.columnCount != other.columnCount) {
             return false;
         }
-        if (!Arrays.deepEquals(this.locations, other.locations)) {
-            return false;
-        }
-        return true;
+        return Arrays.deepEquals(this.locations, other.locations);
     }
 
     @Override

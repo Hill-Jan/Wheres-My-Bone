@@ -5,6 +5,8 @@
  */
 package wheresmybone.exceptions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dan

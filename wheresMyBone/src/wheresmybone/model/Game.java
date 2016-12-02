@@ -6,8 +6,6 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -19,7 +17,6 @@ public class Game implements Serializable{
     private int startTime;
     private double bestTime;
     private String instructions;
-    private String attribute;
     private Time time;
     private Player player;
     private Backpack backpack;
@@ -27,7 +24,6 @@ public class Game implements Serializable{
     
     public Game() {
         instructions = "";
-        attribute = "";
         backpack = new Backpack();
         
     }
@@ -56,14 +52,6 @@ public class Game implements Serializable{
         this.instructions = instructions;
     }
 
-    public String getAttribute() {
-        return attribute;
-    }
-
-    public void setAttribute(String attribute) {
-        this.attribute = attribute;
-    }
-    
      public Time getTime() {
         return time;
     }
@@ -98,7 +86,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", attribute=" + attribute + "time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
+        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + "time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
     }
 
     @Override
@@ -107,7 +95,6 @@ public class Game implements Serializable{
         hash = 17 * hash + this.startTime;
         hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         hash = 17 * hash + Objects.hashCode(this.instructions);
-        hash = 17 * hash + Objects.hashCode(this.attribute);
         hash = 17 * hash + Objects.hashCode(this.time);
         hash = 17 * hash + Objects.hashCode(this.player);
         hash = 17 * hash + Objects.hashCode(this.backpack);
@@ -136,9 +123,6 @@ public class Game implements Serializable{
         if (!Objects.equals(this.instructions, other.instructions)) {
             return false;
         }
-        if (!Objects.equals(this.attribute, other.attribute)) {
-            return false;
-        }
         if (!Objects.equals(this.time, other.time)) {
             return false;
         }
@@ -148,10 +132,7 @@ public class Game implements Serializable{
         if (!Objects.equals(this.backpack, other.backpack)) {
             return false;
         }
-        if (!Objects.equals(this.map, other.map)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.map, other.map);
     }
 
     

@@ -7,8 +7,8 @@
 package wheresmybone.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -16,11 +16,17 @@ import java.util.ArrayList;
  */
 public class Backpack implements Serializable{
 
-       private ArrayList<Item> items;
+       private final transient ArrayList<Item> items;
 
 public Backpack (){
     items = new ArrayList<>();
+    
+    //sample item for testing
+    items.add(new Item("$10", "The Floor", "Souvenir Shop"));
+    
+   
 }
+
 
     public Item getItem(int index) {
         int i=0;
@@ -49,6 +55,11 @@ public Backpack (){
         }
         return null;
    }
+
+    @Override
+    public String toString() {
+        return "Backpack{" + "items=" + items + '}';
+    }
    
    /* @Override
     public int hashCode() {
@@ -80,24 +91,27 @@ public Backpack (){
         return true;
     }*/
   
-  /*   public static ArrayList<Item> createItemList() {
-        //created ArrayList of items
-        ArrayList<Item> items = new ArrayList<>();
-        
-        items.add(new Item("twig", "Park", "a twig on the ground"));
-        items.add(new Item("pebble", "Pond", "pebble from the pond"));
-        items.add(new Item("collar", "Pound", "cat collar"));
-        items.add(new Item("doughnuts", "Bakery", "sticky doughnuts"));
-        items.add(new Item("snow globe", "Neighbor's House", "snow globe"));
-        items.add(new Item("treat", "Drive-In", "special treat"));
-        items.add(new Item("bone", "Unknown", "favorite bone"));
-        items.add(new Item("name tag", "Animal Hospital", "cat name tag"));
-        items.add(new Item("meal", "Restaurant", "delicious free meal"));
-        items.add(new Item("card", "Zoo", "punch card"));
-        items.add(new Item("fish", "Fishmonger", "fresh fish"));
-        items.add(new Item("peanuts", "School Cafeteria", "salty peanuts"));
-        items.add(new Item("ball", "School Playground", "bouncy ball"));
-        items.add(new Item("paper", "School Entrance", "piece of paper"));
-        
-        return items;*/
+
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.items);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Backpack other = (Backpack) obj;
+        return Objects.equals(this.items, other.items);
+    }
 }

@@ -6,7 +6,8 @@
 package wheresmybone.view;
 
 
-import wheresmybone.model.Npc;
+import java.io.Serializable;
+import wheresmybone.model.Npc.Npcs;
 
 
 /**
@@ -53,9 +54,9 @@ public NpcSort (){
         */   
      
      
-     Npc[] npcs = Npc.values();
+     Npcs[] npcs = Npcs.values();
 
-        for (Npc npcLocation : npcs) {
+        for (Npcs npcLocation : npcs) {
             this.console.println(npcLocation.getNpcLocation());
         }
     }
@@ -64,7 +65,7 @@ public NpcSort (){
 public boolean doAction(String value){
  
     value = value.toUpperCase();
-    for (Npc npc : Npc.values()){
+    for (Npcs npc : Npcs.values()){
         if (npc.getNpcLocation().equals(value)){
             this.console.println(npc.toString() + " is at " + npc.ordinal() + " which is the " + npc.getNpcLocation());
          return true;   

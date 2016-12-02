@@ -5,6 +5,7 @@
  */
 package wheresmybone.view;
 
+import java.io.Serializable;
 import java.util.Scanner;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Game;
