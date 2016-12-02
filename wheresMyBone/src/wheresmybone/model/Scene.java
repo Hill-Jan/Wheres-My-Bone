@@ -20,6 +20,15 @@ public class Scene implements Serializable {
 private double travelTime;
 public String mapSymbol;
 
+    public Scene() {
+        sceneName = "";
+        sceneDescript = "";
+        npcDescription = "";
+        travelTime = 0;
+        mapSymbol = "";
+        
+    }
+
     public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;
     }

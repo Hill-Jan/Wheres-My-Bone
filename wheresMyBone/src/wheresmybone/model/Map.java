@@ -24,26 +24,17 @@ public class Map implements Serializable{
   private int currentColumn;
   private Location currentLocation;
   private Location[][] locations;
-  protected final BufferedReader keyboard = WheresMyBone.getInFile();
-  protected final PrintWriter console = WheresMyBone.getOutFile();
+  //protected final BufferedReader keyboard = WheresMyBone.getInFile();
+  //protected final PrintWriter console = WheresMyBone.getOutFile();
 
-  /*Map(rows, columns)
-BEGIN
-IF rows < 1 OR columns < 1 THEN
-DISPLAY “rows and columns must be > 0” RETURN
-ENDIF
- Save the number of rows and columns
-Create a 2-D array of Locations
-
- FOR every row in the array
-FOR every column in the array
-Create and initialize a new Location object
-locations[row][column] = location
-ENDFOR
-END
-  */
   
     public Map(){
+        rowCount = 0;
+        columnCount = 0;
+        currentRow = 0;
+        currentColumn = 0;
+        currentLocation = new Location();
+        
     }
     
     public Map(int rowCount, int columnCount) {
@@ -133,20 +124,20 @@ END
   
   
   
-  public void setSceneName(String school_cafeteria)
+  /*public void setSceneName(String school_cafeteria)
   {
-    this.console.println("call set scene name function");
+    //this.console.println("call set scene name function");
   }
   
   public void setSceneDescript(String you_are_in_the_school_cafeteria)
   {
-    this.console.println("call set scene descript function");
+    //this.console.println("call set scene descript function");
   }
   
   public void setNpcDescription(String brad_a_tall_blonde_boy)
   {
-    this.console.println("call npc description function");
-  }
+    //this.console.println("call npc description function");
+  }*/
 
     public Location[][] getLocations() {
         return this.locations;

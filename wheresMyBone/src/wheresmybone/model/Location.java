@@ -19,7 +19,15 @@ public class Location implements Serializable{
   private int column;
   private boolean visited;
   private Scene scene;
-  private Enum<Npcs> npcs;
+
+    public Location() {
+        row = 0;
+        column = 0;
+        visited = false;
+        scene = new Scene();
+    }
+  
+  
   
   public int getRow()
   {
@@ -57,10 +65,6 @@ public class Location implements Serializable{
 
     public void setScene(Scene scene) {
         this.scene = scene;
-    }
-
-    public Enum<Npcs> getNpcs() {
-        return npcs;
     }
 
     @Override

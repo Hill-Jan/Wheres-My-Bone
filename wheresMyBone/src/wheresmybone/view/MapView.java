@@ -44,5 +44,6 @@ public MapView() {
      ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again later");
      return false;
    }
+  
 }
 
