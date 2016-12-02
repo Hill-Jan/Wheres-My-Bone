@@ -14,6 +14,9 @@ import java.io.Serializable;
 
 public class Npc implements Serializable {
 
+    public Npc() {
+    }
+
     public enum Npcs{
     
     //keywords and dialogue

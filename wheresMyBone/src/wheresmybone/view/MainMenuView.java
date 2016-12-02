@@ -92,7 +92,7 @@ END */
     private void saveGame() {
         //prompt for and get the name of the file to save the game in
         this.console.println("\nEnter the file path for file where the game "
-                            +" is to be saved.");
+                            +"is to be saved.");
         String filePath = this.getInput();
         
         try {

@@ -19,6 +19,7 @@ public class Player implements Serializable{
 
     public Player() {
         backpack = new Backpack();
+        name = "";
     }
         public String getName() {
             return name;
@@ -34,6 +35,9 @@ public class Player implements Serializable{
 
     public void setBackpack(Backpack backpack) {
         this.backpack = backpack;
+    }
+    public void addToBackpack(Item newItem){
+        this.backpack.AddItem(newItem);
     }
         
 

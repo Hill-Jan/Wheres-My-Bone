@@ -17,6 +17,8 @@ public class Time implements Serializable{
     private double timeSubtracted;
 
     public Time() {
+        totalTime = 0;
+        timeSubtracted = 0;
     }
     
     

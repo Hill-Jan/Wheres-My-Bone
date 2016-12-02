@@ -19,13 +19,11 @@ public class Item implements Serializable{
     private String associatedNpc;
     private String name;
 
-    public Item() {
-    }
-
     public Item(String name, String startScene, String description) {
         this.name = name;
         this.startScene = startScene;
         this.description = description;
+        associatedNpc = "";
     }
 
     public String getName() {
@@ -103,6 +101,7 @@ public class Item implements Serializable{
         return "Item{" + "startScene=" + startScene + ", description=" + description + ", associatedNpc=" + associatedNpc + ", name=" + name + '}';
     }
     
+
 
     
     

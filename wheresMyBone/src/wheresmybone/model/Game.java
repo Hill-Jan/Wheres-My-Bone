@@ -25,6 +25,10 @@ public class Game implements Serializable{
     public Game() {
         instructions = "";
         backpack = new Backpack();
+        startTime = 0;
+        time = new Time();
+        player = new Player();
+        map = new Map();
         
     }
         
