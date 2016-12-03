@@ -142,7 +142,7 @@ public class ActionsMenuView extends View {
        StringBuilder line;
 
         Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = Backpack.backpack();
+        ArrayList<Item> items = new ArrayList();
 
         this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");

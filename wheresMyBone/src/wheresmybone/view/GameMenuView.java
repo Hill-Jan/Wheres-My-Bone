@@ -1,10 +1,20 @@
 package wheresmybone.view;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.io.Writer;
+import static java.lang.System.out;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.control.MapControl.SceneType;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
@@ -34,8 +44,8 @@ public class GameMenuView extends View {
                 + "\nS - Save Game"
                 + "\nH - Help Menu"
                 + "\nL - Display Scene List"
-                //+ "\nJ - Test Vacant House"
-               // + "\nGE - Test Giraffe Enclosure"
+                + "\nJ - Display Map Symbols as a Report"
+                // + "\nGE - Test Giraffe Enclosure"
                 + "\nY - Test Your House"
                 /*+ "\nR - Test Room Menu View"
                 + "\nV - Test VacantHouseSceneView"*/
@@ -63,7 +73,7 @@ BEGIN
     RETURN false
 END */
     @Override
-    public boolean doAction(String value)  {
+    public boolean doAction(String value) {
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
@@ -91,18 +101,18 @@ END */
                 break;
             case "G":
                 this.displayGoToNewLocation();
-               break;
+                break;
             case "L":
                 this.displaySceneList();
                 break;
-            //case "J": //test vacant house
-                //this.displayVacantHouseView();
-                //break;
+            case "J": //test vacant house
+                this.mapSymbolReport();
+                break;
             //case "GE": 
-                //test giraffe enclosure
-              //  this.displayGiraffesView();
-                //break;
-            case "Y": 
+            //test giraffe enclosure
+            //  this.displayGiraffesView();
+            //break;
+            case "Y":
                 //test your house
                 this.displayYourHouseView();
                 break;
@@ -119,10 +129,10 @@ END */
                 this.displayZooEntranceView();
                 break;
             //case "E"://test School entrance View
-              //  this.displaySchoolEntranceView();
-                //break;
+            //  this.displaySchoolEntranceView();
+            //break;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Choose a Menu Option");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Choose a Menu Option");
                 break;
         }
         return false;
@@ -224,15 +234,15 @@ END */
 
             }
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"\nError");
+            ErrorView.display(this.getClass().getName(), "\nError");
         }
         this.console.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
     }
 
     public void showNpcSort() {
-      NpcSort npcSort = new NpcSort();
-      npcSort.display();
-        
+        NpcSort npcSort = new NpcSort();
+        npcSort.display();
+
     }
 
     private void displayGoToNewLocation() {
@@ -241,24 +251,57 @@ END */
         mapView.display();
         enterScene();
         viewMap();
-        
+
     }
-    
-    private void enterScene(){
+
+    private void enterScene() {
         Game game = WheresMyBone.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         //map.getCurrentLocation().getScene().getView().display();
         View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
-        if (currentView != null)
+        if (currentView != null) {
             currentView.display();
+        }
     }
 
     private void displaySceneList() {
         SceneType[] scenes = SceneType.values();
-        
+
         for (SceneType sceneNames : scenes) {
             this.console.println(sceneNames.getSceneName());
         }
     }
 
+    private void mapSymbolReport() {
+        //prompt for and get the name of the file to save the game in
+        this.console.println("\nEnter the file path for file where the report "
+                + "is to be saved.");
+        String filePath = this.getInput();
+
+        try {
+            // save the game to the speciried file
+            saveMapSymbolReport(filePath);
+            this.console.println("\n\nReport Saved Successfully!\n");
+        } catch (Exception ex) {
+            ErrorView.display("GameMenuView MapSymbolReport", ex.getMessage());
+        }
     }
+
+    public static void saveMapSymbolReport(String filePath)
+            throws IOException {
+
+        try (PrintWriter writer = new PrintWriter(filePath)) {
+            //ObjectOutputStream output = new ObjectOutputStream(fops);
+            writer.println("\n\n      Scenes & Symbols Report      ");
+            writer.printf("%n%-25s%10s%10s", "Scene Name", "  Map Symbol  ", "  Map Location  ");
+            writer.printf("%n%-25s%10s%10s", "----------", "------------  ", "  --------------");
+            for (SceneType st : SceneType.values()) {
+                writer.printf("%n%-25s%7s%15d", st.getSceneName(), st.getMapSymbol(), st.ordinal());
+            }
+
+        } catch (Exception e) {
+            ErrorView.display("GameMenuView-saveMapSymbolReport-", e.getMessage());
+        }
+
+    }
+}
