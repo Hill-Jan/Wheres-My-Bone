@@ -88,8 +88,8 @@ END */
                 + "\nyou come upon them and interact with the game"
                 + "\ncharacters to get clues as you look for the bone."
                 + "\nYou may be asked for input to solve some simple  "
-                + "\nmath puzzles. Your goal Watch out for the Dog"
-                + "\nis to find the bone before your time runs out!"
+                + "\nmath puzzles. Your goal is to find the bone before"
+                + "\n your time runs out! Watch out for the Dog Catcher!"
                 + "\n"
                 + "\n-------------------------------------------------"
         );
@@ -100,9 +100,9 @@ END */
                 + "\nHow to Move"
                 + "\n-------------------------------------------------"
                 + "\nWhen you are presented with the map grid, pick a "
-                + "\nlocation and input the coordinates. You will then"
-                + "\nbe moved to that location and be able to explore"
-                + "\nand look for the bone."
+                + "\nlocation and input the two-letter Map Symbol shown"
+                + "\n on the map. You will then be moved to that location"
+                + "\n and be able to continue your quest for the bone."
                 + "\n"
                 + "\n-------------------------------------------------"
         );
@@ -157,12 +157,13 @@ END */
         this.console.println("\n"
                 + "\nHow to Save"
                 + "\n-------------------------------------------------"
-                + "\nIn order to save your game, open the game menu"
-                + "\nand press 'S'. This will save your game. When you"
-                + "\nare ready to come back and start taking a bite"
-                + "\nout of crime again, Press 'L' in the Main Menu."
-                + "\nThis will load the last game saved."
-        );
+                + "\nIn order to save your game, open the game menu,"
+                + "\npress 'X' to exit to the Main Menu,and press 'S'."
+                + "\nEnter your desired filed name. This will save your "
+                + "\ngame. When you are ready to comeback and start taking"
+                + "\n a bite out of crime again, Press 'L' in the Main Menu "
+                + "\nand then enter the name you gaveyour saved game."
+                + "\n This will load your saved game.");
     }
 
     private void MapSymbolSceneName() {

@@ -80,13 +80,14 @@ END */
         try{
             // start a saved game
             GameControl.loadSavedGame(filePath);
+            //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
         
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        
     }
 
     private void saveGame() {
