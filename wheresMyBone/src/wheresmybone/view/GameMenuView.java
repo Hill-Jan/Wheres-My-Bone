@@ -146,7 +146,7 @@ END */
         StringBuilder line;
 
         Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = GameControl.createItemList();
+        ArrayList<Item> items = Item.createItemList();
 
         this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
