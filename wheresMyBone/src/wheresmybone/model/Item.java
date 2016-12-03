@@ -107,20 +107,20 @@ public class Item implements Serializable{
         //created ArrayList of items
         ArrayList<Item> items = new ArrayList<>();
 
-        items.add(new Item("twig", "Park", "a twig on the ground"));
-        items.add(new Item("pebble", "Pond", "pebble from the pond"));
-        items.add(new Item("collar", "Pound", "cat collar"));
-        items.add(new Item("doughnuts", "Bakery", "sticky doughnuts"));
-        items.add(new Item("snow globe", "Neighbor's House", "snow globe"));
-        items.add(new Item("treat", "Drive-In", "special treat"));
-        items.add(new Item("bone", "Unknown", "favorite bone"));
-        items.add(new Item("name tag", "Animal Hospital", "cat name tag"));
-        items.add(new Item("meal", "Restaurant", "delicious free meal"));
-        items.add(new Item("card", "Zoo", "punch card"));
-        items.add(new Item("fish", "Fishmonger", "fresh fish"));
-        items.add(new Item("peanuts", "School Cafeteria", "salty peanuts"));
-        items.add(new Item("ball", "School Playground", "bouncy ball"));
-        items.add(new Item("paper", "School Entrance", "piece of paper"));
+        items.add(new Item("twig", "Park", "You"));
+        items.add(new Item("pebble", "Pond", "Tommy"));
+        items.add(new Item("collar", "Pound", "DeVil"));
+        items.add(new Item("doughnuts", "Bakery", "Mr. Sneed"));
+        items.add(new Item("snow globe", "Zoo Entrance", "Mr. Stealletti"));
+        items.add(new Item("treat", "Drive-In", "You"));
+        items.add(new Item("bone", "Nursing Home", "You"));
+        items.add(new Item("name tag", "Animal Hospital", "Collar"));
+        items.add(new Item("meal", "Restaurant", "Miss Ellie"));
+        items.add(new Item("card", "Crocery Warehouse", "Smiths"));
+        items.add(new Item("fish", "Fishmonger", "Tigers"));
+        items.add(new Item("peanuts", "School Cafeteria", "Elephants"));
+        items.add(new Item("ball", "School Playground", "Gorrillasl"));
+        items.add(new Item("paper", "School Entrance", "Brad"));
 
         return items;
     }

@@ -67,9 +67,9 @@ END */
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
-            case "I": //Show items in room
+           /* case "I": //Show items in room
                 this.showRoomItems();
-                break;
+                break;*/
             case "B": //Show items in backpack
                 this.showBackpackItems();
                 break;
@@ -128,15 +128,15 @@ END */
         return false;
     }
 
-    private void showRoomItems() {
+   /* private void showRoomItems() {
         this.console.println("*** showRoomItems() function called ***");
-    }
+    }*/
 
     private void showBackpackItems() {
         StringBuilder line;
 
         Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = Item.createItemList();
+        ArrayList<Item> items = StartProgramView.player.getBackpack().items;
 
         this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
