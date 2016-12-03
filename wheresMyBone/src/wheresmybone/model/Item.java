@@ -116,7 +116,7 @@ public class Item implements Serializable{
         items.add(new Item("bone", "Nursing Home", "You"));
         items.add(new Item("name tag", "Animal Hospital", "Collar"));
         items.add(new Item("meal", "Restaurant", "Miss Ellie"));
-        items.add(new Item("card", "Crocery Warehouse", "Smiths"));
+        items.add(new Item("card", "Grocery Warehouse", "Smiths"));
         items.add(new Item("fish", "Fishmonger", "Tigers"));
         items.add(new Item("peanuts", "School Cafeteria", "Elephants"));
         items.add(new Item("ball", "School Playground", "Gorrillasl"));

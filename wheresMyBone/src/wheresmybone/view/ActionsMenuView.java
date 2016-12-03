@@ -152,10 +152,11 @@ public class ActionsMenuView extends View {
 
         for (Item item : items) {
             this.console.println(item.getName());
-        } this.console.println("\n-------------------------------------------------"
+        } 
+        /*this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to see what"
                           +"\n items are in his/her backpack."
-                          +"\n-------------------------------------------------");
+                          +"\n-------------------------------------------------");*/
     }  
     
     private void actionInventory() {

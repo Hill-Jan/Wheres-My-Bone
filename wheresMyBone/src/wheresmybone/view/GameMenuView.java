@@ -35,8 +35,8 @@ public class GameMenuView extends View {
                 + "\n -------------------------------------------------"
                 + "\n    Game Menu                                     "
                 + "\n -------------------------------------------------"
-                + "\nI - Show items in room"
-                + "\nB - Show items in backpack"
+                //+ "\nI - Show items in room"
+                + "\nB - Show possible items for backpack"
                 + "\nN - Show NPC list"
                 + "\nT - Check time"
                 + "\nM - Show Map"
@@ -58,20 +58,7 @@ public class GameMenuView extends View {
                 + "\nChoose a Menu Option: ");
     }
 
-    /* doAction(value): void
-BEGIN
-    convert value to upper case
-    SWITCH value
-        “I" - Show items in room
-        "B" - Show items in backpack
-        "T" - Check time
-        "S" - Save Game
-        "H" - Help Menu
-        "M" - Main Menu
-        "Q" - Quit Game Menu
-        END SWITCH
-    RETURN false
-END */
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase(); //convert value to upper case
@@ -142,21 +129,56 @@ END */
         this.console.println("*** showRoomItems() function called ***");
     }*/
 
-    private void showBackpackItems() {
+    private void showBackpackItems(){
         StringBuilder line;
+        this.console.println("\nEnter the file path for file where the report "
+                + "is to be saved.");
+        String filePath = this.getInput();
 
-        Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = StartProgramView.player.getBackpack().items;
+        try{
+            saveBackpackListReport(filePath);
+        } catch (IOException e){
+            
+        }                  
 
-        this.console.println("\n       LIST OF ITEMS IN BACKPACK");
+        ArrayList<Item> items = Item.createItemList();
+
+        this.console.println("   LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
         line.insert(0, "Item");
         this.console.println(line.toString());
 
         for (Item item : items) {
-            this.console.println(item.getName());
+            this.console.printf("%n%-15s%-25s%-16s", item.getName(), item.getStartScene(), item.getDescription());
         }
+         this.console.println("  ");
+         this.console.println("  ");
+         this.console.println("Your Report Has Saved Successfully.");
     }
+
+public static void saveBackpackListReport(String filePath)
+            throws IOException {
+    
+        ArrayList<Item> items = Item.createItemList();
+        
+        try (PrintWriter writer = new PrintWriter(filePath)) {
+ 
+        writer.println("   LIST OF POSSIBLE BACKPACK ITEMS ");
+        writer.println("-----------------------------------------------------");
+        writer.printf("%n%-10s%-25s%-16s","    ITEM","    FROM WHERE","    TO WHOM");
+        writer.printf("%n%-13s%-25s%-16s","-------------","-----------------------------","---------------"); 
+        for(Item item : items){
+            writer.printf("%n%-15s%-25s%-16s", item.getName(), item.getStartScene(), item.getDescription());
+        }
+           writer.close();
+ 
+        }catch (Exception ex) {
+            ErrorView.display("GameMenuView BackpackListReport", ex.getMessage());
+        }
+
+ }
+            
+
 
     private void checkTime() {
         this.console.println("*** checkTime() function called ***");
