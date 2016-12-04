@@ -32,7 +32,7 @@ public class Npc implements Serializable {
     MrNono("ZOO"),
     MrCatch("FISH MARKET"),
     Elephants("ELEPHANT ENCLOSURE"),
-    Guerilla("KG ENCLOSURE"),
+    Gorillas("GORILLA ENCLOSURE"),
     Giraffes("GIRAFFE ENCLOSURE"),
     Brad("SCHOOL ENTRANCE"),
     MrSneed("PARKING LOT"),

@@ -12,8 +12,9 @@ import wheresmybone.control.GameControl;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
+import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
+import wheresmybone.model.Player;
 
 
 /**
@@ -51,34 +52,34 @@ public class ActionsMenuView extends View {
         value = value.toUpperCase(); //convert value to upper case
         
         switch (value) {
-            case "S": //How to Move
+            case "S": //How to search
                 this.actionSearch();
                 break;
-            case "D": //about Clues
+            case "D": //about for clues
                 this.actionDig();
                 break;
-            case "T": //about Objects
+            case "T": //Talk to people
                 this.actionTalk();
                 break;
-            case "P": //about bad guys
+            case "P": //Pick up an object
                 this.actionPickUp();
                 break;
-            case "B": //how to save/load game
+            case "B": //Put an item in the backpack
                 this.actionBackpack();
                 break;
-             case "R": //how to save/load game
+             case "R": //Drop an item
                 this.actionDrop();
                 break;       
-             case "V":
+             case "V":// View what's in your backpack
                 this.actionViewInventory();
                 break;
-            case "I": //how to save/load game
+            case "I": //Displays possible items for your backpack
                 this.actionInventory();
                 break;
-            case "G": //how to save/load game
+            case "G": //Give an item to an npc
                 this.actionGiveItem();
                 break;          
-            case "N": //how to save/load game
+            case "N": //Go to a new Nocation
                 this.actionMapLocation();
                 break;
             default:
@@ -142,7 +143,7 @@ public class ActionsMenuView extends View {
        StringBuilder line;
 
         Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = Backpack.backpack();
+        ArrayList<Item> items = StartProgramView.player.getBackpack().items;
 
         this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
@@ -151,16 +152,18 @@ public class ActionsMenuView extends View {
 
         for (Item item : items) {
             this.console.println(item.getName());
-        } this.console.println("\n-------------------------------------------------"
+        } 
+        /*this.console.println("\n-------------------------------------------------"
                           +"\nThis function will allow the player to see what"
                           +"\n items are in his/her backpack."
-                          +"\n-------------------------------------------------");
+                          +"\n-------------------------------------------------");*/
     }  
+    
     private void actionInventory() {
         StringBuilder line;
 
         Game game = WheresMyBone.getCurrentGame();
-        ArrayList<Item> items = GameControl.createItemList();
+        ArrayList<Item> items = Item.createItemList();
 
         this.console.println("\n       LIST OF ITEMS IN BACKPACK");
         line = new StringBuilder("          ");
@@ -199,6 +202,45 @@ public class ActionsMenuView extends View {
         //Create MainMenuView object
         return;
     }
-
+public void viewMap() {
     
+        //Console console = System.console(); Displays Map
+        String leftIndicator;
+        String rightIndicator;
+        Game game = WheresMyBone.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+        try {
+            this.console.print("  |");
+            for (int column = 0; column < locations[0].length; column++) {
+                this.console.print("  " + column + " |"); // print col numbers to side of map
+            }
+            this.console.println();
+            for (int row = 0; row < locations[0].length; row++) {
+                this.console.print(row + " "); // print row numbers to side of map
+                for (int column = 0; column < locations[row].length; column++) {
+                    leftIndicator = " ";
+                    rightIndicator = " ";
+                    if (locations[row][column] == map.getCurrentLocation()) {
+                        leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
+                        rightIndicator = "*"; // same as above
+                    } else if (locations[row][column].isVisited()) {
+                        leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                        rightIndicator = "<"; // same as above
+                    }
+                    this.console.print("|"); // start map with a |
+                    if (locations[row][column].getScene() == null) {
+                        this.console.print(leftIndicator + "??" + rightIndicator);
+                    } else {
+                        this.console.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+
+                    }
+                }
+                this.console.println("|");
+            }
+        } catch (Exception e) {
+            this.console.println(e.getMessage());
+        }
+
+}
 }

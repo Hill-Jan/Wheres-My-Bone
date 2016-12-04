@@ -11,7 +11,6 @@ import wheresmybone.WheresMyBone;
 import wheresmybone.exceptions.CalculationControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Map;
-import static wheresmybone.view.MapSymbolSceneName.viewMap;
 
 /**
  *
@@ -32,7 +31,6 @@ public class EnterGiraffeView extends View {
                 + "\nWhat do you want to do? "
                 + "\n"
                 + "\nE - Enter the Giraffe Enclosure"
-                + "\nM - Make another move"
                 + "\nX - Exit to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
@@ -51,9 +49,6 @@ public class EnterGiraffeView extends View {
             // Enter the Vacant House
             this.enterGiraffesView();
             break;
-        case "M": // Make another move
-            this.displayGoToNewLocation();
-            break;
         default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
@@ -65,15 +60,7 @@ public class EnterGiraffeView extends View {
         GiraffesView giraffesView = new GiraffesView();
         giraffesView.displayGiraffesView();
     }
-
-    private void displayGoToNewLocation() {
-       viewMap();
-        MapView mapView = new MapView();
-        mapView.display();
-        enterScene();
-        viewMap();
-    }
-    
+  
     private void enterScene(){
         Game game = WheresMyBone.getCurrentGame();
         Map map = game.getMap();

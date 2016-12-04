@@ -5,6 +5,7 @@
  */
 package wheresmybone.model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -100,9 +101,29 @@ public class Item implements Serializable{
     public String toString() {
         return "Item{" + "startScene=" + startScene + ", description=" + description + ", associatedNpc=" + associatedNpc + ", name=" + name + '}';
     }
-    
+   
 
+    public static ArrayList<Item> createItemList() {
+        //created ArrayList of items
+        ArrayList<Item> items = new ArrayList<>();
 
+        items.add(new Item("twig", "Park", "You"));
+        items.add(new Item("pebble", "Pond", "Tommy"));
+        items.add(new Item("collar", "Pound", "DeVil"));
+        items.add(new Item("doughnuts", "Bakery", "Mr. Sneed"));
+        items.add(new Item("snow globe", "Zoo Entrance", "Mr. Stealletti"));
+        items.add(new Item("treat", "Drive-In", "You"));
+        items.add(new Item("bone", "Nursing Home", "You"));
+        items.add(new Item("name tag", "Animal Hospital", "Collar"));
+        items.add(new Item("meal", "Restaurant", "Miss Ellie"));
+        items.add(new Item("card", "Grocery Warehouse", "Smiths"));
+        items.add(new Item("fish", "Fishmonger", "Tigers"));
+        items.add(new Item("peanuts", "School Cafeteria", "Elephants"));
+        items.add(new Item("ball", "School Playground", "Gorrillasl"));
+        items.add(new Item("paper", "School Entrance", "Brad"));
+
+        return items;
+    }
     
     
 }
