@@ -39,6 +39,10 @@ public class Player implements Serializable{
     public void addToBackpack(Item newItem){
         this.backpack.AddItem(newItem);
     }
+    
+    public void giveItem(String newItem){
+        this.backpack.GiveItem(newItem);
+    }
         
 
     @Override

@@ -61,38 +61,6 @@ public Backpack (){
         return "Backpack{" + "items=" + items + '}';
     }
    
-   /* @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.item);
-        return hash;
-    }*/
-
-    /*@Override
-    public String toString() {
-        return "Backpack{" + "itemName=" + itemName + '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Backpack other = (Backpack) obj;
-        if (!Objects.equals(this.itemName, other.itemName)) {
-            return false;
-        }
-        return true;
-    }*/
-  
-
-
     @Override
     public int hashCode() {
         int hash = 7;

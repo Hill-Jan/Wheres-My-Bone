@@ -75,52 +75,10 @@ public class SchoolEntrance extends View {
 
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
-        /* ArrayList<Item> item = new ArrayList<>();
-       item = GameControl.createItemList();
-        //StringBuilder line;
-
-        this.console.println("\n       Inventory");
-        //line = new StringBuilder("          ");
-        int j=0;
-            for(j=0; j<item.size(); j++){
-            //line.insert(0, "Item");
-            this.console.println(j + "   " + item.get(j).getName() );
-            }
-
-       ArrayList<Item> backpack = new ArrayList<>();*/
-
         Backpack backpack = game.getPlayer().getBackpack();
         String itemName = "paper";
         Item item = backpack.GiveItem(itemName);
 
-        /* int index = -1;
-        for (int i=0; i<backpack.size(); i++) {
-            if (backpack.get(i).getName().equals(itemName)) {
-                index = i;
-            }
-        
-        /*TEST MATRIX
-        ***************************************
-        Location of item in ArrayList Backpack
-        ***************************************
-                  |  VALID    |  INVALID      |
-        ***************************************
-        INPUT     | Paper     |  Paper        |
-        ***************************************
-        OUTPUT    |  13       |     -1        |
-        ***************************************
-           Error  |           | Must not have |
-                                  it yet      |
-        ***************************************
-    
-        
-       ALGORITHM for displaying location of item
-           Process the search above to locate the item within the inventory arrayList
-                        located in the Game Control Layer.
-           Use the index variable to display the location of the item in 
-                        the inventory (in this case: paper)
-           Display the location of the item on the screen.
-         */
         if (item != null) {
             // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
             this.console.println("\nYou remember you put a paper in your backpack "
@@ -135,10 +93,7 @@ public class SchoolEntrance extends View {
                     + "\n****************************************************"
                     + "\nWhere To Now?"
                     + "\n****************************************************");
-            /*viewMap();
-        MapView mapView = new MapView();
-        mapView.display();
-        viewMap();*/
+
         } else {
             this.console.println("\n\"Gee, I’m sorry, Brad.  Good luck finding it.  "
                     + "\nI’ll keep my eyes peeled.”"
@@ -149,10 +104,6 @@ public class SchoolEntrance extends View {
                     + "\n****************************************************"
                     + "\nWhere To Now?  "
                     + "\n****************************************************");
-            /*viewMap();
-        MapView mapView = new MapView();
-        mapView.display();
-        viewMap();*/
         }
     }
 }
