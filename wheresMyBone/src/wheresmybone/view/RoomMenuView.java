@@ -5,8 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
-import java.util.Scanner;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Game;
 import wheresmybone.model.Location;
@@ -25,8 +23,8 @@ public class RoomMenuView extends View {
     }
 
     public RoomMenuView() {
-        super("\n==================================================="
-                + "\n(1) Actions - (2) Map - (3)Move locations - (X) Exit Room Menu"
+            super("\n==================================================="
+                + "\n(A) Actions - (M) Map - (X) Exit Room Menu"
                 + "\n==================================================="
                 + "\nChoose a Menu Option: ");
     }
@@ -38,24 +36,15 @@ public class RoomMenuView extends View {
         boolean valid = false;
         
         switch (value) {
-            case "1": // View actions available to you
+            case "A": // View actions available to you
                 this.actionsMenuView();
                 break;
-            case "2": // View the map
+            case "M": // View the map
                 this.viewMap();
                 break;
-            case "3": // Move to a different location
-                this.moveLocation();
+            default:
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
-            //default:
-              //  ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
-                //break;
-        }
-        try{
-            number = Double.parseDouble(value);
-        } catch (NumberFormatException nf) {
-            ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number."
-                        + " Try again or enter X to exit Room Menu.");
         }
         return false;
 
@@ -112,23 +101,6 @@ public class RoomMenuView extends View {
             ErrorView.display(this.getClass().getName(),"\nError");
         }
         this.console.println("Your current location is " + map.getCurrentLocation().getScene().getSceneName());
-    }
-
-    private void moveLocation() {
-        viewMap();
-        MapView mapView = new MapView();
-        mapView.display();
-        enterScene();
-        viewMap();
-    }
-
-    private void enterScene() {
-        Game game = WheresMyBone.getCurrentGame(); // retreive the game
-        Map map = game.getMap(); // retreive the map from game
-        View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
-        if (currentView != null)
-            currentView.display();
-
     }
 
     void roomMenuView() {

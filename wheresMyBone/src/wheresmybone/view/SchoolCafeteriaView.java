@@ -13,10 +13,10 @@ import java.io.Serializable;
  *
  * @author Jan
  */
-public class CafeteriaViewTest extends View {
+public class SchoolCafeteriaView extends View {
      private String promptMessage;{
 }
-public CafeteriaViewTest() {
+public SchoolCafeteriaView() {
             super ("\n*********************************************************"
                     +"\n    CAFETERIA  VIEW   "
                     +"\n********************************************************"

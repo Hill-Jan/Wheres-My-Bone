@@ -15,11 +15,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class SchoolEntrance extends View {
+public class SchoolEntranceView extends View {
     //private String promptMessage;{
 //}
 
-    public SchoolEntrance() {
+    public SchoolEntranceView() {
         super("\n*********************************************************"
                 + "\n    School Entrance  VIEW   "
                 + "\n********************************************************"

@@ -5,11 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
-import wheresmybone.model.Game;
-import wheresmybone.model.Map;
-
 /**
  *
  * @author tCalder
@@ -60,14 +55,5 @@ public boolean doAction (String value){
         VacantHouseView vacantHouseView = new VacantHouseView();
         vacantHouseView.displayVacantHouseView();
     }
-   
-private void enterScene(){
-        Game game = WheresMyBone.getCurrentGame(); // retreive the game
-        Map map = game.getMap(); // retreive the map from game
-        //map.getCurrentLocation().getScene().getView().display();
-        View currentView = GetView.getSceneView(map.getCurrentLocation().getScene().getMapSymbol());
-        
-        if (currentView != null)
-            currentView.display();
-}
+
 }

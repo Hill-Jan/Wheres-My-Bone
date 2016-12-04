@@ -5,16 +5,12 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
-import wheresmybone.control.GameControl;
-import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
-import wheresmybone.model.Player;
 
 
 /**
