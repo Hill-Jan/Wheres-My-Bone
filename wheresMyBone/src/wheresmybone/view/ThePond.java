@@ -49,7 +49,7 @@ public class ThePond extends View {
                 break;
                 
             case "P":
-                this.play();
+                this.playWithRufus();
                 break;
 
             default:
@@ -72,7 +72,7 @@ public class ThePond extends View {
                         + "\nLiking the way it looks, you put it in your backpack.");
     }
 
-    private void play();
+    private void playWithRufus(){
         //add time counter;
         this.console.println("You and Rufus have a great time bouncing around the"
                         +"\nwater.  He’s great fun to play with.  You lose track of"
@@ -80,5 +80,6 @@ public class ThePond extends View {
                         + "\nof other friends.  By the time you realize it, you’ve "
                         + "\nlost 40 minutes playing.  Quickly you tell Rufus you "
                         + "\nneed to leave and head off to your next location.");
+    }
 }
 

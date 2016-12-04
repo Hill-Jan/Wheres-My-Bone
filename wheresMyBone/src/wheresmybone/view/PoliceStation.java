@@ -19,19 +19,19 @@ public class PoliceStation extends View {
     //private String promptMessage;{
 //}
 
-    public void PoliceStation() {
-            super ("\n*********************************************************"
-                + "\n    OFFICER PETE   "
+    public PoliceStation() {
+            super("\n*********************************************************"
+                + "\n             OFFICER PETE   "
                 + "\n********************************************************"
                 + "\n"
                 + "\nYou start heading across town.  Maybe you'll run into DeVil "
-				+ "\non your way.  Your excellent nose picks up some scents you"
-				+ "\nknow.  Ah, Barney was here.  And Princess.  Max, too."
-				+ "\nAs you sniff your way downt he street, you hear a commotion."
-				+ "\nYou look up to see a big man with a mask running away from "
-				+ "\nOfficer Pete, the local law enforcement."
-				+"\n"
-				+"\nWhat do you do?"
+		+ "\non your way.  Your excellent nose picks up some scents you"
+		+ "\nknow.  Ah, Barney was here.  And Princess.  Max, too."
+		+ "\nAs you sniff your way downt he street, you hear a commotion."
+		+ "\nYou look up to see a big man with a mask running away from "
+		+ "\nOfficer Pete, the local law enforcement."
+		+"\n"
+		+"\nWhat do you do?"
                 + "\n"
                 + "\n********************************************************"
                 + "\nH - Help Officer Pete."
