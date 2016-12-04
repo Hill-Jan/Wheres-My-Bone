@@ -30,7 +30,7 @@ public class GetView {
             case "RS":
                 return new RestaurantView();
             case "DI":
-                return new DriveInView();
+                return new DriveInView() {};
             case "PN":
                 return new PondView();
             case "AL":
