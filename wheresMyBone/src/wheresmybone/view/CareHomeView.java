@@ -6,7 +6,6 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
@@ -105,7 +104,7 @@ public class CareHomeView extends View {
     }
 
     private void searchTheGarden() {
-        Item newItem = new Item("Bone", "the Garden", "you");
+        Item newItem = new Item("fish", "fishmonger", "tigers");
         StartProgramView.player.addToBackpack(newItem);
         this.console.println("You search through the gardens carefully.  Wait!"
                     + "\nWhat's that?  It smells familiar.  There!  Under the "

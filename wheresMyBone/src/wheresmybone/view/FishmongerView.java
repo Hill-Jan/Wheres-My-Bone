@@ -2,8 +2,10 @@ package wheresmybone.view;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
+import wheresmybone.model.Item;
 
 /**
  *
@@ -76,18 +78,37 @@ public class FishmongerView extends View {
         return false;
 
     }
+public void searchYourBackpack() {
+        Game game = WheresMyBone.getCurrentGame();
+        Backpack backpack = game.getPlayer().getBackpack();
+        String itemName = "fish";
+        Item item = backpack.GiveItem(itemName);
+
+        if (item != null) {
+            this.console.println("\nYou chuckle as you tell Mr. Catch. Sure, no problem.");
+
+        } else {
+            this.console.println("\n“I'm sorry Mr. Catch I need to find my bone”");
+        }
+    }
 
     private void getFish() {
-        this.console.println("\nYou take the fish and gently put it into your"
-                + "\nbackpack. Knowing full well you don't want the tigers"
-                + "\nblaming you for a bruised and mushy fish."
-                + "\n"
-                + "\nYou could go check out the alley and see if DeVil is there"
-                + "\nbut you feel you should probably get this fish to the"
-                + "\ntigers before it starts to turn bad."
-                + "\nWhere to next?");
-        this.console.println("\n*** puts the fish in your backpack");
+        Item newItem = new Item("fish", "Fishmonger", "Tigers");
+        StartProgramView.player.addToBackpack(newItem);
+        this.console.println("You chuckle as you tell Mr. Catch. Sure, no problem.");
+                    
     }
+    /*private void getFish() {
+    this.console.println("\nYou take the fish and gently put it into your"
+    + "\nbackpack. Knowing full well you don't want the tigers"
+    + "\nblaming you for a bruised and mushy fish."
+    + "\n"
+    + "\nYou could go check out the alley and see if DeVil is there"
+    + "\nbut you feel you should probably get this fish to the"
+    + "\ntigers before it starts to turn bad."
+    + "\nWhere to next?");
+    this.console.println("\n*** puts the fish in your backpack");
+    }*/
 
    
     }

@@ -5,7 +5,6 @@
  */
 package wheresmybone.control;
 
-import java.io.Serializable;
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.MapControlException;
 import wheresmybone.model.Map;
