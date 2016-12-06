@@ -60,8 +60,8 @@ public boolean doAction (String value){
 }
 
     private void getPeanuts() {
-        Item peanuts = new Item("peanuts", "School Cafeteria", "Elephants");
-        StartProgramView.player.addToBackpack(peanuts);
+        Item newItem = new Item("peanuts", "School Cafeteria", "Elephants");
+        StartProgramView.player.addToBackpack(newItem);
         this.console.println("\n*You quickly snatch up the peanuts and run from the room "
                            + "\nbefore anyone can catch you there.  You know they’d chase "
                            + "\nyou out of the building.  Stopping at the edge of the yard,"

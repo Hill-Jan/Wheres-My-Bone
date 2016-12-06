@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.model.Item;
 
 /**
  *
@@ -78,6 +79,8 @@ public class FishmongerView extends View {
     }
 
     private void getFish() {
+                Item newItem = new Item("fish", "Fishmonger", "Tigers");
+        StartProgramView.player.addToBackpack(newItem);
         this.console.println("\nYou take the fish and gently put it into your"
                 + "\nbackpack. Knowing full well you don't want the tigers"
                 + "\nblaming you for a bruised and mushy fish."
@@ -86,7 +89,7 @@ public class FishmongerView extends View {
                 + "\nbut you feel you should probably get this fish to the"
                 + "\ntigers before it starts to turn bad."
                 + "\nWhere to next?");
-        this.console.println("\n*** puts the fish in your backpack");
+ 
     }
 
    
