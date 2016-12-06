@@ -35,19 +35,7 @@ public class StartProgramView {
 
     private void displayBanner() {
         Welcome.displayBanner();
-        this.console.println(
-           /* This is for the beginning of the game.
-          "\n******************************************************************"
-        + "\n*                                                                *"
-        + "\n* One day you wake up from a night of bad dreams. Cat DeVil, the *"
-        + "\n* mean cat from next door, had been hissing and clawing at you   *"
-        + "\n* all night.  Thirsty, you get up to get a drink of water. While *"
-        + "\n* you’re at it you decide to take some time for a chew session on *"
-        + "\n* your favorite bone. That’s when your real nightmare begins.     *"
-        + "\n* The hole you dug for keeping that bone safe IS EMPTY!          *"
-        + ""        
-           */
-                
+        this.console.println(    
          "\n*******************************************************************"
         +"\n*                                                                 *"
         +"\n* Welcome Detective Scrappy! You are the son of the famous        *"
@@ -158,7 +146,7 @@ public class StartProgramView {
                            +"\n Welcome to the game, " + player.getName()
                            +"\n We hope you have a lot of fun!"
                            +"\n=============================================="
-                           );
+                           +"\n\n");
      
         //Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();

@@ -1,20 +1,10 @@
 package wheresmybone.view;
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.io.Serializable;
-import java.io.Writer;
-import static java.lang.System.out;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
-import wheresmybone.control.GameControl;
 import wheresmybone.control.MapControl.SceneType;
-import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 import wheresmybone.model.Location;
@@ -206,9 +196,9 @@ public static void saveBackpackListReport(String filePath)
 
     private void displayCafeteriaViewTest() {
         //Create displayRoomMenuView object
-        CafeteriaViewTest cafeteriaViewTest = new CafeteriaViewTest();
+        SchoolCafeteriaView schoolCafeteriaView = new SchoolCafeteriaView();
         //Display the room menu view
-        cafeteriaViewTest.display();
+        schoolCafeteriaView.display();
     }
 
     private void displayZooEntranceView() {

@@ -8,7 +8,6 @@ package wheresmybone.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import wheresmybone.control.GameControl;
 import wheresmybone.WheresMyBone;
 import wheresmybone.exceptions.GameControlException;
@@ -26,26 +25,35 @@ public class YourHouseView {
     double length = 0.00;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
-    
     public YourHouseView(){
         
-     this.description = "\n"
-                      + "\n===================================================="
-                      + "\nTime: (timeLeft)"
-                      + "\nLocation:Your House"
-                      + "\n"
-                      + "\n"
-                      + "\nAfter finding your precious bone gone, you decide to"
-                      + "\nsearch the backyard. You know that the first 24"
-                      + "\nhours are the most critical. You know you need to"
-                      + "\nget on the trail as soon as possible."
-                      + "\n"
-                      + "\nThe yard is 50 feet wide by 150 feet long"
-                      + "\n"
-                      + "\nHow much of the yard to you want to search?"
-                      + "\nIf you choose to search too much of the yard, you"
-                      + "\n run out of time!"
-                      + "\n====================================================";
+     this.description ="\n********************************************************************"
+                     + "\n                                                                 "
+                     + "\nOne day you wake up from a night of bad dreams. Cat DeVil, the  "
+                     + "\nmean cat from next door, had been hissing and clawing at you    "
+                     + "\nall night.  Thirsty, you get up to get a drink of water. While  "
+                     + "\nyou’re at it you decide to take some time for a chew session on  "
+                     + "\nyour favorite bone. That’s when your real nightmare begins.      "
+                     + "\nThe hole you dug for keeping that bone safe IS EMPTY!           "
+                     + "\n"
+                     + "\n******************************************************************"       
+                     + "\n"
+                     + "\n===================================================="
+                     + "\n"
+                     + "\nLocation:Your House"
+                     + "\n"
+                     + "\n"
+                     + "\nAfter finding your precious bone gone, you decide to"
+                     + "\nsearch the backyard. You know that the first 24"
+                     + "\nhours are the most critical. You know you need to"
+                     + "\nget on the trail as soon as possible."
+                     + "\n"
+                     + "\nThe yard is 50 feet wide by 150 feet long"
+                     + "\n"
+                     + "\nHow much of the yard to you want to search?"
+                     + "\nIf you choose to search too much of the yard, you"
+                     + "\n run out of time!"
+                     + "\n====================================================";
                     
             }
 
@@ -120,7 +128,7 @@ public class YourHouseView {
                }
                
                 if (width <1 || width > 50){
-                    ErrorView.display(this.getClass().getName(),"\\nWidth must be greater than 0 and less than 50.\n");
+                    ErrorView.display(this.getClass().getName(),"\nWidth must be greater than 0 and less than 50.\n");
                 }  else{
                         valid = true;
                 }
@@ -147,6 +155,7 @@ public class YourHouseView {
         return retVal;  
         
     }
+    
 }
             
 

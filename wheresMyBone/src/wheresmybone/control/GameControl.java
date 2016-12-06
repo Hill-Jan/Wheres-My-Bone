@@ -7,12 +7,9 @@ package wheresmybone.control;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
@@ -20,7 +17,6 @@ import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
-import wheresmybone.model.Item;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Player;
@@ -33,6 +29,9 @@ import wheresmybone.model.Time;
  * @author Jan
  */
 public class GameControl {
+    
+    double startTime = 1440;
+    double timeLeft = startTime;
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
@@ -66,39 +65,37 @@ public class GameControl {
 
     }
 
-    double timeLeft;
 
     public GameControl() {
-        timeLeft = 1440;
 
     }
+
     public static void saveGame(Game game, String filePath)
             throws GameControlException {
-        
+
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
-            
+
             output.writeObject(game); // write the game object out to file
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, e);
             throw new GameControlException(e.getMessage());
         }
-        
+
     }
-    
-    public static void loadSavedGame(String filePath) 
-                            throws GameControlException{
+
+    public static void loadSavedGame(String filePath)
+            throws GameControlException {
         Game game = null;
-        
+
         try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream input = new ObjectInputStream(fips);
-            
-            game = (Game)input.readObject(); //read the game object from file
-        } catch(Exception ex) {
+
+            game = (Game) input.readObject(); //read the game object from file
+        } catch (Exception ex) {
             throw new GameControlException(ex.getMessage());
         }
-        
+
         //close the output file
         WheresMyBone.setCurrentGame(game); //save in WheresMyBone
     }
@@ -116,23 +113,6 @@ public class GameControl {
 
     }
 
-
-    /*createNewGame(Player player): int
-BEGIN
- if (player == null)
- return -1
- create a new game
- save the game in CuriousWorkmanship
- get player from CuriousWorkmanship
- save player in the game
- create list of inventory items
- save inventory list in game
- create the wagon
- save wagon in the game
- create the ship
- save ship in the game
- create the map
- save map in the game */
     public static void createNewGame(Player player) {
         Game game = new Game(); //create new game
         WheresMyBone.setCurrentGame(game); // save in WheresMyBone
@@ -157,23 +137,25 @@ BEGIN
     so the "throws" isn't actually throwing it anywhere.*/
     public double calcTimeLeft(double travelTime)
             throws GameControlException {
-
         timeLeft -= travelTime;
         if (timeLeft <= 0) {
             throw new GameControlException("\nYou are out of time.\n");
         }
-         return timeLeft;
+        return timeLeft;
     }
 
     // calculate the area for the user to investigate and how much time is spent in the investigation.
     public String calcAreaTime(double length, double width) throws GameControlException {
-        double timeLeft = 200.0;
+        
+        double area = length * width;
+        double searchTime = area*2.4/60;
+        timeLeft = timeLeft - searchTime;
         DecimalFormat df = new DecimalFormat("#.##");
         String formatted = df.format(timeLeft);
-        double area = length * width;
-        timeLeft = timeLeft - area * 2.4 / 60;
-        if (timeLeft > 0 && timeLeft <= 1420) {
-            return ("\nYou have " + timeLeft + " minutes remaining. "
+        String searchTimeFormatted = df.format(searchTime);
+        if (timeLeft >= 0  && timeLeft <= 1440) {
+            return ("\nThis search will take you " + searchTimeFormatted + " minutes.\n"
+                    + "\nYou have " + formatted + " minutes remaining.\n"
                     + "\nYou found a clump of cat fur."
                     + "\nYou would recognize this fur anywhere"
                     + "\nIt's none other than the fur of DeVil");

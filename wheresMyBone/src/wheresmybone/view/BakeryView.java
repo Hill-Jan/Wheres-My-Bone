@@ -16,11 +16,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class TheBakery extends View {
+public class BakeryView extends View {
     //private String promptMessage;{
 //}
 
-    public TheBakery() {
+    public BakeryView() {
         super("\n*********************************************************"
                 + "\n                 THE BAKERY   "
                 + "\n********************************************************"

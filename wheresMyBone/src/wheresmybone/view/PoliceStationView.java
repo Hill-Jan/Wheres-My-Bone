@@ -15,11 +15,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class PoliceStation extends View {
+public class PoliceStationView extends View {
     //private String promptMessage;{
 //}
 
-    public PoliceStation() {
+    public PoliceStationView() {
             super("\n*********************************************************"
                 + "\n             OFFICER PETE   "
                 + "\n********************************************************"

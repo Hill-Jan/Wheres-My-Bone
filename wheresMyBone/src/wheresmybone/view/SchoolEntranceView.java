@@ -5,7 +5,6 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
@@ -15,11 +14,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class SchoolEntrance extends View {
+public class SchoolEntranceView extends View {
     //private String promptMessage;{
 //}
 
-    public SchoolEntrance() {
+    public SchoolEntranceView() {
         super("\n*********************************************************"
                 + "\n    School Entrance  VIEW   "
                 + "\n********************************************************"

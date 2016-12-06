@@ -6,7 +6,6 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
@@ -16,11 +15,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class CareHomeview extends View {
+public class CareHomeView extends View {
     //private String promptMessage;{
 //}
 
-    public CareHomeview() {
+    public CareHomeView() {
         super("\n*********************************************************"
                 + "\n                 The NURSING HOME   "
                 + "\n********************************************************"
@@ -105,7 +104,7 @@ public class CareHomeview extends View {
     }
 
     private void searchTheGarden() {
-        Item newItem = new Item("Bone", "the Garden", "you");
+        Item newItem = new Item("fish", "fishmonger", "tigers");
         StartProgramView.player.addToBackpack(newItem);
         this.console.println("You search through the gardens carefully.  Wait!"
                     + "\nWhat's that?  It smells familiar.  There!  Under the "

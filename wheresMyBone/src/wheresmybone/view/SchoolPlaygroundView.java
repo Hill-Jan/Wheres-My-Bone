@@ -1,0 +1,87 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package wheresmybone.view;
+
+import wheresmybone.WheresMyBone;
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
+import wheresmybone.model.Item;
+
+/**
+ *
+ * @author Sexy Mario
+ */
+public class SchoolPlaygroundView extends View {
+    //private String promptMessage;{
+//}
+
+    public SchoolPlaygroundView() {
+        super    ("\n********************************************************"
+                + "\n                 The School Playground       "
+                + "\n********************************************************"
+                + "\nThe east side of the building holds the playground."
+                + "\nThere's lots of children playing. How are you supposed"
+                + "\nto check things out with all these kids?"
+                + "\n"
+                + "\nJust as you're about to give up, the bell rings."
+                + "\nThe children all run inside the building. Thank Goodness!"
+                + "\n"
+                + "\nWhat will you do?"
+                + "\n"
+                + "\n********************************************************"
+                + "\nP - Search Your playground"
+                + "\nX - Leave the Area!"
+                + "\n********************************************************");
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        value = value.toUpperCase();
+
+        switch (value) {
+            case "P":
+                this.searchThePlayground();
+                break;
+            case "G":
+                this.getTheBall();
+                break;
+            default:
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
+                break;
+        }
+        return false;
+
+    }
+ private void getTheBall() {
+        Item newItem = new Item("ball", "School Playground", "Gorrillas");
+        StartProgramView.player.addToBackpack(newItem);
+        this.console.println("You search through the gardens carefully.  Wait!"
+                    + "\nWhat's that?  It smells familiar.  There!  Under the "
+                    + "\nGardenias!  It's My Bone!");
+    }
+    public void searchThePlayground() {
+        Game game = WheresMyBone.getCurrentGame();
+        Backpack backpack = game.getPlayer().getBackpack();
+        String itemName = "meal";
+        Item item = backpack.GiveItem(itemName);
+
+         {
+            this.console.println("\nYou search through the playground. Your"
+                    + "\ntrained nose can pick up the scent of a bone anywhere."
+                    + "\nUnfortunately, all you found was a large red rubber ball"
+                    + "\nDo you:"
+                    + "\n"
+                    + "\n****************************************************"
+                    + "\nG - Get the ball"
+                    + "\nX - Leave the Area"
+                    + "\n****************************************************");
+
+        
+    }
+
+    }
+}
+    

@@ -4,10 +4,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
+import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.CalculationControlException;
+import wheresmybone.exceptions.GameControlException;
 
 /**
  *
@@ -29,6 +32,7 @@ public class VacantHouseView {
         this.description = "\n"
                 + "\n---------------------------------------------"
                 + "\nVacant House"
+                + "\nTime Left: " + timeLeft()
                 + "\n---------------------------------------------"
                 + "\nYou come upon the old house that's up for"
                 + "\nsale. It's beat up with windows broken, but"
@@ -189,4 +193,15 @@ public class VacantHouseView {
         }
         return retVal;
     }
+    public double timeLeft() {
+        double travelTime = 20;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+}
 }

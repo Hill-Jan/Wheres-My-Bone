@@ -16,11 +16,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class ThePound extends View {
+public class PoundView extends View {
     //private String promptMessage;{
 //}
 
-    public ThePound() {
+    public PoundView() {
         super("\n*********************************************************"
                 + "\n    THE POUND   "
                 + "\n********************************************************"

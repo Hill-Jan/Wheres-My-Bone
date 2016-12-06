@@ -16,11 +16,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class ThePond extends View {
+public class PondView extends View {
     //private String promptMessage;{
 //}
 
-    public ThePond() {
+    public PondView() {
         super("\n*********************************************************"
                 + "\n                 THE Pond   "
                 + "\n********************************************************"

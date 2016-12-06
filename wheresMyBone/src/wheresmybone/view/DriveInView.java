@@ -6,21 +6,15 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
-import wheresmybone.model.Item;
-
 /**
  *
  * @author Jan
  */
-public abstract class DriveIn extends View {
+public class DriveInView extends View {
     //private String promptMessage;{
 //}
 
-    public DriveIn() {
+    public DriveInView() {
         super("\n*********************************************************"
                 + "\n                 THE DRIVE-IN MOVIE THEATER   "
                 + "\n********************************************************"
@@ -51,6 +45,11 @@ public abstract class DriveIn extends View {
                 + "\n********************************************************"
                 + "\nX - Where To Now?"
                 + "\n********************************************************");
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        return true;
     }
 
     

@@ -15,11 +15,11 @@ import wheresmybone.model.Item;
  *
  * @author Jan
  */
-public class TheRestaurant extends View {
+public class RestaurantView extends View {
     //private String promptMessage;{
 //}
 
-    public TheRestaurant() {
+    public RestaurantView() {
         super("\n*********************************************************"
                 + "\n                 THE RESTAURANT   "
                 + "\n********************************************************"
