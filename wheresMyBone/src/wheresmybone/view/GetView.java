@@ -46,7 +46,7 @@ public class GetView {
             case "GH":
                 return new GroceryWarehouseView();
             case "ZO":
-                return new ZooView();
+                return new ZooEntranceView();
             case "EL":
                 return new ElephantsView();
             case "TG":

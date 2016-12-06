@@ -7,6 +7,8 @@ package wheresmybone.view;
 
 import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -44,6 +46,9 @@ public class RestaurantView extends View {
                 + "\nG - Get Donuts"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -86,7 +91,21 @@ public class RestaurantView extends View {
                     + "\n****************************************************"
                     + "\nWhere To Now?  "
                     + "\n****************************************************");
+            RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+			 
         }
+    }
+    public double timeLeft() {
+               double travelTime = 15;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 
 }

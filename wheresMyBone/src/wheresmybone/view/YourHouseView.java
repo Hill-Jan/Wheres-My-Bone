@@ -27,20 +27,10 @@ public class YourHouseView {
     protected final PrintWriter console = WheresMyBone.getOutFile();
     public YourHouseView(){
         
-     this.description ="\n********************************************************************"
-                     + "\n                                                                 "
-                     + "\nOne day you wake up from a night of bad dreams. Cat DeVil, the  "
-                     + "\nmean cat from next door, had been hissing and clawing at you    "
-                     + "\nall night.  Thirsty, you get up to get a drink of water. While  "
-                     + "\nyou’re at it you decide to take some time for a chew session on  "
-                     + "\nyour favorite bone. That’s when your real nightmare begins.      "
-                     + "\nThe hole you dug for keeping that bone safe IS EMPTY!           "
-                     + "\n"
-                     + "\n******************************************************************"       
-                     + "\n"
-                     + "\n===================================================="
+     this.description ="\n===================================================="
                      + "\n"
                      + "\nLocation:Your House"
+                     + "\nTime Left: " + timeLeft()
                      + "\n"
                      + "\n"
                      + "\nAfter finding your precious bone gone, you decide to"
@@ -155,6 +145,17 @@ public class YourHouseView {
         return retVal;  
         
     }
+        public double timeLeft() {
+        double travelTime = 0;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+}
     
 }
             

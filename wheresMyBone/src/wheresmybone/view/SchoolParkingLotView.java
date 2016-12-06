@@ -6,6 +6,8 @@
 package wheresmybone.view;
 
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -47,6 +49,9 @@ public class SchoolParkingLotView extends View {
                 + "\nG - Get Paper"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+         this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -115,6 +120,8 @@ public class SchoolParkingLotView extends View {
                     + "\nWhere To Now?  "
                     + "\n****************************************************");
         }
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
     private void getPaper() {
@@ -124,6 +131,18 @@ public class SchoolParkingLotView extends View {
                 + "\nFunny handwriting. Wait. That says Brad on the top."
                 + "\nBrad is one of the kids in your neighborhood."
                 + "\nHe might need this. Better hang on to it.");
+    }
+
+    private double timeLeft() {
+                double travelTime = 20;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
     
 }

@@ -3,6 +3,8 @@ package wheresmybone.view;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -60,6 +62,9 @@ public class FishmongerView extends View {
                 + "\n*****************************************************************"
                 + "\nG – Get the fish    X – Leave the area"
                 + "\n******************************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -96,6 +101,8 @@ public void searchYourBackpack() {
         Item newItem = new Item("fish", "Fishmonger", "Tigers");
         StartProgramView.player.addToBackpack(newItem);
         this.console.println("You chuckle as you tell Mr. Catch. Sure, no problem.");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
                     
     }
     /*private void getFish() {
@@ -109,6 +116,18 @@ public void searchYourBackpack() {
     + "\nWhere to next?");
     this.console.println("\n*** puts the fish in your backpack");
     }*/
+
+    private double timeLeft() {
+       double travelTime = 35;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+    }
 
    
     }

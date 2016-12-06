@@ -6,6 +6,9 @@
 
 package wheresmybone.view;
 
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
+
 /**
  *
  * @author Jan
@@ -45,11 +48,26 @@ public class DriveInView extends View {
                 + "\n********************************************************"
                 + "\nX - Where To Now?"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
     public boolean doAction(String value) {
         return true;
+    }
+
+    private double timeLeft() {
+        double travelTime = 25;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 
     

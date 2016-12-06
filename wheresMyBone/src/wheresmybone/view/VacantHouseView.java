@@ -4,8 +4,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
 import wheresmybone.control.GameControl;
@@ -32,7 +30,6 @@ public class VacantHouseView {
         this.description = "\n"
                 + "\n---------------------------------------------"
                 + "\nVacant House"
-                + "\nTime Left: " + timeLeft()
                 + "\n---------------------------------------------"
                 + "\nYou come upon the old house that's up for"
                 + "\nsale. It's beat up with windows broken, but"
@@ -41,6 +38,9 @@ public class VacantHouseView {
                 + "\na clue, but first you must decide if the box"
                 + "\nis even big enough for DeVil to hide in."
                 + "\n---------------------------------------------";
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     public void displayVacantHouseView() {

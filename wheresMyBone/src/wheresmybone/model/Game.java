@@ -17,19 +17,26 @@ public class Game implements Serializable{
     private int startTime;
     private double bestTime;
     private String instructions;
-    private Time time;
     private Player player;
     private Backpack backpack;
     private Map map;
+    private double timeLeft;
     
     public Game() {
         instructions = "";
         backpack = new Backpack();
-        startTime = 0;
-        time = new Time();
+        startTime = 1440;
         player = new Player();
         map = new Map();
-        
+        timeLeft = startTime;
+    }
+
+    public double getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void setTimeLeft(double timeLeft) {
+        this.timeLeft = timeLeft;
     }
         
     public int getStartTime() {
@@ -54,14 +61,6 @@ public class Game implements Serializable{
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
-    }
-
-     public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
     }
 
     public Player getPlayer() {
@@ -90,7 +89,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + "time=" + time + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
+        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
     }
 
     @Override
@@ -99,7 +98,6 @@ public class Game implements Serializable{
         hash = 17 * hash + this.startTime;
         hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         hash = 17 * hash + Objects.hashCode(this.instructions);
-        hash = 17 * hash + Objects.hashCode(this.time);
         hash = 17 * hash + Objects.hashCode(this.player);
         hash = 17 * hash + Objects.hashCode(this.backpack);
         hash = 17 * hash + Objects.hashCode(this.map);
@@ -125,9 +123,6 @@ public class Game implements Serializable{
             return false;
         }
         if (!Objects.equals(this.instructions, other.instructions)) {
-            return false;
-        }
-        if (!Objects.equals(this.time, other.time)) {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {

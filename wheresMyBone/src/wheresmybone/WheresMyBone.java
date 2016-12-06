@@ -21,6 +21,7 @@ public class WheresMyBone {
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
+    private static double timeLeft = 0;
     
     public static void main(String[] args) {
         

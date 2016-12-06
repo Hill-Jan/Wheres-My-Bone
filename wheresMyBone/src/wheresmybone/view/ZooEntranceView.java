@@ -7,8 +7,9 @@ package wheresmybone.view;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 
 /**
  *
@@ -54,6 +55,9 @@ public class ZooEntranceView extends View {
                 + "\n*****************************************************************"
                 + "\nG – Get the snowglobe    T – talk some more      X – Leave the area"
                 + "\n******************************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -88,6 +92,8 @@ public class ZooEntranceView extends View {
                 + "\n"
                 + "\nWhere to next?");
         this.console.println("\n*** puts the snowglobe in your backpack");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
     private void talkSomeMore() {
@@ -96,6 +102,20 @@ public class ZooEntranceView extends View {
                 + "\nFishmonger station has seen him.  You know how much cats like fish.”"
                 + "\n"
                 + "\nWhere to next?");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+    }
+
+    private double timeLeft() {
+                double travelTime = 20;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 
 }

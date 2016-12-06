@@ -5,10 +5,8 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Item;
 
 /**
@@ -21,7 +19,7 @@ public class AnimalHospitalView extends View {
 
     public AnimalHospitalView() {
         super("\n*********************************************************"
-                + "\n             ANIMAL HOSPITAL   "
+                + "\n             ANIMAL HOSPITAL   "               
                 + "\n********************************************************"
                 + "\n"
                 + "\nYou begin to pass the Animal Hospital.  As you get up close,"
@@ -43,7 +41,11 @@ public class AnimalHospitalView extends View {
                 + "\n********************************************************"
                 + "\nG - Get nametag"
                 + "\nX - Leave the Area!"
-                + "\n********************************************************");
+                + "\n********************************************************"
+        );
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -66,5 +68,19 @@ public class AnimalHospitalView extends View {
     private void getItem() {
         Item newItem = new Item("Nametag", "Animal Hospital", "collar");
         StartProgramView.player.addToBackpack(newItem);
+            RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+    }
+
+    private double timeLeft() {
+        double travelTime = 25;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 }

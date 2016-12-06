@@ -7,7 +7,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.CalculationControl;
+import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.CalculationControlException;
+import wheresmybone.exceptions.GameControlException;
 
 /**
  *
@@ -42,6 +44,9 @@ public class GiraffesView {
                 + "\n\"Mikiri says he saw DeVil over by the feed cylinder."
                 + "\nYou might want to take a look.\""
                 + "\n------------------------------------------";
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     public void displayGiraffesView() {
@@ -157,5 +162,17 @@ public class GiraffesView {
             this.console.println(ce.getMessage());
         }
         return retVal;
+    }
+
+    private double timeLeft() {
+        double travelTime = 40;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 }

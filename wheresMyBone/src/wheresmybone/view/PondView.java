@@ -8,6 +8,8 @@ package wheresmybone.view;
 
 import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -37,6 +39,9 @@ public class PondView extends View {
                 + "\nW – Take a Drink of Water "
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -70,6 +75,8 @@ public class PondView extends View {
                         + "\n pebble on the bottom.  It’s a beautiful white stone "
                         + "\nwith orange and black stripes running through it."
                         + "\nLiking the way it looks, you put it in your backpack.");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
     private void playWithRufus(){
@@ -80,6 +87,20 @@ public class PondView extends View {
                         + "\nof other friends.  By the time you realize it, you’ve "
                         + "\nlost 40 minutes playing.  Quickly you tell Rufus you "
                         + "\nneed to leave and head off to your next location.");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+    }
+
+    private double timeLeft() {
+        double travelTime = 15;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 }
 
