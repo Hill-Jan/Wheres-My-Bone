@@ -55,6 +55,9 @@ public class CareHomeView extends View {
                 + "\nS - Search Your Backpack"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -102,10 +105,9 @@ public class CareHomeView extends View {
                     + "\n****************************************************"
                     + "\nWhere To Now?  "
                     + "\n****************************************************");
-            this.console.println("\n*******************************"
-                           + "\nTime Left: " + timeLeft()
-                           + "\n*******************************");
-        }
+         }
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
     private void searchTheGarden() {
@@ -114,8 +116,6 @@ public class CareHomeView extends View {
         this.console.println("You search through the gardens carefully.  Wait!"
                     + "\nWhat's that?  It smells familiar.  There!  Under the "
                     + "\nGardenias!  It's My Bone!");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
     
     public double timeLeft() {

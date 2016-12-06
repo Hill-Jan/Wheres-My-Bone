@@ -5,8 +5,8 @@
  */
 package wheresmybone.view;
 
-import wheresmybone.model.Item;
-import wheresmybone.model.Backpack;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Item;
 /**
  * changes to commit
@@ -41,6 +41,9 @@ public GroceryStoreWarehouse(){
                     +"\n"
                     +"\nG – Get the card      X – Leave the room fast"
                     +"\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
                     }
 
 @Override
@@ -69,5 +72,19 @@ public boolean doAction (String value){
         this.console.println("\n*You pick up the card and put it in your backpack."
                 + "\n"
                 + "\nWhere to now?");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+    }
+
+    private double timeLeft() {
+        double travelTime = 25;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
  }

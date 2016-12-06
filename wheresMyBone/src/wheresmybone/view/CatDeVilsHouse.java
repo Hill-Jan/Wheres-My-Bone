@@ -7,8 +7,9 @@ package wheresmybone.view;
 
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Item;
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Game;
 
 /**
@@ -32,6 +33,9 @@ public CatDeVilsHouse() {
                     +"\n********************************************************"
                     +"\nS - Search your Backpack      X – Leave the area"
                     +"\n********************************************************");
+            this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
                     }
 
 @Override
@@ -74,6 +78,8 @@ public boolean doAction (String value){
         else {
             this.console.println("Nothing in here will help you out.");
         }
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
  
         private void getCatBell() {
@@ -81,5 +87,21 @@ public boolean doAction (String value){
         StartProgramView.player.addToBackpack(newItem);
         this.console.println("\n*You quickly snatch up cat bell and put it in your"
                 + "\nbackpack.  Never know where this will come in handy.");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
 
-}}
+}
+
+    public double timeLeft() {
+        double travelTime = 5;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+    }    
+        
+}
