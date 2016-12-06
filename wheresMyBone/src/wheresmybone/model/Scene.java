@@ -37,35 +37,6 @@ public String mapSymbol;
         
         return this.mapSymbol;
     }
-
- /*public enum SceneType {
-     park,
-    vacanthouse,
-    police,
-    animalhospital,
-    pound,
-    bakery,
-    restaurant,
-    drivein,
-    pond,
-    alley,
-    carehome,
-    neighborshouse,
-    yourhouse,
-    devilshouse,
-    grocerywarehouse,
-    zoo,
-    elephants,
-    tigers,
-    GORILLAs,
-    giraffes,
-    schoolentrance,
-    schoolcafeteria,
-    schoolplayground,
-    schoolparkinglot,
-    fishmonger;
-
- }*/
  public String getSceneName()
   {
     return this.sceneName;

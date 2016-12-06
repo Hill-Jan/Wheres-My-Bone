@@ -194,10 +194,7 @@ public class ActionsMenuView extends View {
         if (currentView != null)
             currentView.display();
     }
-    private void quitActions() {
-        //Create MainMenuView object
-        return;
-    }
+
 public void viewMap() {
     
         //Console console = System.console(); Displays Map

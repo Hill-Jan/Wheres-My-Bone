@@ -5,11 +5,8 @@
  */
 package wheresmybone.model;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Arrays;
-import wheresmybone.WheresMyBone;
 import wheresmybone.view.ErrorView;
 
 /**
@@ -24,9 +21,6 @@ public class Map implements Serializable{
   private int currentColumn;
   private Location currentLocation;
   private Location[][] locations;
-  //protected final BufferedReader keyboard = WheresMyBone.getInFile();
-  //protected final PrintWriter console = WheresMyBone.getOutFile();
-
   
     public Map(){
         rowCount = 0;

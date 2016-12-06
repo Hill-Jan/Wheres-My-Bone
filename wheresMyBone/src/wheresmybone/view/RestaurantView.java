@@ -43,7 +43,7 @@ public class RestaurantView extends View {
 		+ "\nthe white flakes on a base.  Ah, but I-a don’t-a know where to get one!”"
                 + "\n"
                 + "\n********************************************************"
-                + "\nG - Get Donuts"
+                + "\nS - Search Backpack"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
         this.console.println("\n*******************************"

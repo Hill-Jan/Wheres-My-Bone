@@ -25,39 +25,26 @@ public class GameMenuView extends View {
                 + "\n -------------------------------------------------"
                 + "\n    Game Menu                                     "
                 + "\n -------------------------------------------------"
-                //+ "\nI - Show items in room"
                 + "\nB - Show possible items for Backpack"
-                       +"\n and print repor to file"
+                + "\n and print repor to file"
                 + "\nN - Show NPC list"
                 + "\nT - Check time"
                 + "\nM - Show Map"
                 + "\nG - Go To New Location"
-                + "\nS - Save Game"
                 + "\nH - Help Menu"
                 + "\nL - Display Scene List"
                 + "\nJ - Display Map Symbols as a Report"
-                // + "\nGE - Test Giraffe Enclosure"
-                + "\nY - Test Your House"
-                /*+ "\nR - Test Room Menu View"
-                + "\nV - Test VacantHouseSceneView"*/
-                + "\nC - Test Cafeteria View Test"
-                /*+ "\nZ - Test Zoo Entrance View"*/
-                //+ "\nE - Test School Entrance View"
                 + "\nX - Exit Game Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
                 + "\nChoose a Menu Option: ");
     }
 
-
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
-           /* case "I": //Show items in room
-                this.showRoomItems();
-                break;*/
             case "B": //Show items in backpack
                 this.showBackpackItems();
                 break;
@@ -71,9 +58,6 @@ public class GameMenuView extends View {
             case "M": //Show Map
                 this.viewMap();
                 break;
-            case "S": //Save Game
-                this.saveGame();
-                break;
             case "H": //Help Menu
                 this.displayHelpMenu();
                 break;
@@ -86,29 +70,6 @@ public class GameMenuView extends View {
             case "J": //test vacant house
                 this.mapSymbolReport();
                 break;
-            //case "GE": 
-            //test giraffe enclosure
-            //  this.displayGiraffesView();
-            //break;
-            case "Y":
-                //test your house
-                this.displayYourHouseView();
-                break;
-            /*case "R": //test room menu view
-                this.displayRoomMenuView();
-                break;
-            case "V": //test VacantHouseSceneView
-                this.displayVacantHouseSceneView();
-                break;*/
-            case "C": //test CafeteriaViewTestw
-                this.displayCafeteriaViewTest();
-                break;
-            case "Z": //test ZooEntranceView
-                this.displayZooEntranceView();
-                break;
-            //case "E"://test School entrance View
-            //  this.displaySchoolEntranceView();
-            //break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Choose a Menu Option");
                 break;
@@ -116,21 +77,20 @@ public class GameMenuView extends View {
         return false;
     }
 
-   /* private void showRoomItems() {
+    /* private void showRoomItems() {
         this.console.println("*** showRoomItems() function called ***");
     }*/
-
-    private void showBackpackItems(){
+    private void showBackpackItems() {
         StringBuilder line;
         this.console.println("\nEnter the file path for file where the report "
                 + "is to be saved.");
         String filePath = this.getInput();
 
-        try{
+        try {
             saveBackpackListReport(filePath);
-        } catch (IOException e){
-            
-        }                  
+        } catch (IOException e) {
+
+        }
 
         ArrayList<Item> items = Item.createItemList();
 
@@ -142,41 +102,38 @@ public class GameMenuView extends View {
         for (Item item : items) {
             this.console.printf("%n%-15s%-25s%-16s", item.getName(), item.getStartScene(), item.getDescription());
         }
-         this.console.println("  ");
-         this.console.println("  ");
-         this.console.println("Your Report Has Saved Successfully.");
+        this.console.println("  ");
+        this.console.println("  ");
+        this.console.println("Your Report Has Saved Successfully.");
     }
 
-public static void saveBackpackListReport(String filePath)
+    public static void saveBackpackListReport(String filePath)
             throws IOException {
-    
+
         ArrayList<Item> items = Item.createItemList();
-        
+
         try (PrintWriter writer = new PrintWriter(filePath)) {
- 
-        writer.println("   LIST OF POSSIBLE BACKPACK ITEMS ");
-        writer.println("-----------------------------------------------------");
-        writer.printf("%n%-10s%-25s%-16s","    ITEM","    FROM WHERE","    TO WHOM");
-        writer.printf("%n%-13s%-25s%-16s","-------------","-----------------------------","---------------"); 
-        for(Item item : items){
-            writer.printf("%n%-15s%-25s%-16s", item.getName(), item.getStartScene(), item.getDescription());
-        }
-           writer.close();
- 
-        }catch (Exception ex) {
+
+            writer.println("   LIST OF POSSIBLE BACKPACK ITEMS ");
+            writer.println("-----------------------------------------------------");
+            writer.printf("%n%-10s%-25s%-16s", "    ITEM", "    FROM WHERE", "    TO WHOM");
+            writer.printf("%n%-13s%-25s%-16s", "-------------", "-----------------------------", "---------------");
+            for (Item item : items) {
+                writer.printf("%n%-15s%-25s%-16s", item.getName(), item.getStartScene(), item.getDescription());
+            }
+            writer.close();
+
+        } catch (Exception ex) {
             ErrorView.display("GameMenuView BackpackListReport", ex.getMessage());
         }
 
- }
-            
-
-
-    private void checkTime() {
-        this.console.println("*** checkTime() function called ***");
     }
 
-    private void saveGame() {
-        this.console.println("*** saveGame() function called ***");
+    private void checkTime() {
+        double timeLeft = WheresMyBone.getCurrentGame().getTimeLeft();
+
+        this.console.println("\nYou have " + timeLeft + " minutes remaining."
+                + "\nDon't let your time run out!");
     }
 
     private void displayHelpMenu() {
@@ -185,27 +142,6 @@ public static void saveBackpackListReport(String filePath)
 
         // Display the help menu view
         helpMenuView.display();
-    }
-
-    private void displayYourHouseView() {
-        //Create displayYourHouseView object
-        YourHouseView yourHouseView = new YourHouseView();
-        //Display the your house view
-        yourHouseView.displayYourHouseView();
-    }
-
-    private void displayCafeteriaViewTest() {
-        //Create displayRoomMenuView object
-        SchoolCafeteriaView schoolCafeteriaView = new SchoolCafeteriaView();
-        //Display the room menu view
-        schoolCafeteriaView.display();
-    }
-
-    private void displayZooEntranceView() {
-        //Create displayZooEntranceView object
-        ZooEntranceView zooEntranceView = new ZooEntranceView();
-        //Display the zoo entrance view
-        zooEntranceView.display();
     }
 
     public void viewMap() {
@@ -289,22 +225,4 @@ public static void saveBackpackListReport(String filePath)
         InputView input = new InputView();
         input.mapSymbolReport();
     }
-
-    /*public static void saveMapSymbolReport(String filePath)
-            throws IOException {
-
-        try (PrintWriter writer = new PrintWriter(filePath)) {
-            //ObjectOutputStream output = new ObjectOutputStream(fops);
-            writer.println("\n\n      Scenes & Symbols Report      ");
-            writer.printf("%n%-25s%10s%10s", "Scene Name", "  Map Symbol  ", "  Map Location  ");
-            writer.printf("%n%-25s%10s%10s", "----------", "------------  ", "  --------------");
-            for (SceneType st : SceneType.values()) {
-                writer.printf("%n%-25s%7s%15d", st.getSceneName(), st.getMapSymbol(), st.ordinal());
-            }
-
-        } catch (Exception e) {
-            ErrorView.display("GameMenuView-saveMapSymbolReport-", e.getMessage());
-        }
-
-    }*/
 }

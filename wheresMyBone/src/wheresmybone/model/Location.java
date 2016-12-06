@@ -7,7 +7,6 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import wheresmybone.model.Npc.Npcs;
 
 /**
  *

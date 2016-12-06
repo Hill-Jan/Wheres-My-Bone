@@ -15,15 +15,12 @@ import java.util.Objects;
 public class Game implements Serializable{
     
     private int startTime;
-    private double bestTime;
-    private String instructions;
     private Player player;
     private Backpack backpack;
     private Map map;
     private double timeLeft;
     
     public Game() {
-        instructions = "";
         backpack = new Backpack();
         startTime = 1440;
         player = new Player();
@@ -45,22 +42,6 @@ public class Game implements Serializable{
 
     public void setStartTime(int startTime) {
         this.startTime = startTime;
-    }
-
-    public double getBestTime() {
-        return bestTime;
-    }
-
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
     }
 
     public Player getPlayer() {
@@ -89,15 +70,13 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "startTime=" + startTime + ", bestTime=" + bestTime + ", instructions=" + instructions + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
+        return "Game{" + "startTime=" + startTime + ", player=" + player + ", backpack=" + backpack + ", map=" + map + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 17 * hash + this.startTime;
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
-        hash = 17 * hash + Objects.hashCode(this.instructions);
         hash = 17 * hash + Objects.hashCode(this.player);
         hash = 17 * hash + Objects.hashCode(this.backpack);
         hash = 17 * hash + Objects.hashCode(this.map);
@@ -117,12 +96,6 @@ public class Game implements Serializable{
         }
         final Game other = (Game) obj;
         if (this.startTime != other.startTime) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
-            return false;
-        }
-        if (!Objects.equals(this.instructions, other.instructions)) {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {
