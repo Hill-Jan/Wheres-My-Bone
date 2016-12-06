@@ -12,7 +12,7 @@ import wheresmybone.model.Item;
  * changes to commit
  * @author Jan
  */
-public abstract class GroceryStoreWarehouse extends View {
+public class GroceryStoreWarehouse extends View {
      //private String promptMessage;{
     
 public GroceryStoreWarehouse(){

@@ -34,7 +34,7 @@ public class GetView {
             case "PN":
                 return new PondView();
             case "AL":
-                return new AlleyView();
+                return new TheAlley();
             case "CH":
                 return new CareHomeView();
             case "NH":
@@ -42,17 +42,17 @@ public class GetView {
             case "YH":
                 return new EnterYourHouseView();
             case "DH":
-                return new DeVilsHouseView();
+                return new CatDeVilsHouse();
             case "GH":
-                return new GroceryWarehouseView();
+                return new GroceryStoreWarehouse();
             case "ZO":
                 return new ZooEntranceView();
             case "EL":
-                return new ElephantsView();
+                return new ElephantView();
             case "TG":
-                return new TigersView();
+                return new TigerView();
             case "GR":
-                return new GorillasView();
+                return new GorillaView();
             case "GF":
                 return new EnterGiraffeView();
             case "SE":
@@ -64,7 +64,7 @@ public class GetView {
             case "SL":
                 return new SchoolParkingLotView();
             case "FM":
-                return new FishmongerView();
+                return new Fishmonger();
             default: return null;
         }
     }
