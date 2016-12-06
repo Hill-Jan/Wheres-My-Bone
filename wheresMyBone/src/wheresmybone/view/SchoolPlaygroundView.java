@@ -6,6 +6,8 @@
 package wheresmybone.view;
 
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -19,7 +21,7 @@ public class SchoolPlaygroundView extends View {
 //}
 
     public SchoolPlaygroundView() {
-        super    ("\n********************************************************"
+        super("\n********************************************************"
                 + "\n                 The School Playground       "
                 + "\n********************************************************"
                 + "\nThe east side of the building holds the playground."
@@ -35,6 +37,9 @@ public class SchoolPlaygroundView extends View {
                 + "\nP - Search Your playground"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                + "\nTime Left: " + timeLeft()
+                + "\n*******************************");
     }
 
     @Override
@@ -55,20 +60,24 @@ public class SchoolPlaygroundView extends View {
         return false;
 
     }
- private void getTheBall() {
+
+    private void getTheBall() {
         Item newItem = new Item("ball", "School Playground", "Gorrillas");
         StartProgramView.player.addToBackpack(newItem);
         this.console.println("You search through the gardens carefully.  Wait!"
-                    + "\nWhat's that?  It smells familiar.  There!  Under the "
-                    + "\nGardenias!  It's My Bone!");
+                + "\nWhat's that?  It smells familiar.  There!  Under the "
+                + "\nGardenias!  It's My Bone!");
+        RoomMenuView roomMenuView = new RoomMenuView();
+        roomMenuView.display();
     }
+
     public void searchThePlayground() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
         String itemName = "meal";
         Item item = backpack.GiveItem(itemName);
 
-         {
+        {
             this.console.println("\nYou search through the playground. Your"
                     + "\ntrained nose can pick up the scent of a bone anywhere."
                     + "\nUnfortunately, all you found was a large red rubber ball"
@@ -79,9 +88,20 @@ public class SchoolPlaygroundView extends View {
                     + "\nX - Leave the Area"
                     + "\n****************************************************");
 
-        
+        }
+        RoomMenuView roomMenuView = new RoomMenuView();
+        roomMenuView.display();
     }
 
+    public double timeLeft() {
+        double travelTime = 25;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        return timeLeft;
     }
 }
-    

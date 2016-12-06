@@ -22,7 +22,6 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 //import wheresmybone.model.Scene.SceneType;
-import wheresmybone.model.Time;
 
 /**
  *
@@ -31,7 +30,6 @@ import wheresmybone.model.Time;
 public class GameControl {
     
     double startTime = 1440;
-    double timeLeft = startTime;
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
@@ -119,9 +117,6 @@ public class GameControl {
 
         game.setPlayer(player); //save player in the game
 
-        Time time = new Time(); //create the start time
-        game.setTime(time); //save time in game
-
         Backpack backpack = new Backpack(); //create backpack
         player.setBackpack(backpack); //save backpack in game
 
@@ -133,14 +128,15 @@ public class GameControl {
     }
 
     // calculate time left to complete game  
-    /* ****Bro Jones: we haven't implemented this one anywhere yet
-    so the "throws" isn't actually throwing it anywhere.*/
     public double calcTimeLeft(double travelTime)
             throws GameControlException {
+        Game game = WheresMyBone.getCurrentGame();
+        double timeLeft = game.getTimeLeft();
         timeLeft -= travelTime;
         if (timeLeft <= 0) {
             throw new GameControlException("\nYou are out of time.\n");
         }
+        game.setTimeLeft(timeLeft);
         return timeLeft;
     }
 
@@ -149,7 +145,7 @@ public class GameControl {
         
         double area = length * width;
         double searchTime = area*2.4/60;
-        timeLeft = timeLeft - searchTime;
+        double timeLeft = calcTimeLeft(searchTime);
         DecimalFormat df = new DecimalFormat("#.##");
         String formatted = df.format(timeLeft);
         String searchTimeFormatted = df.format(searchTime);

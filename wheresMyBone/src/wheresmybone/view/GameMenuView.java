@@ -286,21 +286,11 @@ public static void saveBackpackListReport(String filePath)
     }
 
     private void mapSymbolReport() {
-        //prompt for and get the name of the file to save the game in
-        this.console.println("\nEnter the file path for file where the report "
-                + "is to be saved.");
-        String filePath = this.getInput();
-
-        try {
-            // save the game to the speciried file
-            saveMapSymbolReport(filePath);
-            this.console.println("\n\nReport Saved Successfully!\n");
-        } catch (Exception ex) {
-            ErrorView.display("GameMenuView MapSymbolReport", ex.getMessage());
-        }
+        InputView input = new InputView();
+        input.mapSymbolReport();
     }
 
-    public static void saveMapSymbolReport(String filePath)
+    /*public static void saveMapSymbolReport(String filePath)
             throws IOException {
 
         try (PrintWriter writer = new PrintWriter(filePath)) {
@@ -316,5 +306,5 @@ public static void saveBackpackListReport(String filePath)
             ErrorView.display("GameMenuView-saveMapSymbolReport-", e.getMessage());
         }
 
-    }
+    }*/
 }

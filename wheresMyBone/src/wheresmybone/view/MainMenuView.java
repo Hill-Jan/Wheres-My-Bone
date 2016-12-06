@@ -73,36 +73,13 @@ END */
     }
 
     private void loadSavedGame() {
-        this.console.println("\n\nEnter the file path for the file where the game is saved.\n");
-        
-        String filePath = this.getInput();
-        
-        try{
-            // start a saved game
-            GameControl.loadSavedGame(filePath);
-            //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-        } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
-        
-        
+        InputView input = new InputView();
+        input.loadSavedGame();
     }
 
     private void saveGame() {
-        //prompt for and get the name of the file to save the game in
-        this.console.println("\nEnter the file path for file where the game "
-                            +"is to be saved.");
-        String filePath = this.getInput();
-        
-        try {
-         // save the game to the speciried file
-         GameControl.saveGame(WheresMyBone.getCurrentGame(), filePath);
-         this.console.println("\nGame Saved Successfully!\n");
-        } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
+       InputView input = new InputView();
+       input.saveGame();
     }
 
     private void displayHelpMenu() {

@@ -6,10 +6,8 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Item;
 
 /**
@@ -48,6 +46,9 @@ public class PoundView extends View {
                 + "\nG - Get Collar"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -72,10 +73,28 @@ public class PoundView extends View {
         StartProgramView.player.addToBackpack(newItem);
 		this.console.println("Hmmm.  Looks like this needs a name tag.");
                 this.giveItem();
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+			         
     }
     private void giveItem() {
         String newItem = "Nametag";
 	StartProgramView.player.giveItem(newItem);
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
+			 
 	}
+    
+    public double timeLeft() {
+        double travelTime = 30;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+    }
 }
 		

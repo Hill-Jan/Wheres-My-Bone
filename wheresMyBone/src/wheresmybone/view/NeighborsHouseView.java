@@ -6,8 +6,9 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Item;
@@ -39,6 +40,9 @@ public class NeighborsHouseView extends View {
                 + "\nS - Search Your Backpack"
                 + "\nX - Leave the Area!"
                 + "\n********************************************************");
+        this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -88,6 +92,18 @@ public class NeighborsHouseView extends View {
                     + "\n****************************************************");
          
             }
+    }
+
+    private double timeLeft() {
+        double travelTime = 5;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
     }
 
 }

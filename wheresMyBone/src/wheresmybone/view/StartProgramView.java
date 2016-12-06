@@ -8,7 +8,6 @@ package wheresmybone.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.model.Player;
@@ -146,7 +145,17 @@ public class StartProgramView {
                            +"\n Welcome to the game, " + player.getName()
                            +"\n We hope you have a lot of fun!"
                            +"\n=============================================="
-                           +"\n\n");
+                           +"\n************************************************************"
+                     + "\n                                                                 "
+                     + "\nOne day you wake up from a night of bad dreams. Cat DeVil, the  "
+                     + "\nmean cat from next door, had been hissing and clawing at you    "
+                     + "\nall night.  Thirsty, you get up to get a drink of water. While  "
+                     + "\nyou’re at it you decide to take some time for a chew session on  "
+                     + "\nyour favorite bone. That’s when your real nightmare begins.      "
+                     + "\nThe hole you dug for keeping that bone safe IS EMPTY!           "
+                     + "\n"
+                     + "\n******************************************************************"       
+                     + "\n");
      
         //Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();

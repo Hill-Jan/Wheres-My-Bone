@@ -5,11 +5,8 @@
  */
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
-import wheresmybone.model.Item;
+import wheresmybone.control.GameControl;
+import wheresmybone.exceptions.GameControlException;
 
 /**
  *
@@ -37,6 +34,9 @@ public class PoliceStationView extends View {
                 + "\nH - Help Officer Pete."
                 + "\nX - Leave the area so you don't get hurt."
                 + "\n********************************************************");
+            this.console.println("\n*******************************"
+                           + "\nTime Left: " + timeLeft()
+                           + "\n*******************************");
     }
 
     @Override
@@ -77,8 +77,20 @@ public class PoliceStationView extends View {
                 + "\n***************************************************************"
                 + "\n Where to Now?"
                 + "\n****************************************************************");
+        RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();
     }
 
-
+    public double timeLeft() {
+        double travelTime = 15;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+        }
+        return timeLeft;
+    }
         }
 
