@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
+import wheresmybone.model.Item;
 
 /**
  *
@@ -80,6 +81,8 @@ public class ZooEntranceView extends View {
     }
 
     private void getSnowglobe() {
+        Item snowglobe = new Item("Snowglobe", "Zoo Entrance", "Mr. Stealetti");
+        StartProgramView.player.addToBackpack(snowglobe);
         this.console.println("\nThe snowglobes are pretty.  There’s one with a pink ribbon"
                 + "\nand polar bears playing in the snow."
                 + "\n“Is $10 enough?\""
@@ -91,7 +94,7 @@ public class ZooEntranceView extends View {
                 + "\nFishmonger station has seen him.  You know how much cats like fish.”"
                 + "\n"
                 + "\nWhere to next?");
-        this.console.println("\n*** puts the snowglobe in your backpack");
+
         RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();
     }

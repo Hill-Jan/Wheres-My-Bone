@@ -80,10 +80,16 @@ public class RestaurantView extends View {
 			+ "\n“Oh,"+ StartProgramView.player.getName() + "!  You’s a life "
 			+ "\nsaver!  Here!  Have a meat-a-ball!”  He tosses you a very large"
 			+ "\nmeatball slathered in sauce.  Mmmmm!"
+                        + "\n\"Can you do me a favor,"+ StartProgramView.player.getName() + "?"
+                        + "\n\"Sure!\""
+                        + "\n\"Take-a dis meal over to Miss Ellie.  It's-a her birthday!"
+                        + "\n\"No problem, Mr. S.  See ya later!\""
 			+ "\n"
                         + "\n****************************************************"
                         + "\nWhere To Now?"
                         + "\n****************************************************");
+        Item meal = new Item("meal", "The Restaurant", "Miss Ellie");
+        StartProgramView.player.addToBackpack(meal);
 
         } else {
             this.console.println("\n“Gee, I’m sorry.  I don’t have one.  I’ll see if I can "

@@ -49,19 +49,7 @@ public class StartProgramView {
          * displays the start program view
          */
     public void displayStartProgramView() {
-        /*displayView(): void
-        BEGIN
-        do
-        Prompt for and get the input value
-        if (value == “Q”) then
-        return
-
-        do requested action and display the next view
-        while the view is not done
-        END;
-        */
        
-        
         
         boolean done = false; //setflag to not done
         do {
@@ -75,27 +63,7 @@ public class StartProgramView {
             
         } while (!done);
     }
-        /*A template for getting user input:
-        
-        getInput(): value
-        BEGIN
-        WHILE a valid value has not been entered
-        DISPLAY a message prompting the user to enter a value
-        GET the value entered from keyboard
-        Trim front and trailing blanks off of the value
-        
-        IF the length of the value is blank THEN
-        DISPLAY “Invalid value: The value cannot be blank”
-        CONTINUE
-        ENDIF
-        
-        BREAK
-        ENDWHILE
-        
-        RETURN value
-        END 
-        
-        */
+
     private String getPlayersName() {
     
         String value = "";

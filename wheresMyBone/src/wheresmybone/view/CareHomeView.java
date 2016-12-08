@@ -75,7 +75,7 @@ public class CareHomeView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -103,17 +103,15 @@ public class CareHomeView extends View {
         } else {
             this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”");
         }
-        
-       /*RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();*/
     }
 
     private void searchTheGarden() {
-        Item newItem = new Item("fish", "fishmonger", "tigers");
-        StartProgramView.player.addToBackpack(newItem);
+        Item bone = new Item("bone", "Garden", "me!");
+        StartProgramView.player.addToBackpack(bone);
         this.console.println("You search through the gardens carefully.  Wait!"
                     + "\nWhat's that?  It smells familiar.  There!  Under the "
                     + "\nGardenias!  It's My Bone!");
+        WinView.displayBanner();
     }
     
     public double timeLeft() {

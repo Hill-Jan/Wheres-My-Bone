@@ -76,7 +76,7 @@ public class SchoolParkingLotView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "meal";
+        String itemName = "donuts";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -125,8 +125,8 @@ public class SchoolParkingLotView extends View {
     }
 
     private void getPaper() {
-        Item newItem = new Item("paper", "School Entrance", "Brad");
-        StartProgramView.player.addToBackpack(newItem);
+        Item paper = new Item("paper", "School Entrance", "Brad");
+        StartProgramView.player.addToBackpack(paper);
         this.console.println("You look at the paper on the fence. Hmm."
                 + "\nFunny handwriting. Wait. That says Brad on the top."
                 + "\nBrad is one of the kids in your neighborhood."

@@ -89,20 +89,6 @@ public class ParkView extends View {
 
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
-        /* ArrayList<Item> item = new ArrayList<>();
-       item = GameControl.createItemList();
-        //StringBuilder line;
-
-        this.console.println("\n       Inventory");
-        //line = new StringBuilder("          ");
-        int j=0;
-            for(j=0; j<item.size(); j++){
-            //line.insert(0, "Item");
-            this.console.println(j + "   " + item.get(j).getName() );
-            }
-
-       ArrayList<Item> backpack = new ArrayList<>();*/
-
         Backpack backpack = game.getPlayer().getBackpack();
         String itemName = "pebble";
         Item item = backpack.GiveItem(itemName);

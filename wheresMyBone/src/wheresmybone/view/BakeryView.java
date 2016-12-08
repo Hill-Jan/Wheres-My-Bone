@@ -63,7 +63,7 @@ public class BakeryView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -71,8 +71,6 @@ public class BakeryView extends View {
         Item donuts = new Item("Donuts", "Animal Hospital", "collar");
         StartProgramView.player.addToBackpack(donuts);
         this.console.println("Sure.  I'd be glad to.");
-        /*RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();*/
     }
 
     private double timeLeft() {

@@ -61,15 +61,13 @@ public class AnimalHospitalView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
     private void getItem() {
-        Item newItem = new Item("Nametag", "Animal Hospital", "collar");
-        /*StartProgramView.player.addToBackpack(newItem);
-            RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();*/
+        Item nametag = new Item("Nametag", "Animal Hospital", "collar");
+        StartProgramView.player.addToBackpack(nametag);
     }
 
     private double timeLeft() {

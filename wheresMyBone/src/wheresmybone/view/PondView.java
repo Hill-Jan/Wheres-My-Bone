@@ -68,8 +68,8 @@ public class PondView extends View {
 
 
     private void getItem() {
-        Item newItem = new Item("Pebble", "Pond", "Tommyr");
-        StartProgramView.player.addToBackpack(newItem);
+        Item pebble = new Item("Pebble", "Pond", "Tommyr");
+        StartProgramView.player.addToBackpack(pebble);
         this.console.println(" You decline Rufus’ suggestion and take another "
                         + "\ndrink.  As you look into the water you notice a large"
                         + "\n pebble on the bottom.  It’s a beautiful white stone "
