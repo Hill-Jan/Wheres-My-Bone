@@ -75,7 +75,7 @@ public class CareHomeView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -101,13 +101,8 @@ public class CareHomeView extends View {
                     + "\n****************************************************");
 
         } else {
-            this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
-                    + "\n****************************************************");
-         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+            this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”");
+        }
     }
 
     private void searchTheGarden() {

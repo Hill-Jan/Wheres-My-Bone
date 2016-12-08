@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package wheresmybone.model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -12,8 +13,8 @@ import java.util.Objects;
  *
  * @author short
  */
-public class Item implements Serializable{
-   
+public class Item implements Serializable {
+
     //class instance variables
     private String startScene;
     private String description;
@@ -34,7 +35,6 @@ public class Item implements Serializable{
     public void setName(String item) {
         this.name = name;
     }
-    
 
     public String getStartScene() {
         return this.startScene;
@@ -101,7 +101,6 @@ public class Item implements Serializable{
     public String toString() {
         return "Item{" + "startScene=" + startScene + ", description=" + description + ", associatedNpc=" + associatedNpc + ", name=" + name + '}';
     }
-   
 
     public static ArrayList<Item> createItemList() {
         //created ArrayList of items
@@ -124,6 +123,5 @@ public class Item implements Serializable{
 
         return items;
     }
-    
-    
+
 }

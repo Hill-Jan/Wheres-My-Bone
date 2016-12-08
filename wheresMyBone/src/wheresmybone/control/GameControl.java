@@ -22,8 +22,6 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 import wheresmybone.view.LostView;
-import wheresmybone.view.Welcome;
-//import wheresmybone.model.Scene.SceneType;
 
 /**
  *

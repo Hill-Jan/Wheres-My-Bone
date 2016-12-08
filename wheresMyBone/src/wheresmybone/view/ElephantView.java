@@ -71,7 +71,7 @@ public class ElephantView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -125,8 +125,6 @@ public class ElephantView extends View {
                     + "\nWhere To Now?  "
                     + "\n****************************************************");
         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
 
     public double timeLeft() {

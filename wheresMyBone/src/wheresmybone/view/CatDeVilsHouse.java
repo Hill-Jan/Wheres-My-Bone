@@ -53,7 +53,7 @@ public boolean doAction (String value){
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
-       return false;
+       return true;
 
 }
 
@@ -78,8 +78,6 @@ public boolean doAction (String value){
         else {
             this.console.println("Nothing in here will help you out.");
         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
  
         private void getCatBell() {
@@ -87,8 +85,6 @@ public boolean doAction (String value){
         StartProgramView.player.addToBackpack(catbell);
         this.console.println("\n*You quickly snatch up cat bell and put it in your"
                 + "\nbackpack.  Never know where this will come in handy.");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
 
 }
 

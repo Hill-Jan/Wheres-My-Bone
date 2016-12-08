@@ -52,8 +52,6 @@ public class YourHouseView {
         
         this.console.println("\n" + this.description);
         getAllInput();
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
     public void getAllInput() {
         length = getLengthInput();

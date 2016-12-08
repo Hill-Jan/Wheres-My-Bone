@@ -26,8 +26,6 @@ public class Location implements Serializable{
         scene = new Scene();
     }
   
-  
-  
   public int getRow()
   {
     return this.row;
@@ -108,9 +106,5 @@ public class Location implements Serializable{
         
         return this.visited;
     }
-  
-  
- 
-
 }
 
