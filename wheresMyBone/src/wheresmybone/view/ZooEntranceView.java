@@ -17,7 +17,8 @@ import wheresmybone.model.Item;
  * @author Sexy Mario
  */
 public class ZooEntranceView extends View {
-
+    
+    GameMenuView gameMenu = new GameMenuView();
     private String promptMessage;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
@@ -54,7 +55,7 @@ public class ZooEntranceView extends View {
                 + "\n"
                 + "What do you do?"
                 + "\n*****************************************************************"
-                + "\nG – Get the snowglobe    T – talk some more      X – Leave the area"
+                + "\nG – Get the snowglobe    T – talk some more      R -  Return to Game Menu"
                 + "\n******************************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -72,11 +73,14 @@ public class ZooEntranceView extends View {
             case "T":
                 this.talkSomeMore();
                 break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        gameMenu.display();
+        return true;
 
     }
 
@@ -92,21 +96,14 @@ public class ZooEntranceView extends View {
                 + "\n\"Have you seen DeVil?  I think he took my bone.”"
                 + "\n“DeVil?  No.  I haven’t seen him.  Maybe Mr. Catch at the"
                 + "\nFishmonger station has seen him.  You know how much cats like fish.”"
-                + "\n"
-                + "\nWhere to next?");
-
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+                + "\n");
     }
 
     private void talkSomeMore() {
         this.console.println("]\n“Have you seen DeVil?  I think he took my bone.”"
                 + "\n“DeVil?  No.  I haven’t seen him.  Maybe Mr. Catch at the "
                 + "\nFishmonger station has seen him.  You know how much cats like fish.”"
-                + "\n"
-                + "\nWhere to next?");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+                + "\n");
     }
 
     private double timeLeft() {

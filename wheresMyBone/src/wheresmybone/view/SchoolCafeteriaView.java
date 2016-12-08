@@ -5,9 +5,7 @@
  */
 package wheresmybone.view;
 
-import wheresmybone.model.Backpack;
 import wheresmybone.model.Item;
-import java.io.Serializable;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
 
@@ -18,7 +16,7 @@ import wheresmybone.exceptions.GameControlException;
 public class SchoolCafeteriaView extends View {
 
     private String promptMessage;
-
+    GameMenuView gameMenu = new GameMenuView();
     {
     }
 
@@ -41,7 +39,7 @@ public class SchoolCafeteriaView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\n"
-                + "\nG – Get the peanuts      X – Leave the room fast"
+                + "\nG – Get the peanuts      R - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -57,14 +55,13 @@ public class SchoolCafeteriaView extends View {
                 this.getPeanuts();
                 break;
 
-            case "X":
-                this.console.println("\n***this calls the map function***");
-                break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -75,8 +72,6 @@ public class SchoolCafeteriaView extends View {
                 + "\nbefore anyone can catch you there.  You know they’d chase "
                 + "\nyou out of the building.  Stopping at the edge of the yard,"
                 + "\nyou quickly put the peanuts in your backpack.");
-        RoomMenuView roomMenuView = new RoomMenuView();
-        roomMenuView.display();
     }
 
     private double timeLeft() {

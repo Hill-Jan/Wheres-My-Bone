@@ -19,6 +19,8 @@ import wheresmybone.model.Item;
 public class SchoolParkingLotView extends View {
     //private String promptMessage;{
 //}
+GameMenuView gameMenu = new GameMenuView();
+InputView input = new InputView();
 
     public SchoolParkingLotView() {
         super("\n*********************************************************"
@@ -47,7 +49,7 @@ public class SchoolParkingLotView extends View {
                 + "\n********************************************************"
                 + "\nS - Search Your Backpack"
                 + "\nG - Get Paper"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
          this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -65,72 +67,22 @@ public class SchoolParkingLotView extends View {
             case "G":
                 this.getPaper();
                 break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
     public void searchYourBackpack() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "donuts";
-        Item item = backpack.GiveItem(itemName);
-
-        if (item != null) {
-            this.console.println("\n“You carefully deliver the donuts to Mr."
-                                + "\nSneed. What's this? he asks taking the bag"
-                                + "\nfrom your teeth. "
-                                + "\nTo Derrick, From: Elaina"
-                                + "\nhe reads the writing on the bag. He chuckles."
-                                + "\nThat sweetheart! She sends me donuts at"
-                                + "\nleast once a week. Mmm-mmm. What a treat!"
-                                + "\nHe reaches into the bag and pulls out a"
-                                + "\nchocolate donut with whit icing. Here, he"
-                                + "\nsays splitting it in two. He bites into one"
-                                + "\nside and hands the other side to you."
-                                + "\nYou deserve a delivery fee."
-                                + "\nYou eat the donut gratefully"
-                                + "\nThanks, Mr. Sneed. Have you seen DeVil?"
-                                + "\nYou ask hopefully. DeVil, Isn't that the"
-                                + "\nmean black and white one?"
-                                + "\nYes, sir."
-                                + "\nI haven't seen him. But I understand that"
-                                + "\ncute Dr. Mice at the Animal Hospital was"
-                                + "\ntreating a mean black and white cat."
-                                + "\nGot her all scratched up, too."
-                                + "\nMaybe you should try her."
-
-                    + "\n****************************************************"
-                    + "\nG - Get the paper"
-                    + "\nX - Leave the Area"
-                    + "\n****************************************************");
-
-        } else {
-            this.console.println("\nI'm sorry, Mr. Sneed. I don't have any"
-                    + "\ngoodies for people."
-                    + "\nAh, well. I can wait until lunch. I'm gaining to"
-                    + "\nmany pounds anyway. He laughs patting his stomach"
-                    + "\nUm, sir? have you seen DeVil?"
-                    + "\nDevil, isn't that the mean black and white one?"
-                    + "\nNope. Haven't seen him today. Sorry"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
-                    + "\n****************************************************");
-        }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+        input.parkingLotSearchYourBackpack();
     }
 
     private void getPaper() {
-        Item paper = new Item("paper", "School Entrance", "Brad");
-        StartProgramView.player.addToBackpack(paper);
-        this.console.println("You look at the paper on the fence. Hmm."
-                + "\nFunny handwriting. Wait. That says Brad on the top."
-                + "\nBrad is one of the kids in your neighborhood."
-                + "\nHe might need this. Better hang on to it.");
+        input.parkingLotGetPaper();
     }
 
     private double timeLeft() {

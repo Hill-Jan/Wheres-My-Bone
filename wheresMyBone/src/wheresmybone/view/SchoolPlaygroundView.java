@@ -5,12 +5,8 @@
  */
 package wheresmybone.view;
 
-import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
-import wheresmybone.model.Item;
 
 /**
  *
@@ -19,7 +15,7 @@ import wheresmybone.model.Item;
 public class SchoolPlaygroundView extends View {
     //private String promptMessage;{
 //}
-
+GameMenuView gameMenu = new GameMenuView();
     public SchoolPlaygroundView() {
         super("\n********************************************************"
                 + "\n                 The School Playground       "
@@ -31,12 +27,15 @@ public class SchoolPlaygroundView extends View {
                 + "\nJust as you're about to give up, the bell rings."
                 + "\nThe children all run inside the building. Thank Goodness!"
                 + "\n"
-                + "\nWhat will you do?"
+                + "\nYou search through the playground. Your"
+                + "\ntrained nose can pick up the scent of a bone anywhere."
+                + "\nUnfortunately, all you found was a large red rubber ball"
+                + "\nDo you:"
                 + "\n"
-                + "\n********************************************************"
-                + "\nP - Search Your playground"
-                + "\nX - Leave the Area!"
-                + "\n********************************************************");
+                + "\n****************************************************"
+                + "\nG - Get the ball"
+                + "\nR - Return to Game Menu"
+                + "\n****************************************************");
         this.console.println("\n*******************************"
                 + "\nTime Left: " + timeLeft()
                 + "\n*******************************");
@@ -47,50 +46,22 @@ public class SchoolPlaygroundView extends View {
         value = value.toUpperCase();
 
         switch (value) {
-            case "P":
-                this.searchThePlayground();
-                break;
             case "G":
                 this.getTheBall();
                 break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
     private void getTheBall() {
-        Item ball = new Item("Ball", "School Playground", "Gorrillas");
-        StartProgramView.player.addToBackpack(ball);
-        this.console.println("You search through the playground.  Your trained nose can"
-                +"\npick up the scent of a bone anywhere.  Unfortunately, all you found "
-                +"\nwas a large red rubber ball. ");
-   /*     RoomMenuView roomMenuView = new RoomMenuView();x
-        roomMenuView.display();*/
-    }
-
-    public void searchThePlayground() {
-        //Game game = WheresMyBone.getCurrentGame();
-        //Backpack backpack = game.getPlayer().getBackpack();
-       // String itemName = "meal";
-       // Item item = backpack.GiveItem(itemName);
-
-        {
-            this.console.println("\nYou search through the playground. Your"
-                    + "\ntrained nose can pick up the scent of a bone anywhere."
-                    + "\nUnfortunately, all you found was a large red rubber ball"
-                    + "\nDo you:"
-                    + "\n"
-                    + "\n****************************************************"
-                    + "\nG - Get the ball"
-                    + "\nX - Leave the Area"
-                    + "\n****************************************************");
-
-        }
-        /*RoomMenuView roomMenuView = new RoomMenuView();
-        roomMenuView.display();*/
+        InputView inputView = new InputView();
+        inputView.schoolPlaygroundGetTheBall();
     }
 
     public double timeLeft() {

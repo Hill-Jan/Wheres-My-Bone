@@ -20,6 +20,7 @@ import wheresmybone.model.Item;
 public class CareHomeView extends View {
     //private String promptMessage;{
 //}
+    GameMenuView gameMenu = new GameMenuView();
 
     public CareHomeView() {
         super("\n*********************************************************"
@@ -53,7 +54,7 @@ public class CareHomeView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\nS - Search Your Backpack"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -71,6 +72,8 @@ public class CareHomeView extends View {
             case "G":
                 this.searchTheGarden();
                 break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
@@ -80,38 +83,14 @@ public class CareHomeView extends View {
     }
 
     public void searchYourBackpack() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "meal";
-        Item item = backpack.GiveItem(itemName);
-
-        if (item != null) {
-            this.console.println("\n“Yes, actually.  Mr. Stealletti sent you a meal"
-                    + "\nfor your birthday.  Happy Birthday!” "
-                    + "\n“Why, thank you!  Oh, he’s so sweet!  And it’s my favorite!”"
-                    + "\n“You wouldn’t happened to have seen DeVil have you?”"
-                    + "\n“DeVil.  DeVil,” the old woman murmured while she thought."
-                    + "\n“Oh, yes!  He was nuzzling around the Gardenias in the garden "
-                    + "\nthis morning.  Don’t know where he went after that.”"
-                    + "n“Thank you.”"
-                    + "\n"
-                    + "\n****************************************************"
-                    + "\nG - Search the Garden"
-                    + "\nX - Leave the Area"
-                    + "\n****************************************************");
-
-        } else {
-            this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”");
-        }
+        InputView input = new InputView();
+        input.careHomeSearchYourBackpack();
+        return;
     }
 
     private void searchTheGarden() {
-        Item bone = new Item("bone", "Garden", "me!");
-        StartProgramView.player.addToBackpack(bone);
-        this.console.println("You search through the gardens carefully.  Wait!"
-                    + "\nWhat's that?  It smells familiar.  There!  Under the "
-                    + "\nGardenias!  It's My Bone!");
-        WinView.displayBanner();
+        InputView input = new InputView();
+        input.careHomeSearchTheGarden();
     }
     
     public double timeLeft() {

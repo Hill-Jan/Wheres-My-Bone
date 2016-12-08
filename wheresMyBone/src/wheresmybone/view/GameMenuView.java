@@ -1,7 +1,5 @@
 package wheresmybone.view;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl.SceneType;
@@ -30,7 +28,7 @@ public class GameMenuView extends View {
                 + "\nM - Show Map"
                 + "\nG - Go To New Location"
                 + "\nH - Help Menu"
-                + "\nX - Exit Game Menu"
+                + "\nR - Return to Main Menu"
                 + "\n --------------------------------------------------"
                 + "\n"
                 + "\nChoose a Menu Option: ");
@@ -41,7 +39,7 @@ public class GameMenuView extends View {
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
-            case "B": //Show items in backpack
+            case "V": //Show items in backpack
                 this.showBackpackItems();
                 break;
             case "T": //Check Time
@@ -56,6 +54,9 @@ public class GameMenuView extends View {
             case "G":
                 this.displayGoToNewLocation();
                 break;
+            case "R":
+                MainMenuView mainMenu = new MainMenuView();
+                mainMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Choose a Menu Option");
                 break;

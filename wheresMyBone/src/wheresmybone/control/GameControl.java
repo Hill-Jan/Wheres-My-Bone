@@ -22,6 +22,7 @@ import wheresmybone.model.Map;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
 import wheresmybone.view.LostView;
+import wheresmybone.view.MainMenuView;
 
 /**
  *
@@ -134,8 +135,10 @@ public class GameControl {
         double timeLeft = game.getTimeLeft();
         timeLeft -= travelTime;
         if (timeLeft <= 0) {
-            throw new GameControlException("\nYou are out of time.\n");
-        //    this.displayBanner();
+            //throw new GameControlException("\nYou are out of time.\n");
+            LostView.displayBanner();
+            MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
         }
         game.setTimeLeft(timeLeft);
         return timeLeft;
@@ -160,9 +163,9 @@ public class GameControl {
                     + "\nYou would recognize this fur anywhere"
                     + "\nIt's none other than the fur of DeVil");
         }
-
-        throw new GameControlException("\nIn your haste you didn't find any clues, and you're out of time.");
-
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
+        throw new GameControlException("\nYou're out of time. Game Over.");
     }
 
 }

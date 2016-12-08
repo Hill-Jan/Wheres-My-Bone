@@ -16,6 +16,7 @@ import wheresmybone.model.Item;
 public class BakeryView extends View {
     //private String promptMessage;{
 //}
+    GameMenuView gameMenu = new GameMenuView();
 
     public BakeryView() {
         super("\n*********************************************************"
@@ -43,7 +44,7 @@ public class BakeryView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\nG - Get Donuts"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                 + "\nTime Left: " + timeLeft()
@@ -58,7 +59,8 @@ public class BakeryView extends View {
             case "G":
                 this.getDonuts();
                 break;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;

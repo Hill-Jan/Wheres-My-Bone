@@ -20,6 +20,7 @@ import wheresmybone.model.Item;
 public class ParkView extends View {
     //private String promptMessage;{
 //}
+    GameMenuView gameMenu = new GameMenuView();
 
     public ParkView() {
             super("\n*********************************************************"
@@ -59,16 +60,16 @@ public class ParkView extends View {
             case "F":
                 this.fetchTheStick();
                 break;
-
             case "S":
                 this.searchYourBackpack();
                 return true;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -83,8 +84,11 @@ public class ParkView extends View {
                                 + "\nWhat will you do?"
                                 + "\n"
                                 + "\n***************************************************************"
-                                + "\nS - Search your Backpack                  X – Leave the Area;"
+                                + "\nF - Fetch the stick again...because you're a dog"
+                                + "\nS - Search your Backpack"
+                                + "\nR – Return to Game Menu"
                                 + "\n****************************************************************");
+        return;
     }
 
     public void searchYourBackpack() {
@@ -105,8 +109,6 @@ public class ParkView extends View {
                     + "\nin front of Officer Pete.  That was down the street some.”"
                     + "\n  Good luck!"
                     + "\n"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?"
                     + "\n****************************************************");
 
         } else {
@@ -115,14 +117,10 @@ public class ParkView extends View {
                     + "\n\"Thanks, " + StartProgramView.player.getName() + ".”"
                     + "\n“You haven’t seen DeVil, have you?”"
                     + "\n“Not today,” Tommy shrugs.  "
-                    + "\n“Sorry, \" + StartProgramView.player.getName() + \".\" "
+                    + "\n“Sorry, " + StartProgramView.player.getName() + ".\" "
                     + "\n"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?"
                     + "\n****************************************************");
         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
 
     private double timeLeft() {

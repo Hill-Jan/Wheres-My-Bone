@@ -22,7 +22,8 @@ public class GiraffesView {
     private Double height;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
-
+    GameMenuView gameMenu = new GameMenuView();
+    
     public GiraffesView() {
         this.description = "\n"
                 + "\n------------------------------------------"
@@ -53,8 +54,7 @@ public class GiraffesView {
 
         this.console.println("\n" + this.description);
         getInputCylinder();
-        RoomMenuView roomMenuView = new RoomMenuView();
-        roomMenuView.display();
+        gameMenu.display();
     }
 
     public void getInputCylinder() {

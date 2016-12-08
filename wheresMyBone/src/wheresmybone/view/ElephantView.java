@@ -19,7 +19,7 @@ import wheresmybone.model.Item;
 public class ElephantView extends View {
     //private String promptMessage;{
 //}
-
+GameMenuView gameMenu = new GameMenuView();
     public ElephantView() {
         super("\n*********************************************************"
                 + "\n    ELEPHANT ENCLOSURE   "
@@ -51,7 +51,7 @@ public class ElephantView extends View {
                 + "\n********************************************************"
                 + "\nChoose a menu option:"
                 + "\nS - Search Your Backpack."
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -66,7 +66,8 @@ public class ElephantView extends View {
             case "S":
                 this.searchYourBackpack();
                 return true;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
@@ -121,8 +122,6 @@ public class ElephantView extends View {
                     + "\n"
                     + "\nWithout waiting, you run across the bridge and out the back door."
                     + "\n"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
                     + "\n****************************************************");
         }
     }

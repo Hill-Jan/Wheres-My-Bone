@@ -5,19 +5,19 @@
  */
 package wheresmybone.view;
 
-import wheresmybone.model.Backpack;
 import wheresmybone.model.Item;
-import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Game;
 
 /**
  *changes to commit
  * @author Jan
  */
 public class CatDeVilsHouse extends View {
-     private String promptMessage;{
+     private String promptMessage;
+     InputView input = new InputView();
+     GameMenuView gameMenu = new GameMenuView();
+     {
 }
 public CatDeVilsHouse() {
             super ("\n*********************************************************"
@@ -31,7 +31,7 @@ public CatDeVilsHouse() {
                     +"\n"
                     +"\nWhat do you do?"
                     +"\n********************************************************"
-                    +"\nS - Search your Backpack      X – Leave the area"
+                    +"\nS - Search your Backpack      R - Return to Game Menu"
                     +"\n********************************************************");
             this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -46,9 +46,8 @@ public boolean doAction (String value){
             case "S":
                 this.searchYourBackpack();
                 break;
-            case "G":
-                this.getCatBell();
-                break;
+            case "R":
+                gameMenu.display();
             default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
@@ -58,36 +57,9 @@ public boolean doAction (String value){
 }
 
         public void searchYourBackpack() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "collar";
-        Item item = backpack.GiveItem(itemName);
-
-        if (item != null) {
-               this.console.println("You take the collar out of your backpack and "
-               + "\nleave it on the back stoop.  DeVil’s owners usually come in "
-               + "\nthe back door from the garage.  They’ll see the collar there. "
-               + "\nAfter you leave the collar, you turn around and notice a cat "
-               + "\nbell on the ground.  Hmmm.  Maybe that will help."
-               + "\n"
-               + "\nWhat do you do?"
-               +"\n********************************************************"  
-               +"\n G - Get the Bell             X - Leave the area"
-               +"\n*********************************************************");
-        }
-        else {
-            this.console.println("Nothing in here will help you out.");
-        }
+        input.deVilHouseSearchYourBackpack();
     }
  
-        private void getCatBell() {
-        Item catbell = new Item("cat bell", "DeVil's House", "The Alley");
-        StartProgramView.player.addToBackpack(catbell);
-        this.console.println("\n*You quickly snatch up cat bell and put it in your"
-                + "\nbackpack.  Never know where this will come in handy.");
-
-}
-
     public double timeLeft() {
         double travelTime = 5;
         GameControl calcTimeLeft = new GameControl();

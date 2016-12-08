@@ -16,7 +16,7 @@ import wheresmybone.model.Item;
 public class AnimalHospitalView extends View {
     //private String promptMessage;{
 //}
-
+    GameMenuView gameMenu = new GameMenuView();
     public AnimalHospitalView() {
         super("\n*********************************************************"
                 + "\n             ANIMAL HOSPITAL   "               
@@ -40,7 +40,7 @@ public class AnimalHospitalView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\nG - Get nametag"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************"
         );
         this.console.println("\n*******************************"
@@ -56,7 +56,8 @@ public class AnimalHospitalView extends View {
             case "G":
                 this.getItem();
                 break;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;

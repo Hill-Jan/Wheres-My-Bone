@@ -14,7 +14,7 @@ import wheresmybone.model.Item;
  */
 public class GroceryStoreWarehouse extends View {
      //private String promptMessage;{
-    
+    GameMenuView gameMenu = new GameMenuView();
 public GroceryStoreWarehouse(){
             super ("\n*********************************************************"
                     +"\n        GROCERY STORE WAREHOUSE   "
@@ -39,7 +39,7 @@ public GroceryStoreWarehouse(){
                     +"\n"
                     +"\n********************************************************"
                     +"\n"
-                    +"\nG – Get the card      X – Leave the room fast"
+                    +"\nG – Get the card      R - Return to Game Menu"
                     +"\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -55,14 +55,13 @@ public boolean doAction (String value){
                 this.getcard();
                 break;
             
-            case"X":
-                this.console.println("\n***this calls the map function***");
-                break;
+            case"R":
+                gameMenu.display();
             default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
-       return false;
+       return true;
 
 }
 
@@ -70,10 +69,7 @@ public boolean doAction (String value){
         Item card = new Item("Business Card", "Warehouse", "Smiths");
         StartProgramView.player.addToBackpack(card);
         this.console.println("\n*You pick up the card and put it in your backpack."
-                + "\n"
-                + "\nWhere to now?");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+                + "\n");
     }
 
     private double timeLeft() {

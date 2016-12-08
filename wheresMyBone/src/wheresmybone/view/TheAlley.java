@@ -19,6 +19,7 @@ import wheresmybone.model.Item;
 public class TheAlley extends View {
     //private String promptMessage;{
 //}
+GameMenuView gameMenu = new GameMenuView();
 
     public TheAlley() {
         super("\n*********************************************************"
@@ -57,7 +58,7 @@ public class TheAlley extends View {
                 + "\n********************************************************"
                 + "\nChoose a menu option:"
                 + "\nS - Search your backpack"
-                + "\nX - Get out Fast!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -72,7 +73,8 @@ public class TheAlley extends View {
             case "S":
                 this.searchYourBackpack();
                 return true;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
@@ -94,20 +96,14 @@ public class TheAlley extends View {
                     + "\n“You should try the old house on Main Street,” Kit calls over her shoulder."
                     + "\n“Hush!” Tom chastises her.  “You don’t tell on the boss!”"
                     + "\n"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?"
                     + "\n****************************************************");
 
         } else {
             this.console.println("\nYou come up empty of anything that would interest the cats.  "
                     + "\nLooks like you’ll have to fight your way out."
                     + "\n"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
                     + "\n****************************************************");
         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
     }
 
     private double timeLeft() {
