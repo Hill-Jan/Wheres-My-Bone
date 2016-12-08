@@ -71,8 +71,8 @@ public class BakeryView extends View {
         Item donuts = new Item("Donuts", "Animal Hospital", "collar");
         StartProgramView.player.addToBackpack(donuts);
         this.console.println("Sure.  I'd be glad to.");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+        /*RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();*/
     }
 
     private double timeLeft() {

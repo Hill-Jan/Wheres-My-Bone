@@ -101,13 +101,11 @@ public class CareHomeView extends View {
                     + "\n****************************************************");
 
         } else {
-            this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
-                    + "\n****************************************************");
-         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+            this.console.println("\n“Gee, I’m sorry, Miss Ellie.  I don’t have anything for you to eat.”");
+        }
+        
+       /*RoomMenuView roomMenuView = new RoomMenuView();
+             roomMenuView.display();*/
     }
 
     private void searchTheGarden() {

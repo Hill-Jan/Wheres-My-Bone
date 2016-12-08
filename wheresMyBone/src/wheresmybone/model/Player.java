@@ -7,12 +7,13 @@ package wheresmybone.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
  * @author Dan
  */
-public class Player implements Serializable{
-    
+public class Player implements Serializable {
+
     // class instance variables
     private String name;
     private Backpack backpack;
@@ -21,14 +22,15 @@ public class Player implements Serializable{
         backpack = new Backpack();
         name = "";
     }
-        public String getName() {
-            return name;
-        }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-        
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Backpack getBackpack() {
         return backpack;
     }
@@ -36,14 +38,14 @@ public class Player implements Serializable{
     public void setBackpack(Backpack backpack) {
         this.backpack = backpack;
     }
-    public void addToBackpack(Item newItem){
+
+    public void addToBackpack(Item newItem) {
         this.backpack.AddItem(newItem);
     }
-    
-    public void giveItem(String newItem){
+
+    public void giveItem(String newItem) {
         this.backpack.GiveItem(newItem);
     }
-        
 
     @Override
     public int hashCode() {
@@ -72,8 +74,7 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name +'}';
+        return "Player{" + "name=" + name + '}';
     }
-    
-    
+
 }
