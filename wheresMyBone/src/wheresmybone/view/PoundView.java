@@ -69,8 +69,8 @@ public class PoundView extends View {
     }
 
     private void getCollar() {
-        Item newItem = new Item("Collar", "Animal Hospital", "DeVil");
-        StartProgramView.player.addToBackpack(newItem);
+        Item collar = new Item("Collar", "Animal Hospital", "DeVil");
+        StartProgramView.player.addToBackpack(collar);
 		this.console.println("Hmmm.  Looks like this needs a name tag.");
                 this.giveItem();
         RoomMenuView roomMenuView = new RoomMenuView();

@@ -66,8 +66,8 @@ public class AnimalHospitalView extends View {
     }
 
     private void getItem() {
-        Item newItem = new Item("Nametag", "Animal Hospital", "collar");
-        StartProgramView.player.addToBackpack(newItem);
+        Item nametag = new Item("Nametag", "Animal Hospital", "collar");
+        StartProgramView.player.addToBackpack(nametag);
             RoomMenuView roomMenuView = new RoomMenuView();
              roomMenuView.display();
     }

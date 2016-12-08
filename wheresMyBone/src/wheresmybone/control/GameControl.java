@@ -21,6 +21,8 @@ import wheresmybone.model.Location;
 import wheresmybone.model.Map;
 import wheresmybone.model.Player;
 import wheresmybone.model.Scene;
+import wheresmybone.view.LostView;
+import wheresmybone.view.Welcome;
 //import wheresmybone.model.Scene.SceneType;
 
 /**
@@ -135,11 +137,15 @@ public class GameControl {
         timeLeft -= travelTime;
         if (timeLeft <= 0) {
             throw new GameControlException("\nYou are out of time.\n");
+        //    this.displayBanner();
         }
         game.setTimeLeft(timeLeft);
         return timeLeft;
     }
-
+    
+    private void displayBanner() {
+       LostView.displayBanner();
+        }
     // calculate the area for the user to investigate and how much time is spent in the investigation.
     public String calcAreaTime(double length, double width) throws GameControlException {
         

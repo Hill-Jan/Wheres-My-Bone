@@ -62,20 +62,20 @@ public class SchoolPlaygroundView extends View {
     }
 
     private void getTheBall() {
-        Item newItem = new Item("ball", "School Playground", "Gorrillas");
-        StartProgramView.player.addToBackpack(newItem);
-        this.console.println("You search through the gardens carefully.  Wait!"
-                + "\nWhat's that?  It smells familiar.  There!  Under the "
-                + "\nGardenias!  It's My Bone!");
-        RoomMenuView roomMenuView = new RoomMenuView();
-        roomMenuView.display();
+        Item ball = new Item("Ball", "School Playground", "Gorrillas");
+        StartProgramView.player.addToBackpack(ball);
+        this.console.println("You search through the playground.  Your trained nose can"
+                +"\npick up the scent of a bone anywhere.  Unfortunately, all you found "
+                +"\nwas a large red rubber ball. ");
+   /*     RoomMenuView roomMenuView = new RoomMenuView();x
+        roomMenuView.display();*/
     }
 
     public void searchThePlayground() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "meal";
-        Item item = backpack.GiveItem(itemName);
+        //Game game = WheresMyBone.getCurrentGame();
+        //Backpack backpack = game.getPlayer().getBackpack();
+       // String itemName = "meal";
+       // Item item = backpack.GiveItem(itemName);
 
         {
             this.console.println("\nYou search through the playground. Your"
@@ -89,8 +89,8 @@ public class SchoolPlaygroundView extends View {
                     + "\n****************************************************");
 
         }
-        RoomMenuView roomMenuView = new RoomMenuView();
-        roomMenuView.display();
+        /*RoomMenuView roomMenuView = new RoomMenuView();
+        roomMenuView.display();*/
     }
 
     public double timeLeft() {

@@ -83,8 +83,8 @@ public boolean doAction (String value){
     }
  
         private void getCatBell() {
-        Item newItem = new Item("cat bell", "DeVil's House", "The Alley");
-        StartProgramView.player.addToBackpack(newItem);
+        Item catbell = new Item("cat bell", "DeVil's House", "The Alley");
+        StartProgramView.player.addToBackpack(catbell);
         this.console.println("\n*You quickly snatch up cat bell and put it in your"
                 + "\nbackpack.  Never know where this will come in handy.");
         RoomMenuView roomMenuView = new RoomMenuView();

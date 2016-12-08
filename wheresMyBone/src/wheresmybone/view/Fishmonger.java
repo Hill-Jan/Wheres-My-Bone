@@ -92,8 +92,8 @@ public class Fishmonger extends View {
     }
 
     private void getFish() {
-        Item newItem = new Item("fish", "Fishmonger", "Tigers");
-        StartProgramView.player.addToBackpack(newItem);
+        Item fish = new Item("Fish", "Fishmonger", "Tigers");
+        StartProgramView.player.addToBackpack(fish);
         this.console.println("\nYou chuckle with Mr. Catch. \"Sure,\" you say.  \"I'd be happy to.\""
                 + "\nYou take the fish and gently put it into your"
                 + "\nbackpack. Knowing full well you don't want the tigers"

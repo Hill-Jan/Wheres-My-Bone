@@ -67,8 +67,8 @@ public boolean doAction (String value){
 }
 
     private void getcard() {
-        Item newItem = new Item("card", "Warehouse", "Smiths");
-        StartProgramView.player.addToBackpack(newItem);
+        Item card = new Item("Business Card", "Warehouse", "Smiths");
+        StartProgramView.player.addToBackpack(card);
         this.console.println("\n*You pick up the card and put it in your backpack."
                 + "\n"
                 + "\nWhere to now?");
