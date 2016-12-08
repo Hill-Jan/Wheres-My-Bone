@@ -76,7 +76,7 @@ public class SchoolParkingLotView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "donuts";
+        String itemName = "Donuts";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
