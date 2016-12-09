@@ -54,12 +54,13 @@ GameMenuView gameMenu = new GameMenuView();
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }
 
     private void helpPete() {
-        this.promptMessage = ("\nYou race after the stick with eager anticipation. "
+        this.console.println("\nYou race after the stick with eager anticipation. "
 				+ "\nYou decide to help your old friend.  Just as the man with the "
 				+ "\nmask gets close, you step out in front of him.  He can’t dodge "
 				+ "\nfast enough and trips right over you, face-planting on the sidewalk."

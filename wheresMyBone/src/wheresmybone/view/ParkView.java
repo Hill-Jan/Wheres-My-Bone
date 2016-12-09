@@ -21,6 +21,7 @@ public class ParkView extends View {
     //private String promptMessage;{
 //}
     GameMenuView gameMenu = new GameMenuView();
+    InputView input = new InputView();
 
     public ParkView() {
             super("\n*********************************************************"
@@ -45,7 +46,7 @@ public class ParkView extends View {
                 + "\nChoose a menu option:"
                 + "\nF - Fetch the Stick."
                 + "\nS - Search your Backpack"
-                + "\nX - Leave the Park"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
             this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -69,58 +70,17 @@ public class ParkView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return true;
+        gameMenu.display();
+        return false;
 
     }
 
     private void fetchTheStick() {
-        this.promptMessage = ("\nYou race after the stick with eager anticipation. "
-				+ "\nYou love to play fetch!  Quickly to get the stick and bring it"
-				+ "\nback to Tommy.  He happily throws it again and again.  After a"
-				+ "\nwhile you see a cat come out of the trees.  Huh?  Oh, no! You"
-				+ "\nneed to find DeVil and your bone!"
-                                + "\n"
-                                + "\n"
-                                + "\nWhat will you do?"
-                                + "\n"
-                                + "\n***************************************************************"
-                                + "\nF - Fetch the stick again...because you're a dog"
-                                + "\nS - Search your Backpack"
-                                + "\nR – Return to Game Menu"
-                                + "\n****************************************************************");
-        return;
+        input.parkFetch();
     }
 
     public void searchYourBackpack() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "pebble";
-        Item item = backpack.GiveItem(itemName);
-
-   
-        if (item != null) {
-            // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
-            this.console.println("\nYou find the pebble you found at the pond. "
-                    + "\n“How's this one?” you ask."
-                    + "\n“What?  Oh, " + StartProgramView.player.getName() + "!  This is awesome!” "
-                    + "\n\"I've never seen one like it! "
-                    + "\n“Have you seen DeVil with a bone?” you ask."
-                    + "\n“DeVil?  Last time I saw DeVil he was running"
-                    + "\nin front of Officer Pete.  That was down the street some.”"
-                    + "\n  Good luck!"
-                    + "\n"
-                    + "\n****************************************************");
-
-        } else {
-            this.console.println("\n\"Gee, I’m sorry, Tommy.  I don't have a pebble."
-                    + "\nI’ll keep my eyes peeled.”"
-                    + "\n\"Thanks, " + StartProgramView.player.getName() + ".”"
-                    + "\n“You haven’t seen DeVil, have you?”"
-                    + "\n“Not today,” Tommy shrugs.  "
-                    + "\n“Sorry, " + StartProgramView.player.getName() + ".\" "
-                    + "\n"
-                    + "\n****************************************************");
-        }
+        input.parkSearchYourBackpack();
     }
 
     private double timeLeft() {

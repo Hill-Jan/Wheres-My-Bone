@@ -46,7 +46,7 @@ public class CareHomeView extends View {
                 + "\n“Oh, Thank you, Carol,” the elderly woman calls from her recliner."
                 + "\n“I was having trouble getting up.”"
                 + "\nCarol closes the door behind you as you go to greet the old"
-                + "\nwoman with thin gray hair and dim eyes.  “Oh, (name)!  It’s so"
+                + "\nwoman with thin gray hair and dim eyes.  “Oh, " + StartProgramView.player.getName() + " !  It’s so"
                 + "\ngood to see you!  How’ve you been?”"
                 + "\n“I’m ok, I guess.  How are you?”"
                 + "\n“Oh, I’m alright.  I’m hungry, but dinner isn’t for another couple"
@@ -78,6 +78,7 @@ public class CareHomeView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }

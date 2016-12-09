@@ -416,4 +416,65 @@ public class InputView {
                 + "\nHe might need this. Better hang on to it.");
     }
 
+    public void parkFetch() {
+        this.console.println("\nYou race after the stick with eager anticipation. "
+				+ "\nYou love to play fetch!  Quickly to get the stick and bring it"
+				+ "\nback to Tommy.  He happily throws it again and again.  After a"
+				+ "\nwhile you see a cat come out of the trees.  Huh?  Oh, no! You"
+				+ "\nneed to find DeVil and your bone!"
+                                + "\n"
+                                + "\n"
+                                + "\nWhat will you do?"
+                                + "\n"
+                                + "\n***************************************************************"
+                                + "\nF - Fetch the stick again...because you're a dog"
+                                + "\nS - Search your Backpack"
+                                + "\nR – Return to Game Menu"
+                                + "\n****************************************************************");
+       String choice = this.getInput();
+       choice = choice.toUpperCase();
+       
+       switch(choice) {
+           case "F":
+               parkFetch();
+            break;
+           case "S":
+               parkSearchYourBackpack();
+               break;
+           case "R":
+               gameMenu.display();
+       }
+    }
+    
+    public void parkSearchYourBackpack() {
+        Game game = WheresMyBone.getCurrentGame();
+        Backpack backpack = game.getPlayer().getBackpack();
+        String itemName = "pebble";
+        Item item = backpack.GiveItem(itemName);
+
+   
+        if (item != null) {
+            // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
+            this.console.println("\nYou find the pebble you found at the pond. "
+                    + "\n“How's this one?” you ask."
+                    + "\n“What?  Oh, " + StartProgramView.player.getName() + "!  This is awesome!” "
+                    + "\n\"I've never seen one like it! "
+                    + "\n“Have you seen DeVil with a bone?” you ask."
+                    + "\n“DeVil?  Last time I saw DeVil he was running"
+                    + "\nin front of Officer Pete.  That was down the street some.”"
+                    + "\n  Good luck!"
+                    + "\n"
+                    + "\n****************************************************");
+
+        } else {
+            this.console.println("\n\"Gee, I’m sorry, Tommy.  I don't have a pebble."
+                    + "\nI’ll keep my eyes peeled.”"
+                    + "\n\"Thanks, " + StartProgramView.player.getName() + ".”"
+                    + "\n“You haven’t seen DeVil, have you?”"
+                    + "\n“Not today,” Tommy shrugs.  "
+                    + "\n“Sorry, " + StartProgramView.player.getName() + ".\" "
+                    + "\n"
+                    + "\n****************************************************");
+        }
+    }
 }
