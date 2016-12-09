@@ -1,4 +1,5 @@
-/*
+
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -88,7 +89,7 @@ public class RestaurantView extends View {
                     + "\n\"No problem, Mr. S.  See ya later!\""
                     + "\n"
                     + "\n****************************************************");
-            Item meal = new Item("meal", "The Restaurant", "Miss Ellie");
+            Item meal = new Item("Meal", "The Restaurant", "Miss Ellie");
             StartProgramView.player.addToBackpack(meal);
             gameMenu.display();
 

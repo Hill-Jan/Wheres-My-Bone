@@ -67,8 +67,8 @@ public class AnimalHospitalView extends View {
     }
 
     private void getItem() {
-        Item nametag = new Item("Nametag", "Animal Hospital", "collar");
-        StartProgramView.player.addToBackpack(nametag);
+        Item newItem = new Item("Nametag", "Animal Hospital", "collar");
+        StartProgramView.player.addToBackpack(newItem);
     }
 
     private double timeLeft() {

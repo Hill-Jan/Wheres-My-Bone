@@ -113,7 +113,7 @@ public class InputView {
     }
 
     public void schoolPlaygroundGetTheBall() {
-        Item ball = new Item("Ball", "School Playground", "Gorrillas");
+        Item ball = new Item("Ball", "School Playground", "Gorillas");
         StartProgramView.player.addToBackpack(ball);
         this.console.println("You added the ball to your backpack.");
     }
@@ -121,7 +121,7 @@ public class InputView {
     public void careHomeSearchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "meal";
+        String itemName = "Meal";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {

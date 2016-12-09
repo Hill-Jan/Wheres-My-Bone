@@ -80,7 +80,7 @@ GameMenuView gameMenu = new GameMenuView();
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "peanuts";
+        String itemName = "Peanuts";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
