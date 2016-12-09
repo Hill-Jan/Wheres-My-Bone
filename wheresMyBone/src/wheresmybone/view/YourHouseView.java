@@ -83,7 +83,7 @@ public class YourHouseView {
                                 + " Try again\n");
                 }
                 if (length <1 || length > 150){
-                    ErrorView.display(this.getClass().getName(),"\nnLength must be greater than 0 and less than 150.\n");
+                    ErrorView.display(this.getClass().getName(),"\nLength must be greater than 0 and less than 150.\n");
                 }  else{
                         valid = true;
                 }
@@ -140,8 +140,11 @@ public class YourHouseView {
         } catch (GameControlException gc) {
             ErrorView.display(this.getClass().getName(),gc.getMessage());
         }
-        return retVal;  
-        
+        finally {
+            GameMenuView returnToGameMenu = new GameMenuView();
+        returnToGameMenu.display();
+        }
+        return true;   
     }
         public double timeLeft() {
         double travelTime = 0;

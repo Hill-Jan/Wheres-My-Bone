@@ -19,6 +19,8 @@ import wheresmybone.model.Item;
 public class SchoolEntranceView extends View {
     //private String promptMessage;{
 //}
+GameMenuView gameMenu = new GameMenuView();
+InputView input = new InputView();
 
     public SchoolEntranceView() {
         super("\n*********************************************************"
@@ -35,7 +37,7 @@ public class SchoolEntranceView extends View {
                 + "\n********************************************************"
                 + "\nChoose a menu option:"
                 + "\nT - Talk to Brad."
-                + "\nX - Get out Fast!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -50,67 +52,25 @@ public class SchoolEntranceView extends View {
             case "T":
                 this.talkToBrad();
                 break;
-
             case "S":
                 this.searchYourBackpack();
                 return true;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
     private void talkToBrad() {
-        this.promptMessage = ("\n“Hi, " + StartProgramView.player.getName() + ",” Brad says distractedly.  “I can’t play now.”"
-                + "\n“What are you looking for?” you ask."
-                + "\n“I lost my English paper.  It’s due today.  If I don’t turn it in"
-                + "\n on time, I'll get a zero; and I worked on it all night!”"
-                + "\n"
-                + "\n"
-                + "\nWhat will you do?"
-                + "\n"
-                + "\n***************************************************************"
-                + "\nS - Search your Backpack                  X – Leave the Area;"
-                + "\n****************************************************************");
+        input.schoolTalkToBrad();
     }
 
     public void searchYourBackpack() {
-        Game game = WheresMyBone.getCurrentGame();
-        Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "Paper";
-        Item item = backpack.GiveItem(itemName);
-
-        if (item != null) {
-            // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
-            this.console.println("\nYou remember you put a paper in your backpack "
-                    + "\nwhen you were in the school parking lot.  You give Brad the paper."
-                    + "\n“Is this it?” you ask."
-                    + "\n“What?  Oh, " + StartProgramView.player.getName() + "!  You’re the best!” "
-                    + "\nHe's so excited he gives you a hug. "
-                    + "\n“By the way,” you gargle out in the voracious hug.  “Have you seen "
-                    + "\nDeVil carrying a bone?”"
-                    + "\n\"I saw him going through the playground earlier, but he didn't have a bone."
-                    + "\n  Good luck!\""
-                    + "\n****************************************************"
-                    + "\nWhere To Now?"
-                    + "\n****************************************************");
-
-        } else {
-            this.console.println("\n\"Gee, I’m sorry, Brad.  Good luck finding it.  "
-                    + "\nI’ll keep my eyes peeled.”"
-                    + "\n\"Thanks, " + StartProgramView.player.getName() + ".”"
-                    + "\n“You haven’t seen DeVil, have you?  He might have been carrying a bone?”"
-                    + "\n“DeVil with a bone?  Don’t be silly!” Brad chuckles.  "
-                    + "\n“Sorry, " + StartProgramView.player.getName() + ".  I need to find my paper before the bell rings.”"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
-                    + "\n****************************************************");
-        }
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+        input.schoolSearchYourBackpack();
     }
 
     private double timeLeft() {

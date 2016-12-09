@@ -15,7 +15,7 @@ import wheresmybone.exceptions.GameControlException;
 public class PoliceStationView extends View {
     //private String promptMessage;{
 //}
-
+GameMenuView gameMenu = new GameMenuView();
     public PoliceStationView() {
             super("\n*********************************************************"
                 + "\n             OFFICER PETE   "
@@ -32,7 +32,7 @@ public class PoliceStationView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\nH - Help Officer Pete."
-                + "\nX - Leave the area so you don't get hurt."
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
             this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -47,16 +47,14 @@ public class PoliceStationView extends View {
             case "H":
                 this.helpPete();
                 break;
-
-            /*case "S":
-                this.searchYourBackpack();
-                return true;*/
+            case "R":
+                gameMenu.display();
 
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -71,13 +69,10 @@ public class PoliceStationView extends View {
 				+ "\n“You’re welcome, Officer.  By any chance, have you seen DeVil?”"
 				+ "\n“DeVil?  Why are you looking for that mean thing?”"
 				+ "\n“I think he stole my bone.”"
-				+ "\n“Well, have you checked the Alley?” Officer Pete asks.  “He’s most likely hanging with his buddies.”"
-                + "\n"
-                + "\n***************************************************************"
-                + "\n Where to Now?"
-                + "\n****************************************************************");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+				+ "\n“Well, have you checked the Alley?” Officer Pete asks.  "
+                                + "\n“He’s most likely hanging with his buddies.”"
+                                + "\n"
+                                + "\n***************************************************************");
     }
 
     public double timeLeft() {

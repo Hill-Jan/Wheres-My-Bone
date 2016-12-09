@@ -25,9 +25,9 @@ public class MainMenuView extends View {
                 + "\nN - Start New Game"
                 + "\nL - Load a Saved Game"
                 + "\nS - Save Game"
-                + "\nG - Game Menu"
+                + "\nG - Return to Game Menu"
                 + "\nH - Get Help"
-                + "\nX - Exit Game"
+                + "\nE - Exit Game without Saving"
                 + "\n --------------------------------------------------"
                 + "\nChoose a Menu Option: ");
     }
@@ -49,8 +49,12 @@ public class MainMenuView extends View {
            case "G": //save game
                 this.gameMenu();
                 break;
+
             case "H": //display help menu
                 this.displayHelpMenu();
+                break;
+            case "E":
+                this.exitGame();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Choose a Menu Option");
@@ -99,5 +103,9 @@ END */
         // Display the help menu view
         helpMenuView.display();
 
+    }
+
+    private void exitGame() {
+        System.exit(0);
     }
 }

@@ -5,8 +5,6 @@ import java.io.PrintWriter;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 
 /**
@@ -18,7 +16,7 @@ public class Fishmonger extends View {
     private String promptMessage;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
-
+    GameMenuView gameMenu = new GameMenuView();
     public Fishmonger() {
         super("\n"
                 + "\n---------------------------------------------"
@@ -67,7 +65,7 @@ public class Fishmonger extends View {
                 +"\n"
                 + "What do you do?"
                 + "\n*****************************************************************"
-                + "\nG – Get the fish    X – Leave the area"
+                + "\nG – Get the fish    R - Return to Game Menu"
                 + "\n******************************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -82,12 +80,13 @@ public class Fishmonger extends View {
             case "G":
                 this.getFish();
                 break;
-            
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -101,14 +100,7 @@ public class Fishmonger extends View {
                 + "\n"
                 + "\nYou could go check out the alley and see if DeVil is there"
                 + "\nbut you feel you should probably get this fish to the"
-                + "\ntigers before it starts to turn bad."
-                +"\n"
-                + "\nWhere to next?");
- 
-                  
-        this.console.println("\n");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+                + "\ntigers before it starts to turn bad.");
                     
     }
 

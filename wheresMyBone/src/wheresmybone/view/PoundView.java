@@ -64,7 +64,7 @@ public class PoundView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
@@ -73,15 +73,10 @@ public class PoundView extends View {
         StartProgramView.player.addToBackpack(collar);
 		this.console.println("Hmmm.  Looks like this needs a name tag.");
                 this.giveItem();
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
-			         
     }
     private void giveItem() {
         String newItem = "Nametag";
 	StartProgramView.player.giveItem(newItem);
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
 			 
 	}
     

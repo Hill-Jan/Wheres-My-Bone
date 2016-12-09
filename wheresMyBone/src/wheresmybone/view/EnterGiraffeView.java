@@ -10,7 +10,7 @@ package wheresmybone.view;
  * @author tCalder
  */
 public class EnterGiraffeView extends View {
-
+GameMenuView gameMenu = new GameMenuView();
     public EnterGiraffeView() {
          super("\n"
                 + "\n---------------------------------------------"
@@ -24,7 +24,7 @@ public class EnterGiraffeView extends View {
                 + "\nWhat do you want to do? "
                 + "\n"
                 + "\nE - Enter the Giraffe Enclosure"
-                + "\nX - Exit to Game Menu"
+                + "\nR - Return to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
     }
@@ -42,6 +42,8 @@ public class EnterGiraffeView extends View {
             // Enter the Vacant House
             this.enterGiraffesView();
             break;
+        case "R":
+            gameMenu.display();
         default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;

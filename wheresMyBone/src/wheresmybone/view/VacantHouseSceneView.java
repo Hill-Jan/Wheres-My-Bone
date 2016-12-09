@@ -11,8 +11,9 @@ package wheresmybone.view;
  */
 public class VacantHouseSceneView extends View {
       private String promptMessage;{
-        
+      
 }
+      GameMenuView gameMenu = new GameMenuView();
 public VacantHouseSceneView() {
             super("\n"
                 + "\n---------------------------------------------"
@@ -29,7 +30,7 @@ public VacantHouseSceneView() {
                 + "\nChoose a Menu Option: "
                 + "\n"
                 + "\nE - Enter the Vacant House"
-                + "\nX - Exit to Game Menu"
+                + "\nR - Return to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
     }
@@ -43,6 +44,8 @@ public boolean doAction (String value){
             // Enter the Vacant House
             this.enterVacantHouse();
             break;
+        case "R":
+            gameMenu.display();
         default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;

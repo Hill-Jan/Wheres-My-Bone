@@ -6,12 +6,8 @@
 
 package wheresmybone.view;
 
-import java.io.Serializable;
-import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 
 /**
@@ -21,7 +17,8 @@ import wheresmybone.model.Item;
 public class PondView extends View {
     //private String promptMessage;{
 //}
-
+GameMenuView gameMenu = new GameMenuView();
+InputView input = new InputView();
     public PondView() {
         super("\n*********************************************************"
                 + "\n                 THE Pond   "
@@ -37,7 +34,7 @@ public class PondView extends View {
                 + "\nWhat Do You Do?"
                 + "\nP – Play with Rufus"
                 + "\nW – Take a Drink of Water "
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -50,9 +47,10 @@ public class PondView extends View {
 
         switch (value) {
             case "W":
-                this.getItem();
+                this.drinkWater();
                 break;
-                
+            case "R":
+                gameMenu.display();
             case "P":
                 this.playWithRufus();
                 break;
@@ -62,33 +60,45 @@ public class PondView extends View {
                         "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
 
 
-    private void getItem() {
-        Item pebble = new Item("Pebble", "Pond", "Tommyr");
+    private void drinkWater() {
+        input.pondDrinkWater();
+        /*Item pebble = new Item("Pebble", "Pond", "Tommyr");
         StartProgramView.player.addToBackpack(pebble);
         this.console.println(" You decline Rufus’ suggestion and take another "
                         + "\ndrink.  As you look into the water you notice a large"
                         + "\n pebble on the bottom.  It’s a beautiful white stone "
                         + "\nwith orange and black stripes running through it."
                         + "\nLiking the way it looks, you put it in your backpack.");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+        return;*/
     }
 
     private void playWithRufus(){
         //add time counter;
-        this.console.println("You and Rufus have a great time bouncing around the"
+        
+        input.pondPlayWithRufus();
+        /*this.console.println("You and Rufus have a great time bouncing around the"
                         +"\nwater.  He’s great fun to play with.  You lose track of"
                         + "\ntime while you’re playing, eventually joined by a couple"
                         + "\nof other friends.  By the time you realize it, you’ve "
                         + "\nlost 40 minutes playing.  Quickly you tell Rufus you "
                         + "\nneed to leave and head off to your next location.");
-        RoomMenuView roomMenuView = new RoomMenuView();
-             roomMenuView.display();
+        double travelTime = 40;
+        GameControl calcTimeLeft = new GameControl();
+        double timeLeft = 0;
+        
+        try {
+            timeLeft = calcTimeLeft.calcTimeLeft(travelTime);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        this.console.println("\nYou're down to only " + timeLeft + " minutes"
+                            +"\nremaining! Better get a move on it.");
+        return;*/
     }
 
     private double timeLeft() {

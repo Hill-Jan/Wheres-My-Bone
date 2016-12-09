@@ -16,7 +16,6 @@ import wheresmybone.exceptions.GameControlException;
 public class DriveInView extends View {
     //private String promptMessage;{
 //}
-
     public DriveInView() {
         super("\n*********************************************************"
                 + "\n                 THE DRIVE-IN MOVIE THEATER   "
@@ -45,8 +44,6 @@ public class DriveInView extends View {
                 + "\n”Have you checked over at the Bakery?  Maybe Miss Jones has "
                 + "\nseen him, and I’ll bet she’s got sweeter treats than I do!”"
                 +"\n“Thanks.”"
-                + "\n********************************************************"
-                + "\nX - Where To Now?"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()

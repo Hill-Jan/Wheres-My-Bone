@@ -10,6 +10,8 @@ package wheresmybone.view;
  * @author tCalder
  */
 public class EnterYourHouseView extends View{
+    GameMenuView gameMenu = new GameMenuView();
+    
     public EnterYourHouseView() {
         super("\n"
                 + "\n---------------------------------------------"
@@ -22,7 +24,7 @@ public class EnterYourHouseView extends View{
                 + "\nWhat do you want to do? "
                 + "\n"
                 + "\nE - Enter to the backyard."
-                + "\nX - Exit to Game Menu"
+                + "\nR - Return to Game Menu"
                 + "\n----------------------------------------------"
                 + "\n");
     }
@@ -40,6 +42,8 @@ public class EnterYourHouseView extends View{
             // Enter the backyard
             this.enterYourHouseView();
             break;
+        case "R":
+            gameMenu.display();
         default:
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;

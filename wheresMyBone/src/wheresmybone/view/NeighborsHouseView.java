@@ -20,6 +20,7 @@ import wheresmybone.model.Item;
 public class NeighborsHouseView extends View {
     //private String promptMessage;{
 //}
+GameMenuView gameMenu = new GameMenuView();
 
     public NeighborsHouseView() {
         super("\n*********************************************************"
@@ -38,7 +39,7 @@ public class NeighborsHouseView extends View {
                 + "\n Do you know how to help the Smiths?"
                 + "\n********************************************************"
                 + "\nS - Search Your Backpack"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -53,12 +54,13 @@ public class NeighborsHouseView extends View {
             case "S":
                 this.searchYourBackpack();
                 break;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
-        return false;
+        return true;
 
     }
     public void searchYourBackpack() {
@@ -80,15 +82,11 @@ public class NeighborsHouseView extends View {
                         + "\n“DeVil!  Last time I saw him he was heading towards the Zoo. "
                         + "\nI’d go the other way if I were you.”"
                         + "\n“Thanks!”"
-                        + "\n****************************************************"
-                        + "\nWhere To Now?"
                         + "\n****************************************************");
 
         }
         else {
 	            this.console.println("\nYou don't have anything that can help Mr. Smith.”"
-                    + "\n****************************************************"
-                    + "\nWhere To Now?  "
                     + "\n****************************************************");
          
             }
