@@ -91,6 +91,8 @@ public class GameControl {
             ObjectInputStream input = new ObjectInputStream(fips);
 
             game = (Game) input.readObject(); //read the game object from file
+            //   WheresMyBone.setPlayer(game.getPlayer());
+               WheresMyBone.getPlayer().setBackpack(game.getBackpack());
         } catch (Exception ex) {
             throw new GameControlException(ex.getMessage());
         }
@@ -118,8 +120,8 @@ public class GameControl {
 
         game.setPlayer(player); //save player in the game
 
-        Backpack backpack = new Backpack(); //create backpack
-        player.setBackpack(backpack); //save backpack in game
+       // Backpack backpack = new Backpack(); //create backpack
+        player.setBackpack(game.getBackpack()); //save backpack in game
 
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game

@@ -19,7 +19,8 @@ public class Player implements Serializable {
     private Backpack backpack;
 
     public Player() {
-        backpack = new Backpack();
+       //backpack = new Backpack();
+        backpack = null;
         name = "";
     }
 
