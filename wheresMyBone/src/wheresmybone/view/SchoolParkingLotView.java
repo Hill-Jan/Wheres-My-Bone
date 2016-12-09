@@ -125,7 +125,7 @@ public class SchoolParkingLotView extends View {
     }
 
     private void getPaper() {
-        Item paper = new Item("paper", "School Entrance", "Brad");
+        Item paper = new Item("Paper", "School Entrance", "Brad");
         StartProgramView.player.addToBackpack(paper);
         this.console.println("You look at the paper on the fence. Hmm."
                 + "\nFunny handwriting. Wait. That says Brad on the top."

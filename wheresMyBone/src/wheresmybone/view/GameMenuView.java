@@ -41,7 +41,7 @@ public class GameMenuView extends View {
         value = value.toUpperCase(); //convert value to upper case
 
         switch (value) {
-            case "B": //Show items in backpack
+            case "V": //Show items in backpack
                 this.showBackpackItems();
                 break;
             case "T": //Check Time

@@ -82,7 +82,7 @@ public class CareHomeView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "meal";
+        String itemName = "Meal";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -106,7 +106,7 @@ public class CareHomeView extends View {
     }
 
     private void searchTheGarden() {
-        Item bone = new Item("bone", "Garden", "me!");
+        Item bone = new Item("Bone", "Garden", "me!");
         StartProgramView.player.addToBackpack(bone);
         this.console.println("You search through the gardens carefully.  Wait!"
                     + "\nWhat's that?  It smells familiar.  There!  Under the "

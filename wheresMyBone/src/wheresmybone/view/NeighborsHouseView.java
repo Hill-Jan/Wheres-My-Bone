@@ -64,7 +64,7 @@ public class NeighborsHouseView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "card";
+        String itemName = "Business Card";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {

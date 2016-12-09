@@ -60,7 +60,7 @@ public boolean doAction (String value){
         public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "collar";
+        String itemName = "Collar";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -81,7 +81,7 @@ public boolean doAction (String value){
     }
  
         private void getCatBell() {
-        Item catbell = new Item("cat bell", "DeVil's House", "The Alley");
+        Item catbell = new Item("Cat bell", "DeVil's House", "The Alley");
         StartProgramView.player.addToBackpack(catbell);
         this.console.println("\n*You quickly snatch up cat bell and put it in your"
                 + "\nbackpack.  Never know where this will come in handy.");

@@ -89,7 +89,7 @@ public class RestaurantView extends View {
                         + "\n****************************************************"
                         + "\nWhere To Now?"
                         + "\n****************************************************");
-        Item meal = new Item("meal", "The Restaurant", "Miss Ellie");
+        Item meal = new Item("Meal", "The Restaurant", "Miss Ellie");
         StartProgramView.player.addToBackpack(meal);
 
         } else {

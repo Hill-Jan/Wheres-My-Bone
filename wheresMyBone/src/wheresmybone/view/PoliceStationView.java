@@ -61,8 +61,7 @@ public class PoliceStationView extends View {
     }
 
     private void helpPete() {
-        this.promptMessage = ("\nYou race after the stick with eager anticipation. "
-				+ "\nYou decide to help your old friend.  Just as the man with the "
+        this.promptMessage = ("\nYou decide to help your old friend.  Just as the man with the "
 				+ "\nmask gets close, you step out in front of him.  He can’t dodge "
 				+ "\nfast enough and trips right over you, face-planting on the sidewalk."
 				+ "\nOfficer Pete comes up quickly and slaps handcuffs on the man."

@@ -77,7 +77,7 @@ public class GorillaView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "ball";
+        String itemName = "Ball";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {

@@ -25,6 +25,7 @@ public class MainMenuView extends View {
                 + "\nN - Start New Game"
                 + "\nL - Load a Saved Game"
                 + "\nS - Save Game"
+                + "\nG - Game Menu"
                 + "\nH - Get Help"
                 + "\nX - Exit Game"
                 + "\n --------------------------------------------------"
@@ -44,6 +45,9 @@ public class MainMenuView extends View {
                 break;
             case "S": //save game
                 this.saveGame();
+                break;
+           case "G": //save game
+                this.gameMenu();
                 break;
             case "H": //display help menu
                 this.displayHelpMenu();
@@ -82,6 +86,11 @@ END */
        input.saveGame();
     }
 
+    private void gameMenu() {
+        GameMenuView gameMenuView = new GameMenuView();    
+        gameMenuView.display();
+       
+    }
     private void displayHelpMenu() {
 
         //Create displayHelpMenu object

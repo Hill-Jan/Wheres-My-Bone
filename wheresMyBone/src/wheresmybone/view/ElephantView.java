@@ -79,7 +79,7 @@ public class ElephantView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "peanuts";
+        String itemName = "Peanuts";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {

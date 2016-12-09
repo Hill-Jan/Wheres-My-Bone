@@ -20,10 +20,7 @@ public class Backpack implements Serializable {
     public Backpack() {
         items = new ArrayList<>();
 
-        //sample item for testing
-        items.add(new Item("$10", "The Floor", "Souvenir Shop"));
-
-    }
+      }
 
     public Item getItem(int index) {
         int i = 0;

@@ -90,7 +90,7 @@ public class ParkView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "pebble";
+        String itemName = "Pebble";
         Item item = backpack.GiveItem(itemName);
 
    

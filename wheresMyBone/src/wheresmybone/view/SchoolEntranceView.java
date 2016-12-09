@@ -80,7 +80,7 @@ public class SchoolEntranceView extends View {
     public void searchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "paper";
+        String itemName = "Paper";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -92,8 +92,8 @@ public class SchoolEntranceView extends View {
                     + "\nHe's so excited he gives you a hug. "
                     + "\n“By the way,” you gargle out in the voracious hug.  “Have you seen "
                     + "\nDeVil carrying a bone?”"
-                    + "\nI saw him going through the playground earlier, but he didn't have a bone."
-                    + "\n  Good luck!"
+                    + "\n\"I saw him going through the playground earlier, but he didn't have a bone."
+                    + "\n  Good luck!\""
                     + "\n****************************************************"
                     + "\nWhere To Now?"
                     + "\n****************************************************");

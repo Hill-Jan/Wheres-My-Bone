@@ -69,7 +69,7 @@ public class SchoolCafeteriaView extends View {
     }
 
     private void getPeanuts() {
-        Item peanuts = new Item("peanuts", "School Cafeteria", "Elephants");
+        Item peanuts = new Item("Peanuts", "School Cafeteria", "Elephants");
         StartProgramView.player.addToBackpack(peanuts);
         this.console.println("\n*You quickly snatch up the peanuts and run from the room "
                 + "\nbefore anyone can catch you there.  You know they’d chase "
