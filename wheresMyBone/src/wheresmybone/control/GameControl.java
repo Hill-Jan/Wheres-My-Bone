@@ -163,7 +163,11 @@ public class GameControl {
                     + "\nYou have " + formatted + " minutes remaining.\n"
                     + "\nYou found a clump of cat fur."
                     + "\nYou would recognize this fur anywhere"
-                    + "\nIt's none other than the fur of DeVil");
+                    + "\nIt's none other than the fur of DeVil"
+                    + "\n"
+                    + "\nDevil could have stashed the bone anywhere."
+                    + "\nDeVil basically runs the seedy underground of this"
+                    + "\nHow do you want to start your search?");
         }
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();

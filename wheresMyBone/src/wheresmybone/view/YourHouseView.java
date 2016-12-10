@@ -43,7 +43,7 @@ public class YourHouseView {
                      + "\n"
                      + "\nHow much of the yard to you want to search?"
                      + "\nIf you choose to search too much of the yard, you"
-                     + "\n run out of time!"
+                     + "\n might run out of time!"
                      + "\n====================================================";
                     
             }

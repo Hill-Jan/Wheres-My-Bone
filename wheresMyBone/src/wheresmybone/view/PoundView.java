@@ -6,8 +6,11 @@
 
 package wheresmybone.view;
 
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 
 /**
@@ -74,13 +77,36 @@ GameMenuView gameMenu = new GameMenuView();
     private void getCollar() {
         Item collar = new Item("Collar", "Animal Hospital", "DeVil");
         StartProgramView.player.addToBackpack(collar);
-		this.console.println("Hmmm.  Looks like this needs a name tag.");
+		//this.console.println("Hmmm.  Looks like this needs a name tag.");
                 this.giveItem();
     }
     private void giveItem() {
-        String newItem = "Nametag";
-	StartProgramView.player.giveItem(newItem);
-			 
+        //String newItem = "Nametag";
+	//StartProgramView.player.giveItem(newItem);
+	
+        Game game = WheresMyBone.getCurrentGame();
+        Backpack backpack = game.getPlayer().getBackpack();
+        String itemName = "Nametag";
+        Item item = backpack.GiveItem(itemName);
+        if (item != null) {
+           
+            this.console.println("\nYou grab the collar from Mr. Sam and pull"
+                    + "\nout the name tag you got from Dr. Mice."
+                    + "\nMr. Sam takes the collar and nametag into the back."
+                    + "\nAfter a couple of minutes Mr. Sam comes out with a smile"
+                    + "\non his face “good as new” he says."
+                    + "\nAs you grab the new collar and put it in your backpack,"
+                    + "\nyou grumble to yourself. “Why does the good guy have to"
+                    + "\ndo nice things for the bad guy”."
+                    + "\n"
+                    + "\n****************************************************");
+
+        } else {
+            this.console.println("\nYou take the collar from Mr. Sam. You notice"
+                    + "\nit's missing it's nametag."
+                    + "\n****************************************************");
+        }
+        
 	}
     
     public double timeLeft() {

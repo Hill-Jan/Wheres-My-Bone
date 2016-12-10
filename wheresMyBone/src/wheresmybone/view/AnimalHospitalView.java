@@ -34,7 +34,7 @@ public class AnimalHospitalView extends View {
 		+ "\n“What’s wrong?”"
 		+ "\n“I think DeVil took my bone.  Have you seen him?”"
 		+ "\n“DeVil?  No, but I found his nametag.  Here.  You can return it "
-		+ "\nif you find him.  Maybe Mr. Sam at the Shelter has seen him.  "
+		+ "\nif you find him.  Maybe Mr. Sam at the Pound has seen him.  "
 		+ "\nHe’s always watching out for that feline!”"
 		+ "\n“Thanks.”"
                 + "\n"

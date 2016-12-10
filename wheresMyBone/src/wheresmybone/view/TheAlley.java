@@ -101,7 +101,7 @@ GameMenuView gameMenu = new GameMenuView();
 
         } else {
             this.console.println("\nYou come up empty of anything that would interest the cats.  "
-                    + "\nLooks like you’ll have to fight your way out."
+                    + "\nYou should make an exit before things get ugly."
                     + "\n"
                     + "\n****************************************************");
         }

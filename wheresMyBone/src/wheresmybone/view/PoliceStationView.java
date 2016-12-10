@@ -60,12 +60,12 @@ GameMenuView gameMenu = new GameMenuView();
     }
 
     private void helpPete() {
-        this.console.println("\nYou race after the stick with eager anticipation. "
+        this.console.println     ("\n"
 				+ "\nYou decide to help your old friend.  Just as the man with the "
 				+ "\nmask gets close, you step out in front of him.  He can’t dodge "
 				+ "\nfast enough and trips right over you, face-planting on the sidewalk."
 				+ "\nOfficer Pete comes up quickly and slaps handcuffs on the man."
-				+ "\n“Good work, (name)!” he praises.  “We should put you on the force!"
+				+ "\n“Good work, " + StartProgramView.player.getName() + "!” he praises.  “We should put you on the force!"
 				+ "\nThanks for the help.”"
 				+ "\n"
 				+ "\n“You’re welcome, Officer.  By any chance, have you seen DeVil?”"
