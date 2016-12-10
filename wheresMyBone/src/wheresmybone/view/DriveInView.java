@@ -16,6 +16,7 @@ import wheresmybone.exceptions.GameControlException;
 public class DriveInView extends View {
     //private String promptMessage;{
 //}
+    GameMenuView gameMenu = new GameMenuView();
     public DriveInView() {
         super("\n*********************************************************"
                 + "\n                 THE DRIVE-IN MOVIE THEATER   "
@@ -52,6 +53,7 @@ public class DriveInView extends View {
 
     @Override
     public boolean doAction(String value) {
+        gameMenu.display();
         return true;
     }
 

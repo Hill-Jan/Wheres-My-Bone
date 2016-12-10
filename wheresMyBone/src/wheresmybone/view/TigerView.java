@@ -61,6 +61,7 @@ GameMenuView gameMenu = new GameMenuView();
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return false;
 
     }

@@ -161,6 +161,7 @@ public class GiraffesView {
         } catch (CalculationControlException ce) {
             this.console.println(ce.getMessage());
         }
+        gameMenu.display();
         return retVal;
     }
 

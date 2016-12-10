@@ -17,7 +17,8 @@ import wheresmybone.model.Item;
 public class PoundView extends View {
     //private String promptMessage;{
 //}
-
+GameMenuView gameMenu = new GameMenuView();
+    
     public PoundView() {
         super("\n*********************************************************"
                 + "\n    THE POUND   "
@@ -32,7 +33,7 @@ public class PoundView extends View {
 				+ "\nCarefully you paw at the front door.  Mr. Sam looks up and"
 				+ "\nscowls at you.  He gets up and comes to the door.  "
 				+ "\n"
-				+ "\n\"“\" + StartProgramView.player.getName() +\", what are you doing"
+				+ "\n"+ StartProgramView.player.getName() +", what are you doing"
 				+ "\nhere?  Where’s your owner?” he asks."
 				+ "\n“I’m…looking for DeVil.  Have you seen him?”"
 				+ "\n“DeVil!  Why are you looking for him?  You’re not causing fights,"
@@ -44,7 +45,7 @@ public class PoundView extends View {
                 + "\n"
                 + "\n********************************************************"
                 + "\nG - Get Collar"
-                + "\nX - Leave the Area!"
+                + "\nR - Return to Game Menu"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
@@ -59,11 +60,13 @@ public class PoundView extends View {
             case "G":
                 this.getCollar();
                 break;
-
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }

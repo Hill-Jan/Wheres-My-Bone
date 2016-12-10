@@ -67,10 +67,13 @@ GameMenuView gameMenu = new GameMenuView();
                 return true;
             case "R":
                 gameMenu.display();
+            case "G":
+                RipView.displayBanner();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }

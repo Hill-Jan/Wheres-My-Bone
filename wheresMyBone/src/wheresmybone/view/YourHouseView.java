@@ -25,6 +25,7 @@ public class YourHouseView {
     double length = 0.00;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
+    GameMenuView gameMenu = new GameMenuView();
     public YourHouseView(){
         
      this.description ="\n===================================================="
@@ -144,6 +145,7 @@ public class YourHouseView {
             GameMenuView returnToGameMenu = new GameMenuView();
         returnToGameMenu.display();
         }
+        gameMenu.display();
         return true;   
     }
         public double timeLeft() {
@@ -155,6 +157,7 @@ public class YourHouseView {
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
+       
         return timeLeft;
 }
     

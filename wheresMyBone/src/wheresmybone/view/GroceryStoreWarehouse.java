@@ -61,6 +61,7 @@ public boolean doAction (String value){
             ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
             break;
         }
+        gameMenu.display();
        return true;
 
 }

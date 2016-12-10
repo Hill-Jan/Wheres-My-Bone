@@ -62,6 +62,7 @@ public class AnimalHospitalView extends View {
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }
@@ -80,6 +81,7 @@ public class AnimalHospitalView extends View {
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
+        
         return timeLeft;
     }
 }

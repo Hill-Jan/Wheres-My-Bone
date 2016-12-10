@@ -25,6 +25,7 @@ public class VacantHouseView {
     private double boxHeight = 0;
     protected final BufferedReader keyboard = WheresMyBone.getInFile();
     protected final PrintWriter console = WheresMyBone.getOutFile();
+    GameMenuView gameMenu = new GameMenuView();
 
     public VacantHouseView() {
         this.description = "\n"
@@ -189,6 +190,7 @@ public class VacantHouseView {
         } catch (CalculationControlException ce) {
             ErrorView.display(this.getClass().getName(),ce.getMessage());
         }
+        gameMenu.display();
         return retVal;
     }
     public double timeLeft() {

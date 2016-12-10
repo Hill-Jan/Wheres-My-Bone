@@ -60,6 +60,7 @@ InputView input = new InputView();
                         "\n*** Invalid selection *** Try again");
                 break;
         }
+        gameMenu.display();
         return true;
 
     }
