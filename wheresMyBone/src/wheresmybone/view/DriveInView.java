@@ -45,6 +45,8 @@ public class DriveInView extends View {
                 + "\n”Have you checked over at the Bakery?  Maybe Miss Jones has "
                 + "\nseen him, and I’ll bet she’s got sweeter treats than I do!”"
                 +"\n“Thanks.”"
+                +"\n"
+                +"\nWhere to next?"
                 + "\n********************************************************");
         this.console.println("\n*******************************"
                            + "\nTime Left: " + timeLeft()
