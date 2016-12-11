@@ -37,7 +37,7 @@ public class StartProgramView {
         this.console.println(    
          "\n*******************************************************************"
         +"\n*                                                                 *"
-        +"\n* Welcome Detective Scrappy! You are the son of the famous        *"
+        +"\n* Welcome, Detective! You are the child of the famous        *"
         +"\n* Ruff McGruff crime dog who now works with the FBI.              *"
         +"\n* You are top dawg, police dog, of K9 city. Are you ready to take *"
         +"\n* a bite out of crime?                                            *"

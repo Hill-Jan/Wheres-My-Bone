@@ -5,8 +5,11 @@
  */
 package wheresmybone.view;
 
+import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
+import wheresmybone.model.Backpack;
+import wheresmybone.model.Game;
 import wheresmybone.model.Item;
 
 /**
@@ -70,7 +73,25 @@ public class AnimalHospitalView extends View {
     private void getItem() {
         Item newItem = new Item("Nametag", "Animal Hospital", "collar");
         StartProgramView.player.addToBackpack(newItem);
+        this.console.println("\nThe nametag has been added to your backpack.");
+        this.attach();
     }
+    
+    public void attach(){
+        Game game = WheresMyBone.getCurrentGame();
+        Backpack backpack = game.getPlayer().getBackpack();
+        String itemName = "Collar";
+ 
+        if (itemName != null) {
+            // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
+            this.console.println("\n“The nametag has been attached to the collar.");
+            Item item = backpack.GiveItem("Nametag");
+
+                    }
+        else {
+            this.console.println("Where to Next?");
+            }
+}
 
     private double timeLeft() {
         double travelTime = 25;
