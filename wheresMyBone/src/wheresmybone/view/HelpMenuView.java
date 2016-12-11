@@ -147,11 +147,6 @@ END */
                 + "\nthey will not be too happy with you trying to get"
                 + "\nyour bone back."
                 + "\n"
-                + "\nDog Catcher: He randomly moves around from"
-                + "\nsquare to square. If you encounter him, he will"
-                + "\ntake you to the pound. This will cost valuable"
-                + "\ntime, making it harder to retrieve your precious"
-                + "\nin time!"
         );
     }
 
