@@ -161,7 +161,7 @@ public class InputView {
     }
 
     public void careHomeSearchTheGarden() {
-        Item bone = new Item("bone", "Garden", "me!");
+        Item bone = new Item("Bone", "Garden", "me!");
         StartProgramView.player.addToBackpack(bone);
         this.console.println("You search through the gardens carefully.  Wait!"
                 + "\nWhat's that?  It smells familiar.  There!  Under the "
@@ -189,7 +189,7 @@ public class InputView {
     public void deVilHouseSearchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "collar";
+        String itemName = "Collar";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -222,7 +222,7 @@ public class InputView {
     }
 
     public void getCatBell() {
-        Item catbell = new Item("cat bell", "DeVil's House", "The Alley");
+        Item catbell = new Item("Cat bell", "DeVil's House", "The Alley");
         StartProgramView.player.addToBackpack(catbell);
         this.console.println("\n*You quickly snatch up cat bell and put it in your"
                 + "\nbackpack.  Never know where this will come in handy.");
@@ -322,7 +322,7 @@ public class InputView {
     public void schoolSearchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "paper";
+        String itemName = "Paper";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -352,7 +352,7 @@ public class InputView {
     public void parkingLotSearchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "donuts";
+        String itemName = "Donuts";
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
@@ -408,7 +408,7 @@ public class InputView {
     }
 
     public void parkingLotGetPaper() {
-        Item paper = new Item("paper", "School Entrance", "Brad");
+        Item paper = new Item("Paper", "School Entrance", "Brad");
         StartProgramView.player.addToBackpack(paper);
         this.console.println("You look at the paper on the fence. Hmm."
                 + "\nFunny handwriting. Wait. That says Brad on the top."
@@ -449,7 +449,7 @@ public class InputView {
     public void parkSearchYourBackpack() {
         Game game = WheresMyBone.getCurrentGame();
         Backpack backpack = game.getPlayer().getBackpack();
-        String itemName = "pebble";
+        String itemName = "Pebble";
         Item item = backpack.GiveItem(itemName);
 
    
