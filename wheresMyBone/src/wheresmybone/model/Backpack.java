@@ -49,6 +49,15 @@ public class Backpack implements Serializable {
         return null;
     }
 
+    
+    public boolean SearchItem(String itemName){
+        for (Item item:items){
+             if (item.getName().equalsIgnoreCase(itemName)) {
+                 return true;
+             }
+            }
+        return false;
+    }
     @Override
     public String toString() {
         return "Backpack{" + "items=" + items + '}';
