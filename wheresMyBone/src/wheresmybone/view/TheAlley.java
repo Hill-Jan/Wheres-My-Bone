@@ -91,7 +91,7 @@ GameMenuView gameMenu = new GameMenuView();
         Item item = backpack.GiveItem(itemName);
 
         if (item != null) {
-            // this.console.println("\nThe Paper is at index " + index + " in the Backpack ArrayList.");
+            
             this.console.println("\nYou find the cat bell toy in your backpack."
                     + "\nYou toss the cat bell down the alley.  All three cats go racing after it!"
                     + "\n“You should try the old house on Main Street,” Kit calls over her shoulder."

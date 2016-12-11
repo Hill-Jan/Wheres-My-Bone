@@ -18,8 +18,7 @@ import wheresmybone.model.Item;
  * @author Jan
  */
 public class PoundView extends View {
-    //private String promptMessage;{
-//}
+   
 GameMenuView gameMenu = new GameMenuView();
     
     public PoundView() {
