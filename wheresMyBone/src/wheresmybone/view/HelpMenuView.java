@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class HelpMenuView extends View {
 
     private String promptMessage;
-
+    GameMenuView gameMenu = new GameMenuView();
     {
 
     }
@@ -31,7 +31,7 @@ public class HelpMenuView extends View {
                 + "\nO - Objects"
                 + "\nH - How to Save/Load Game"
                 + "\nB - Bad Guys"
-                + "\nX - Exit Help Menu, return to Game Menu"
+                + "\nR - Exit Help Menu, return to Game Menu"
                 + "\n --------------------------------------------------"
                 + "\nChoose a Menu Option: ");
     }
@@ -62,6 +62,8 @@ public class HelpMenuView extends View {
             case "H": //how to save/load game
                 this.howSave();
                 break;
+            case "R":
+                gameMenu.display();
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Choose a Menu Option");
                 break;

@@ -126,10 +126,8 @@ public class StartProgramView {
                      + "\n");
      
         //Create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
-                
-         // Display the main menu view
-        mainMenuView.display();
+        StartMenuView startMenu = new StartMenuView();
+        startMenu.display();
     }
 
 
