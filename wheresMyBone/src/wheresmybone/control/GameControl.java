@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 import wheresmybone.WheresMyBone;
 import wheresmybone.control.MapControl.SceneType;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Backpack;
 import wheresmybone.model.Game;
 import wheresmybone.model.Location;
 import wheresmybone.model.Map;
@@ -166,7 +165,7 @@ public class GameControl {
                     + "\nIt's none other than the fur of DeVil"
                     + "\n"
                     + "\nDevil could have stashed the bone anywhere."
-                    + "\nDeVil basically runs the seedy underground of this"
+                    + "\nDeVil basically runs the seedy underground of this town"
                     + "\nHow do you want to start your search?");
         }
         MainMenuView mainMenu = new MainMenuView();

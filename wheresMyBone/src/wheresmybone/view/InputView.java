@@ -429,7 +429,7 @@ public class InputView {
                                 + "\n***************************************************************"
                                 + "\nF - Fetch the stick again...because you're a dog"
                                 + "\nS - Search your Backpack"
-                                + "\nR – Return to Game Menu"
+                                + "\nR - Return to Game Menu"
                                 + "\n****************************************************************");
        String choice = this.getInput();
        choice = choice.toUpperCase();
