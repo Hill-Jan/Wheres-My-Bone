@@ -6,12 +6,8 @@
 
 package wheresmybone.view;
 
-import wheresmybone.WheresMyBone;
 import wheresmybone.control.GameControl;
 import wheresmybone.exceptions.GameControlException;
-import wheresmybone.model.Backpack;
-import wheresmybone.model.Game;
-import wheresmybone.model.Item;
 
 /**
  *

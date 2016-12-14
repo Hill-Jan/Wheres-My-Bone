@@ -6,7 +6,6 @@
 package wheresmybone.view;
 
 
-import java.io.Serializable;
 import wheresmybone.model.Npc.Npcs;
 
 

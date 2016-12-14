@@ -301,7 +301,7 @@ public class MapControl {
         value = value.toUpperCase();
         for (SceneType st : SceneType.values()) {
             if (st.getMapSymbol().equals(value)) {
-                return ("Scene Name is " + st.getSceneName() + "\n");
+                return ("Scene Name is " + st.getSceneName() + " and the location is " + st.ordinal() + "\n");
                 //return true;   
             }
             if (value.toUpperCase().equals("X")) // user wants to quit
