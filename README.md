@@ -1,2 +1,7 @@
 # Wheres-My-Bone
-Repository for CIT 260 Class
+Group Project (2017):
+
+Jan HIll
+Tiffany Caldor
+Dan Toone
+
